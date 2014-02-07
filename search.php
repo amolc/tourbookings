@@ -159,7 +159,7 @@ $query = mysql_query("SELECT
                           <h1>Tour Bookings Guide to Tours</h1>
                           <p>Major attractions, tips and our top<br>
                           things to see and do.</p>
-                          <a href="#">Look Inside</a>
+                          <a href="javascript:void(0)">Look Inside</a>
                         </div>
                         	<div style="display:none;" class="singapore_things fl">
                               <h2>All Things To Do</h2>
@@ -241,7 +241,7 @@ $query = mysql_query("SELECT
 									?>
                                 </ul>
                           </div>
-                        <div class="chat_now fl"><a href="#"><img src="images/chat_now.jpg" alt="" width="296" height="186"></a></div>
+                        <div class="chat_now fl"><a href="javascript:void(0)"><img src="images/chat_now.jpg" alt="" width="296" height="186"></a></div>
                     </div>
                     	<div class="right_penal fl">
                           <div class="picks_head fl">
@@ -463,42 +463,7 @@ $current_date = date("m/d/Y", $today_date);
                           </div>
                             </div>-->
                   </div>
-                    <div class="footer fl">
-                        <div class="footer_links fl">
-                        	<h2>Support</h2>
-                            <ul>
-                                <li><a href="#">Customer Care</a></li>
-                                <li><a href="#">Privacy Policy</a></li>
-                                <li class="border"><a href="#">Low Price Guarantee</a></li>
-                            </ul>
-                            <ul>
-                                <li><a href="#">Group Services</a></li>
-                                <li><a href="#">Mileage Program</a></li>
-                                <li class="border"><a href="#">Gift Certificates</a></li>
-                            </ul>
-                        </div>
-                        <div class="footer_links mrgn_left fl">
-                          <h2>Company</h2>
-                            <ul>
-                                <li><a href="#">About Us</a></li>
-                                <li><a href="#">Corporate Info</a></li>
-                                <li class="border"><a href="#">Media Center</a></li>
-                            </ul>
-                            <ul>
-                                <li><a href="#">Careers</a></li>
-                                <li><a href="#">Site Map</a></li>
-                                <li class="border"><a href="#">Free Newsletter</a></li>
-                            </ul>
-                        </div>
-                        <div class="social_media fl">
-                        	<a href="#" class="twitter"></a>
-                            <a href="#" class="facebook"></a>
-                            <a href="#" class="youtube"></a>
-                            <a href="#" class="rss"></a>
-                            <a href="#" class="gplus"></a>
-                            <a href="#" class="pinterest"></a>
-                        </div>
-                    </div>
+                    <?php include('footer.php'); ?>
                 </div>
       <div style="clear:both"></div>
    </div>

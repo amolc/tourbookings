@@ -81,22 +81,19 @@
 			
 		</li>
 		
+		
 		<li>
-			<a href="#"><i class="entypo-layout"></i><span>Marketing</span></a>
+			<a href="#"><i class="entypo-layout"></i><span>Set Upmark Pricing</span></a>
 			<ul>
 				<li>
-					<a href="create_marketing.php"><i class="entypo-mail"></i>Create Leads</a>
-				</li>	
-				<li>
-					<a href="create_marketing.php"><i class="entypo-mail"></i>Manage Leads</a>
-				</li>		
-				<li>
-					<a href="email_to_marketing.php"><i class="entypo-mail"></i>Mailbox</a>
+					<a href="pending_pricing.php"><i class="entypo-layout"></i>Pending Pricing</a>
 				</li>
-			
+				<li>
+					<a href="confirm_pricing.php"><i class="entypo-layout"></i>Confirm Pricing</a>
+				</li>	
 			</ul>
+			
 		</li>
-		
 		<li>
 			<a href="#"><i class="entypo-layout"></i><span>Tour</span></a>
 			<ul>
@@ -108,6 +105,24 @@
 				</li>	
 			</ul>
 			
+		</li>
+		
+		<li>
+			<a href=""><i class="entypo-layout"></i><span>Approved Payment</span></a>
+			<ul>	
+				<!--<li>
+					<a href="today_booking.php"><span>Today's Booking</span></a>
+				</li>-->		
+				<li>
+					<a href="pending_Payment.php"><span>Pending Approval</span></a>
+				</li>			
+				<li>
+					<a href="confirm_Payment.php"><span>Confirm Approval</span></a>
+				</li>				
+				<li>
+					<a href="cancel_Payment.php"><span>Cancel Approval</span></a>
+				</li>	
+			</ul>
 		</li>
 		
 		<li>
@@ -127,7 +142,15 @@
 				</li>	
 			</ul>
 		</li>
-		
+		<li>
+			<a href="admin_account.php"><i class="entypo-layout"></i><span>Account</span></a>
+				<ul>
+					<li>
+						<a href="payment_recieved.php"><span>Payment </span></a>
+					</li>	
+				</ul>
+
+		</li>
 		
 		
 		
@@ -142,6 +165,22 @@
 				</li>	-->
 			</ul>
 			
+		</li>
+		
+		<li>
+			<a href="#"><i class="entypo-layout"></i><span>Marketing</span></a>
+			<ul>
+				<li>
+					<a href="create_marketing.php"><i class="entypo-mail"></i>Create Leads</a>
+				</li>	
+				<li>
+					<a href="create_marketing.php"><i class="entypo-mail"></i>Manage Leads</a>
+				</li>		
+				<li>
+					<a href="email_to_marketing.php"><i class="entypo-mail"></i>Mailbox</a>
+				</li>
+			
+			</ul>
 		</li>
 
 	</ul>

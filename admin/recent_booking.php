@@ -304,7 +304,6 @@ else {
 			<th>Supplier ID</th>
 			<th>User ID</th>
 			<th>Trip title</th>
-			<th>Duration[days]</th>
 			<th>Start Date</th>
 			<th>Supplier Status</th>
 			<th>Action</th>
@@ -388,7 +387,7 @@ else {
 									INNER JOIN supplier ON supplier.id = booking.supplier_id
 									INNER JOIN payment ON payment.id = booking.payment_id
 									INNER JOIN traveler ON user.id = traveler.user_id AND tour.id = traveler.tour_id
-									WHERE booking.status = 'pending' Group BY booking.id 
+									WHERE booking.status = 'pending' AND payment.status = 'confirm'  Group BY booking.id 
 									ORDER BY booking.id DESC
 									
 									");
@@ -400,15 +399,14 @@ else {
 		
 	echo'
 		<tr class="odd gradeX">
-			<td><a  style="" id="'.$row['id'].'" class="fancybox" href="#inline'.$row['id'].'">'.$row['id'].'</a></td>
+			<td><a  style="" id="'.$row['id'].'" class="fancybox" href="booking_detail.php?booking_id='.$row['id'].'">'.$row['id'].'</a></td>
 			<td>'.$row['start_date'].'</td>
 			<td>'.$row['supplier_id'].'</td>
 			<td>'.$row['user_id'].'</td>
 			<td>'.$row['title'].'</td>
-			<td>2 Days</td>
 			<td>'.$row['start_date'].'</td>
 			
-			<td>confirm</td>
+			<td>'.$row['status'].'</td>
 			<td>
 				<a  style="" id="'.$row['id'].'" class="confirm">
 					Confirm
@@ -427,117 +425,117 @@ else {
 		';
 		
 		
-	echo '<tr><td><div id="inline'.$row['id'].'" style="width:600px;display: none;">
+	// echo '<tr><td><div id="inline'.$row['id'].'" style="width:600px;display: none;">
 
-			<h3 style="right: 2%;position: absolute;top: 0;">Total Price $'.$row['total_price'].'</h3>
-			<h3>Booking Detail</h3>
-			<table class="table table-bordered datatable" id="table-1">
-					<thead>
-						<tr>
-							<th>Booking Id</th>
-							<th>Booking Date</th>
-							<th>Booking Status</th>
-						</tr>
-					</thead>
-						<tr>
-							<td>'.$row['id'].'</td>
-							<td>'.$row['start_date'].'</td>
-							<td>'.$row['status'].'</td>
-						</tr>
-					<tbody>
+			// <h3 style="right: 2%;position: absolute;top: 0;">Total Price $'.$row['total_price'].'</h3>
+			// <h3>Booking Detail</h3>
+			// <table class="table table-bordered datatable" id="table-1">
+					// <thead>
+						// <tr>
+							// <th>Booking Id</th>
+							// <th>Booking Date</th>
+							// <th>Booking Status</th>
+						// </tr>
+					// </thead>
+						// <tr>
+							// <td>'.$row['id'].'</td>
+							// <td>'.$row['start_date'].'</td>
+							// <td>'.$row['status'].'</td>
+						// </tr>
+					// <tbody>
 					
-					</tbody>
-				</table>
-						<h3>Supplier Detail</h3>
-			<table class="table table-bordered datatable" id="table-1">
-					<thead>
-						<tr>
-							<th>ID</th>
-							<th>First Name</th>
-							<th>Last Name</th>
-							<th>Company</th>
-							<th>Email</th>
-							<th>City</th>
-							<th>Country</th>
-						</tr>
-					</thead>
-						<tr>
-							<td>'.$row['supplier_id'].'</td>
-							<td>'.$row['supplier_first_name'].'</td>
-							<td>'.$row['supplier_last_name'].'</td>
-							<td>'.$row['company_name'].'</td>
-							<td>'.$row['supplier_email'].'</td>
-							<td>'.$row['supplier_city'].'</td>
-							<td>'.$row['supplier_country'].'</td>
-						</tr>
-					<tbody>
+					// </tbody>
+				// </table>
+						// <h3>Supplier Detail</h3>
+			// <table class="table table-bordered datatable" id="table-1">
+					// <thead>
+						// <tr>
+							// <th>ID</th>
+							// <th>First Name</th>
+							// <th>Last Name</th>
+							// <th>Company</th>
+							// <th>Email</th>
+							// <th>City</th>
+							// <th>Country</th>
+						// </tr>
+					// </thead>
+						// <tr>
+							// <td>'.$row['supplier_id'].'</td>
+							// <td>'.$row['supplier_first_name'].'</td>
+							// <td>'.$row['supplier_last_name'].'</td>
+							// <td>'.$row['company_name'].'</td>
+							// <td>'.$row['supplier_email'].'</td>
+							// <td>'.$row['supplier_city'].'</td>
+							// <td>'.$row['supplier_country'].'</td>
+						// </tr>
+					// <tbody>
 					
-					</tbody>
-				</table>
+					// </tbody>
+				// </table>
 				
-						<h3>User Detail</h3>
-			<table class="table table-bordered datatable" id="table-1">
-					<thead>
-						<tr>
-							<th>Fisrt Name</th>
-							<th>Last Name</th>
-							<th>Email</th>
-							<th>Address</th>
-							<th>Contact Number</th>
-						</tr>
-					</thead>
-						<tr>
-							<td>'.$row['user_first_name'].'</td>
-							<td>'.$row['user_last_name'].'</td>
-							<td>'.$row['user_email'].'</td>
-							<td>'.$row['user_address'].'</td>
-							<td>'.$row['user_phone'].'</td>
-						</tr>
-					<tbody>
+						// <h3>User Detail</h3>
+			// <table class="table table-bordered datatable" id="table-1">
+					// <thead>
+						// <tr>
+							// <th>Fisrt Name</th>
+							// <th>Last Name</th>
+							// <th>Email</th>
+							// <th>Address</th>
+							// <th>Contact Number</th>
+						// </tr>
+					// </thead>
+						// <tr>
+							// <td>'.$row['user_first_name'].'</td>
+							// <td>'.$row['user_last_name'].'</td>
+							// <td>'.$row['user_email'].'</td>
+							// <td>'.$row['user_address'].'</td>
+							// <td>'.$row['user_phone'].'</td>
+						// </tr>
+					// <tbody>
 					
-					</tbody>
-				</table>
-						<h3>Traveller Detail</h3>
-			<table class="table table-bordered datatable" id="table-1">
-					<thead>
-						<tr>
-							<th>Fisrt Name</th>
-							<th>Last Name</th>
-						</tr>
-					</thead>
-						<tr>
-							<td>'.$row['traveler_first_name'].'</td>
-							<td>'.$row['traveler_last_name'].'</td>
-						</tr>
-					<tbody>
+					// </tbody>
+				// </table>
+						// <h3>Traveller Detail</h3>
+			// <table class="table table-bordered datatable" id="table-1">
+					// <thead>
+						// <tr>
+							// <th>Fisrt Name</th>
+							// <th>Last Name</th>
+						// </tr>
+					// </thead>
+						// <tr>
+							// <td>'.$row['traveler_first_name'].'</td>
+							// <td>'.$row['traveler_last_name'].'</td>
+						// </tr>
+					// <tbody>
 					
-					</tbody>
-				</table>
-						<h3>Tour Detail</h3>
-			<table class="table table-bordered datatable" id="table-1">
-					<thead>
-						<tr>
-							<th>Tour Title</th>
-							<th>Price</th>
-							<th>Description</th>
-							<th>City</th>
-							<th>Country</th>
-						</tr>
-					</thead>
-						<tr>
-							<td>'.$row['title'].'</td>
-							<td>'.$row['price_per_person'].'</td>
-							<td>'.$row['overview'].'</td>
-							<td>'.$row['tour_city'].'</td>
-							<td>'.$row['tour_country'].'</td>
-						</tr>
-					<tbody>
+					// </tbody>
+				// </table>
+						// <h3>Tour Detail</h3>
+			// <table class="table table-bordered datatable" id="table-1">
+					// <thead>
+						// <tr>
+							// <th>Tour Title</th>
+							// <th>Price</th>
+							// <th>Description</th>
+							// <th>City</th>
+							// <th>Country</th>
+						// </tr>
+					// </thead>
+						// <tr>
+							// <td>'.$row['title'].'</td>
+							// <td>'.$row['price_per_person'].'</td>
+							// <td>'.$row['overview'].'</td>
+							// <td>'.$row['tour_city'].'</td>
+							// <td>'.$row['tour_country'].'</td>
+						// </tr>
+					// <tbody>
 					
-					</tbody>
-				</table>
+					// </tbody>
+				// </table>
 	
-		</div></td>
-		</tr>';
+		// </div></td>
+		// </tr>';
 		// $counter++;
 		}
 	?>
@@ -551,7 +549,6 @@ else {
 			<th>Supplier ID</th>
 			<th>User ID</th>
 			<th>Trip title</th>
-			<th>Duration[days]</th>
 			<th>Start Date</th>
 			<th>Supplier Status</th>
 			<th>Action</th>
@@ -561,18 +558,18 @@ else {
 </table>
 </form>
 <script type="text/javascript">
-	// jQuery(document).ready(function($)
-	// {
-		// $("#table-1").dataTable({
-			// "sPaginationType": "bootstrap",
-			// "aLengthMenu": [[10, 25, 50, -1], [10, 25, 50, "All"]],
-			// "bStateSave": true
-		// });
+	jQuery(document).ready(function($)
+	{
+		$("#table-1").dataTable({
+			"sPaginationType": "bootstrap",
+			"aLengthMenu": [[10, 25, 50, -1], [10, 25, 50, "All"]],
+			"bStateSave": true
+		});
 		
-		// $(".dataTables_wrapper select").select2({
-			// minimumResultsForSearch: -1
-		// });
-	// });
+		$(".dataTables_wrapper select").select2({
+			minimumResultsForSearch: -1
+		});
+	});
 </script>
 
 <br />

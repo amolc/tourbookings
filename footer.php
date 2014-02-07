@@ -1,4 +1,4 @@
-                	<div class="footer fl">
+               	<div class="footer fl">
                 	  <div class="footer_links fl">
                 	    <h2>Support</h2>
                 	    <ul>
@@ -31,5 +31,14 @@
                 	      <li class="border"><a href="free_newsletter.php">Free Newsletter</a></li>-->
               	      </ul>
               	    </div>
-                	  <div class="social_media fl"> <a href="#" class="twitter"></a> <a href="#" class="facebook"></a> <a href="#" class="youtube"></a> <a href="#" class="rss"></a> <a href="#" class="gplus"></a> <a href="#" class="pinterest"></a> </div>
+                	  <div class="social_media fl"> <a href="javascript:void(0)" class="twitter"></a> <a href="javascript:void(0)" class="facebook"></a> <a href="javascript:void(0)" class="youtube"></a> <a href="javascript:void(0)" class="rss"></a> <a href="javascript:void(0)" class="gplus"></a> <a href="javascript:void(0)" class="pinterest"></a> </div>
               	  </div>
+				  <!-- Begin Web-Stat code v 6.1 -->
+			<span id="wts325484"></span><script type="text/javascript">
+			var wts=document.createElement('script');wts.type='text/javascript';
+			wts.async=true;wts.src='//server2.web-stat.com/4/325484/log6.js';
+			document.getElementById('wts325484').appendChild(wts);
+			</script><noscript><a href="http://www.web-stat.net">
+			<img src="//server2.web-stat.com/6/4/325484.gif" 
+			style="border:0px;" alt=""></a></noscript>
+			<!-- End Web-Stat code v 6.1 -->

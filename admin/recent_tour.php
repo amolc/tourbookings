@@ -48,6 +48,7 @@
 
 						success: function(mesg) {
 							alert(mesg);
+							location.reload();
 
 						}
 
@@ -67,6 +68,7 @@
 
 						success: function(mesg) {
 							alert(mesg);
+							location.reload();
 							
 						}
 
@@ -109,6 +111,7 @@
 			<th>Why This ?</th>
 			<th>Duration</th>
 			<th>Status</th>
+			<th>Edit</th>
 			<th>Accept/Decline</th>
 		</tr>
 	</thead>
@@ -144,10 +147,12 @@ $result = mysql_query("SELECT
 						p.hilight,
 						p.why_this,
 						p.duration
-						FROM tour p LEFT JOIN tour_photo t ON (
-							p.id = t.tour_id
-						)
-						WHERE p.status ='pending' GROUP BY p.id 
+FROM
+tour AS p
+LEFT JOIN tour_photo AS t ON (p.id = t.tour_id)
+INNER JOIN tour_price ON p.id = tour_price.tour_id
+WHERE p.`status` ='pending' AND tour_price.ishike ='1' 
+GROUP BY p.id
 						");
 
 		//fetch tha data from the database 
@@ -156,21 +161,25 @@ $result = mysql_query("SELECT
 		
 	echo'
 		<tr class="odd gradeX" id="'.$row['id'].'">
-			<td>'.$row['title'].'</td>
+			<td><a href="tour_detail.php?tour_id='.$row['id'].'">'.$row['title'].'</a></td>
 			<td>'.$row['overview'].'</td>
 			<td>'.$row['hilight'].'</td>
 			<td><img class="preview" src="../supplier/uploads/'.$row['url'].'"/></td>
 			<td>'.$row['why_this'].'</td>
 			<td>'.$row['duration'].'</td>
 			<td>'.$row['status'].'</td>
+			<td><a href="edit_tour.php?tour_id='.$row['id'].'" class="btn btn-default btn-sm btn-icon icon-left edit_tour_list">
+					<i class="entypo-pencil"></i>
+				
+					Edit
+				</a>
+			</td>
 			<td>
 				<a href="#" class="accept btn btn-default btn-sm btn-icon icon-left">
-					<i class="entypo-pencil"></i>
 					Accept
 				</a>
 				
 				<a href="#" class="decline btn btn-danger btn-sm btn-icon icon-left">
-					<i class="entypo-cancel"></i>
 					Decline
 				</a>
 			</td>
@@ -191,6 +200,7 @@ $result = mysql_query("SELECT
 			<th>Why This ?</th>
 			<th>Duration</th>
 			<th>Status</th>
+			<th>Edit</th>
 			<th>Accept/Decline</th>
 		</tr>
 	</tfoot>

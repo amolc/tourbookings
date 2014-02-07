@@ -207,128 +207,123 @@ $(document).ready(function(){
 			*@date:	1 january 2014 2:22 PM GM+5
 			*/
 
-	$('.ok').click(function(){
+	// $('.ok').click(function(){
 	
-		var tour_type = $('#tour_type').val();
-		var title = $('#title').val();
-		var overview = $('.overview').val();
-		var hilight =	$('.hilight').val();
-		var why_this =	$('.why_this').val();
-		var location_id = $("#location_id option:selected").text();
-		var city =	$('#city').val();
-		var duration =	$('#duration').val();
+		// var tour_type = $('#tour_type').val();
+		// var title = $('#title').val();
+		// var overview = $('.overview').val();
+		// var hilight =	$('.hilight').val();
+		// var why_this =	$('.why_this').val();
+		// var location_id = $("#location_id option:selected").text();
+		// var city =	$('#city').val();
+		// var duration =	$('#duration').val();
 
-		var deparchture_point = $('#deparchture_point').val();
-		var deparchture_time = $('.deparchture_time').val();
+		// var deparchture_point = $('#deparchture_point').val();
+		// var deparchture_time = $('.deparchture_time').val();
 		
-		var return_detail = $('#return_detail').val();
-		var inclusions = $('.inclusions').val();
-		var exclusions = $('.exclusions').val();
-		var voucher_info = $('.voucher_info').val();
-		var local_operator_info = $('.local_operator_info').val();
-		var supplier_id = '<?php echo $_SESSION['supplier_id']; ?>';
+		// var return_detail = $('#return_detail').val();
+		// var inclusions = $('.inclusions').val();
+		// var exclusions = $('.exclusions').val();
+		// var voucher_info = $('.voucher_info').val();
+		// var local_operator_info = $('.local_operator_info').val();
+		// var supplier_id = '<?php echo $_SESSION['supplier_id']; ?>';
 			
-					var tour_id = $('#tour_id').val();
-		var photo_title = $('#photo_title').val();
-		var photo_url = $('#photo_url').val();
-		var description =	$('#description').val();
+					// var tour_id = $('#tour_id').val();
+		// var photo_title = $('#photo_title').val();
+		// var photo_url = $('#photo_url').val();
+		// var description =	$('#description').val();
 
 		
 		
 
-		var currency_id = $('#currency_id').val();
+		// var currency_id = $('#currency_id').val();
 
-		var tour_id = $('#tour_id').val();
+		// var tour_id = $('#tour_id').val();
 
-
-		var price_per_person =	$('#price_per_person').val();
-		var price_child =	$('#price_child').val();
-		var price_adult =	$('#price_adult').val();
+		// var price_per_person =	$('#price_per_person').val();
+		// var price_child =	$('#price_child').val();
+		// var price_adult =	$('#price_adult').val();
 		
 			
-		if(tour_type == "" || title == ""|| overview == ""|| hilight == ""|| why_this == ""|| location_id == ""|| city == ""|| duration == "" || deparchture_point == ""|| deparchture_time == ""|| return_detail == ""|| inclusions == ""|| exclusions == "") {
-				alert('please fill the field');		
+		// if(tour_type == "" || title == ""|| overview == ""|| hilight == ""|| why_this == ""|| location_id == ""|| city == ""|| duration == "" || deparchture_point == ""|| deparchture_time == ""|| return_detail == ""|| inclusions == ""|| exclusions == "") {
+				// alert('please fill the field');		
 			
-			}
-		else{
-           $.ajax({
-				type:  'post',
-				url:  'ajax_request_function/ajax_create_tour.php',
-				data: {tour_type:tour_type,title:title,overview:overview,hilight:hilight,why_this:why_this,location_id:location_id,city:city,duration:duration,
-						deparchture_point:deparchture_point,deparchture_time:deparchture_time,return_detail:return_detail,inclusions:inclusions,
-						exclusions:exclusions,voucher_info:voucher_info,local_operator_info:local_operator_info,supplier_id:supplier_id
-				},
-				success: function(mesg) {
+			// }
+		// else{
+           // $.ajax({
+				// type:  'post',
+				// url:  'ajax_request_function/ajax_create_tour.php',
+				// data: {tour_type:tour_type,title:title,overview:overview,hilight:hilight,why_this:why_this,location_id:location_id,city:city,duration:duration,
+						// deparchture_point:deparchture_point,deparchture_time:deparchture_time,return_detail:return_detail,inclusions:inclusions,
+						// exclusions:exclusions,voucher_info:voucher_info,local_operator_info:local_operator_info,supplier_id:supplier_id
+				// },
+				// success: function(mesg) {
+
+				   // if(mesg == 'create tour successful'){
+					// $('#title').val("");
+					// $('.overview').val("");
+					// $('.hilight').val("");
+					// $('.why_this').val("");
+					// $('#location_id').val("");
+					// $('#duration').val("");
+					// $('#deparchture_point').val("");
+					// $('.deparchture_time').val("");
+					// $('#return_detail').val("");
+					// $('.inclusions').val("");
+					// $('.exclusions').val("");
+					// $('.voucher_info').val("");
+					// $('.local_operator_info').val("");
+
+					// }
+				// }
+			// });
+
+
+
+           // $.ajax({
+				// type:  'post',
+				// url:  'ajax_request_function/ajax_upload.php',
+				// data: {tour_id:tour_id,photo_title:photo_title,photo_url:photo_url,description:description},
+				// success: function(mesg) {
 				  // alert(mesg);
 
-				   if(mesg == 'create tour successful'){
-					 // $('.success_mesg').empty().append('tour successful create');
-					$('#title').val("");
-					$('.overview').val("");
-					$('.hilight').val("");
-					$('.why_this').val("");
-					$('#location_id').val("");
-					$('#duration').val("");
-					$('#deparchture_point').val("");
-					$('.deparchture_time').val("");
-					$('#return_detail').val("");
-					$('.inclusions').val("");
-					$('.exclusions').val("");
-					$('.voucher_info').val("");
-					$('.local_operator_info').val("");
-
-					}
-				}
-			});
-
-
-
-           $.ajax({
-				type:  'post',
-				url:  'ajax_request_function/ajax_upload.php',
-				data: {tour_id:tour_id,photo_title:photo_title,photo_url:photo_url,description:description},
-				success: function(mesg) {
-				  // alert(mesg);
-
-				   if(mesg == 'upload tour successful'){
-					$('.success_mesg').empty().append('<div style="margin-left: 244px;" class="col-md-6"><div class="alert alert-success"><strong>Well done!</strong> You successfully Tour successful create.</div></div>');
-					$('#tour_id').val("");
-					$('#photo_title').val("");
-					$('#photo_url').val("");
-					$('#description').val("");
-					$('#upload_photo').val("");
+				   // if(mesg == 'upload tour successful'){
+					// $('.success_mesg').empty().append('<div style="margin-left: 244px;" class="col-md-6"><div class="alert alert-success"><strong>Well done!</strong> You successfully Tour successful create.</div></div>');
+					// $('#tour_id').val("");
+					// $('#photo_title').val("");
+					// $('#photo_url').val("");
+					// $('#description').val("");
+					// $('#upload_photo').val("");
 					
-					}
-				}
-			});
+					// }
+				// }
+			// });
 
 
 
 
-           $.ajax({
-				type:  'post',
-				url:  'ajax_request_function/ajax_tour_price.php',
-				data: {currency_id:currency_id,tour_id:tour_id,price_per_person:price_per_person,price_child:price_child,price_adult:price_adult},
-				success: function(mesg) {
-				  // alert(mesg);
+           // $.ajax({
+				// type:  'post',
+				// url:  'ajax_request_function/ajax_tour_price.php',
+				// data: {currency_id:currency_id,tour_id:tour_id,price_per_person:price_per_person,price_child:price_child,price_adult:price_adult},
+				// success: function(mesg) {
 
-				   if(mesg == 'price tour successful'){
-					 // $('.success_mesg').empty().append('price successful create');
-					$('#tour_id').val("");
-					$('#currency_id').val("");
-					$('#price_per_person').val("");
-					$('#price_child').val("");
-					$('#price_adult').val("");
-location.reload();
-					}
-				}
-			});
+				   // if(mesg == 'price tour successful'){
+					// $('#tour_id').val("");
+					// $('#currency_id').val("");
+					// $('#price_per_person').val("");
+					// $('#price_child').val("");
+					// $('#price_adult').val("");
+						// location.reload();
+					// }
+				// }
+			// });
 			
-			}
+			// }
 
 
 
-	});
+	// });
 
 
 
@@ -415,6 +410,10 @@ alert('ok');
 					<a href="dashboard.php"><i class="entypo-home"></i>Home</a>
 				</li>
 				<li class="active">
+					<strong> Tour</strong>
+				</li>
+				
+				<li class="active">
 					<strong>Create Tour</strong>
 				</li>
 			</ol>
@@ -461,8 +460,8 @@ alert('ok');
 																INNER JOIN supplier ON supplier.id = supplier_payment.supplier_id
 																WHERE supplier_payment.supplier_id ='".$supplier_id."'
 																");
-	$today_date = mktime(0,0,0,date("m"),date("d"),date("Y"));
-				$current_date = date("m/d/Y", $today_date);
+										$today_date = mktime(0,0,0,date("m"),date("d"),date("Y"));
+													$current_date = date("m/d/Y", $today_date);
 										
 										//fetch tha data from the database
 										while ($row2 = mysql_fetch_array($result2))
@@ -485,22 +484,85 @@ alert('ok');
 										else {
 										// echo $exp_date ;
 			?>
-			<input type="hidden" id="tour_id" value="<?php echo $tour_id_counter + 1 ; ?>" />
 			
+			
+				<?php 
+					if($_POST['submit'] == 'submit')
+					{
+						$tour_type = mysql_real_escape_string($_POST['tour_type']);
+						$title = mysql_real_escape_string($_POST['title']);
+						$overview = mysql_real_escape_string($_POST['overview']);
+						$hilight = mysql_real_escape_string($_POST['hilight']);
+						$why_this = mysql_real_escape_string($_POST['tour_speciality']);
+						$country = mysql_real_escape_string($_POST['country']);
+						$city = mysql_real_escape_string($_POST['city']);
+						$duration = mysql_real_escape_string($_POST['duration']);
+
+						$deparchture_point = mysql_real_escape_string($_POST['deparchture_point']);
+						$deparchture_time = mysql_real_escape_string($_POST['deparchture_time']);
+						$return_detail = mysql_real_escape_string($_POST['return_detail']);
+						$inclusions = mysql_real_escape_string($_POST['inclusions']);
+						$exclusions = mysql_real_escape_string($_POST['exclusions']);
+						$voucher_info = mysql_real_escape_string($_POST['voucher_info']);
+						$local_operator_info = mysql_real_escape_string($_POST['local_operator_info']);
+						// $supplier_id = mysql_real_escape_string($_POST['supplier_id']);
+						$status = "pending";
+						
+									$currency_id = mysql_real_escape_string($_POST['currency_id']);
+							// echo $currency_id;
+							// $tour_id = mysql_real_escape_string($_POST['tour_id']);
+							// $tour_id = $tour_id2 - 1;
+							// $price_partner_adult = mysql_real_escape_string($_POST['price_partner_adult']);
+							// $price_partner_child = mysql_real_escape_string($_POST['price_partner_child']);
+							// $price_per_person = mysql_real_escape_string($_POST['price_per_person']);
+							$price_child = mysql_real_escape_string($_POST['price_child']);
+							$price_per_person = mysql_real_escape_string($_POST['price_adult']);
 
 
+							$sql   = "insert into tour(tour_type,title,overview,hilight,why_this,location_id,city,duration,deparchture_point,deparchture_time,return_detail,inclusions,exclusions,voucher_info,local_operator_info,supplier_id,status) values ('$tour_type','$title','$overview','$hilight','$why_this','$country','$city','$duration','$deparchture_point','$deparchture_time','$return_detail','$inclusions','$exclusions','$voucher_info','$local_operator_info','$supplier_id','$status')";
+							$query = mysql_query($sql);
+							 if($query){
+								// echo "create tour successful";
+								// $tour_id_query = "SELECT * FROM tour ORDER BY id DESC LIMIT 1";
+									$result = mysql_query("SELECT id FROM tour ORDER BY id DESC LIMIT 1");
+									if (!$result) {
+										echo 'Could not run query: ' . mysql_error();
+										exit;
+									}
+									$row = mysql_fetch_row($result);
 
+									$tour_id = $row[0]; 
+								$sql2   = "insert into tour_price(currency_id,tour_id,price_per_person,price_child,price_adult,ishike) values ('$currency_id','$tour_id','$price_per_person','$price_child','$price_adult','false')";
+								$query2 = mysql_query($sql2);
+								 if($query2){
+									echo '<div style="margin-left: 244px;" class="col-md-6"><div class="alert alert-success"><strong>Well done!</strong> Your tour has been created successfully!</div>Click here to see<a style="font-size:20px;" href="show_tour.php"> Tour List</a></div>';
+								} else {
+									echo "error";
+								}
+								
+							}else {
+								echo "error";
+							} 
+				
 
-
-				<form   method="post" role="form" id="form1"   novalidate="novalidate" class="form-horizontal validate" enctype="multipart/form-data" action=''>
+					}
+					else {
+					
+					
+				
+				
+				
+				?>
+				<form   method="post" role="form" id="form1"   novalidate="novalidate" class="form-horizontal validate" enctype="multipart/form-data" action='<?php echo $_SERVER['PHP_SELF'] ;?>'>
+						<input type="hidden" id="tour_id" value="<?php echo $tour_id_counter + 1 ; ?>" />
 						<div class="form-group">
 							<label class="col-sm-3 control-label">Tour Category</label>
 
 							<div class="col-sm-5"><!---<option value="Uncategory">Uncategory</option>-->
-								<select style="width: 60%;"  id="tour_type"  class="form-control">
+								<select style="width: 60%;" name="tour_type"  id="tour_type"  class="form-control" required>
 
 									
-									
+									<option value="">Select a Category</option>
 									<option value="Outdoor Activities">Outdoor Activities</option>
 									<option value="Tours & Sightseeing">Tours & Sightseeing</option>
 									<option value="Cultural & Theme Tours">Cultural & Theme Tours</option>
@@ -524,7 +586,7 @@ alert('ok');
 							<label for="field-1" class="col-sm-3 control-label">Tour Title</label>
 
 							<div class="col-sm-5">
-								<input type="text" data-validate="required" data-message-required="This is  required field."  class="form-control" id="title" placeholder="Tour Title">
+								<input type="text" data-validate="required" data-message-required="This is  required field."  class="form-control" name="title" id="title" placeholder="Tour Title" required>
 							</div>
 						</div>
 
@@ -532,106 +594,106 @@ alert('ok');
 							<label class="col-sm-3 control-label">Select Tour Location</label>
 
 							<div class="col-sm-5">
-								<select style="width:45%" name="country" id="location_id"  class="form-control">
+								<select style="width:45%" name="country" id="location_id"  class="form-control" required>
 								
 									<option value="">Select a country</option>
-									<option value="5202">Antarctica</option>
-									<option value="27">Antigua and Barbuda</option>
-									<option value="78">Argentina</option>
-									<option value="28">Aruba</option>
-									<option value="22">Australia</option>
-									<option value="44">Austria</option>
-									<option value="29">Bahamas</option>
-									<option value="30">Barbados</option>
-									<option value="45">Belgium</option>
-									<option value="746">Belize</option>
-									<option value="966">Bermuda</option>
-									<option value="79">Brazil</option>
-									<option value="809">British Virgin Islands</option>
-									<option value="12">Cambodia</option>
-									<option value="75">Canada</option>
-									<option value="31">Cayman Islands</option>
-									<option value="80">Chile</option>
-									<option value="13">China</option>
-									<option value="4497">Colombia</option>
-									<option value="747">Costa Rica</option>
-									<option value="730">Croatia</option>
-									<option value="725">Curacao</option>
-									<option value="47">Cyprus</option>
-									<option value="48">Czech Republic</option>
-									<option value="49">Denmark</option>
-									<option value="814">Dominica</option>
-									<option value="32">Dominican Republic</option>
-									<option value="727">Ecuador</option>
-									<option value="722">Egypt</option>
-									<option value="731">England</option>
-									<option value="4146">Estonia</option>
-									<option value="23">Fiji</option>
-									<option value="50">Finland</option>
-									<option value="51">France</option>
-									<option value="5212">French Polynesia</option>
-									<option value="52">Germany</option>
-									<option value="53">Greece</option>
-									<option value="967">Grenada</option>
-									<option value="748">Guatemala</option>
-									<option value="4131">Honduras</option>
-									<option value="14">Hong Kong</option>
-									<option value="54">Hungary</option>
-									<option value="55">Iceland</option>
-									<option value="723">India</option>
-									<option value="15">Indonesia</option>
-									<option value="56">Ireland</option>
-									<option value="919">Israel</option>
-									<option value="57">Italy</option>
-									<option value="34">Jamaica</option>
-									<option value="16">Japan</option>
-									<option value="744">Jordan</option>
-									<option value="801">Kenya</option>
-									<option value="4214">Lebanon</option>
-									<option value="58">Lithuania</option>
-									<option value="17">Malaysia</option>
-									<option value="4141">Malta</option>
-									<option value="76">Mexico</option>
-									<option value="948">Monaco</option>
-									<option value="825">Morocco</option>
-									<option value="5411">Myanmar</option>
-									<option value="724">Nepal</option>
-									<option value="60">Netherlands</option>
-									<option value="24">New Zealand</option>
-									<option value="4499">Nicaragua</option>
-									<option value="61">Norway</option>
-									<option value="745">Oman</option>
-									<option value="749">Panama</option>
-									<option value="927">Peru</option>
-									<option value="4603">Philippines</option>
-									<option value="62">Poland</option>
-									<option value="63">Portugal</option>
-									<option value="36">Puerto Rico</option>
-									<option value="65">Russia</option>
-									<option value="732">Scotland</option>
-									<option value="18">Singapore</option>
-									<option value="734">Slovenia</option>
-									<option value="11">South Africa</option>
-									<option value="972">South Korea</option>
-									<option value="67">Spain</option>
-									<option value="37">St Kitts and Nevis</option>
-									<option value="38">St Lucia</option>
-									<option value="728">St Maarten</option>
-									<option value="68">Sweden</option>
-									<option value="69">Switzerland</option>
-									<option value="778">Taiwan</option>
-									<option value="20">Thailand</option>
-									<option value="39">Trinidad and Tobago</option>
-									<option value="70">Turkey</option>
-									<option value="963">Turks and Caicos</option>
-									<option value="743">United Arab Emirates</option>
-									<option value="4514">Uruguay</option>
-									<option value="77">USA</option>
-									<option value="40">US Virgin Islands</option>
-									<option value="21">Vietnam</option>
-									<option value="5157">Wales</option>
-									<option value="779">Zambia</option>
-									<option value="5308">Zimbabwe</option>
+									<option value="Antarctica">Antarctica</option>
+									<option value="Antigua and Barbuda">Antigua and Barbuda</option>
+									<option value="Argentina">Argentina</option>
+									<option value="Aruba">Aruba</option>
+									<option value="Australia">Australia</option>
+									<option value="Austria">Austria</option>
+									<option value="Bahamas">Bahamas</option>
+									<option value="Barbados">Barbados</option>
+									<option value="Belgium">Belgium</option>
+									<option value="Belize">Belize</option>
+									<option value="Bermuda">Bermuda</option>
+									<option value="Brazil">Brazil</option>
+									<option value="British Virgin Islands">British Virgin Islands</option>
+									<option value="Cambodia">Cambodia</option>
+									<option value="Canada">Canada</option>
+									<option value="Cayman Islands">Cayman Islands</option>
+									<option value="Chile">Chile</option>
+									<option value="China">China</option>
+									<option value="Colombia">Colombia</option>
+									<option value="Costa Rica">Costa Rica</option>
+									<option value="Croatia">Croatia</option>
+									<option value="Curacao">Curacao</option>
+									<option value="Cyprus">Cyprus</option>
+									<option value="Czech Republic">Czech Republic</option>
+									<option value="Denmark">Denmark</option>
+									<option value="Dominica">Dominica</option>
+									<option value="Dominican Republic">Dominican Republic</option>
+									<option value="Ecuador">Ecuador</option>
+									<option value="Egypt">Egypt</option>
+									<option value="England">England</option>
+									<option value="Estonia">Estonia</option>
+									<option value="Fiji">Fiji</option>
+									<option value="Finland">Finland</option>
+									<option value="France">France</option>
+									<option value="French Polynesia">French Polynesia</option>
+									<option value="Germany">Germany</option>
+									<option value="Greece">Greece</option>
+									<option value="Grenada">Grenada</option>
+									<option value="Guatemala">Guatemala</option>
+									<option value="Honduras">Honduras</option>
+									<option value="Hong Kong">Hong Kong</option>
+									<option value="Hungary">Hungary</option>
+									<option value="Iceland">Iceland</option>
+									<option value="India">India</option>
+									<option value="Indonesia">Indonesia</option>
+									<option value="Ireland">Ireland</option>
+									<option value="Israel">Israel</option>
+									<option value="Italy">Italy</option>
+									<option value="Jamaica">Jamaica</option>
+									<option value="Japan">Japan</option>
+									<option value="Jordan">Jordan</option>
+									<option value="Kenya">Kenya</option>
+									<option value="Lebanon">Lebanon</option>
+									<option value="Lithuania">Lithuania</option>
+									<option value="Malaysia">Malaysia</option>
+									<option value="Malta">Malta</option>
+									<option value="Mexico">Mexico</option>
+									<option value="Monaco">Monaco</option>
+									<option value="Morocco">Morocco</option>
+									<option value="Myanmar">Myanmar</option>
+									<option value="Nepal">Nepal</option>
+									<option value="Netherlands">Netherlands</option>
+									<option value="New Zealand">New Zealand</option>
+									<option value="Nicaragua">Nicaragua</option>
+									<option value="Norway">Norway</option>
+									<option value="Oman">Oman</option>
+									<option value="Panama">Panama</option>
+									<option value="Peru">Peru</option>
+									<option value="Philippines">Philippines</option>
+									<option value="Poland">Poland</option>
+									<option value="Portugal">Portugal</option>
+									<option value="Puerto Rico">Puerto Rico</option>
+									<option value="Russia">Russia</option>
+									<option value="Scotland">Scotland</option>
+									<option value="Singapore">Singapore</option>
+									<option value="Slovenia">Slovenia</option>
+									<option value="South Africa">South Africa</option>
+									<option value="South Korea">South Korea</option>
+									<option value="Spain">Spain</option>
+									<option value="St Kitts and Nevis">St Kitts and Nevis</option>
+									<option value="St Lucia">St Lucia</option>
+									<option value="St Maarten">St Maarten</option>
+									<option value="Sweden">Sweden</option>
+									<option value="Switzerland">Switzerland</option>
+									<option value="Taiwan">Taiwan</option>
+									<option value="Thailand">Thailand</option>
+									<option value="Trinidad and Tobago">Trinidad and Tobago</option>
+									<option value="Turkey">Turkey</option>
+									<option value="Turks and Caicos">Turks and Caicos</option>
+									<option value="United Arab Emirates">United Arab Emirates</option>
+									<option value="Uruguay">Uruguay</option>
+									<option value="USA">USA</option>
+									<option value="US Virgin Islands">US Virgin Islands</option>
+									<option value="Vietnam">Vietnam</option>
+									<option value="Wales">Wales</option>
+									<option value="Zambia">Zambia</option>
+									<option value="Zimbabwe">Zimbabwe</option>
 
 
 								</select>
@@ -642,7 +704,7 @@ alert('ok');
 							<label for="field-1" class="col-sm-3 control-label">City</label>
 
 							<div class="col-sm-5">
-								<input type="text" style="width:35%" class="form-control" id="city" placeholder="City">
+								<input type="text" style="width:35%" class="form-control" name="city" id="city" placeholder="City" required>
 							</div>
 						</div>
 						
@@ -651,50 +713,19 @@ alert('ok');
 							<label for="field-1" class="col-sm-3 control-label">Tour Duration </label>
 
 							<div class="col-sm-5">
-								<span><input type="text" style="width:43%; clear:both; float:left;" class="form-control" id="duration" placeholder=""> </span>
+								<span><input type="text" style="width:43%; clear:both; float:left;" class="form-control" name="duration" id="duration" placeholder="" required> </span>
 								
 							</div>
 							<div class="clear"></div>
-							<div class="col-sm-5">
-								<!--<select style="width: 23%;clear: both;float: right;position: absolute;margin-top: -38px;margin-left: 392px;" name="country" id="location_id"  class="form-control">
-								
-									<option value="">Days</option>
-									<option value="1">1</option>
-									<option value="2">2</option>
-									<option value="3">3</option>
-									<option value="4">4</option>
-									<option value="5">5</option>
-									<option value="6">6</option>
-									<option value="7">7</option>
-									<option value="8">8</option>
-									<option value="9">9</option>
-									<option value="10">10</option>
-									
-								</select>-->
-							</div>
 						</div>
 						
-						<!--<div class="form-group">
-							<label for="field-ta" class="col-sm-3 control-label">Tour Overview</label>
-
-							<div class="col-sm-5">
-								<textarea style="width:600px;height:140px;" class="form-control autogrow" id="overview" placeholder="Tour Overview"></textarea>
-							</div>
-						</div>-->
 						<div class="form-group">
 							<label for="field-ta" class="col-sm-3 control-label">Tour Overview</label>
-
-							<!--<div class="col-sm-5">
-									<textarea style="width:600px;height:140px;visibility: visible!important;" id="editor1" class="overview" name="editor1" laceholder="Tour Overview" rows="10">
-									</textarea>
-
-							</div>-->
 					
 							<div class="form-group" style="width: 572px;margin-left: 272px;">
-								<textarea style="width:600px;height:140px;" class="form-control wysihtml5 overview" name="sample_wysiwyg" id="sample_wysiwyg"></textarea>
+								<textarea style="width:600px;height:140px;" class="form-control wysihtml5 overview" name="overview" id="tour_overview" required></textarea>
 							</div>
 		
-
 						</div>
 						
 
@@ -706,120 +737,34 @@ alert('ok');
 								<textarea style="width:600px;height:140px;" class="form-control autogrow" id="hilight" placeholder="Tour Hilights"></textarea>
 							</div>-->
 								<div class="form-group" style="width: 572px;margin-left: 272px;">
-								<textarea style="width:600px;height:140px;" class="form-control wysihtml5 hilight" name="sample_wysiwyg" id="sample_wysiwyg"></textarea>
+								<textarea style="width:600px;height:140px;" class="form-control wysihtml5 hilight" name="hilight" id="tour_highlights" required></textarea>
 							</div>
 		
 						</div>
 						<div class="form-group">
 							<label for="field-ta" class="col-sm-3 control-label">Tour Speciality</label>
 
-							<!--<div class="col-sm-5">
-								<textarea style="width:600px;height:140px;" class="form-control autogrow" id="why_this" placeholder="Tour Speciality"></textarea>
-							</div>-->
 								<div class="form-group" style="width: 572px;margin-left: 272px;">
-								<textarea style="width:600px;height:140px;" class="form-control wysihtml5 why_this" name="sample_wysiwyg" id="sample_wysiwyg"></textarea>
+								<textarea style="width:600px;height:140px;" class="form-control wysihtml5 why_this" name="tour_speciality" id="sample_wysiwyg" required></textarea>
 							</div>
 						</div>
 
-						<div class="form-group">
-							<div class="col-sm-offset-3 col-sm-5">
-								<button style="display:none;" type="button" id="create_tour" class="btn btn-default">Create Tour</button>
 
-							</div>
-						</div>
-						<!--
-						<hr />
-							<div class="">
-								<h5>Photo Upload</h5>
-							</div>
-						<hr />
-						<div class="form-group" style="width: 362px;float: left;">
-							<label for="field-1" class="col-sm-3 control-label">Photo Title</label>
-
-							<div class="col-sm-5">
-								<input type="text" class="form-control" name="title" id="photo_title" placeholder="Title">
-							</div>
-
-
-						</div>
-
-						<div  style="width: 532px;float: left;margin-left: -98px;"  class="form-group">
-							<label for="field-ta" class="col-sm-3 control-label">Photo Description</label>
-
-							<div class="col-sm-5">
-								<textarea class="form-control autogrow" name="description" id="description" placeholder="Photo Description"></textarea>
-							</div>
-						</div>
-						<div style="width: 452px;float: right;margin-top: -58px;margin-left: 142px;margin-right: -50px;" class="form-group">
-
-
-						<div class="col-sm-5">
-								<input type="file" name="photoimg" id="photoimg" />
-
-
-								<span><input value="upload" id="photo_submit" style=" display:none;float: right;margin-right: -119px;margin-top: -57px;height: 52px;width: 112px;border: none;" type="button"/></span>
-
-							</div>
-						</div>
-						<div id='preview'>
-								</div>-->
-
-<!--<table class="table table-bordered datatable" id="table-1">
-	<thead>
-		<tr>
-			<th>Title</th>
-			<th>Discription</th>
-			<th>image</th>
-			<th>Delete / Edit</th>
-		</tr>
-	</thead>
-	<tbody id="photo_detail">
-<?php
-			// $result = mysql_query("SELECT * FROM tour_photo");
-
-
-		// while ($row = mysql_fetch_array($result))
-		// {
-
-	// echo'
-		// <tr class="odd gradeX">
-			// <td>'.$row['title'].'</td>
-			// <td>'.$row['url'].'</td>
-			// <td>'.$row['discription'].'</td>
-			// <td>
-				// <a href="#" class="btn btn-default btn-sm btn-icon icon-left">
-					// <i class="entypo-pencil"></i>
-					// Edit
-				// </a>
-
-				// <a href="#" class="btn btn-danger btn-sm btn-icon icon-left">
-					// <i class="entypo-cancel"></i>
-					// Delete
-				// </a>
-			// </td>
-		// </tr>
-		// ';
-
-		// }
-	?>
-
-	</tbody>
-
-</table>-->
 <div style="clear: both;">&nbsp;</div>
 						<hr style="width:100%"/>
 							<div class="">
 								<h5>Tour Price</h5>
 							</div>
-						<hr />
+						<hr/>
 <br />
 
-
+						
 						<div class="form-group">
 							<label class="col-sm-3 control-label">Select Currency</label>
 
 							<div class="col-sm-5">
-								<select style="width: 35%;"  id="currency_id"  class="form-control">
+								<select style="width: 35%;"  name="currency" id="currency_id"  class="form-control" required>
+									
 								<?php
 										$result = mysql_query("SELECT * FROM currency");
 
@@ -838,29 +783,17 @@ alert('ok');
 							<label for="field-1" class="col-sm-3 control-label">Price/Adult</label>
 
 							<div class="col-sm-5">
-								<input type="text" style="width: 35%;" class="form-control" id="price_per_person" placeholder="Price Per Person">
+								<input type="text" style="width: 35%;" class="form-control" name="price_adult" id="price_per_person" placeholder="Price Per Person" required>
 							</div>
 						</div>
 						<div class="form-group">
 							<label for="field-1" class="col-sm-3 control-label">Price/Child</label>
 
 							<div class="col-sm-5">
-								<input type="text" style="width: 35%;" class="form-control" id="price_child" placeholder="Price Child">
+								<input type="text" style="width: 35%;" class="form-control" name="price_child" id="price_child" placeholder="Price Child" required>
 							</div>
 						</div>
-						<div style="display:none" class="form-group">
-							<label for="field-1" class="col-sm-3 control-label">Price Adult</label>
 
-							<div class="col-sm-5">
-								<input type="text" style="width: 35%;" class="form-control" id="price_adult" placeholder="Price Adult">
-							</div>
-						</div>
-						<div class="form-group">
-							<div class="col-sm-offset-3 col-sm-5">
-								<button style="display:none;" type="button" id="tour_price" class="btn btn-default">Tour Price</button>
-
-							</div>
-						</div>
 
 						<hr />
 							<div class="">
@@ -871,36 +804,29 @@ alert('ok');
 							<label for="field-1" class="col-sm-3 control-label">Departure Point</label>
 
 							<div class="col-sm-5">
-								<input type="text" class="form-control" id="deparchture_point" placeholder="Departure Point">
+								<input type="text" class="form-control"  name="deparchture_point" id="deparchture_point" placeholder="Departure Point" required>
 							</div>
 						</div>
-		<script>
-		  $(function() {
-			$('#defaultValueExample').timepicker({ 'scrollDefaultNow': true });
-		  });
-		</script>
+								<script>
+								  $(function() {
+									$('#defaultValueExample').timepicker({ 'scrollDefaultNow': true });
+								  });
+								</script>
 
 		
 						<div class="form-group">
 							<label class="col-sm-3 control-label">Departure Time</label>
 
 							<div class="col-sm-5">
-							<input id="defaultValueExample" style="width: 6.5em;" type="text" class="form-control time deparchture_time" />
-								<!--<select style="width: 35%;"  id="deparchture_time"  class="form-control">
-
-									<option value="1 Hour">1 Hour</option>
-									<option value="2 Hour">2 Hour</option>
-									<option value="3 Hour">3 Hour</option>
-									<option value="4 Hour">4 Hour</option>
-
-								</select>-->
+							<input id="defaultValueExample" style="width: 6.5em;" type="text" name="deparchture_time" class="form-control time deparchture_time" required/>
+		
 							</div>
 						</div>
 						<div class="form-group">
 							<label for="field-1" class="col-sm-3 control-label">Return Detail</label>
 
 							<div class="col-sm-5">
-								<input type="text"  class="form-control" id="return_detail" placeholder="Return Detail">
+								<input type="text"  class="form-control" name="return_detail" id="return_detail" placeholder="Return Detail" required>
 							</div>
 						</div>
 
@@ -913,11 +839,8 @@ alert('ok');
 						<div class="form-group">
 							<label for="field-ta" class="col-sm-3 control-label">Inclusions</label>
 <!--
-							<div class="col-sm-5">
-								<textarea style="width:600px;height:140px;" class="form-control autogrow" id="inclusions" placeholder="Inclusions"></textarea>
-							</div>-->
 							<div class="form-group" style="width: 572px;margin-left: 272px;">
-								<textarea style="width:600px;height:140px;" class="form-control wysihtml5 inclusions" name="sample_wysiwyg" id="sample_wysiwyg"></textarea>
+								<textarea style="width:600px;height:140px;" class="form-control wysihtml5 inclusions" name="inclusions" id="sample_wysiwyg"></textarea>
 							</div>
 						</div>
 						<div class="form-group">
@@ -927,7 +850,7 @@ alert('ok');
 								<textarea style="width:600px;height:140px;" class="form-control autogrow" id="exclusions" placeholder="Exclusions"></textarea>
 							</div>-->
 							<div class="form-group" style="width: 572px;margin-left: 272px;">
-								<textarea style="width:600px;height:140px;" class="form-control wysihtml5 exclusions" name="sample_wysiwyg" id="sample_wysiwyg"></textarea>
+								<textarea style="width:600px;height:140px;" class="form-control wysihtml5 exclusions" name="exclusions" id="sample_wysiwyg" required></textarea>
 							</div>
 						</div>
 						<div class="form-group">
@@ -937,7 +860,7 @@ alert('ok');
 								<textarea style="width:600px;height:140px;" class="form-control autogrow" id="voucher_info" placeholder="Voucher info"></textarea>
 							</div>-->
 							<div class="form-group" style="width: 572px;margin-left: 272px;">
-								<textarea style="width:600px;height:140px;" class="form-control wysihtml5 voucher_info" name="sample_wysiwyg" id="sample_wysiwyg"></textarea>
+								<textarea style="width:600px;height:140px;" class="form-control wysihtml5 voucher_info" name="voucher_info" id="sample_wysiwyg" required></textarea>
 							</div>
 						</div>
 						<div class="form-group">
@@ -947,16 +870,16 @@ alert('ok');
 								<textarea style="width:600px;height:140px;" class="form-control autogrow" id="local_operator_info" placeholder="Local operator information"></textarea>
 							</div>-->
 							<div class="form-group" style="width: 572px;margin-left: 272px;">
-								<textarea style="width:600px;height:140px;" class="form-control wysihtml5 local_operator_info" name="sample_wysiwyg" id="sample_wysiwyg"></textarea>
+								<textarea style="width:600px;height:140px;" class="form-control wysihtml5 local_operator_info" name="local_operator_info" id="sample_wysiwyg" required></textarea>
 							</div>
 						</div>
 						<span style="padding-left: 450px;font-size: 14px;" class="success_mesg"></span>
-						<input style="margin-left: 750px;margin-top: 10px;" type="button" value="submit" class="btn btn-info ok" />
+						<input style="margin-left: 750px;margin-top: 10px;" type="submit" name="submit" value="submit" class="btn btn-info ok" />
 
 
 				</form>
 <?php 
-
+}
 }
 
 ?>
@@ -1118,6 +1041,7 @@ alert('ok');
 	<script src="include/resource/js/ckeditor/adapters/jquery.js" id="script-resource-10"></script>
 	<script src="include/resource/js/neon-chat.js" id="script-resource-11"></script>
 	<script src="include/resource/js/neon-custom.js" id="script-resource-12"></script>
+	<script src="include/resource/js/jquery.validate.min.js" id="script-resource-7"></script>
 	<script src="include/resource/js/neon-demo.js" id="script-resource-13"></script>
 	
 	<script type="text/javascript">

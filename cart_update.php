@@ -55,6 +55,8 @@ if($_POST["type"]=='add')
 						tour.status,
 						tour.supplier_id,
 						tour_price.currency_id,
+						tour_price.price_customer_adult,
+						tour_price.price_customer_child,
 						tour_price.price_per_person,
 						tour_price.price_child,
 						tour_price.price_adult,
@@ -79,9 +81,9 @@ $ch = "";
 									$ch = $child;
 								}
 
-$ch_price = $child * $obj['price_child'];
+$ch_price = $child * $obj['price_customer_child'];
 $date = $datepicker3;
-$ad_price = $obj['price_per_person'] * $adult;
+$ad_price = $obj['price_customer_adult'] * $adult;
 $price = $ad_price + $ch_price;
 
 		//prepare array for the session variable
@@ -344,7 +346,7 @@ $(".adult").keyup(function(){
 
 								</div>';
 							}else{
-								echo '<span class="cart_message" >Your Cart is empty</span>';
+								echo '<span class="update_cart_message" class="cart_message" >Your Cart is empty</span>';
 							}
 							
 											

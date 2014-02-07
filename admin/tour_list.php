@@ -156,7 +156,7 @@ $result = mysql_query("SELECT
 		
 	echo'
 		<tr class="odd gradeX" id="'.$row['id'].'">
-			<td>'.$row['title'].'</td>
+			<td><a href="tour_detail.php?tour_id='.$row['id'].'">'.$row['title'].'</a></td>
 			<td>'.$row['overview'].'</td>
 			<td>'.$row['hilight'].'</td>
 			<td><img class="preview" src="../supplier/uploads/'.$row['url'].'"/></td>

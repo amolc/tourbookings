@@ -27,6 +27,7 @@ $query = mysql_query("SELECT
 						tour.supplier_id,
 						tour_price.currency_id,
 						tour_price.price_per_person,
+						tour_price.price_customer_adult,
 						tour_price.price_child,
 						tour_price.price_adult,
 						tour_photo.url,
@@ -59,6 +60,7 @@ $query = mysql_query("SELECT
 			$tour_pic_url =  $record['url'];
 			// echo $tour_pic_url;
 			$tour_price_per_person =  $record['price_per_person'];
+			$price_customer_adult =  $record['price_customer_adult'];
 			// echo $tour_price_per_person;
 			$tour_price_child =  $record['price_child'];
 
@@ -171,9 +173,9 @@ $query = mysql_query("SELECT
            	<div class="left_penal background fl">
                     	<div class="price_calender fl">
                           <p>From USD</p>
-                          <h1 style="text-align: center;"><?php echo"$". $tour_price_per_person; ?></h1>
+                          <h1 style="text-align: center;"><?php echo"$". $price_customer_adult; ?></h1>
                           <!--<a href="#">View price calendar</a>-->
-                          <a href="low_price_guarantee.php">$Lowest Prices Guaranteed</a>
+                          <a href="low_price_guarantee.php"></a>
 
                	</div>
 				<?php 
@@ -182,7 +184,7 @@ $query = mysql_query("SELECT
 					?>
                         <div class="select_travel_date fl">
                         	<h2>Select Travel Date</h2>
-							<div style="width:116px; float:left; margin-right:10px;">
+							<div class="Departing_tour_detail">
 								<label>Departing</label>
 								<input type="text" class="mySelectCalendar" id="datepicker3" name="datepicker3" placeholder="mm/dd/yyyy"/>
 							</div>
@@ -190,11 +192,11 @@ $query = mysql_query("SELECT
                     	</div>
                         <div class="select_travel_date fl">
                        	  <h2 class="mrgn_top">Enter Total Number of Travelers</h2>
-                        <div style="width:130px; float:left; margin-right:10px;">
+                        <div class="Adult_tour_detail">
                             <label>Adult</label>
 							<input type="text" name="adult" id="adult"/>
                         </div>
-                        <div style="width:116px; float:left;">
+                        <div class="Child_tour_detail" >
                             <label>Child</label>
 							<input type="text" name="child" id="child"/>
                         </div>
@@ -242,7 +244,7 @@ $query = mysql_query("SELECT
                             	<p><a href="review.php?tour_id=<?php echo $tour_id; ?>">
 								<div class="rate-bg" style="width:6%"></div>
 									<div class="rate-stars"></div>
-								<span style="margin-left: 85px;">
+								<span class="Reviews_tour_detail">
 								<?php
 									$qry_count = mysql_query("SELECT COUNT(*)
 													FROM
@@ -381,7 +383,7 @@ $query = mysql_query("SELECT
                               <div id="tabs2" class=" three_tabs fl">
 
 									<p><?php echo $tour_deparchture_point ;?> </p>
-									<p><?php echo	$tour_deparchture_time ;?> </p>
+									<p><?php //echo $tour_deparchture_time ;?> </p>
 									<p><?php echo$tour_return_detail ;?> </p>
 
                                 <!-- content -->

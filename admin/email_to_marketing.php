@@ -11,7 +11,7 @@
 	<meta name="description" content="Neon Admin Panel" />
 	<meta name="author" content="Laborator.co" />
 	
-	<title>Neon | Compose Message</title>
+	<title>Tour bookings</title>
 
 	<link rel="stylesheet" href="include/resource/js/jquery-ui/css/no-theme/jquery-ui-1.10.3.custom.min.css"  id="style-resource-1">
 	<link rel="stylesheet" href="include/resource/css/font-icons/entypo/css/entypo.css"  id="style-resource-2">

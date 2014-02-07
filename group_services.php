@@ -1,3 +1,40 @@
+<?php
+ include('include/database/db.php');
+
+if (isset($_POST["submit"]))
+  {
+	$contactGroup = mysql_real_escape_string($_POST['contactGroup']);
+	$email = mysql_real_escape_string($_POST['email']);
+	$phoneNumber = mysql_real_escape_string($_POST['phoneNumber']);
+	$bestTime = mysql_real_escape_string($_POST['bestTime']);
+	$travMonths = mysql_real_escape_string($_POST['travMonths']);
+	$travDays = mysql_real_escape_string($_POST['travDays']);
+	$travYears = mysql_real_escape_string($_POST['travYears']);
+	$numbersAdult = mysql_real_escape_string($_POST['numbersAdult']);
+	$numbersChildren = mysql_real_escape_string($_POST['numbersChildren']);
+	
+	$numbersAdult = mysql_real_escape_string($_POST['numbersAdult']);
+	$numbersChildren = mysql_real_escape_string($_POST['numbersChildren']);
+	
+  }
+else
+  // the user has submitted the form
+  {
+  // Check if the "from" input field is filled out
+  if (isset($_POST["from"]))
+    {
+    $from = $_POST["from"]; // sender
+    $subject = $_POST["subject"];
+    $message = $_POST["message"];
+    // message lines should not exceed 70 characters (PHP rule), so wrap it
+    $message = wordwrap($message, 70);
+    // send mail
+    mail("webmaster@example.com",$subject,$message,"From: $from\n");
+    echo "Thank you for sending us feedback";
+    }
+  }
+ 
+ ?>
 <!doctype html>
 <html>
 <head>
@@ -164,7 +201,7 @@ if(navigator.appVersion.indexOf('MSIE')>=0)document.write(unescape('%3C')+'\!-'+
             </div><!-- End of Omniture Code -->
 			
 			For groups 18 or larger, Tour Bookings can plan an itinerary that is tailored to your needs. With our uniquely authentic Asian destinations, we are sure to be able to find the tours that you are looking for regardless of age.
-            <form action="/validateGroupBooking.jspa" id="groupBooking" method="post">
+            <form action="group_services.php" id="groupBooking" method="post">
                 <p class="xsmall note mhn">All fields marked <span class="required">*</span> are mandatory .</p>
                 
                 
@@ -232,7 +269,7 @@ if(navigator.appVersion.indexOf('MSIE')>=0)document.write(unescape('%3C')+'\!-'+
                 <div class="line">
                     <div class="btn unitRight size-btn-submit">
 					 <div style="float:left;" class="submit_cart">
-										<input type="submit" value="Submit">
+										<input name="submit" type="submit" value="Submit">
 									</div>
 					
 					</div>

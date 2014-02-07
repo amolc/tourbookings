@@ -281,7 +281,131 @@ else {
 <div class="main-content">
 		
 <?php include('include/header/header.php'); ?>
+<?php
+			// $result = mysql_query("SELECT * FROM booking WHERE status = 'pending'  ORDER BY id DESC");
+			// $result = mysql_query("SELECT
+									// booking.id,
+									// booking.tour_id,
+									// booking.user_id,
+									// booking.start_date,
+									// booking.status,
+									// payment.total_price,
+									// booking.supplier_id,
+									// tour_price.price_per_person,
+									// tour.title,
+									// tour.overview,
+									// tour.city as tour_city,
+									// tour.location_id as tour_country,
+									// supplier.first_name as supplier_first_name,
+									// supplier.last_name as supplier_last_name,
+									// supplier.company_name,
+									// supplier.email as supplier_email,
+									// supplier.city as supplier_city,
+									// supplier.country as supplier_country,
+									// user.first_name as user_first_name,
+									// user.last_name as user_last_name,
+									// user.country as user_country,
+									// user.city as user_city,
+									// user.email as user_email,
+									// user.phone as user_phone,
+									// user.address as user_address
+									// FROM
+									// booking
+									// INNER JOIN tour ON tour.id = booking.tour_id
+									// INNER JOIN booking ON booking.tour_id = traveler.tour_id
+									// INNER JOIN tour_price ON tour_price.tour_id = tour.id
+									// INNER JOIN user ON user.id = booking.user_id
+									// INNER JOIN user ON user.id = traveler.user_id
+									// INNER JOIN supplier ON supplier.id = booking.supplier_id
+									// INNER JOIN payment ON payment.id = booking.payment_id
+									// WHERE booking.status = 'pending'  ORDER BY booking.id DESC
+									// ");	
+			$result = mysql_query("SELECT
+									booking.id,
+									booking.tour_id,
+									booking.user_id,
+									booking.start_date,
+									booking.status,
+									payment.total_price,
+									booking.supplier_id,
+									tour_price.price_per_person,
+									tour.title,
+									tour.overview,
+                                                                        tour.duration,
+									tour.city AS tour_city,
+									tour.location_id AS tour_country,
+									supplier.first_name AS supplier_first_name,
+									supplier.last_name AS supplier_last_name,
+									supplier.company_name,
+									supplier.email AS supplier_email,
+									supplier.city AS supplier_city,
+									supplier.country AS supplier_country,
+									user.first_name AS user_first_name,
+									user.last_name AS user_last_name,
+									user.country AS user_country,
+									user.city AS user_city,
+									user.email AS user_email,
+									user.phone AS user_phone,
+									user.address AS user_address,
+									traveler.last_name as traveler_last_name ,
+									traveler.first_name as traveler_first_name
+									FROM
+									booking
+									INNER JOIN tour ON tour.id = booking.tour_id
+									INNER JOIN tour_price ON tour_price.tour_id = tour.id
+									INNER JOIN user ON user.id = booking.user_id
+									INNER JOIN supplier ON supplier.id = booking.supplier_id
+									INNER JOIN payment ON payment.id = booking.payment_id
+									INNER JOIN traveler ON user.id = traveler.user_id AND tour.id = traveler.tour_id
+									WHERE booking.status = 'confirm' AND booking.supplier_id = '".$supplier_id."'
+									AND booking.withdraw !='true'
+									GROUP BY booking.id
+									ORDER BY booking.id DESC
+									");
 
+                
+		while ($row = mysql_fetch_array($result)) 
+		{
+			$amount_deposit += $row['total_price'];
+
+		}
+
+		if($amount_deposit==0) 
+		{
+		
+		}
+		else {
+			$today_date = mktime(0,0,0,date("m"),date("d"),date("Y"));
+		$current_date = date("m/d/Y", $today_date);
+			$sql = mysql_query("UPDATE booking SET withdraw = 'true' WHERE  supplier_id = '".$supplier_id."'");
+			$sql3 = mysql_query("SELECT
+									MAX(available_balance) as b
+									FROM
+									supplier_balance
+									WHERE  supplier_id = '".$supplier_id."'
+									");
+			while ($row = mysql_fetch_array($sql3)) 
+				{
+					$supplier_balance = $row['b'];
+				
+				}
+				$total = $amount_deposit + $supplier_balance;
+			echo $total;
+			// $sql4 = mysql_query("DELETE  from supplier_balance  WHERE  supplier_id = '".$supplier_id."'");
+			
+		$sql2   = "insert into supplier_balance(supplier_id,available_balance,amount_deposit,type,description,insert_date) values ('$supplier_id','$total','$amount_deposit','deposit','earning from booking','$current_date')";
+			$query = mysql_query($sql2);
+			
+			if($sql)
+			{
+				echo "true";
+			}
+			else {
+				echo "error";
+			}
+}
+
+?>
 
 
 <div class="row">
@@ -292,7 +416,7 @@ else {
 			<div class="num" data-start="0" data-end="83" data-postfix="" data-duration="1500" data-delay="0">0</div>
 			
 			<h3>Registered users</h3>
-			<p>so far in our blog, and our website.</p>
+			<p></p>
 		</div>
 		
 	</div>
@@ -304,7 +428,7 @@ else {
 			<div class="num" data-start="0" data-end="135" data-postfix="" data-duration="1500" data-delay="600">0</div>
 			
 			<h3>Daily Visitors</h3>
-			<p>this is the average value.</p>
+			<p></p>
 		</div>
 		
 	</div>
@@ -316,7 +440,7 @@ else {
 			<div class="num" data-start="0" data-end="23" data-postfix="" data-duration="1500" data-delay="1200">0</div>
 			
 			<h3>New Messages</h3>
-			<p>messages per day.</p>
+			<p></p>
 		</div>
 		
 	</div>
@@ -327,8 +451,8 @@ else {
 			<div class="icon"><i class="entypo-rss"></i></div>
 			<div class="num" data-start="0" data-end="52" data-postfix="" data-duration="1500" data-delay="1800">0</div>
 			
-			<h3>Subscribers</h3>
-			<p>on our site right now.</p>
+			<h3>Partners</h3>
+			<p></p>
 		</div>
 		
 	</div>
@@ -349,11 +473,12 @@ else {
 			<th>Booking Id</th>
 			<th>Booking Date</th>
 			<th>Supplier ID</th>
-			<th>User ID</th>
+			<th>Customer ID</th>
+			<th>Partner ID</th>
 			<th>Trip title</th>
-			<th>Duration[days]</th>
+			<th>Duration</th>
 			<th>Start Date</th>
-			<th>Status</th>
+			<th>Supplier Status</th>
 			<th>Action</th>
 			<th>Delete</th>
 		</tr>
@@ -409,6 +534,7 @@ else {
 									booking.supplier_id,
 									tour_price.price_per_person,
 									tour.title,
+                                                                        tour.duration,
 									tour.overview,
 									tour.city AS tour_city,
 									tour.location_id AS tour_country,
@@ -435,15 +561,15 @@ else {
 									INNER JOIN supplier ON supplier.id = booking.supplier_id
 									INNER JOIN payment ON payment.id = booking.payment_id
 									INNER JOIN traveler ON user.id = traveler.user_id AND tour.id = traveler.tour_id
-									WHERE booking.status = 'pending' AND booking.supplier_id = '".$supplier_id."'
-									GROUP BY booking.id
+									WHERE booking.status = 'pending' AND booking.supplier_id = '".$supplier_id."' AND payment.status = 'confirm' 
+									GROUP BY booking.id 
 									ORDER BY booking.id DESC
 									");
 		
 		//fetch tha data from the database 
 		// $counter =1;
 		while ($row = mysql_fetch_array($result)) 
-		{  
+		{ 
 		
 	echo'
 		<tr class="odd gradeX">
@@ -451,11 +577,12 @@ else {
 			<td>'.$row['start_date'].'</td>
 			<td>'.$row['supplier_id'].'</td>
 			<td>'.$row['user_id'].'</td>
+			<td>'.$row['partner_supplier_id'].'</td>
 			<td>'.$row['title'].'</td>
-			<td>2 Days</td>
+			<td>'.$row['duration'].'</td>
 			<td>'.$row['start_date'].'</td>
 			
-			<td>pending</td>
+			<td>Pending</td>
 			<td>
 				<a  style="" id="'.$row['id'].'" class="confirm">
 					Confirm
@@ -596,18 +723,33 @@ else {
 			<th>Booking Id</th>
 			<th>Booking Date</th>
 			<th>Supplier ID</th>
-			<th>User ID</th>
+			<th>Customer ID</th>
+			<th>Partner ID</th>
 			<th>Trip title</th>
 			<th>Duration[days]</th>
 			<th>Start Date</th>
-			<th>Status</th>
+			<th>Supplier Status</th>
 			<th>Action</th>
 			<th>Delete</th>
 		</tr>
 	</tfoot>
 </table>
 </form>
-</div>
+<script type="text/javascript">
+	// jQuery(document).ready(function($)
+	// {
+		// $("#table-1").dataTable({
+			// "sPaginationType": "bootstrap",
+			// "aLengthMenu": [[10, 25, 50, -1], [10, 25, 50, "All"]],
+			// "bStateSave": true
+		// });
+		
+		// $(".dataTables_wrapper select").select2({
+			// minimumResultsForSearch: -1
+		// });
+	// });
+</script>
+
 
 
 <br />

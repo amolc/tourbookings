@@ -84,7 +84,7 @@ $query = mysql_query("SELECT tour.id,
 	<!--<link rel="stylesheet" href="include/resource/css/easyWizardSteps.css"  id="style-resource-6">-->
 <style type="text/css">
 
-	.submit {
+.submit {
 	display:none!important;
 	}
 
@@ -113,7 +113,7 @@ padding:10px;
 {
 color:#cc0000;
 font-size:12px
-}
+}	
 
 </style>
 
@@ -319,14 +319,14 @@ $('#deparchture_time option').filter(function() {
 
 			<ol class="breadcrumb bc-3">
 				<li>
-					<a href="../../../neon-x/dashboard/main/index.html"><i class="entypo-home"></i>Home</a>
+					<a href="dashboard.php"><i class="entypo-home"></i>Home</a>
 				</li>
 				<li class="active">
-					<strong>Create Tour</strong>
+					<strong>Edit Tour</strong>
 				</li>
 			</ol>
 
-			<h2>Create Tour</h2>
+			<h2>Edit Tour</h2>
 			<br />
 
 <div class="row">
@@ -398,7 +398,7 @@ $('#deparchture_time option').filter(function() {
 
 							<div class="col-sm-5">
 								<span><input type="text" style="width:35%" class="form-control" id="duration"  value="<?php echo $tour_duration ;?>" placeholder="Tour Duration"> </span>
-								<span style="margin-right: 203px;float: right;margin-top: -30PX;">in Days</span>
+								<span style="margin-right: 203px;float: right;margin-top: -30PX;"></span>
 							</div>
 						</div>
 
@@ -410,7 +410,7 @@ $('#deparchture_time option').filter(function() {
 							</div>
 						</div>
 						<div class="form-group">
-							<label for="field-ta" class="col-sm-3 control-label">Tour Hilights</label>
+							<label for="field-ta" class="col-sm-3 control-label">Tour Highlights</label>
 
 							<div class="col-sm-5">
 								<textarea style="width:600px;height:140px;" class="form-control autogrow"   id="hilight" placeholder="Tour Hilights"><?php echo $tour_hilight ;?></textarea>
@@ -474,7 +474,7 @@ $('#deparchture_time option').filter(function() {
 							</div>
 						<hr />
 						<div class="form-group">
-							<label for="field-1" class="col-sm-3 control-label">Deparchture Point</label>
+							<label for="field-1" class="col-sm-3 control-label">Departure Point</label>
 
 							<div class="col-sm-5">
 								<input type="text" class="form-control" id="deparchture_point"  value="<?php echo $tour_deparchture_point ;?>" placeholder="Deparchture Point">
@@ -482,7 +482,7 @@ $('#deparchture_time option').filter(function() {
 						</div>
 
 						<div class="form-group">
-							<label class="col-sm-3 control-label">Deparchture Time</label>
+							<label class="col-sm-3 control-label">Departure Time</label>
 
 							<div class="col-sm-5">
 								<select style="width: 35%;"  id="deparchture_time"  class="form-control">

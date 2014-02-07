@@ -73,12 +73,12 @@ $query = mysql_query("SELECT
                           <h1>Insider's Guide to &nbsp;&nbsp;&nbsp;<?php echo $location; ?></h1>
                           <p>Major attractions, tips and our top<br>
                           things to see and do.</p>
-                          <a href="#">Look Inside</a>
+                          <a href="javascript:void(0)">Look Inside</a>
                         </div>
                         	<div class="singapore_things fl">
-                              <h2>Singapore Things To Do</h2>
+                              <h2 style="display:none;">Singapore Things To Do</h2>
                                 <ul>
-                                    <li><a href="#">All Things to Do...</a></li>
+                                    <li style="display:none;"><a href="#">All Things to Do...</a></li>
 									<?php
 									
 									// $result = mysql_query("SELECT
@@ -96,13 +96,13 @@ $query = mysql_query("SELECT
 											
 											// }
 									?>
-                                    <li class="border"><a href="#" class="active">See all things to do...</a></li>
+                                    <li class="border" style="display:none;"><a href="#" class="active">See all things to do...</a></li>
                                 </ul>
                             </div>
                             <div class="singapore_things fl">
                               <h2>Recommended</h2>
                                 <ul>
-                                    <li><a href="#">All Recommendations... </a></li>
+                                    <li style="display:none;"><a href="#">All Recommendations... </a></li>
                                 	<?php
 											$sql_cat_city = mysql_query("SELECT
 													tour.id,
@@ -130,7 +130,7 @@ $query = mysql_query("SELECT
                             <div class="singapore_things fl">
                               <h2>Top Attractions</h2>
                                 <ul>
-                                    <li><a href="#">All Attractions...</a></li>
+                                    <li style="display:none;"><a href="#">All Attractions...</a></li>
                                <?php
 											$sql_cat_city = mysql_query("SELECT
 													tour.id,
@@ -155,7 +155,7 @@ $query = mysql_query("SELECT
                                     <!--<li class="border"><a href="#" class="active">See all attractions...</a></li>-->
                                 </ul>
                           </div>
-                        <div class="chat_now fl"><a href="#"><img src="images/chat_now.jpg" alt="" width="296" height="186"></a></div>
+                        <div class="chat_now fl"><a href="javascript:void(0)"><img src="images/chat_now.jpg" alt="" width="296" height="186"></a></div>
                     </div>
 					
 			                          <div class="picks_head fl">

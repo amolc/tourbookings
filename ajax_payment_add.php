@@ -159,7 +159,7 @@ $child_name = mysql_real_escape_string($_POST['child_name']);
 	$today_date = mktime(0,0,0,date("m"),date("d"),date("Y"));
 $current_date = date("m/d/Y", $today_date);
 
-	$payment_sql   = "insert into payment(user_id,name,credit_card_no,expired_date,security_code,total_price,email,phone) values ('$user_id','$user_name','$credit_card_no','$exp_date','$security_code','$total','$email','$phone')";
+	$payment_sql   = "insert into payment(user_id,name,credit_card_no,expired_date,security_code,total_price,status,email,phone) values ('$user_id','$user_name','$credit_card_no','$exp_date','$security_code','$total','pending','$email','$phone')";
 			$payment_query = mysql_query($payment_sql);
 		 if($payment_query){
 		echo "Thank you, Your Tour booked succesfully & ";
@@ -187,12 +187,19 @@ $payment_id3 = $user_rocord3['id'];
 	$alTxt= $_POST['txt'];
 	$alTxt1= $_POST['txt1'];
 $N = count($alTxt);
+		$booking_query = mysql_query("SELECT * FROM booking");
+while($booking_rocord = mysql_fetch_array($booking_query))
+{
 
+$booking_id_last = $booking_rocord['id'];	
+
+}	
+		$booking_id = $booking_id_last;
 
 	for($i=0; $i < $N; $i++)
     {
       // echo($alTxt[$i]);
-	  $sql1   = "insert into traveler(user_id,tour_id,first_name) values ('$user_id','$tour_id','$alTxt[$i]')";
+	  $sql1   = "insert into traveler(user_id,tour_id,booking_id,first_name,adult_child_status) values ('$user_id','$tour_id','$booking_id','$alTxt[$i]','adult')";
 	  	$query1 = mysql_query($sql1);
 	 if($query1){
 		// echo "payment successful";
@@ -205,7 +212,7 @@ $N = count($alTxt);
     for($j=0; $j < $N1; $j++)
     { 
 		  // $sql2   = "insert into traveler(user_id,tour_id,name,sex,age,	proof_id) values ('$user_id','$tour_id','$alTxt1[$j]')";
-		  $sql2   = "insert into traveler(user_id,tour_id,first_name) values ('$user_id','$tour_id','$alTxt1[$j]')";
+		  $sql2   = "insert into traveler(user_id,tour_id,booking_id,first_name,adult_child_status) values ('$user_id','$tour_id','$booking_id','$alTxt1[$j]','child')";
 	  	$query2 = mysql_query($sql2);
 	 if($query2){
 		// echo "payment successful";

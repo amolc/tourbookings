@@ -281,6 +281,11 @@ session_start();
 						<li>
 				<a href="dashboard.php"><i class="entypo-home"></i>Home</a>
 			</li>
+			
+			<li class="active">
+			
+							<strong>Booking</strong>
+					</li>
 				<li class="active">
 			
 							<strong>Pending Booking</strong>
@@ -295,12 +300,13 @@ session_start();
 <table class="table table-bordered datatable" id="table-1">
 	<thead>
 		<tr>
-			<th>Booking Id</th>
+			<th>Booking ID</th>
 			<th>Booking Date</th>
 			<th>Supplier ID</th>
-			<th>User ID</th>
+			<th>Customer ID</th>
+			<th>Partner ID</th>
 			<th>Trip title</th>
-			<th>Duration</th>
+			
 			<th>Start Date</th>
 			<th>Supplier Status</th>
 			<th>Action</th>
@@ -358,7 +364,7 @@ session_start();
 									booking.supplier_id,
 									tour_price.price_per_person,
 									tour.title,
-                                                                        tour.duration,
+                                                                        
 									tour.overview,
 									tour.city AS tour_city,
 									tour.location_id AS tour_country,
@@ -385,8 +391,8 @@ session_start();
 									INNER JOIN supplier ON supplier.id = booking.supplier_id
 									INNER JOIN payment ON payment.id = booking.payment_id
 									INNER JOIN traveler ON user.id = traveler.user_id AND tour.id = traveler.tour_id
-									WHERE booking.status = 'pending' AND booking.supplier_id = '".$supplier_id."'
-									GROUP BY booking.id
+									WHERE booking.status = 'pending' AND booking.supplier_id = '".$supplier_id."' AND payment.status = 'confirm' 
+									GROUP BY booking.id 
 									ORDER BY booking.id DESC
 									");
 		
@@ -401,8 +407,9 @@ session_start();
 			<td>'.$row['start_date'].'</td>
 			<td>'.$row['supplier_id'].'</td>
 			<td>'.$row['user_id'].'</td>
+			<td>'.$row['partner_supplier_id'].'</td>
 			<td>'.$row['title'].'</td>
-			<td>'.$row['duration'].'</td>
+			
 			<td>'.$row['start_date'].'</td>
 			
 			<td>Pending</td>
@@ -543,12 +550,13 @@ session_start();
 	</tbody>
 	<tfoot>
 		<tr>
-			<th>Booking Id</th>
+			<th>Booking ID</th>
 			<th>Booking Date</th>
 			<th>Supplier ID</th>
-			<th>User ID</th>
+			<th>Customer ID</th>
+			<th>Partner ID</th>
 			<th>Trip title</th>
-			<th>Duration[days]</th>
+			
 			<th>Start Date</th>
 			<th>Supplier Status</th>
 			<th>Action</th>

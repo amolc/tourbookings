@@ -839,7 +839,7 @@ textarea:focus, input[type="text"]:focus, input[type="checkbox"]:focus, input[ty
 	font-weight:bold;
 	padding:0px 13px;
 	overflow: hidden;
-	height: 21px;
+	height: 36px;
 }
 .tour_picks span {
 	width:184px;
@@ -1712,3 +1712,288 @@ progress[value]::-webkit-progress-value {
 	color:#fd8900;
 	font-size:16px;
 }
+/*---------------index.php-------------- by amir */
+.hong_index{
+	position: absolute;
+	background: rgba(255, 255, 255, 0.8);
+	margin-top: -78px;z-index: 9999;
+	margin-left: 17px;
+	padding-left: 11px;
+	padding-top: 2px;
+	padding-bottom: 6px;
+	padding-right: 10px;
+}
+.hong_index h1{
+	color: #fd8900;
+	font-size: 30px;
+}
+.india_index{
+	position: absolute;
+	background: rgba(255, 255, 255, 0.8);
+	margin-top: -78px;z-index: 9999;
+	margin-left: 17px;padding-left: 11px;
+	padding-top: 2px;
+	padding-bottom: 6px;
+	padding-right: 10px;
+}
+.india_index h1{
+	color: #fd8900;
+	font-size: 30px;
+}
+.indonesia_index{
+	position: absolute;
+	background: rgba(255, 255, 255, 0.8);
+	margin-top: -78px;
+	z-index: 9999;
+	margin-left: 17px;
+	padding-left: 11px;
+	padding-top: 2px;
+	padding-bottom: 6px;
+	padding-right: 10px;
+}
+.indonesia_index h1{
+	color: #fd8900;
+	font-size: 30px;
+}
+.malaysia_index{
+	position: absolute;
+	background: rgba(255, 255, 255, 0.8);
+	margin-top: -78px;
+	z-index: 9999;
+	margin-left: 17px;
+	padding-left: 11px;
+	padding-top: 2px;
+	padding-bottom: 6px;
+	padding-right: 10px;
+}
+.malaysia_index h1{
+	color: #fd8900;
+	font-size: 30px;
+}
+.philippines_index{
+	position: absolute;
+	background: rgba(255, 255, 255, 0.8);
+	margin-top: -78px;
+	z-index: 9999;
+	margin-left: 17px;
+	padding-left: 11px;
+	padding-top: 2px;
+	padding-bottom: 6px;
+	padding-right: 10px;
+}
+.philippines_index h1{
+	color: #fd8900;
+	font-size: 30px;
+}
+.singapore_index{
+	position: absolute;
+	background: rgba(255, 255, 255, 0.8);
+	margin-top: -78px;
+	z-index: 9999;
+	margin-left: 17px;
+	padding-left: 11px;
+	padding-top: 2px;
+	padding-bottom: 6px;
+	padding-right: 10px;
+}
+.singapore_index h1{
+	color: #fd8900;
+	font-size: 30px;
+}
+/*---------------index_city.php-------------- by amir */
+
+.Hongkong_index_city{
+	position: absolute;
+	background: rgba(255, 255, 255, 0.8);
+	margin-top: -78px;
+	z-index: 9999;
+	margin-left: 17px;
+	padding-left: 11px;
+	padding-top: 2px;
+	padding-bottom: 6px;
+	padding-right: 10px;
+}
+.Hongkong_index_city h1{
+	color: #fd8900;
+	font-size: 30px;
+}
+.malaysia_index_city{
+	position: absolute;
+	background: rgba(255, 255, 255, 0.8);
+	margin-top: -78px;
+	z-index: 9999;
+	margin-left: 17px;
+	padding-left: 11px;
+	padding-top: 2px;
+	padding-bottom: 6px;
+	padding-right: 10px;
+}
+.malaysia_index_city h1{
+	color: #fd8900;font-size: 30px;
+}
+.indonesia_index_city{
+position: absolute;
+background: rgba(255, 255, 255, 0.8);
+margin-top: -78px;
+z-index: 9999;
+margin-left: 17px;
+padding-left: 11px;
+padding-top: 2px;
+padding-bottom: 6px;
+padding-right: 10px;
+}
+.indonesia_index_city h1{
+	color: #fd8900;font-size: 30px;
+}
+.Philippines_index_city{
+	position: absolute;
+	background: rgba(255, 255, 255, 0.8);
+	margin-top: -78px;
+	z-index: 9999;
+	margin-left: 17px;
+	padding-left: 11px;
+	padding-top: 2px;
+	padding-bottom: 6px;
+	padding-right: 10px;
+}
+.Philippines_index_city h1{
+	color: #fd8900;font-size: 30px;
+}
+.Singapore_index_city{
+	position: absolute;
+	background: rgba(255, 255, 255, 0.8);
+	margin-top: -78px;
+	z-index: 9999;
+	margin-left: 17px;
+	padding-left: 11px;
+	padding-top: 2px;
+	padding-bottom: 6px;
+	padding-right: 10px;
+}
+.Singapore_index_city h1{
+	color: #fd8900;font-size: 30px;
+}
+.India_index_city{
+	position: absolute;
+	background: rgba(255, 255, 255, 0.8);
+	margin-top: -78px;
+	z-index: 9999;
+	margin-left: 17px;
+	padding-left: 11px;
+	padding-top: 2px;
+	padding-bottom: 6px;
+	padding-right: 10px;
+}
+.India_index_city h1{
+	color: #fd8900;font-size: 30px;
+}
+/*---------------singapore_city.php-------------- by amir */
+
+.Hongkong_city_index{
+	position: absolute;
+	background: rgba(255, 255, 255, 0.8);
+	margin-top: -78px;
+	z-index: 9999;
+	margin-left: 17px;
+	padding-left: 11px;
+	padding-top: 2px;
+	padding-bottom: 6px;
+	padding-right: 10px;
+}
+.Hongkong_city_index h1{
+	color: #fd8900;font-size: 30px;
+}
+.India_city_index{
+position: absolute;
+background: rgba(255, 255, 255, 0.8);
+margin-top: -78px;
+z-index: 9999;
+margin-left: 17px;
+padding-left: 11px;
+padding-top: 2px;
+padding-bottom: 6px;
+padding-right: 10px;
+}
+.India_city_index h1{
+	color: #fd8900;font-size: 30px;
+}
+.Indonesia_city_index{
+	position: absolute;
+	background: rgba(255, 255, 255, 0.8);
+	margin-top: -78px;
+	z-index: 9999;
+	margin-left: 17px;
+	padding-left: 11px;
+	padding-top: 2px;
+	padding-bottom: 6px;
+	padding-right: 10px;
+}
+.Indonesia_city_index h1{
+	color: #fd8900;font-size: 30px;
+}
+.Malaysia_city_index{
+	position: absolute;
+	background: rgba(255, 255, 255, 0.8);
+	margin-top: -78px;
+	z-index: 9999;
+	margin-left: 17px;
+	padding-left: 11px;
+	padding-top: 2px;
+	padding-bottom: 6px;
+	padding-right: 10px;
+}
+.Malaysia_city_index h1{
+	color: #fd8900;font-size: 30px;
+}
+.Philippines_city_index{
+	position: absolute;
+	background: rgba(255, 255, 255, 0.8);
+	margin-top: -78px;
+	z-index: 9999;
+	margin-left: 17px;
+	padding-left: 11px;
+	padding-top: 2px;
+	padding-bottom: 6px;
+	padding-right: 10px;
+}
+.Philippines_city_index h1{
+	color: #fd8900;font-size: 30px;
+}
+.Singapore_city_index{
+	position: absolute;
+	background: rgba(255, 255, 255, 0.8);
+	margin-top: -78px;
+	z-index: 9999;
+	margin-left: 17px;
+	padding-left: 11px;
+	padding-top: 2px;
+	padding-bottom: 6px;
+	padding-right: 10px;
+}
+.Singapore_city_index h1{
+	color: #fd8900;font-size: 30px;
+}
+
+/*---------------tour_detail.php-------------- by amir */
+
+.Departing_tour_detail{
+	width:116px; 
+	float:left; 
+	margin-right:10px;
+}
+.Adult_tour_detail{
+	width:130px; float:left; margin-right:10px;
+}
+.Child_tour_detail{
+	width:116px; float:left;
+}
+.Reviews_tour_detail{
+	margin-left: 85px;
+}
+/*---------------cart_update.php-------------- by amir */
+.update_cart_message{
+	font-size: 20px;
+}
+
+
+

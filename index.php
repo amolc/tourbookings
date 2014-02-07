@@ -97,44 +97,44 @@ $(document).ready(function(){
           <ul class="slides">
             <li>
   	    	    <img src="images/Hongkong.jpg" width="1002" height="391">
-				<div style="position: absolute;background: rgba(255, 255, 255, 0.8);margin-top: -78px;z-index: 9999;margin-left: 17px;padding-left: 11px;padding-top: 2px;padding-bottom: 6px;padding-right: 10px;">
-					<h1 style="color: #fd8900;font-size: 30px;"><a href="index_city.php?location=Hongkong">Hongkong</a></h1>
+				<div class="hong_index" >
+					<h1><a href="index_city.php?location=Hongkong">Hongkong</a></h1>
 				<!--	<p>For all you shopaholics, you cannot miss out on the plethora of markets that Hong Kong has to offer</p>-->
 				</div>
   	    		</li>
   	    		<li>
   	    	    <img src="images/India.jpg" width="1002" height="391">
-				<div style="position: absolute;background: rgba(255, 255, 255, 0.8);margin-top: -78px;z-index: 9999;margin-left: 17px;padding-left: 11px;padding-top: 2px;padding-bottom: 6px;padding-right: 10px;">
-			<h1 style="color: #fd8900;font-size: 30px;"><a href="index_city.php?location=India">	India</a></h1>
+				<div class="india_index">
+			<h1><a href="index_city.php?location=India">	India</a></h1>
 					<!--<p>Visit the famous Taj Mahal, the ruins of Hampi or try Camel trekking!</p>-->
 				</div>
   	    		</li>
   	    		<li>
   	    	    <img src="images/Indonesia.jpg" width="1002" height="391">
-					<div style="position: absolute;background: rgba(255, 255, 255, 0.8);margin-top: -78px;z-index: 9999;margin-left: 17px;padding-left: 11px;padding-top: 2px;padding-bottom: 6px;padding-right: 10px;">
-				<h1 style="color: #fd8900;font-size: 30px;"><a href="index_city.php?location=Indonesia">Indonesia</a></h1>
+					<div class="indonesia_index">
+				<h1><a href="index_city.php?location=Indonesia">Indonesia</a></h1>
 					<!--<p>Hosting some of the world’s most beautiful beaches</p>-->
 				</div>
   	    		</li>
   	    		<li>
   	    	    <img src="images/Malaysia.jpg" width="1002" height="391">
-					<div style="position: absolute;background: rgba(255, 255, 255, 0.8);margin-top: -78px;z-index: 9999;margin-left: 17px;padding-left: 11px;padding-top: 2px;padding-bottom: 6px;padding-right: 10px;">
-				<h1 style="color: #fd8900;font-size: 30px;"><a href="index_city.php?location=Malaysia">Malaysia</a></h1>
+					<div class="malaysia_index">
+				<h1><a href="index_city.php?location=Malaysia">Malaysia</a></h1>
 					<!--<p>Playing host to one of the world’s tallest towers</p>-->
 					
 				</div>
   	    		</li>
                 <li>
   	    	    <img src="images/Philippines.jpg" width="1002" height="391">
-					<div style="position: absolute;background: rgba(255, 255, 255, 0.8);margin-top: -78px;z-index: 9999;margin-left: 17px;padding-left: 11px;padding-top: 2px;padding-bottom: 6px;padding-right: 10px;">
-				<h1 style="color: #fd8900;font-size: 30px;"><a href="index_city.php?location=Philippines">Philippines</a></h1>
+					<div class="philippines_index">
+				<h1><a href="index_city.php?location=Philippines">Philippines</a></h1>
 					<!--<p>the Banaue Rice Terraces, numerous diving spots and beaches</p>-->
 				</div>
   	    		</li>
                 <li>
   	    	    <img src="images/Singapore.jpg" width="1002" height="391">
-					<div style="position: absolute;background: rgba(255, 255, 255, 0.8);margin-top: -78px;z-index: 9999;margin-left: 17px;padding-left: 11px;padding-top: 2px;padding-bottom: 6px;padding-right: 10px;">
-				<h1 style="color: #fd8900;font-size: 30px;"><a href="index_city.php?location=Singapore">Singapore</a></h1>
+					<div class="singapore_index">
+				<h1><a href="index_city.php?location=Singapore">Singapore</a></h1>
 					<!--<p>A cosmopolitan city-state that got to where it is today in just half a decade</p>-->
 				</div>
   	    		</li>
@@ -151,14 +151,14 @@ $(document).ready(function(){
 
 							</p>
                         </div>
-					<div class="hot_destinations fl" style="margin:0px 0px 0px 0px; padding-left:20px; width:188px;">
+					<div  class="hot_destinations fl" style="margin:0px 0px 0px 0px; padding-left:20px; width:188px;">
                         	<h2></h2>
                             <ul>
-                            	<li><a href="index_city.php?location=Bali"><span class="country_index">Bali</span></a></li>
-                                <li><a href="index_city.php?location=Delhi"><span class="country_index">Delhi</span></a></li>
+                            	<li><a href="index_city.php?location=Japan"><span class="country_index">Japan</span></a></li>
+                                <li><a href="index_city.php?location=South Korea"><span class="country_index">South Korea</span></a></li>
+                                <li><a href="index_city.php?location=Australia"><span class="country_index">Australia</span></a></li>
+                                <li><a href="index_city.php?location=India"><span class="country_index">India</span></a></li>
                                 <li><a href="index_city.php?location=Singapore"><span class="country_index">Singapore</span></a></li>
-                                <li><a href="index_city.php?location=Kuala Lumpur"><span class="country_index">Kuala Lumpur</span></a></li>
-                                <li><a href="index_city.php?location=Boracay"><span class="country_index">Boracay</span></a></li>
                                 
                             </ul>
                             
@@ -167,11 +167,11 @@ $(document).ready(function(){
 					<div class="hot_destinations fl" style="margin:0px 0px 0px 0px; padding-left:61px; width:150px;">
                         	<h2></h2>
                             <ul>
-                            	<li><a href="index_city.php?location=Egypt"><span class="country_index">Egypt</span></a></li>
-                                <li><a href="index_city.php?location=Greece"><span class="country_index">Greece</span></a></li>
+                            	<li><a href="hongkong_city.php?location=Hong Kong"><span class="country_index">Hong Kong</span></a></li>
+                                <li><a href="index_city.php?location=Indonesia"><span class="country_index">Indonesia</span></a></li>
+                                <li><a href="index_city.php?location=Philippines"><span class="country_index">Philippines</span></a></li>
                                 <li><a href="index_city.php?location=Malaysia"><span class="country_index">Malaysia</span></a></li>
-                                <li><a href="index_city.php?location=Malta"><span class="country_index">Malta</span></a></li>
-                                <li><a href="index_city.php?location=Luxembourg"><span class="country_index">Luxembourg</span></a></li>
+                                <li><a href="index_city.php?location=Taiwan"><span class="country_index">Taiwan</span></a></li>
                                 
                             </ul>
                             
@@ -181,11 +181,11 @@ $(document).ready(function(){
 						<div class="hot_destinations fl" style="margin:0px 0px 0px 0px; width:205px; padding-left:123px;">
                         	<h2></h2>
                             <ul>
-                            	<li><a href="index_city.php?location=Japan"><span class="country_index">Japan</span></a></li>
-                                <li><a href="index_city.php?location=Korea"><span class="country_index">Korea</span></a></li>
-                                <li><a href="index_city.php?location=Taiwan"><span class="country_index">Taiwan</span></a></li>
-                                <li><a href="index_city.php?location=Australia"><span class="country_index">Australia</span></a></li>
+                            	<li><a href="index_city.php?location=Thailand"><span class="country_index">Thailand</span></a></li>
+                                <li><a href="index_city.php?location=Maldives"><span class="country_index">Maldives</span></a></li>
                                 <li><a href="index_city.php?location=New Zealand"><span class="country_index">New Zealand</span></a></li>
+                                <li><a href="index_city.php?location=Switzerland"><span class="country_index">Switzerland</span></a></li>
+                                <li><a href="index_city.php?location=Paris"><span class="country_index">Paris</span></a></li>
                                 
                             </ul>
                             <!--<ul class="mrgn_right">
@@ -201,11 +201,11 @@ $(document).ready(function(){
 						<div class="hot_destinations fl" style="margin:0px 0px 0px 0px; padding-left:41px; width:150px;">
                         	<h2></h2>
                             <ul>
-                            	<li><a href="index_city.php?location=Hong Kong"><span class="country_index">Hong Kong</span></a></li>
-                                <li><a href="index_city.php?location=Myanmar"><span class="country_index">Myanmar</span></a></li>
-                                <li><a href="index_city.php?location=India"><span class="country_index">India</span></a></li>
-                                <li><a href="index_city.php?location=China"><span class="country_index">China</span></a></li>
-                                <li><a href="index_city.php?location=Nepal"><span class="country_index">Nepal</span></a></li>
+                            	<li><a href="index_city.php?location=Germany"><span class="country_index">Germany</span></a></li>
+                                <li><a href="index_city.php?location=France"><span class="country_index">France</span></a></li>
+                                <li><a href="index_city.php?location=Dubai"><span class="country_index">Dubai</span></a></li>
+                                <li><a href="index_city.php?location=Vietnam"><span class="country_index">Vietnam</span></a></li>
+                                <li><a href="index_city.php?location=Cambodia"><span class="country_index">Cambodia</span></a></li>
                                 
                             </ul>
                             <!--<ul class="mrgn_right">
@@ -238,13 +238,28 @@ $(document).ready(function(){
 												  else {
 												  $no_pic = $row['country_image'].'.jpg';
 												  }
+												  // strip tags to avoid breaking any html
+													// $string = strip_tags($string);
+													$string = strip_tags($row['country_desc']);
+
+													if (strlen($string) > 190) {
+
+														// truncate string
+														$stringCut = substr($string, 0, 190);
+
+														// make sure it ends in a word so assassinate doesn't become ass...
+														// $string = substr($stringCut, 0, strrpos($stringCut, ' ')); 
+														 $string = substr($stringCut, 0, strrpos($stringCut, ' ')).'...';
+													}
+													// echo $string;
 										echo'
 											  <div id="onload_id" class="city_tour fl">
 												<span>
 												  <img src="images/'.$no_pic.'" alt="" width="310" height="169">  
 												  </span>
 												  <h1>'.$row['country_name'].'</h1>
-												  <p>'.$row['country_desc'].'</p>
+												  <p>'.$string.'</p>
+												  
 												  <a href="index_city.php?location='.$row['country_name'].'">View All</a>
 											  </div>
 											';
@@ -270,7 +285,7 @@ $(document).ready(function(){
                                 <li><a href='tour_list.php?location=Singapore'>Singapore</a></li>
                                 <li><a href='tour_list.php?location=Kuala Lumpur'>Kuala Lumpur</a></li>
                                 <li><a href='tour_list.php?location=Boracay'>Boracay</a></li>
-                                <li><a href='tour_list.php?location=Hong Kong'>Hong Kong</a></li>
+                                <li><a href='hongkong_city.php?location=Hong Kong'>Hong Kong</a></li>
                             </ul>
                             <!--<ul class="mrgn_right">
 								<li><a href='category_view.php?cat_name=Outdoor Activities'>Outdoor Activities</a></li>

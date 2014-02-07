@@ -28,7 +28,7 @@ session_start();
 		$(document).ready(function(){
 			
 				$('.delete_tour_list').click(function(){
-					alert('ok');
+					// alert('ok');
 				var tour_id = $( this ).attr('id');
 
 				$.ajax({
@@ -38,6 +38,7 @@ session_start();
 
 						success: function(mesg) {
 							alert(mesg);
+							location.reload();
 							 // $('#photo_detail').append(mesg);
 
 						}
@@ -65,6 +66,10 @@ session_start();
 			
 							<strong>Tour</strong>
 					</li>
+					<li class="active">
+			
+							<strong>Tour List</strong>
+					</li>
 					</ol>
 			 
 <h2>Tour List</h2>
@@ -74,7 +79,7 @@ session_start();
 <table class="table table-bordered datatable" id="table-1">
 	<thead>
 		<tr>
-			<th>Id</th>
+			<th aria-sort="descending">ID</th>
 			<th>Title</th>
 			<th>Overview</th>
 			<th>Highlight</th>
@@ -104,7 +109,7 @@ session_start();
 			<td>'.$row['hilight'].'</td>
 			<td>'.$row['location_id'].'</td>
 			<td><a href="tour_iamges_upload.php?tour_id='.$row['id'].'">images</a></td>
-			<td>'.$row['duration'].' days</td>
+			<td>'.$row['duration'].' </td>
 			<td>'.$row['status'].'</td>
 			<td><a href="supplier_tour_bookings.php?tour_id='.$row['id'].'">Bookings</a></td>
 			<td>
@@ -128,7 +133,7 @@ session_start();
 	</tbody>
 	<tfoot>
 		<tr>
-			<th>Id</th>
+			<th>ID</th>
 			<th>Title</th>
 			<th>Overview</th>
 			<th>Highlight</th>

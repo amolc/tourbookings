@@ -27,6 +27,7 @@ $query = mysql_query("SELECT
 						tour_photo.url,
 						tour_photo.title,
 						tour_price.price_per_person,
+						tour_price.price_customer_adult,
 						tour_photo.description
 						FROM
 						tour
@@ -376,12 +377,13 @@ $query1 = mysql_query("SELECT
 						tour.supplier_id,
 						tour_photo.url,
 						tour_price.price_per_person,
+						tour_price.price_customer_adult,
 						tour_photo.description
 						FROM
 						tour
 						INNER JOIN tour_price ON tour.id = tour_price.tour_id
 						INNER JOIN tour_photo ON tour.id = tour_photo.tour_id
-						WHERE tour.status = 'accepted' AND tour.city = '".$location."'  GROUP BY tour.tour_type LIMIT 12");
+						WHERE tour.status = 'accepted' AND tour_price.ishike ='1' AND tour.city = '".$location."'   GROUP BY tour.id LIMIT 12");
 						// WHERE tour.status = 'accepted' AND tour.city = '".$location."' AND tour.tour_type = '".$alla[$j]."'  GROUP BY tour.location_id");
 						  	while ($record = mysql_fetch_array($query1))
 								{
@@ -406,6 +408,7 @@ $query1 = mysql_query("SELECT
 									$tour_currency_id =  $record['currency_id'];
 
 									$tour_price_per_person =  $record['price_per_person'];
+									$price_customer_adult =  $record['price_customer_adult'];
 									$tour_price_child =  $record['price_child'];
 								  if($tour_image_url==""){
 									  $no_pic = 'no_preview.png';
@@ -413,16 +416,24 @@ $query1 = mysql_query("SELECT
 									  else {
 									  $no_pic = $tour_image_url;
 									  }
+											$string = strip_tags($record['title']);
 
+													if (strlen($string) > 40) {
+
+														$stringCut = substr($string, 0, 40);
+
+														// $string = substr($stringCut, 0, strrpos($stringCut, ' ')); 
+														  $string = substr($stringCut, 0, strrpos($stringCut, ' ')).'...'; 
+													}
 										echo '<form method="post" action="cart_update.php">';
 												echo '<div class="tour_picks fl">
 													<img src="supplier/uploads/'.$no_pic.'" alt="" width="210" height="179">
-													<h3>'.$tour_title.'</h3>';
+													<h3>'.$string.'</h3>';
 													// echo'
 													// <p><a href="#" class="reviews"><img src="images/rating_star.jpg" alt="" width="79" height="13"> 886 Reviews</a> <br>
 												  // '.$tour_location.'</p>';
 												  
-												  echo'<span>USD $'.$tour_price_per_person.'</span>
+												  echo'<span>USD $'.$price_customer_adult.'</span>
 													<div class="detail_buttons fl">
 													<a href="tour_detail.php?tour_id='.$record['id'].'" class=" view_detail fl">View Details</a>
 														<a class="add_cart fr">
@@ -433,7 +444,7 @@ $query1 = mysql_query("SELECT
 
 												echo '<input type="hidden" name="supplier_id" value="'.$record['supplier_id'].'" />';
 												echo '<input type="hidden" name="tour_title" value="'.$record['title'].'" />';
-												echo '<input type="hidden" name="price_per_person" value="'.$record['price_per_person'].'" />';
+												echo '<input type="hidden" name="price_per_person" value="'.$record['price_customer_adult'].'" />';
 												echo '<input type="hidden" name="adult" value="1" />';
 												echo '<input type="hidden" name="datepicker3" value="'.$current_date.'" />';
 												echo '<input type="hidden" name="product_code" value="'.$record['id'].'" />';

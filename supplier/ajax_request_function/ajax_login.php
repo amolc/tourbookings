@@ -15,6 +15,8 @@ if($row['email'] == $name && $row['password'] == $password){
 		session_start();
 		// store session data
 		$_SESSION['supplier_id'] = $row['id'];
+		$_SESSION['company_name'] = $row['company_name'];
+		
 	}else {
 		echo "0";
 	} 

@@ -86,7 +86,7 @@ $(document).ready(function(){
 				data: {tour_id:tour_id},
 
 				success: function(mesg) {
-					// alert(mesg);
+					alert("Image uploaded successfully");
 					 $('#photo_detail').empty().append(mesg);
 					 // location.reload();
 					 // photo_title,description,photoimg
@@ -234,6 +234,7 @@ $(document).ready(function(){
 							<div class="col-sm-5">
 								<input type="file" name="photoimg" id="photoimg" />
 							</div>
+							<div style="margin-left: 22px;margin-top: 22px;" id='preview'></div> 
 						</div>
 					</td>
 					<td>
@@ -243,6 +244,7 @@ $(document).ready(function(){
 						
 					</td>
 						<!--<div id='preview'></div>-->
+						
 									</tbody>
 
 								</table>
@@ -260,7 +262,9 @@ $(document).ready(function(){
 													<?php
 												// $tour_id = $_GET['tour_id'];
 												$sql = mysql_query('SELECT * FROM tour_photo where tour_id = "'.$tour_id.'"');
-												while ($row = mysql_fetch_array($sql)) 
+												 if(mysql_num_rows($sql)) 
+											{
+											while ($row = mysql_fetch_array($sql)) 
 													{ 
 													
 												echo'
@@ -277,6 +281,7 @@ $(document).ready(function(){
 													</tr>
 													';
 													
+													}
 													}
 											?>
 											

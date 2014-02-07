@@ -5,7 +5,12 @@
  $location = $_GET['location'];
  if($location=='Singapore')
  {
- header("Location: tour_list.php?location=Singapore");
+ header("Location: singapore_city.php?location=Singapore");
+ }
+ else if($location=='Hongkong')
+ {
+ header("Location: hongkong_city.php?location=Hong Kong");
+ // echo rawurlencode('Hong kong')
  }
 	// $sql = mysql_query('SELECT * FROM tour_photo where tour_id ="23"');
 	// $sql = mysql_query("SELECT
@@ -189,58 +194,72 @@ $(document).ready(function(){
             	<div class="flexslider">
           <ul class="slides">
             <li>
-  	    	    <img src="images/Hongkong.jpg" width="1002" height="391">
-				<div style="position: absolute;background: rgba(255, 255, 255, 0.8);margin-top: -78px;z-index: 9999;margin-left: 17px;padding-left: 11px;padding-top: 2px;padding-bottom: 6px;padding-right: 10px;">
-					<h1 style="color: #fd8900;font-size: 30px;"><a href="index_city.php?location=Hongkong">Hongkong</a></h1>
+  	    	    <img  src="images/Hongkong.jpg" width="1002" height="391">
+				<div class="Hongkong_index_city">
+					<h1><a href="index_city.php?location=Hongkong">Hongkong</a></h1>
 				<!--	<p>For all you shopaholics, you cannot miss out on the plethora of markets that Hong Kong has to offer</p>-->
 				</div>
   	    		</li>
   	    		<li>
   	    	    <img src="images/India.jpg" width="1002" height="391">
-				<div style="position: absolute;background: rgba(255, 255, 255, 0.8);margin-top: -78px;z-index: 9999;margin-left: 17px;padding-left: 11px;padding-top: 2px;padding-bottom: 6px;padding-right: 10px;">
-			<h1 style="color: #fd8900;font-size: 30px;"><a href="index_city.php?location=India">	India</a></h1>
+				<div class="India_index_city">
+			<h1><a href="index_city.php?location=India">	India</a></h1>
 					<!--<p>Visit the famous Taj Mahal, the ruins of Hampi or try Camel trekking!</p>-->
 				</div>
   	    		</li>
   	    		<li>
   	    	    <img src="images/Indonesia.jpg" width="1002" height="391">
-					<div style="position: absolute;background: rgba(255, 255, 255, 0.8);margin-top: -78px;z-index: 9999;margin-left: 17px;padding-left: 11px;padding-top: 2px;padding-bottom: 6px;padding-right: 10px;">
-				<h1 style="color: #fd8900;font-size: 30px;"><a href="index_city.php?location=Indonesia">Indonesia</a></h1>
+					<div class="indonesia_index_city">
+				<h1><a href="index_city.php?location=Indonesia">Indonesia</a></h1>
 					<!--<p>Hosting some of the world’s most beautiful beaches</p>-->
 				</div>
   	    		</li>
   	    		<li>
   	    	    <img src="images/Malaysia.jpg" width="1002" height="391">
-					<div style="position: absolute;background: rgba(255, 255, 255, 0.8);margin-top: -78px;z-index: 9999;margin-left: 17px;padding-left: 11px;padding-top: 2px;padding-bottom: 6px;padding-right: 10px;">
-				<h1 style="color: #fd8900;font-size: 30px;"><a href="index_city.php?location=Malaysia">Malaysia</a></h1>
+					<div class="malaysia_index_city">
+				<h1><a href="index_city.php?location=Malaysia">Malaysia</a></h1>
 					<!--<p>Playing host to one of the world’s tallest towers</p>-->
 					
 				</div>
   	    		</li>
                 <li>
   	    	    <img src="images/Philippines.jpg" width="1002" height="391">
-					<div style="position: absolute;background: rgba(255, 255, 255, 0.8);margin-top: -78px;z-index: 9999;margin-left: 17px;padding-left: 11px;padding-top: 2px;padding-bottom: 6px;padding-right: 10px;">
-				<h1 style="color: #fd8900;font-size: 30px;"><a href="index_city.php?location=Philippines">Philippines</a></h1>
+					<div class="Philippines_index_city">
+				<h1><a href="index_city.php?location=Philippines">Philippines</a></h1>
 					<!--<p>the Banaue Rice Terraces, numerous diving spots and beaches</p>-->
 				</div>
   	    		</li>
                 <li>
   	    	    <img src="images/Singapore.jpg" width="1002" height="391">
-					<div style="position: absolute;background: rgba(255, 255, 255, 0.8);margin-top: -78px;z-index: 9999;margin-left: 17px;padding-left: 11px;padding-top: 2px;padding-bottom: 6px;padding-right: 10px;">
-				<h1 style="color: #fd8900;font-size: 30px;"><a href="index_city.php?location=Singapore">Singapore</a></h1>
+					<div class="Singapore_index_city" >
+				<h1><a href="index_city.php?location=Singapore">Singapore</a></h1>
 					<!--<p>A cosmopolitan city-state that got to where it is today in just half a decade</p>-->
 				</div>
   	    		</li>
           </ul>
         </div>
       </div>
-            	<div class="center_body fl">
+          
+							<?php
+									 // include('../include/database/db.php'); 
+										$sql2 = mysql_query("SELECT country_desc
+															
+															FROM country WHERE country_name='".$location."'
+															
+															");		
+										while ($row2 = mysql_fetch_array($sql2)) 
+											{ 
+											$des = $row2['country_desc'];
+											  
+											}
+									?>
+
+		  <div class="center_body fl">
                 
                 	<div class="body_content fl">
                     	<div class="latest_offers">
-                        	<h1>Welcome to TourBookings!</h1>
-                            <p>Through the hard work of our staff here at Tour Bookings, we are able to bring to you these irresistible deals at highly affordable prices. With a wide range of tours and deals available for all ages at these six beautifully unique countries, what are you waiting for? It doesn’t get anymore Asian than this!
-</p>
+                        	<h1><?php echo $location; ?></h1>
+                            <p><?php echo $des; ?></p>
                         </div>
                         
                    	  <div class="different_city fl">
@@ -270,7 +289,7 @@ $(document).ready(function(){
 			}
 else {
 
-	echo "<span style='font-size: 20px; font-weight: bold;padding-left: 20px;'>No City Found!</span>";
+	echo "<span style='font-size: 20px; font-weight: bold;padding-left: 20px;'>Uh No! No tours at the moment, maybe contact <span style='color:#fd8900;'>support@tourbookings.co</span></span>";
 }			
 						
 						?>

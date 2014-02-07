@@ -258,7 +258,7 @@ $exp_date = date("m/d/Y", $date);
 					
 					// echo $mail_sent ? " Your Tour Detail Sent To Your Inbox" : "Mail failed";
 	 
-		echo "<h3>Thank you for joining our Travel Partner Program. <a href='index.php'> Click here</a> to go your homepage.  </h3>";
+		echo "<h3 style='padding-top: 13px;'><span style='font-size: 17px; '>Thank you for joining our Travel Partner Program. <a href='index.php' style='font-size:20px;'> Click here</a> to go your homepage. </span> </h3>";
 	}else {
 		echo "error";
 	} 
