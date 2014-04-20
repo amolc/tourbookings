@@ -79,15 +79,15 @@ session_start();
 <table class="table table-bordered datatable" id="table-1">
 	<thead>
 		<tr>
-			<th aria-sort="descending">Id</th>
+			<th aria-sort="descending">ID</th>
 			<th>Images</th>
 			<th>Title</th>
 			<th>Location</th>
 			<th>City</th>
 			<th>Duration</th>
-			<th>Price Adult</th>
-			<th>Price child</th>
-			<th>Add To Cart</th>
+			<th>Partner Price Adult</th>
+			<th>Partner Price child</th>
+			<th>Book Now</th>
 		</tr>
 	</thead>
 
@@ -98,6 +98,7 @@ session_start();
 						t.url,
 						p.id,
 						p.title,
+						p.location_id,
 						p.city,
 						p.`status`,
 						p.supplier_id,
@@ -106,31 +107,44 @@ session_start();
 						p.why_this,
 						p.duration,
 						tour_price.price_customer_adult,
-						tour_price.price_customer_child
+						tour_price.price_customer_child,
+						tour_price.price_partner_adult,
+						tour_price.price_partner_child
 					FROM
 					tour AS p
 					LEFT JOIN tour_photo AS t ON (p.id = t.tour_id)
 					INNER JOIN tour_price ON p.id = tour_price.tour_id
-					WHERE p.status = 'accepted' AND p.supplier_id != '".$supplier_id."'
+					WHERE p.status = 'accepted'
 					GROUP BY p.id
 						");
 		//fetch tha data from the database
+
+
+
+		$no_pic ="";
 		while ($row = mysql_fetch_array($result))
 		{
 
+		if($row['url']==""){
+           $no_pic = 'no_preview.png';
+           }
+           else {
+           $no_pic = $row['url'];
+           }
+
 	echo'
 		<tr class="odd gradeX">
-			<td>'.$row['id'].'</td>
-			<td><img style="width: 90px;height: 90px;" class="preview" src="../supplier/uploads/'.$row['url'].'"/></td>
+			<td>'.$row['id'].'</td> 
+			<td><img style="width:90px;height: 90px;" class="preview" src="uploads/'.$no_pic .'"/></td>
 			<td style=""><a href="supplier_view_tour_detail.php?tour_id='.$row['id'].'" class="">'.$row['title'].'</a></td>
 			<td>'.$row['location_id'].'</td>
 			<td>'.$row['city'].'</td>
 			<td>'.$row['duration'].' </td>
-			<td>$'.$row['price_customer_adult'].' </td>
-			<td>$'.$row['price_customer_child'].' </td>
+			<td>$'.$row['price_partner_adult'].' </td>
+			<td>$'.$row['price_partner_child'].' </td>
 			<td>
-					<a href="supplier_add_to_cart.php?tour_id='.$row['id'].'" class="btn btn-default btn-sm btn-icon icon-left">
-						Add To Cart
+					<a href="book_now.php?tour_id='.$row['id'].'" class="btn btn-default">
+						Book Now
 					</a>
 			</td>
 		</tr>
@@ -142,14 +156,14 @@ session_start();
 	</tbody>
 	<tfoot>
 		<tr>
-			<th aria-sort="descending">Id</th>
+			<th aria-sort="descending">ID</th>
 			<th>Images</th>
 			<th>Title</th>
 			<th>Location</th>
 			<th>City</th>
 			<th>Duration</th>
-				<th>Price Adult</th>
-			<th>Price child</th>
+			<th>Partner Price Adult</th>
+			<th>Partner Price child</th>
 			<th>Add To Cart</th>
 		</tr>
 	</tfoot>

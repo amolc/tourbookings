@@ -12,14 +12,24 @@ session_start();
  // }
  // else {
 
-	$tour_id = mysql_real_escape_string($_POST['tour_id']);
-	$adult = mysql_real_escape_string($_POST['adult']);
-	$child = mysql_real_escape_string($_POST['child']);
-		$datepicker3 = mysql_real_escape_string($_POST['datepicker3']);
-	$datepicker4 = mysql_real_escape_string($_POST['datepicker4']);
-	$tour_title = mysql_real_escape_string($_POST['tour_title']);
-	$supplier_id = mysql_real_escape_string($_POST['supplier_id']);
-	$price_per_person = mysql_real_escape_string($_POST['price_per_person']);
+	$tour_id = mysql_real_escape_string($_REQUEST['tour_id']);
+	$adult = mysql_real_escape_string($_REQUEST['adult']);
+	$child = mysql_real_escape_string($_REQUEST['child']);
+	$datepicker3 = mysql_real_escape_string($_REQUEST['datepicker3']);
+	$datepicker4 = mysql_real_escape_string($_REQUEST['datepicker4']);
+	$tour_title = mysql_real_escape_string($_REQUEST['tour_title']);
+	$supplier_id = mysql_real_escape_string($_REQUEST['supplier_id']);
+	$price_per_person = mysql_real_escape_string($_REQUEST['price_per_person']);
+	/*echo $tour_id.'id<br>';
+	echo $adult.'<br>';
+	echo $child.'<br>';
+	echo $datepicker3.'<br>';
+	echo $tour_title.'<br>';
+	echo $supplier_id.'<br>';
+	echo $price_per_person.'<br>';
+	 
+	
+	exit; */
 
  // }
 	// $total_price_c = mysql_real_escape_string($_POST['total_price_c']);
@@ -31,8 +41,8 @@ session_start();
 //add item in shopping cart
 if($_POST["type"]=='add')
 {
-	$product_code 	= filter_var($_POST["product_code"], FILTER_SANITIZE_STRING); //product code
-	$return_url 	= base64_decode($_POST["return_url"]); //return url
+	$product_code 	= filter_var($_REQUEST["product_code"], FILTER_SANITIZE_STRING); //product code
+	$return_url 	= base64_decode($_REQUEST["return_url"]); //return url
 
 	//MySqli query - get details of item from db using product code
 	// $results = mysql_query("SELECT id,title,hilight FROM tour WHERE id='$product_code' LIMIT 1");
@@ -235,6 +245,8 @@ $(".adult").keyup(function(){
 							if(isset($_SESSION["products"]))
 							{
 								$total = 0;
+								$total_ad = 0;
+								$total_ch = 0;
 								echo '<form method="post" action="payment.php">';
 								foreach ($_SESSION["products"] as $cart_itm)
 								{
@@ -315,6 +327,18 @@ $(".adult").keyup(function(){
 						$subtotal = ($cart_itm["price"]*$cart_itm["qty"]);
 									$total = ($total + $subtotal);
 
+						// $subtota_qty = $cart_itm["qty"];
+									If($total_ad < $cart_itm['ad'] )
+									{
+
+									$total_ad =  $cart_itm['ad'];
+									}
+									If($total_ch < $cart_itm['ch'] )
+									{
+
+									$total_ch =  $cart_itm['ch'];
+									}
+									
 
 
 								}
@@ -325,6 +349,7 @@ $(".adult").keyup(function(){
 								<div class="wishlist_cotnt_head fl" style="height:15px !important;"></div>
 								
 								<div style="height:150px;width"1000px;" class="check-out-txt">
+								
 									<div class="total_price">Total : <span class="t_price">USD $'.$currency.$total.'</span></div>
 										<input type="hidden" class="price_session" name="supplier_id" value="'.$cart_itm["supplier_id"].'">
 										<input type="hidden" class="price_session" name="tour_id" value="'.$cart_itm["tour_id"].'">
@@ -332,9 +357,10 @@ $(".adult").keyup(function(){
                                 	<input type="hidden" class="price_session" name="deparchture_time" value="'.$cart_itm["deparchture_time"].'">
                                 	<input type="hidden" class="price_session" name="name" value="'.$cart_itm["name"].'">
                                 	<input type="hidden" class="price_session" name="date" value="'.$cart_itm["date"].'">
-                                	<input type="hidden" class="price_session" name="ad" value="'.$cart_itm["ad"].'">
-                                	<input type="hidden" class="price_session" name="ch" value="'.$cart_itm["ch"].'">
+                                	<input type="hidden" class="price_session" name="ad" value="'.$total_ad.'">
+                                	<input type="hidden" class="price_session" name="ch" value="'.$total_ch.'">
                                 	<input type="hidden" class="price_session" name="country" value="'.$cart_itm["location_id"].'">
+                                	<input type="hidden" class="price_session" name="qty" value="'.$cart_itm["qty"].'">
                                 	<input type="hidden" class="price_session" name="total" value="'.$currency.$total.'">
 									<div class="submit_cart">
 										<input type="submit" value="Proceed To Check-Out"/>

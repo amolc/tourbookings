@@ -112,7 +112,7 @@ $(document).ready(function(){
 
 			<div class="panel-heading">
 				<div class="panel-title">
-					Over View
+					Overview
 				</div>
 
 				<div class="panel-options">
@@ -149,14 +149,156 @@ $(document).ready(function(){
 								$current_date = date("m/d/Y", $today_date);
 							// echo $total;
 							
-						$sql2   = "insert into supplier_balance(supplier_id,available_balance,amount_deposit,type,currency,description,insert_date) values ('$supplier_id','$total','$amount_deposit','deposit','USA Doller','$description','$current_date')";
+						$sql2   = "insert into supplier_balance(supplier_id,available_balance,amount_deposit,type,currency,description,status,insert_date) values ('$supplier_id','$total','$amount_deposit','deposit','USA Doller','$description','pending','$current_date')";
 							$query = mysql_query($sql2);
 							
 							if($query)
 							{
+							$supplier_result = mysql_query("select * from supplier where id ='".$supplier_id."'");
+							$supplier_row = mysql_fetch_array($supplier_result); 					
+							$supplier_email = $supplier_row ['email'];
+							$supplier_fname = $supplier_row ['first_name'];
+							$supplier_lname = $supplier_row ['last_name'];
+							
+			   
+								$to = $supplier_email ;					
+								$subject = "Deposit Pending";
+								$message = '<!doctype html>
+									<html>
+									<head>
+									<meta charset="utf-8">
+									<title>Tour bookings</title>
+									<style>
+									body { margin:0px; padding:0px;}
+									</style>
+									</head>
+
+									<body>
+									 <div style="width:500px; min-height:450px; margin:0 auto; background:#e2e2e2;">
+										
+										 <div style="width:440px; min-height:390px; margin:30px; float:left; background:white;">
+											 <div style="width:440px; height:80px; border-bottom:#e1e1e1 solid 1px; background:#f5f5f5;">
+												 <a href="#" style="float:left; margin:18px 20px 0px 19px;"><img width="112" height="45 " alt="" src="http://tourbookings.co/images/tourbooking_logo.png"></a>
+												 <h1 style="float:left; font-family:Arial, Helvetica, sans-serif; line-height:80px; color:#fd8900 !important; font-size:24px; letter-spacing:2px; font-weight:bold; display:block; margin:0px; text-decoration:none;">TOURBOOKINGS.CO</h1>
+												</div>
+									   
+												
+												<div style="width:440px; float:left;">
+												 <h1 style="float:left; border-bottom:#e1e1e1 solid 1px; width:440px; font-family:Arial, Helvetica, sans-serif; text-indent:20px; line-height:40px; color:#323232; font-size:14px; font-weight:bold; display:block; margin:0px; text-decoration:none;"><span style="color:#fd8900; margin-right:5px;">Dear,</span>'.$supplier_fname.' '.$supplier_lname.'</h1>
+													
+													<p style="float:left; width:400px;padding:0px 20px; font-family:Arial, Helvetica, sans-serif; color:#727172; font-size:14px; line-height:20px; margin-bottom:80px;">This is to inform you that we have received notice of the deposit you make and will credit the funds to your account shortly.
+													<br />
+													Do check out the My Shop feature in the mean time!
+													</p>
+												</div>
+												
+												<div style="width:440px; float:left;">
+												 <h1 style="float:left; border-top:#e1e1e1 solid 1px; width:420px; font-family:Arial, Helvetica, sans-serif; height:53px; color:#323232; font-size:14px; font-weight:bold; display:block; margin:0px; text-decoration:none; padding:15px 0px 0px 20px;">Best Wishes,<br>
+
+									<a href="#" style="color:#fb8900; text-decoration:none;">TourBookings</a></h1>
+												</div>
+											</div>
+											<div style="clear:both;"></div>
+									   </div>
+									</body>
+									</html>';								
+									$headers  = 'MIME-Version: 1.0' . "\r\n";
+									$headers .= 'Content-type: text/html; charset=iso-8859-1' . "\r\n";
+									$headers .= 'To: '.$email.'' . "\r\n";
+									$headers .= 'From: support@tourbookings.co' . "\r\n";					
+									mail( $to, $subject, $message, $headers );
+									//email send to admin 
+										$to2 = 'support@tourbookings.co'; 
+										// $to1 ='';
+										$subject2 = "Payment Deposit";  
+										// $message = "Your user name is email  '".$email."' and password  '".$pass."'"; 
+										$message2 = '
+														<b>Dear Support,</b>
+														<div>
+														 Payment Deposit from Partner
+														</div>
+														<br />
+														<br />
+														
+														<br /><br /><br />
+														<div>
+															<b>Best Regards,</b>
+														</div>
+														<div>
+															Tour Bookings 
+														</div>
+														';
+														
+													
+										$headers2  = 'MIME-Version: 1.0' . "\r\n";
+									$headers2 .= 'Content-type: text/html; charset=iso-8859-1' . "\r\n";
+
+									// Additional headers 
+									$headers2 .= 'To: support@tourbookings.co' . "\r\n";
+									$headers2 .= 'From: support@tourbookings.co' . "\r\n";
+
+									// $headers2 .= 'Cc: '.$customer_email.'' . "\r\n"; 
+
+										$mail_sent1 = mail( $to2, $subject2, $message2, $headers2 );
+										
+										// echo $mail_sent1 ? " Your Tour Detail Sent To Your Inbox" : "Mail failed";
 								echo "Successful Deposit";
 							}
 							else {
+							$supplier_result = mysql_query("select * from supplier where id ='".$supplier_id."'");
+							$supplier_row = mysql_fetch_array($supplier_result); 					
+							$supplier_email = $supplier_row ['email'];
+							$supplier_fname = $supplier_row ['first_name'];
+							$supplier_lname = $supplier_row ['last_name'];
+							
+			   
+								$to = $supplier_email ;					
+								$subject = "Deposit Failed";
+								$message = '<!doctype html>
+									<html>
+									<head>
+									<meta charset="utf-8">
+									<title>Tour bookings</title>
+									<style>
+									body { margin:0px; padding:0px;}
+									</style>
+									</head>
+
+									<body>
+									 <div style="width:500px; min-height:450px; margin:0 auto; background:#e2e2e2;">
+										
+										 <div style="width:440px; min-height:390px; margin:30px; float:left; background:white;">
+											 <div style="width:440px; height:80px; border-bottom:#e1e1e1 solid 1px; background:#f5f5f5;">
+												 <a href="#" style="float:left; margin:18px 20px 0px 19px;"><img width="112" height="45 " alt="" src="http://tourbookings.co/images/tourbooking_logo.png"></a>
+												 <h1 style="float:left; font-family:Arial, Helvetica, sans-serif; line-height:80px; color:#fd8900 !important; font-size:24px; letter-spacing:2px; font-weight:bold; display:block; margin:0px; text-decoration:none;">TOURBOOKINGS.CO</h1>
+												</div>
+									   
+												
+												<div style="width:440px; float:left;">
+												 <h1 style="float:left; border-bottom:#e1e1e1 solid 1px; width:440px; font-family:Arial, Helvetica, sans-serif; text-indent:20px; line-height:40px; color:#323232; font-size:14px; font-weight:bold; display:block; margin:0px; text-decoration:none;"><span style="color:#fd8900; margin-right:5px;">Dear,</span>'.$supplier_fname.' '.$supplier_lname.'</h1>
+													
+													<p style="float:left; width:400px;padding:0px 20px; font-family:Arial, Helvetica, sans-serif; color:#727172; font-size:14px; line-height:20px; margin-bottom:80px;">We regret to inform you that your recent deposit has failed to reach us.
+													<br />
+													Kindly try again and contact us if this issue persists .
+
+													</p>
+												</div>
+												
+												<div style="width:440px; float:left;">
+												 <h1 style="float:left; border-top:#e1e1e1 solid 1px; width:420px; font-family:Arial, Helvetica, sans-serif; height:53px; color:#323232; font-size:14px; font-weight:bold; display:block; margin:0px; text-decoration:none; padding:15px 0px 0px 20px;">Best Wishes,<br>
+
+									<a href="#" style="color:#fb8900; text-decoration:none;">TourBookings</a></h1>
+												</div>
+											</div>
+											<div style="clear:both;"></div>
+									   </div>
+									</body>
+									</html>';								
+									$headers  = 'MIME-Version: 1.0' . "\r\n";
+									$headers .= 'Content-type: text/html; charset=iso-8859-1' . "\r\n";
+									$headers .= 'To: '.$email.'' . "\r\n";
+									$headers .= 'From: apache@iamamol.com' . "\r\n";					
+									mail( $to, $subject, $message, $headers );
 								echo "error";
 							}
 										

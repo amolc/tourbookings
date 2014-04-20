@@ -1,5 +1,27 @@
 <?php
  include('../include/database/db.php'); 
+ 
+ if(isset($_POST['compagin'])){
+ $ids = $_POST['ids'];
+ $filter = $_POST['filter'];
+ $sort_cat = $_POST['sort_cat'];
+ $enter_date = date('m/d/Y H:i:s');
+ $name = $sort_cat.".".$filter.".".$enter_date;
+ //echo $filter;
+ //echo "<br>qasim";
+ if($ids != ""){
+ $customer_id = implode(',',$ids);
+ 
+ $compagin_query = "insert into compagin (customer_id,name,sorted_by,enter_date) values ('$customer_id','$name','$filter','$enter_date')";
+ mysql_query($compagin_query) or die(mysql_error());
+ 
+header("Location:email_to_marketing.php?saved=ok");
+ 
+ }
+
+ 
+ }
+ 
  ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -27,6 +49,100 @@
 	  <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
 	  <script src="https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script>
 	<![endif]-->
+		<script type="text/javascript">
+		$(document).ready(function(){
+		
+		$('.after_sort_show').hide();
+			// $('.sort_by').change(function(){
+					 
+				// var field_name = $(this).val();
+				//alert(field_name);
+
+				// $.ajax({
+						// type: 'post',
+						// url: 'ajax_request_function/ajax_sort_Markeeting_listing.php',
+						// data: {field_name:field_name},
+
+						// success: function(mesg) {
+							//alert(mesg);
+
+						// }
+
+				// });
+
+			// });		
+			
+			$('#filter').keyup(function(){
+					 
+				var field_name = $('.sort_by').val();
+				var filter = $('#filter').val();
+				if (filter == ""){
+						$('.after_sort_hide').show();					
+						$('.after_sort_show').hide();
+				}else{
+				//alert(filter);
+				$.ajax({
+						type: 'post',
+						url: 'ajax_request_function/ajax_sort_Markeeting_listing.php',
+						data: {field_name:field_name,filter:filter},
+
+						success: function(mesg) {
+						$('.after_sort_hide').hide();
+						$('.after_sort_show').empty().append(mesg);						
+						$('.after_sort_show').show();
+							//alert(mesg);
+
+						}
+
+				});
+				}
+
+			});		
+			
+			
+			
+			
+				$('.edit').click(function(){
+					// alert('ok');
+				var tour_id = $( this ).parent().parent().attr('id');
+
+				$.ajax({
+						type: 'post',
+						url: 'ajax_request_function/ajax_edit_marketing.php',
+						data: {tour_id:tour_id},
+
+						success: function(mesg) {
+							alert(mesg);
+
+						}
+
+				});
+
+			});		
+			
+				$('.delete').click(function(){
+					
+				var tour_id = $( this ).parent().parent().attr('id');
+				$( this ).parent().parent().remove();
+						// alert(tour_id);
+				$.ajax({
+						type: 'post',
+						url: 'ajax_request_function/ajax_decline.php',
+						data: {tour_id:tour_id},
+
+						success: function(mesg) {
+							alert(mesg);
+							
+						}
+
+				});
+
+			});
+			
+			
+		});
+	</script>
+	
 	
 		<script type="text/javascript">
 		$(document).ready(function(){
@@ -35,37 +151,42 @@
 			*@author:	razamalik@outlook.com
 			*@date:	1 january 2014 1:28 PM GM+5
 			*/
-			$('#send_email').click(function(){
+             // checks,un check all check boxes
+			$("#checkAll").click(function () {
+			$('input:checkbox').not(this).prop('checked', this.checked);
+			});
+			
+			//$('#compagin').click(function(){
 							 
-				var to = new Array();
+				//var to = new Array();
 				
-				$('input[name=email_checkbox]:checked').each(function() {
-					to.push($(this).val());
-				});
+				//$('input[name=email_checkbox]:checked').each(function() {
+				//	to.push($(this).val());
+			//	});
 			
 				// var to = $('#to').val();
-				var subject = $('#subject').val();
-				var message = $('#sample_wysiwyg').val();
-				alert(to);
+				//var subject = $('#subject').val();
+				//var message = $('#sample_wysiwyg').val();
+				//alert(to);
 				// alert(admin_pass);
-				$.ajax({
-						type: 'post',
-						url: 'ajax_request_function/ajax_send_email.php',
-						data: {to:to,subject:subject,message:message},
+				//$.ajax({
+						//type: 'post',
+						//url: 'ajax_request_function/ajax_send_email.php',
+						//data: {to:to,subject:subject,message:message},
 						
-						success: function(mesg) {
+						//success: function(mesg) {
 						// if(mesg == '1'){
 							// window.location = "dashboard.php";
 						// }else{
 							// $('.message').empty().append('User Name & Password Wrong!');	
 						// }
 						
-							alert(mesg);
+						//	alert(mesg);
 						
-						}
+						//}
 				
-				});
-			});
+				//});
+			//});
 		});
 
 </script>
@@ -85,51 +206,79 @@
 	<!-- compose new email button -->
 	<div class="mail-sidebar-row visible-xs">
 		<a href="../../../neon-x/mailbox/compose/index.html" class="btn btn-success btn-icon btn-block">
-			Compose Mail
-			<i class="entypo-pencil"></i>
+							Leads Listing 
+
+			
 		</a>
 	</div>
 	
 	
 	<!-- Mail Body -->
 	<div class="mail-body">
-		
+		<?php if(isset($_REQUEST["updated"])){
+			echo "<h1>Record Updated</h1>";
+		}
+		if(isset($_REQUEST["saved"])){
+			echo "<h1>Compagin Saved</h1>";
+		}?>
+		<form method="post" action=""> 
 		<div class="mail-header">
 			<!-- title -->
 			<div class="mail-title">
-				Compose Mail <i class="entypo-pencil"></i>
+				Leads Listing 
 			</div>
 			
 			<!-- links -->
 			<div class="mail-links">
+			
+						<div class="form-group">
+							<label class="col-sm-3 control-label" style="width:74px;float:left;top: 8px;">Sort By</label>
 
+							<div class="col-sm-5" style="width:40.667%; float:left;">
+								<select  class="sort_by" name="sort_cat"  class="form-control" style="padding:6px 4px;">
+									<?php	//$selected = ($row['id']==$tour_currency_id) ? ' selected="selected"' : ''; ?>
+									<option  value="1"></option>
+									<option value="name">Name</option>
+									<option value="email">Email</option>
+									<option value="city">City</option>
+									<option value="country">Country</option>
+									<option value="join_date">Joining Date</option>
+
+								</select>
+							</div>
 				
-				<a id="send_email" class="btn btn-success btn-icon">
-					Send
-					<i class="entypo-mail"></i>
-				</a>
+							<input type="text" id="filter" name="filter"/>
+							<button class="btn btn-success btn-icon" name="compagin" type="submit" id="compagin">Save To Compagin</button>
+						<!--	<a id="compagin" class="btn btn-success btn-icon" style="float:left;">
+								Save To Compagin
+							</a>-->
+						</div>
 				
 			</div>
 		</div>
 		
-		
-		<div class="mail-compose">
-		
-			<form method="post" role="form">
-				
-				<div class="form-group">
-				
-
+		<div class="after_sort_show"></div>
+		 </form>      
+		<div class="after_sort_hide">
 					<table class="table table-bordered datatable" id="table-1">
 						<thead>
 							<tr>
-								<th>
+							
+							<!--	<th>
 									<input type="checkbox" id="checkAll">
 									
-								</th>
-								<th>Name</th>
-								<th>Phone</th>
+								</th> -->
+								
+							    <th>ID</th>
+								<th>Name</th>								
 								<th>Email</th>
+								<th>Contact No</th>
+								<th>Company Name</th>
+								<th>Address</th>
+								<th>City</th>							
+								<th>Country</th>
+								<th>Joining Date</th>
+								<th>Edit/Delete</th>
 
 							</tr>
 						</thead>
@@ -143,13 +292,29 @@
 							
 						echo'
 							<tr class="odd gradeX">
-								<th>
-									<input type="checkbox" value="'.$row['email'].'" name="email_checkbox" class="email_checkbox" id="chk-1">
 								
-								</th>
+								<td>'.$row['id'].'</td>
 								<td>'.$row['name'].'</td>
-								<td>'.$row['phone'].'</td>
+								
 								<td>'.$row['email'].'</td>
+								<td>'.$row['contact_number'].'</td>
+								<td>'.$row['company_name'].'</td>
+								<td>'.$row['address'].'</td>
+								<td>'.$row['city'].'</td>
+								
+								<td>'.$row['country'].'</td>
+								<td>'.$row['join_date'].'</td>
+								<td>
+									<a href="edit_marketing.php?id='.$row['id'].'" class="edit btn btn-default btn-sm btn-icon icon-left">
+										<i class="entypo-pencil"></i>
+										Edit
+									</a>
+									
+									<a href="delete_marketing.php?id='.$row['id'].'" onclick="return confirm('."sure!!!".')" class="delete btn btn-danger btn-sm btn-icon icon-left">
+										<i class="entypo-cancel"></i>
+										Delete
+									</a>
+								</td>
 							</tr>
 							';
 							
@@ -159,6 +324,7 @@
 
 						</tbody>
 					</table>
+		</div>
 
 						<script type="text/javascript">
 							jQuery(document).ready(function($)
@@ -180,31 +346,6 @@
 							});
 						</script>
 									
-				</div>
-				
-				<div class="form-group hidden">
-					<label for="cc">CC:</label>
-					<input type="text" class="form-control" id="cc" tabindex="2" />
-				</div>
-				
-				<div class="form-group hidden">
-					<label for="bcc">BCC:</label>
-					<input type="text" class="form-control" id="bcc" tabindex="2" />
-				</div>
-				
-				<div class="form-group">
-					<label for="subject">Subject:</label>
-					<input type="text" class="form-control" id="subject" tabindex="1" />
-				</div>
-				
-				
-				<div class="compose-message-editor">
-					<textarea class="form-control wysihtml5" name="sample_wysiwyg" id="sample_wysiwyg"></textarea>
-				</div>
-				
-			</form>
-		
-		</div>
 		
 	</div>
 	

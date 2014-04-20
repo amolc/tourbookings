@@ -71,10 +71,10 @@ $(document).ready(function(){
             </div>
     	</div>
 
-        	<div class="banner fl"><img src="images/corporate_group.jpg" alt="" width="1002" height="391"></div>
+        	<div style="display:none;" class="banner fl"><img src="images/corporate_group.jpg" alt="" width="1002" height="240"></div>
 
             	<div class="center_body fl">
-                	<div style="background:#fd8900;" class="left_penal fl">
+                	<div style="background:none;width: 170px;" class="left_penal fl">
                     	<div style="background:none;" class="insider_guide fl">
                         	<!--<h1>Insider's Guide to Singapore</h1>
                             <p>Major attractions, tips and our top<br>
@@ -148,7 +148,7 @@ $(document).ready(function(){
                     	<div class="right_penal fl">
 						<form method="post" action="insert_user_registration.php">
 							<div class="register_head fl">
-                            	<h2>Register to become a member</h2><br>
+                            	<h2>Register to create an account</h2><br>
                                 <p>Note - All fields are required</p>
                             </div>
 
@@ -161,7 +161,7 @@ $(document).ready(function(){
                                   <input name="first_name" id="first_name" type="text" placeholder="First Name" required>
                                   <label> Last name:</label>
                                   <input name="last_name" id="last_name" type="text" placeholder="Last Name" required>
-                                <label> User email:</label>
+                                <label>  Email:</label>
                                   <input name="email" id="email" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$"  type="text" placeholder="Email" required>
                                 
                                 <label> Password:</label>
@@ -171,6 +171,7 @@ $(document).ready(function(){
                               </div>
                             </div>
 
+                            <!--<div style="display:none;" class="administrator_details fl">-->
                             <div class="administrator_details fl">
 
                                 <h4>Personal details</h4>
@@ -655,7 +656,7 @@ $(document).ready(function(){
 
 
                               <div class="register_form fl">
-                                <input name="submit" value="SignUp" id="registeration_button" type="submit">
+                                <input name="submit" value="Sign Up" id="registeration_button" type="submit">
 								<h2 style="padding-left: 360px;" class="success_mesg"></h2>
                               </div>
                             </div>

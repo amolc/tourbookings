@@ -1,7 +1,9 @@
-           	  <div class="top_nav fr">
+    <?php include 'config.php'; ?>
+              
+              <div class="top_nav fr">
                	<ul>
 					<?php
-						 session_start();
+						@session_start();
 						// if(isset($_SESSION['company_name']))
 						// {
 						// $supplier_id = $_SESSION['supplier_id'];
@@ -70,6 +72,7 @@
 					?>	
 						<!--<li><a href="">Acount Balance: $ <?php //echo $balance; ?></a></li>
 						<li><a href=""><?php //echo $company_name; ?></a></li>
+                                                <li><a href="blog_view.php">Blog</a></li>
 						<li><a href="logout.php">Logout</a></li>
 						<!--<li><a href="#">Help</a></li>-->
 
@@ -81,7 +84,10 @@
 							$username = $_SESSION['user_name'];
 					?>	
 						<li><a href=""><?php echo $username; ?></a></li>
+						<li><a href="change_user_password.php">Change Password</a></li>
+                                                 <li><a href="blog_view.php">Blog</a></li>
 						<li><a href="logout.php">Logout</a></li>
+						
 						<!--<li><a href="#">Help</a></li>-->
 
 					<?php
@@ -90,8 +96,9 @@
 						?>
 							<!--<li><a href="contact_us.php">Contact&nbsp;Us</a></li>-->
 							
-							<li><a href="user_registeration_form.php">SignUp</a></li>
-							<li><a href="user_login.php">Login</a></li>
+							<li><a href="<?php echo SITE_URL; ?>/user_registeration_form.php">Sign Up</a></li>
+                                                         <li><a href="<?php echo SITE_URL; ?>/blog_view.php">Blog</a></li>
+							<li><a href="<?php echo SITE_URL; ?>/user_login.php">Login</a></li>
 							<!--<li><a href="help.php">Help</a></li>-->
 						<?php
 

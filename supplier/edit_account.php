@@ -19,6 +19,7 @@ $query = mysql_query("SELECT *
 			$account_type =  $record['account_type'];
 			$bank_name =  $record['bank_name'];
 			$swift_code =  $record['swift_code'];
+			$routing_no =  $record['routing_no'];
 			$address =  $record['address'];
 			
 
@@ -148,6 +149,7 @@ $(document).ready(function(){
 						$address = mysql_real_escape_string($_POST['address']);
 						$account_number = mysql_real_escape_string($_POST['account_number']);
 						$swift_code = mysql_real_escape_string($_POST['swift_code']);
+						$routing_no = mysql_real_escape_string($_POST['routing_no']);
 						$account_name = mysql_real_escape_string($_POST['account_name']);
 						$account_id = mysql_real_escape_string($_POST['account_id']);
 						
@@ -155,7 +157,7 @@ $(document).ready(function(){
 						$query_update = "UPDATE supplier_bank_account
 											SET bank_name='".$bank_name."', account_type='".$account_type."', 
 											address='".$address."', account_number='".$account_number."',
-											swift_code='".$swift_code."', account_name='".$account_name."'
+											swift_code='".$swift_code."', routing_no='".$routing_no."', account_name='".$account_name."'
 											WHERE id='".$account_id."'";
 											
 							$result = mysql_query($query_update) or die('Error, query failed');        
@@ -208,7 +210,14 @@ $(document).ready(function(){
 							<label for="field-1" class="col-sm-3 control-label">SWIFT CODE</label>
 
 							<div class="col-sm-5">
-								<input type="text" data-validate="number"   class="form-control" name="swift_code" value="<?php echo $swift_code;?>" id="title" placeholder="" required>
+								<input type="text" data-validate="number"   class="form-control" name="swift_code" value="<?php echo $swift_code;?>" id="title0" placeholder="" required>
+							</div>
+						</div>
+						<div class="form-group">
+							<label for="field-1" class="col-sm-3 control-label">Routing Number</label>
+
+							<div class="col-sm-5">
+								<input type="text" data-validate="number"   class="form-control" name="routing_no" value="<?php echo $swift_code;?>" id="title11" placeholder="" required>
 							</div>
 						</div>
 						

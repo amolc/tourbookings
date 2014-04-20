@@ -6,7 +6,7 @@
 		<!-- logo -->
 		<div class="logo">
 			<a href="dashboard.php">
-				<h3 style="color:#fff;">Tourbooking.co</h3>
+				<h3 style="color:#fff;">Tourbookings</h3>
 			</a>
 		</div>
 		
@@ -54,7 +54,7 @@
 				</li>-->
 
 				<li> 
-					<a href="delete_edit_user.php"><span>Customer List</span></a>
+					<a href="custome_list.php"><span>Customer List</span></a>
 				</li>
 
 			</ul>
@@ -86,7 +86,7 @@
 			<a href="#"><i class="entypo-layout"></i><span>Set Upmark Pricing</span></a>
 			<ul>
 				<li>
-					<a href="pending_pricing.php"><i class="entypo-layout"></i>Pending Pricing</a>
+					<a href="pending_pricing.php"><i class="entypo-layout"></i>Set Upmark Pricing</a> 
 				</li>
 				<li>
 					<a href="confirm_pricing.php"><i class="entypo-layout"></i>Confirm Pricing</a>
@@ -97,8 +97,11 @@
 		<li>
 			<a href="#"><i class="entypo-layout"></i><span>Tour</span></a>
 			<ul>
+			<li>
+					<a href="create_tour.php"><i class="entypo-layout"></i>Create Tour</a>
+				</li>
 				<li>
-					<a href="recent_tour.php"><i class="entypo-layout"></i>Recent Tour</a>
+					<a href="recent_tour.php"><i class="entypo-layout"></i>Approve Tour</a>
 				</li>
 				<li>
 					<a href="tour_list.php"><i class="entypo-layout"></i>Tour List</a>
@@ -143,11 +146,43 @@
 			</ul>
 		</li>
 		<li>
+			<a href=""><i class="entypo-layout"></i><span> Supplier Booking</span></a>
+			<ul>	
+				<!--<li>
+					<a href="today_booking.php"><span>Today's Booking</span></a>
+				</li>-->		
+				<li>
+					<a href="supplier_pending_booking.php"><span>Pending Booking</span></a>
+				</li>			
+				<li>
+					<a href="supplier_confirm_booking.php"><span>Confirm Booking</span></a>
+				</li>				
+				<li>
+					<a href="supplier_cancel_booking.php"><span>Cancel Booking</span></a>
+				</li>	
+			</ul>
+		</li>
+		<li>
+			<a href="#"><i class="entypo-layout"></i><span>Supplier Payment approval</span></a>
+				<ul>
+					
+					<li>
+						<a href="supplier_pending_deposit.php"><span>Pending Deposit</span></a>
+					</li>
+					<li>
+						<a href="supplier_pending_withdraw.php"><span>Pending Withdraw</span></a>
+					</li>
+				</ul>
+
+		</li>
+		
+		<li>
 			<a href="admin_account.php"><i class="entypo-layout"></i><span>Account</span></a>
 				<ul>
+					
 					<li>
-						<a href="payment_recieved.php"><span>Payment </span></a>
-					</li>	
+						<a href="my_balance.php"><span>Transaction </span></a>
+					</li>
 				</ul>
 
 		</li>
@@ -166,22 +201,51 @@
 			</ul>
 			
 		</li>
+
+
+		<li>
+			<a href="#"><i class="entypo-layout"></i><span>Blog's</span></a>
+			<ul>
+				<li>
+					<a href="create_blog.php"><i class="entypo-layout"></i>Create Blog</a>
+				</li>
+				<li>
+					<a href="blog_list.php"><i class="entypo-layout"></i>Blog List</a>
+				</li>	
+			</ul>
+			
+		</li>
 		
 		<li>
 			<a href="#"><i class="entypo-layout"></i><span>Marketing</span></a>
 			<ul>
 				<li>
-					<a href="create_marketing.php"><i class="entypo-mail"></i>Create Leads</a>
-				</li>	
+					<a href="create_marketing.php"><i class="entypo-layout"></i>Add Leads</a>
+				</li>
+				
+                <li>
+					<a href="email_to_marketing.php"><i class="entypo-layout"></i>List Leads</a> 					
+				</li>					
+					
 				<li>
-					<a href="create_marketing.php"><i class="entypo-mail"></i>Manage Leads</a>
-				</li>		
+					<a href="email_template.php"><i class="entypo-mail"></i>Mail Template</a>	
+				</li>
+				
 				<li>
-					<a href="email_to_marketing.php"><i class="entypo-mail"></i>Mailbox</a>
+					<a href="compagin.php"><i class="entypo-layout"></i>Compagin</a>	
+				</li>
+				
+				<li>
+					<a href="que.php"><i class="entypo-layout"></i>Que</a>	
+				</li>
+				
+				<li>
+					<a href="mail_cron.php"><i class="entypo-layout"></i>MailCron</a>	
 				</li>
 			
 			</ul>
 		</li>
+
 
 	</ul>
 

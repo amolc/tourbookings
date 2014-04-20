@@ -34,8 +34,14 @@ $query = mysql_query("SELECT tour.id,
 						tour.local_operator_info,
 						tour_price.price_per_person,
 						tour_price.price_child,
-						tour_price.currency_id
-						FROM tour INNER JOIN tour_price ON tour.id = tour_price.tour_id	where tour.id = '".$tour_id."'");
+						tour_price.currency_id,
+						tour_price.price_partner_adult,
+						tour_price.price_partner_child,
+						tour_photo.url
+						FROM tour 
+						INNER JOIN tour_price ON tour.id = tour_price.tour_id	
+						INNER JOIN tour_photo ON tour.id = tour_photo.tour_id	
+						where tour.id = '".$tour_id."'");
 	while ($record = mysql_fetch_array($query))
 		{
 			$tour_id =  $record['id'];
@@ -59,8 +65,11 @@ $query = mysql_query("SELECT tour.id,
 			$tour_currency_id =  $record['currency_id'];
 			
 			$tour_price_per_person =  $record['price_per_person'];
+			$tour_price_partner =  $record['price_partner_adult'];
+			$tour_price_partner_child =  $record['price_partner_child'];
 			// echo $tour_price_per_person;
 			$tour_price_child =  $record['price_child'];
+			$tour_photo =  $record['url'];
 
 		}
 
@@ -126,7 +135,7 @@ font-size:12px
 	<script src="include/resource/js/jquery.easyWizard.js"></script>-->
 
 	<script type="text/javascript" src="js/jquery.min.js"></script>
-<script type="text/javascript" src="js/jquery.form.js"></script>
+<!--<script type="text/javascript" src="js/jquery.form.js"></script>-->
 
 <script type="text/javascript" >
  $(document).ready(function() {
@@ -301,7 +310,7 @@ $('#deparchture_time option').filter(function() {
 		// beforeSubmit: function(wizardObj) {
 
 
-
+ 
 
 
 		// }
@@ -309,6 +318,112 @@ $('#deparchture_time option').filter(function() {
 });
 
 </script>
+
+
+
+
+ <script type="text/javascript" src="../js/jquery.v2.0.3.js"></script>
+    <!-- Custom Select -->
+
+ <!-- <script src="../js/jquery-1.7.1.min.js" type="text/javascript"></script>-->
+  <script src="../js/jquery.hashchange.min.js" type="text/javascript"></script>
+  <script src="../js/jquery.easytabs.min.js" type="text/javascript"></script>
+<style type="text/css">
+.tour_detail_calendr > #ui-datepicker-div {
+	top: 427px!important;
+	left: 202px!important;
+}
+
+</style>
+	<script type="text/javascript">
+    $(document).ready( function() {
+	$(".next").hide();
+	
+	$(".change").click(function(){
+	var source = $(this).attr('src');
+  $(".first_image").hide();
+  $(".next_image").attr('src',source) ;
+  $(".next").show();
+});
+
+      $('#tab-container').easytabs();
+	  
+	  $('#add_to_itinerary').click(function(){
+		
+			var adult = $('#adult').val();
+			var child = $('#child').val();
+			
+			var curent_d = $('.ui-datepicker-today').children().text();
+			var c = '<?php echo $current_date; ?>';
+				var datepicker3 = $('#datepicker3').val();
+				var datepicker4 = $('#datepicker4').val();
+		if(datepicker3 > c || datepicker3 == c )	{
+			
+			
+				if(datepicker3 == "" || datepicker4 == "") {
+					alert('please select date');
+					return false;
+				}
+				
+				if(adult == "" || adult == "0") {
+					alert('Number of Adults cannot be blank');
+					return false;
+					adult.focus();
+				}
+			
+			}
+			else {
+			 alert('Please Select Current Date Or Next Date');
+			 $('#datepicker3').val('');
+			 return false ;
+			}
+			
+			
+			
+	  });
+	  
+	  // $('#datepicker3').keyup(function() {
+				  // alert('ss');
+			   // if ($(this).val() === '<?php echo $current_date; ?>')
+			   // {
+				  // alert('Please Select Current Date Or Next Date');
+			   // }    
+			// }); 
+
+			$('#adult').keyup(function() {
+				  // alert('ss');
+			   if ($(this).val() === '0')
+			   {
+				  $(this).val('1');
+			   }    
+			});
+	   // var today = new Date();
+    // var tomorrow = new Date();
+    // tomorrow.setDate(today.getDate() + 1);
+
+        // $("#minDate").datepicker({
+            // showOn: "none",
+            // minDate: tomorrow,
+            // dateFormat: "DD dd-mm-yy",
+            // onSelect: function(dateText) {
+                // minDateChange;
+            // },
+            // inputOffsetX: 5,
+        // });
+	  
+    });
+    </script>
+<div id="fb-root"></div>
+	<script>(function(d, s, id) {
+	  var js, fjs = d.getElementsByTagName(s)[0];
+	  if (d.getElementById(id)) return;
+	  js = d.createElement(s); js.id = id;
+	  js.src = "//connect.facebook.net/en_GB/all.js#xfbml=1&appId=784941191519375";
+	  fjs.parentNode.insertBefore(js, fjs);
+	}(document, 'script', 'facebook-jssdk'));
+	</script>
+
+
 </head>
 
 
@@ -321,16 +436,23 @@ $('#deparchture_time option').filter(function() {
 	<div class="main-content">
 <?php include('include/header/header.php'); ?>
 
+<h2> Tour Detail</h2>
 			<ol class="breadcrumb bc-3">
 				<li>
 					<a href="dashboard.php"><i class="entypo-home"></i>Home</a>
+				</li>
+				<li class="active">
+					<strong><a href="#"> My Shop</a></strong>
+				</li>
+				<li class="active">
+					<strong><a href="myshop_tours.php"> Tour</a></strong>
 				</li>
 				<li class="active">
 					<strong> Tour Detail</strong>
 				</li>
 			</ol>
 
-			<h2> Tour Detail</h2>
+			
 			<br />
 
 <div class="row">
@@ -340,7 +462,7 @@ $('#deparchture_time option').filter(function() {
 
 			<div class="panel-heading">
 				<div class="panel-title">
-					Over View
+					Overview
 				</div>
 
 				<div class="panel-options">
@@ -353,219 +475,122 @@ $('#deparchture_time option').filter(function() {
 
 
 			<div class="panel-body">
-			<?php
+		<!--<form action="add_to_cart.php" method="post">-->
+           	
+            <div style="float: left;margin-left: 80px;" class="right_penal">
 
-				$result = mysql_query("SELECT id FROM tour");
-
-										//fetch tha data from the database
-										while ($row = mysql_fetch_array($result))
-										{
-											$tour_id_counter =  $row['id'];
-
-										}
-			?>
-			<input type="hidden" id="tour_id" value="<?php echo $tour_id_counter + 1 ; ?>" />
-
-
-
-
-
-
-				<form  id="imageform" method="post" class="form-horizontal" enctype="multipart/form-data" action='upload.php'>
-
-						<div class="form-group">
-							<label for="field-1" class="col-sm-3 control-label">Tour Title</label>
-
-							<div class="col-sm-5">
-								<label  class="form-control" id="title"> <?php echo $tour_title ;?></label>
-							</div>
+				<span style="display:none;width: 104px;float:right;line-height: 37px;font-weight: bold;display: block;border-radius:3px;
+text-align: center;margin: 0px;margin-top: 20px;
+padding: 0px;border: none;background: #fd8900;"><a style="display: none;color:#fff; float:left; width:104px;" href="myshop_tours.php">Go Beck</a></span>
+                          <div class="picks_head fl">
+                            <h2 ><?php echo $tour_title ; ?></h2>
+                          </div>
+                          <span style="width: 104px;float:right;line-height: 37px;font-weight: bold;
+display: block;text-align: center;margin-left: 5px;margin-top: 10px;border-radius:3px;padding: 0px;
+border: none;background: #323232;"><a style="color:#fff; float:left; width:104px;" href="book_now.php?tour_id=<?php echo $tour_id;?>">Book now</a></span>
+                          <div class="adult_price fl" style="border-right: solid #949494 1px;">
+                          	<h1><p>Adult</p><?php echo"$". $tour_price_partner; ?></h1>
+                          </div>
+                			<div class="adult_price fl">
+                          		<h1><p>Child</p><?php echo"$". $tour_price_partner_child; ?></h1>
+                            </div>
+						<div>
+                          <div class="zoo_night fl">
+						  <?php		$no_pic="";
+								 if($tour_photo==""){
+									  $no_pic = 'no_preview.png';
+									  }
+									  else {
+									  $no_pic = $tour_photo;
+									  }
+						  ?>
+                          	<span class="fl first_image"><img src="uploads/<?php echo $no_pic; ?>" alt="" width="665" height="329"></span>
+                          <span  class="fl next"><img class="next_image" src="" alt="" width="665" height="329"></span></div>
+						  <div style="float:left;width:380px; height:89px; overflow-x: auto; white-space: nowrap; margin-bottom:20px;">
+						  <?php
+						  $img_query = "select url from tour_photo where tour_id = '$tour_id'";
+						  $img_result = mysql_query($img_query) or die (mysql_error());
+						  while($img_row = mysql_fetch_array($img_result))
+						  {
+								$no_pic="";
+								 if($img_row['url']==""){
+									  $no_pic = 'no_preview.png';
+									  }
+									  else {
+									  $no_pic = $img_row['url'];
+									  }
+						  ?>
+						  <a class="change" src="uploads/<?php echo $no_pic; ?>" href="#"><img  class="change_image" src="uploads/<?php echo $no_pic; ?>" alt="" width="80" height="80"></a>
+						  <?php
+						  }
+						  ?>
 						</div>
+						
 
-						<div class="form-group">
-							<label for="field-1" class="col-sm-3 control-label">Country</label>
+                          	<div id="tab-container">
+                              <ul class='etabs' style="margin:0px; float:left; width: 426px; padding: 0px;">
+                                <li class='tab'><a href="#tabs1">Overview</a></li>
+                                <li class='tab'><a href="#tabs2">Schedule</a></li>
+                                <li class='tab'><a href="#tabs3">Additional Info</a></li>
+                              </ul>
+                              <div id="tabs1" class=" three_tabs fl">
+                                <div class="overview fl">
+                                	<p class="border-bottom">
+										<?php echo $tour_overview ; ?>
+									</p>
+                                  <h1>Highlights</h1>
+                                  <ul class="border-bottom">
+                                    	
+										<?php echo $tour_hilight ; ?>
+                                    </ul>
+                                  <h1>Why Travelers Chose this Tour</h1>
+                                  <p> 
+									<?php echo $tour_hilight ; ?>
+								  </p>
+                                </div>
+                                <!-- content -->
+                              </div>
+                              <div id="tabs2" class=" three_tabs fl">
+									  	 <div class="overview fl">
+									<h1>Departure </h1>
+                                	<ul class="border-bottom">
+                                    	
+										<?php echo $tour_duration ; ?>
+                                    </ul>
+                                    <h1>Return </h1>
+                                	<ul class="border-bottom">
+                                    	
+										<?php echo $tour_return_detail ; ?>
+                                    </ul>
+                                   </div>
 
-							<div class="col-sm-5">
-								<label style="width:35%" id="photo_location_id" class="form-control">  <?php echo $tour_location ;?>   </label>
-							</div>
-						</div>
-						<div class="form-group">
-							<label for="field-1" class="col-sm-3 control-label">City</label>
+                                <!-- content -->
+                              </div>
+                              <div id="tabs3" class=" three_tabs fl">
+                              	 <div class="overview fl">
+									<h1>Inclusions</h1>
+                                	<ul class="border-bottom">
+                                    	
+										<?php echo $tour_inclusions ; ?>
+                                    </ul>
+                                    
+                                   <h1>Exclusions</h1>
+                                	<ul class="border-bottom">
+                                    	
+										<?php echo $tour_exclusions ; ?>
+                                    </ul>
+                                   
+                                    </div>
+								
+                                <!-- content -->
+                              </div>
+                            </div>
 
-							<div class="col-sm-5">
-								<label style="width:35%" class="form-control" id="city">  <?php echo $tour_city ;?> </label>
-							</div>
-						</div>
+                        </div>
+                     
+                </div>
 
-
-						<div class="form-group">
-							<label for="field-1" class="col-sm-3 control-label">Tour Duration</label>
-
-							<div class="col-sm-5">
-								<span><label  style="width:35%" class="form-control" id="duration">  <?php echo $tour_duration ;?></label> </span>
-								<span style="margin-right: 203px;float: right;margin-top: -30PX;"></span>
-							</div>
-						</div>
-
-						<div class="form-group">
-							<label for="field-ta" class="col-sm-3 control-label">Tour Overview</label>
-
-							<div class="col-sm-5">
-								<label style="width:600px;height:140px;" class="form-control autogrow"  id="overview"><?php echo $tour_overview ;?></label>
-							</div>
-						</div>
-						<div class="form-group">
-							<label for="field-ta" class="col-sm-3 control-label">Tour Highlights</label>
-
-							<div class="col-sm-5">
-								<label style="width:600px;height:140px;" class="form-control autogrow"   id="hilight" ><?php echo $tour_hilight ;?></label>
-							</div>
-						</div>
-						<div class="form-group">
-							<label for="field-ta" class="col-sm-3 control-label">Tour Speciality</label>
-
-							<div class="col-sm-5">
-								<label style="width:600px;height:140px;" class="form-control autogrow"  id="why_this"><?php echo $tour_why_this ;?></label>
-							</div>
-						</div>
-
-<div style="clear: both;">&nbsp;</div>
-						<hr style="width:100%"/>
-							<div class="">
-								<h5>Tour Price</h5>
-							</div>
-						<hr />
-<br />
-
-
-						<div class="form-group" style="display:hidden;">
-							<label class="col-sm-3 control-label" style="display:none;">Select Currency</label>
-
-							<div class="col-sm-5">
-								<label style="width: 35%; display:none;"  id="currency_id"  class="form-control">
-								<?php
-										$result = mysql_query("SELECT * FROM currency");
-
-										//fetch tha data from the database
-										while ($row = mysql_fetch_array($result))
-										{
-												$selected = ($row['id']==$tour_currency_id) ? ' selected="selected"' : '';
-											echo '<option value="'.$row['id'].'" '.$selected.'>'.$row['name'].'</option>';
-
-										}
-								?>
-								</label>
-							</div>
-						</div>
-
-						<div class="form-group">
-							<label for="field-1" class="col-sm-3 control-label">Price/Adult</label>
-
-							<div class="col-sm-5">
-								<label type="text" style="width: 35%;" class="form-control" id="price_per_person"> <?php echo $tour_price_per_person ;?></label>
-							</div>
-						</div>
-						<div class="form-group">
-							<label for="field-1" class="col-sm-3 control-label">Price/Child</label>
-
-							<div class="col-sm-5">
-								<label  style="width: 35%;" class="form-control">  <?php echo $tour_price_child ;?></label>
-							</div>
-						</div>
-
-						<hr />
-							<div class="">
-								<h5>Schedule</h5>
-							</div>
-						<hr />
-						<div class="form-group">
-							<label for="field-1" class="col-sm-3 control-label">Departure Point</label>
-
-							<div class="col-sm-5">
-								<label class="form-control" id="deparchture_point">  <?php echo $tour_deparchture_point ;?></label>
-							</div>
-						</div>
-
-						<div class="form-group" style="display:hidden;">
-							<label class="col-sm-3 control-label" style="display:none;">Departure Time</label>
-
-							<div class="col-sm-5">
-								<label style="width: 35%; display:none;"  id="deparchture_time"  class="form-control">
-									<?php	//$selected = ($row['id']==$tour_currency_id) ? ' selected="selected"' : ''; ?>
-									<option value="1">1 Hour</option>
-									<option value="2">2 Hour</option>
-									<option value="3">3 Hour</option>
-									<option value="4">4 Hour</option>
-
-								</label>
-							</div>
-						</div>
-						<div class="form-group">
-							<label for="field-1" class="col-sm-3 control-label">Return Detail</label>
-
-							<div class="col-sm-5">
-								<label  class="form-control" ><?php echo $tour_return_detail ;?></label>
-							</div>
-						</div>
-
-
-						<hr />
-							<div class="">
-								<h5> Additional info</h5>
-							</div>
-						<hr />
-						<div class="form-group">
-							<label for="field-ta" class="col-sm-3 control-label">Inclusions</label>
-
-							<div class="col-sm-5">
-								<label style="width:600px;height:140px;"  class="form-control autogrow" id="inclusions"><?php echo $tour_inclusions ;?></label>
-							</div>
-						</div>
-						<div class="form-group">
-							<label for="field-ta" class="col-sm-3 control-label">Exclusions</label>
-
-							<div class="col-sm-5">
-								<label style="width:600px;height:140px;"   class="form-control autogrow" id="exclusions" ><?php echo $tour_exclusions ;?></label>
-							</div>
-						</div>
-						<div class="form-group">
-							<label for="field-ta" class="col-sm-3 control-label">Voucher info</label>
-
-							<div class="col-sm-5">
-								<label style="width:600px;height:140px;"   class="form-control autogrow" id="voucher_info" ><?php echo $tour_voucher_info ;?></label>
-							</div>
-						</div>
-						<div class="form-group">
-							<label for="field-ta" class="col-sm-3 control-label">Local operator information</label>
-
-							<div class="col-sm-5">
-								<label style="width:600px;height:140px;"  class="form-control autogrow" id="local_operator_info" ><?php echo $tour_local_operator_info ;?></label>
-							</div>
-						</div>
-						<span style="padding-left: 450px;font-size: 14px;" class="success_mesg"></span>
-						<a href="supplier_add_to_cart.php?tour_id=<?php echo $tour_id;?>" class="btn btn-default btn-sm btn-icon icon-left">
-						<input style="margin-left: 750px;margin-top: 10px; display:none;" type="button" value="Add To Cart" class="btn btn-info edit_submit" />
-							</a>
-
-				</form>
-				<span style="width: 104px;float:left;
-line-height: 37px;
-font-weight: bold;
-display: block;
-text-align: center;
-margin: 0px;
-padding: 0px;
-border: none;
-background: #fd8900;"><a style="color:#fff;" href="myshop_tours.php">Go Beck</a></span>
-<span style="width: 104px;float:left;
-line-height: 37px;
-font-weight: bold;
-display: block;
-text-align: center;
-margin-left: 5px;
-padding: 0px;
-border: none;
-background: #323232;"><a style="color:#fff;" href="supplier_cart.php">Add To Cart</a></span>
-			</div>
+            </div>
 
 		</div>
 
@@ -722,6 +747,41 @@ background: #323232;"><a style="color:#fff;" href="supplier_cart.php">Add To Car
 		})();
 
 	</script>
+    
+    
+    
+	
+	
+	<script src="../js/js-index.js"></script>
+
+    <!-- Custom functions -->
+    <script src="../js/functions.js"></script>
+
+    <!-- Picker UI-->
+	<script src="../js/jquery-ui.js"></script>
+
+	<!-- Easing -->
+    <script src="../js/jquery.easing.js"></script>
+
+    <!-- jQuery KenBurn Slider  -->
+    <script type="text/javascript" src="../js/jquery.themepunch.revolution.min.js"></script>
+
+   <!-- Nicescroll  -->
+	<script type="text/javascript" src="../js/jquery.nicescroll.min.js"></script>
+
+    <!-- CarouFredSel -->
+    <script type="text/javascript" src="../js/jquery.carouFredSel-6.2.1-packed.js"></script>
+    <script type="text/javascript" src="../js/jquery.touchSwipe.min.js"></script>
+	<script type="text/javascript" src="//jquery.mousewheel.min.js"></script>
+	<script type="text/javascript" src="//jquery.transit.min.js"></script>
+	<script type="text/javascript" src="//jquery.ba-throttle-debounce.min.js"></script>
+
+    <!-- Custom Select -->
+	<script type='text/javascript' src='../jquery.customSelect.js'></script>
+
+    <!-- Include all compiled plugins (below), or include individual files as needed -->
+    <script src="dist/js/bootstrap.min.js"></script>	<script>  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)  })(window,document,'script','../../www.google-analytics.com/analytics.js','ga');  ga('create', 'UA-43203432-1', 'titanicthemes.com');  ga('send', 'pageview');</script>
+
 
 </body>
 </html>

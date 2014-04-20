@@ -50,7 +50,9 @@ $query = mysql_query("SELECT
 						 tour.status = 'accepted' OR tour_photo.title LIKE '%$Keyword%' AND
 						 tour.status = 'accepted' OR
 						 tour.title LIKE '%$Keyword%' AND
-						 tour.status = 'accepted'");
+						 tour.status = 'accepted'
+						 GROUP BY tour.id
+						 ");
 
 // $query = mysql_query("SELECT
 						// tour.title,
@@ -241,7 +243,7 @@ $query = mysql_query("SELECT
 									?>
                                 </ul>
                           </div>
-                        <div class="chat_now fl"><a href="javascript:void(0)"><img src="images/chat_now.jpg" alt="" width="296" height="186"></a></div>
+                        <div style="display:none;" class="chat_now fl"><a href="javascript:void(0)"><img src="images/chat_now.jpg" alt="" width="296" height="186"></a></div>
                     </div>
                     	<div class="right_penal fl">
                           <div class="picks_head fl">
@@ -290,7 +292,9 @@ $current_date = date("m/d/Y", $today_date);
 										echo '<form method="post" action="cart_update.php">';
 												echo '<div class="tour_picks fl">
 													<img src="supplier/uploads/'.$no_pic.'" alt="" width="210" height="179">
-													<h3>'.$tour_title.'</h3>';
+													<h3>'.$tour_title.'</h3>
+													<p>'.$tour_overview.'</p>
+													';
 													// echo'
 													// <p><a href="#" class="reviews"><img src="images/rating_star.jpg" alt="" width="79" height="13"> 886 Reviews</a> <br>
 												  // '.$tour_location.'</p>';

@@ -38,6 +38,7 @@ session_start();
 
 						success: function(mesg) {
 							alert(mesg);
+							location.reload();
 							 // $('#photo_detail').append(mesg);
 
 						}
@@ -57,6 +58,7 @@ session_start();
 
 						success: function(mesg) {
 							alert(mesg);
+							location.reload();
 							 // $('#photo_detail').append(mesg);
 
 						}
@@ -76,6 +78,7 @@ session_start();
 
 						success: function(mesg) {
 							alert(mesg);
+							location.reload();
 							 // $('#photo_detail').append(mesg);
 
 						}
@@ -281,7 +284,11 @@ session_start();
 						<li>
 				<a href="dashboard.php"><i class="entypo-home"></i>Home</a>
 			</li>
-				<li class="active">
+					<li class="active">
+			
+							<strong>Booking</strong>
+					</li>
+					<li class="active">
 			
 							<strong>Confirm Booking</strong>
 					</li>
@@ -295,7 +302,7 @@ session_start();
 <table class="table table-bordered datatable" id="table-1">
 	<thead>
 		<tr>
-			<th>Booking Id</th>
+			<th>Booking ID</th>
 			<th>Booking Date</th>
 			<th>Supplier ID</th>
 			<th>User ID</th>
@@ -537,7 +544,7 @@ session_start();
 	</tbody>
 	<tfoot>
 		<tr>
-			<th>Booking Id</th>
+			<th>Booking ID</th>
 			<th>Booking Date</th>
 			<th>Supplier ID</th>
 			<th>User ID</th>

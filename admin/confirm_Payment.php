@@ -42,6 +42,7 @@ else {
 
 						success: function(mesg) {
 							alert(mesg);
+							location.reload();
 							 // $('#photo_detail').append(mesg);
 
 						}

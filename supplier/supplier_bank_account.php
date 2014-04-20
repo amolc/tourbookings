@@ -95,11 +95,11 @@ $(document).ready(function(){
 					<a href="dashboard.php"><i class="entypo-home"></i>Home</a>
 				</li>
 				<li class="active">
-					<strong>Create Tour</strong>
+					<strong>Add Bank Details</strong>
 				</li>
 			</ol>
 
-			<h2>Create Tour</h2>
+			<h2>Add Bank Details</h2>
 			<br />
 
 <div class="row">
@@ -109,7 +109,7 @@ $(document).ready(function(){
 
 			<div class="panel-heading">
 				<div class="panel-title">
-					Over View
+					Overview
 				</div>
 
 				<div class="panel-options">
@@ -132,6 +132,7 @@ $(document).ready(function(){
 						$address = mysql_real_escape_string($_POST['address']);
 						$account_number = mysql_real_escape_string($_POST['account_number']);
 						$swift_code = mysql_real_escape_string($_POST['swift_code']);
+						$routing_no = mysql_real_escape_string($_POST['routing_no']);
 						$account_name = mysql_real_escape_string($_POST['account_name']);
 						
 
@@ -140,8 +141,8 @@ $(document).ready(function(){
 								$current_date = date("m/d/Y", $today_date);
 							// echo $total;
 							
-						$sql2   = "insert into supplier_bank_account(supplier_id,account_type,bank_name,address,account_number,swift_code,account_name) 
-						values ('$supplier_id','$account_type','$bank_name','address','$account_number','$swift_code','$account_name')";
+						$sql2   = "insert into supplier_bank_account(supplier_id,account_type,bank_name,address,account_number,swift_code,routing_no,account_name) 
+						values ('$supplier_id','$account_type','$bank_name','address','$account_number','$swift_code','$routing_no','$account_name')";
 							$query = mysql_query($sql2);
 							
 							if($query)
@@ -197,9 +198,16 @@ $(document).ready(function(){
 								<input type="text" data-validate="number"   class="form-control" name="swift_code" id="title" placeholder="" required>
 							</div>
 						</div>
+						<div class="form-group">
+							<label for="field-1" class="col-sm-3 control-label">Routing Number</label>
+
+							<div class="col-sm-5">
+								<input type="text" data-validate="number"   class="form-control" name="routing_no" id="title" placeholder="" required>
+							</div>
+						</div>
 						
 						<div class="form-group">
-							<label for="field-1" class="col-sm-3 control-label">Address</label>
+							<label for="field-1" class="col-sm-3 control-label">Bank Address</label>
 
 							<div class="col-sm-5">
 								<input type="text" data-validate="required"   class="form-control" name="address" id="title" placeholder="" required>

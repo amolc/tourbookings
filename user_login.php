@@ -206,7 +206,7 @@ $(document).ready(function(){
             </div>
     	</div>
 
-        	<div class="banner fl"><img src="images/banner.jpg" alt="" width="1002" height="391"></div>
+        	<div class="banner fl"><img src="images/login_banner.jpg" alt="" width="1002" height="240"></div>
 
             	<div class="center_body fl">
                 	<div style="background:#fd8900;" class="left_penal fl">

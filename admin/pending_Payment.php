@@ -289,8 +289,10 @@ else {
 						<li>
 				<a href="dashboard.php"><i class="entypo-home"></i>Home</a>
 			</li>
-				<li class="active">
-			
+					<li class="active">
+							<strong>Approved Payment</strong>
+					</li>
+					<li class="active">
 							<strong>Pending Payment</strong>
 					</li>
 					</ol>

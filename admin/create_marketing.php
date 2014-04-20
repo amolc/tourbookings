@@ -1,3 +1,28 @@
+<?php 
+
+ include('../include/database/db.php'); 
+if (isset($_POST["submit"]))
+  {
+	$name = mysql_real_escape_string($_POST['name']);
+// echo $name;
+$email = mysql_real_escape_string($_POST['email']);
+$contact_number = mysql_real_escape_string($_POST['contact_number']);
+$company_name = mysql_real_escape_string($_POST['company_name']);
+
+$address = mysql_real_escape_string($_POST['address']);
+$city = mysql_real_escape_string($_POST['city']);
+$country = mysql_real_escape_string($_POST['country']);
+
+
+	$sql   = "insert into marketing(name,email,contact_number,company_name,address,city,country) values ('$name','$email','$contact_number','$company_name','$address','$city','$country')";
+	
+	$query = mysql_query($sql) or die(mysql_error());
+	 
+
+}
+
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -37,14 +62,15 @@ $(document).ready(function(){
 	// alert('ok');
 		var name = $('#name').val();
 		var email = $('#email').val();
+		var contact_number = $('#contact_number').val();
 		var company_name =	$('#company_name').val();
+		var address =	$('#address').val();
 		var city =	$('#city').val();
 		var country =	$('#country').val();
-		
            $.ajax({
 				type:  'post', 
 				url:  'ajax_request_function/ajax_marketing.php',
-				data: {name:name,email:email,company_name:company_name,city:city,country:country}, 
+				data: {name:name,email:email,contact_number:contact_number ,company_name:company_name,address:address,city:city,country:country}, 
 				success: function(mesg) {
 				  // alert(mesg);
 				  
@@ -52,7 +78,9 @@ $(document).ready(function(){
 					 $('.success_mesg').empty().append('marketing successful create');	
 					$('#name').val("");
 					$('#email').val("");
+					$('#contact_number').val("");
 					$('#company_name').val("");
+					$('#address').val("");
 					$('#city').val("");
 					$('#country').val("");
 					 
@@ -106,41 +134,57 @@ $(document).ready(function(){
 			
 			<div class="panel-body">
 				
-				<form role="form" class="form-horizontal form-groups-bordered">
+				<form role="form" class="form-horizontal form-groups-bordered" method="post" action="create_marketing.php">
 	
 					<div class="form-group">
 						<label for="field-1" class="col-sm-3 control-label">Name</label>
 						
 						<div class="col-sm-5">
-							<input type="text" class="form-control" id="name" placeholder="Name">
+							<input type="text" class="form-control" id="name" name="name" placeholder="Name" required>
 						</div>
 					</div>					
 					<div class="form-group">
 						<label for="field-1" class="col-sm-3 control-label">Email</label>
 						
 						<div class="col-sm-5">
-							<input type="text" class="form-control" id="email" placeholder="Email">
+							<input type="email" class="form-control" id="email" name="email" placeholder="Email" required>
 						</div>
 					</div>
+					
+					<div class="form-group">
+						<label for="field-1" class="col-sm-3 control-label">Contact Number</label>
+						
+						<div class="col-sm-5">
+							<input type="text" class="form-control" id="contact_number" name="contact_number"  placeholder="Contact Number" required>
+						</div>
+					</div>	
+					
 					<div class="form-group">
 						<label for="field-1" class="col-sm-3 control-label">Company Name</label>
 						
 						<div class="col-sm-5">
-							<input type="text" class="form-control" id="company_name" placeholder="Company Name">
+							<input type="text" class="form-control" id="company_name" name="company_name" placeholder="Company Name" required>
 						</div>
 					</div>	
+					<div class="form-group">
+						<label for="field-1" class="col-sm-3 control-label">Address</label>
+						
+						<div class="col-sm-5">
+							<input type="text" class="form-control" id="address" name="address" placeholder="Address" required>
+						</div>
+					</div>
 					<div class="form-group">
 						<label for="field-1" class="col-sm-3 control-label">City</label>
 						
 						<div class="col-sm-5">
-							<input type="text" class="form-control" id="city" placeholder="City">
+							<input type="text" class="form-control" id="city" name="city" placeholder="City" required>
 						</div>
 					</div>
 					<div class="form-group">
 						<label for="field-1" class="col-sm-3 control-label">Country</label>
 						
 						<div class="col-sm-5">
-							<input type="text" class="form-control" id="country" placeholder="Country">
+							<input type="text" class="form-control" id="country" name="country" placeholder="Country" required>
 						</div>
 					</div>
 					
@@ -148,7 +192,7 @@ $(document).ready(function(){
 					
 					<div class="form-group">
 						<div class="col-sm-offset-3 col-sm-5">
-							<button type="button" id="create_tour" class="btn btn-default">Create Marketing</button>
+							<button type="submit" id="create_tour" name="submit" class="btn btn-default">Create Marketing</button>
 							<span style="padding-left: 40px;font-size: 14px;" class="success_mesg"></span>
 						</div>
 					</div>

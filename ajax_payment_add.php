@@ -108,14 +108,13 @@ $user_id =$user_id_get +1 ;
 
                       </div>
                             
-                            <div class="chat_now fl"><a href="#"><img src="images/chat_now.jpg" alt="" width="296" height="186"></a></div>
-                        
-                    </div>
+                                 
+                </div>
                     
                     	<div class="right_penal fl">
                         	
                           <div class="register_head fl">
-                            	<h2>Payment Method</h2><br>
+                            	<h2 style="text-align:center;">Payment Method</h2><br>
                           </div>
                             <?php 
 // echo "yes";
@@ -162,7 +161,8 @@ $current_date = date("m/d/Y", $today_date);
 	$payment_sql   = "insert into payment(user_id,name,credit_card_no,expired_date,security_code,total_price,status,email,phone) values ('$user_id','$user_name','$credit_card_no','$exp_date','$security_code','$total','pending','$email','$phone')";
 			$payment_query = mysql_query($payment_sql);
 		 if($payment_query){
-		echo "Thank you, Your Tour booked succesfully & ";
+		echo "<ol>
+				<li>Thank you, Your Tour booked succesfully  ";
 	} else {
 		echo "error in payment";
 	}
@@ -267,46 +267,115 @@ else {
 	$to = $email;
 	$subject = "Membership confirmation "; 
 	// $message = "Your user name is email  '".$email."' and password  '".$pass."'"; 
-	$message = "
-				Dear '".$user_name."',
+	$message = '<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>Tour bookings</title>
+<style>
+body { margin:0px; padding:0px;}
+</style>
+</head>
 
-				Welcome to Tour Bookings! You will find your randomized password below. 
+<body>
+ <div style="width:500px; min-height:450px; margin:0 auto; background:#e2e2e2;">
+    
+     <div style="width:440px; min-height:390px; margin:30px; float:left; background:white;">
+         <div style="width:440px; height:80px; border-bottom:#e1e1e1 solid 1px; background:#f5f5f5;">
+             <a href="#" style="margin:18px 20px 0px 19px;">
+				<img width="112" height="45 " alt="" src="http://tourbookings.co/images/tourbooking_logo.png"></a>
+             <p style="margin: 15px;margin-top: 2px;font-family:Arial, Helvetica, sans-serif;color:#fd8900 !important;">
+				<b>Bringing out the traveler in you!</b>
+			 </p>
+            </div>
+   
+            
+            <div style="width:440px; float:left;">
+             <h1 style="float:left; border-bottom:#e1e1e1 solid 1px; width:440px; font-family:Arial, Helvetica, sans-serif; text-indent:20px; line-height:40px; color:#323232; font-size:14px; font-weight:bold; display:block; margin:0px; text-decoration:none;">
+				<span style="color:#fd8900; margin-right:5px;">Dear,</span>'.$username.'
+			</h1>
+                
+                <p style="float:left; width:400px;padding:0px 20px; font-family:Arial, Helvetica, sans-serif; color:#727172; font-size:14px; line-height:20px; margin-bottom:80px;">
+					Thank you for joining Tourbookings!
+				</p>
+				<br /> 
+					<p>User Information :</p>
+				<p>User Name:'.$email.'</p>
+				<p>User password: '.$pass.'</p>
+				<br /> 
+				<p>The Tourbookings Team</p>
+				<p>Follow us on <a href="https://www.facebook.com/">Facebook</a> or <a href="http://instagram.com/">instagram</a> </p>
+				<br />
+				<br />
+				<span><a href="http://tourbookings.co/about_us.php">About Us</a>|</span>
+				<span><a href="http://tourbookings.co/customer_care.php">Customer Care</a>|</span>
+				<span><a href="http://tourbookings.co/privacy_policy.php">Privacy Policy</a></span>
+				<br />
+				<p>
+					Please do not reply to this message. To contact our Customer Care team directly, please 
+					visit our website.
+				</p>
+				<p>&copy; 2014 Tourbookings.co Pte. Ltd.</p>
+				<p>100 Cecil Street, Collective Works, Singapore - 069532</p>
+		   </div>
+            
+            <div style="display:none;width:440px; float:left;">
+				<h1 style="float:left; border-top:#e1e1e1 solid 1px; width:420px; font-family:Arial, Helvetica, sans-serif; height:53px; color:#323232; font-size:14px; font-weight:bold; display:block; margin:0px; text-decoration:none; padding:15px 0px 0px 20px;">
+					Best Wishes,
+					<br>
+					<a href="#" style="color:#fb8900; text-decoration:none;">TourBookings</a>
+				</h1>
+            </div>
 
-				To change your password, simply log on to your account using the password 
 
-				provided below and you will be able to change it to a password of your choice.
-
-				Password:  '".$pass."'
-
-				We look forward to seeing you again.
-
-				Best Regards,
-
-				Tour Bookings"; 
-				
-	$headers = 'apache@iamamol.com';
-
+        </div>
+        <div style="clear:both;"></div>
+   </div>
+</body>
+</html>';								
+					$headers  = 'MIME-Version: 1.0' . "\r\n";
+					$headers .= 'Content-type: text/html; charset=iso-8859-1' . "\r\n";
+					$headers .= 'To: '.$email.'' . "\r\n";
+					$headers .= 'From: apache@iamamol.com' . "\r\n";	
 	
-	
-
-	
-
-	$mail_sent = mail( $to, $subject, $message, $headers );
+					$mail_sent = mail( $to, $subject, $message, $headers );
 	
 }
 	
 	$to1 = $email;
 	$subject1 = "email confirmation of booking"; 
 	// $message = "Your user name is email  '".$email."' and password  '".$pass."'"; 
-	$message1 = '
-				email confirmation of booking
+	$message1 = '<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>Tour bookings</title>
+<style>
+body { margin:0px; padding:0px;}
+</style>
+</head>
 
-					Dear '.$user_name.',
-
-					Your booking has been confirmed. All the information that you will require can 
-
-					be found below. Kindly retain a copy of this email for future reference.
-					<table width="621" height="244" border="1">
+<body>
+ <div style="width:500px; min-height:450px; margin:0 auto; background:#e2e2e2;">
+    
+     <div style="width:440px; min-height:390px; margin:30px; float:left; background:white;">
+         <div style="width:440px; height:80px; border-bottom:#e1e1e1 solid 1px; background:#f5f5f5;">
+             <a href="#" style="margin:18px 20px 0px 19px;">
+				<img width="112" height="45 " alt="" src="http://tourbookings.co/images/tourbooking_logo.png"></a>
+             <p style="margin: 15px;margin-top: 2px;font-family:Arial, Helvetica, sans-serif;color:#fd8900 !important;"><b>Bringing out the traveler in you!</b></p>
+            </div>
+   
+            
+            <div style="width:440px; float:left;">
+             <h1 style="float:left; border-bottom:#e1e1e1 solid 1px; width:440px; font-family:Arial, Helvetica, sans-serif; text-indent:20px; line-height:40px; color:#323232; font-size:14px; font-weight:bold; display:block; margin:0px; text-decoration:none;">
+				<span style="color:#fd8900; margin-right:5px;">Dear,</span>'.$user_name.'
+			</h1>
+                
+                <p style="float:left; width:400px;padding:0px 20px; font-family:Arial, Helvetica, sans-serif; color:#727172; font-size:14px; line-height:20px; margin-bottom:80px;">
+					Thank you for booking with Tourbookings! Your booking is confirmed!
+				</p>
+				<br />
+					<table width="442" height="244" border="1">
 					  <tr>
 						<td>Destination:'.$country.'</td>
 						<td colspan="2">Travel Date: '.$start_date.'</td>
@@ -318,12 +387,24 @@ else {
 					  </tr>
 					  <tr>
 						<td>&nbsp;</td>
-						<td colspan="2">Total: '.$total.'</td>
+						<td colspan="2">Total: $'.$total.'</td>
 					  </tr>
 					</table>
-					Best Regards,
+					<br />
+					<p>The Tourbookings Team</p>
+				<p>Follow us on <a href="https://www.facebook.com/">Facebook</a> or <a href="http://instagram.com/">instagram</a> </p>
+				<br />
+				<p>If you have any problems,please feel free to contact us at support@tourbookings.co
+				</p>
+				
+		   </div>
 
-					Tour Bookings ';
+
+        </div>
+        <div style="clear:both;"></div> 
+   </div>
+</body>
+</html>';
 				
 	$headers1  = 'MIME-Version: 1.0' . "\r\n";
 $headers1 .= 'Content-type: text/html; charset=iso-8859-1' . "\r\n";
@@ -341,11 +422,11 @@ $headers1 .= 'From: apache@iamamol.com' . "\r\n";
 
 	$mail_sent1 = mail( $to1, $subject1, $message1, $headers1 );
 	
-	echo $mail_sent ? " Your Tour Detail Sent To Your Inbox" : "Mail failed";
+	//echo $mail_sent ? " Your Tour Detail Sent To Your Inbox" : "Mail failed";
 		session_start();
 		
 		
-		$_SESSION['user_name']=$user_name;
+		$_SESSION['user_name2']=$user_name;
 		$_SESSION['country']=$country;
 		$_SESSION['start_date']=$start_date;
 		$_SESSION['trip_title']=$trip_title;
@@ -361,8 +442,7 @@ $_SESSION['products']=NULL;
 	echo '<'.'?'.'xml version="1.0" encoding="UTF-8"'.'?'.'>';	
 
 ?>
-<ol>
-<li>Tour Booking Ticket <a href="example_001.php" title="PDF [new window]" target="_blank">Click Here</a></li>
+Tour Booking Ticket <a href="example_001.php" title="PDF [new window]" target="_blank">Click Here</a></li>
 </ol>
 
                          

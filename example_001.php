@@ -82,8 +82,8 @@ $pdf->AddPage();
 session_start();
 // set text shadow effect
 $pdf->setTextShadow(array('enabled'=>true, 'depth_w'=>0.2, 'depth_h'=>0.2, 'color'=>array(196,196,196), 'opacity'=>1, 'blend_mode'=>'Normal'));
-if(isset($_SESSION['user_name'])){
-		$user_name = $_SESSION['user_name'];
+if(isset($_SESSION['user_name2'])){
+		$user_name = $_SESSION['user_name2'];
 }
 if(isset($_SESSION['country'])){
 		$country = $_SESSION['country'];

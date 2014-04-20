@@ -1,22 +1,25 @@
 <?php
 
-session_start();
- include('../include/database/db.php'); 
-if(isset($_SESSION['supplier_id'])){
- $supplier_id = $_SESSION['supplier_id'];
-}
-else {
-	header('Location: index.php');
-}
 
- 
- 
+	session_start();
+	include('../include/database/db.php'); 
+	if(isset($_SESSION['supplier_id']))
+	{
+		$supplier_id = $_SESSION['supplier_id'];
+	}
+	else {
+		header('Location: index.php');
+	}
+
  // $supplier_id = $_SESSION['supplier_id'];
 
-	
 $tour_id = $_GET['tour_id'];
 
-$query = mysql_query("SELECT tour.id,
+$query = mysql_query("SELECT 
+						tour.id,
+						tour.tour_type,
+						tour.city,
+						tour.title,
 						tour_price.tour_id,
 						tour.overview,
 						tour.hilight,
@@ -31,44 +34,44 @@ $query = mysql_query("SELECT tour.id,
 						tour.voucher_info,
 						tour.local_operator_info,
 						tour_price.price_per_person,
+						tour_price.commission_rate,
 						tour_price.price_child,
 						tour_price.currency_id
 						FROM tour INNER JOIN tour_price ON tour.id = tour_price.tour_id	where tour.id = '".$tour_id."'");
-	while ($record = mysql_fetch_array($query))
-		{
-			$tour_title =  $record['title'];
-			// echo $tour_title;
-			$tour_overview =  $record['overview'];
-			$tour_hilight =  $record['hilight'];
-			$tour_why_this =  $record['why_this'];
-			$tour_location =  $record['location_id'];
-			$tour_city =  $record['city'];
-			$tour_duration =  $record['duration'];
-			$tour_deparchture_point =  $record['deparchture_point'];
-			$tour_deparchture_time =  $record['deparchture_time'];
-			$tour_return_detail =  $record['return_detail'];
-			$tour_inclusions =  $record['inclusions'];
-			$tour_exclusions =  $record['exclusions'];
-			$tour_voucher_info =  $record['voucher_info'];
-			$tour_local_operator_info =  $record['local_operator_info'];
-			
-			$tour_currency_id =  $record['currency_id'];
-			
-			$tour_price_per_person =  $record['price_per_person'];
-			// echo $tour_price_per_person;
-			$tour_price_child =  $record['price_child'];
+						while ($record = mysql_fetch_array($query))
+							{
+								$tour_type =  $record['tour_type'];
+								$tour_title =  $record['title'];
+								// echo $tour_title;
+								$tour_overview =  $record['overview'];
+								$tour_hilight =  $record['hilight'];
+								$tour_why_this =  $record['why_this'];
+								$tour_location =  $record['location_id'];
+								$tour_city =  $record['city'];
+								$tour_duration =  $record['duration'];
+								$tour_deparchture_point =  $record['deparchture_point'];
+								$tour_deparchture_time =  $record['deparchture_time'];
+								$tour_return_detail =  $record['return_detail'];
+								$tour_inclusions =  $record['inclusions'];
+								$tour_exclusions =  $record['exclusions'];
+								$tour_voucher_info =  $record['voucher_info'];
+								$tour_local_operator_info =  $record['local_operator_info'];
+								
+								$tour_currency_id =  $record['currency_id'];
+								
+								$tour_price_per_person =  $record['price_per_person'];
+								// echo $tour_price_per_person;
+								$tour_price_child =  $record['price_child'];
+								$commission_rate =  $record['commission_rate'];
 
-		}
+							}
 
 
 ?>
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
 	<meta charset="utf-8">
-	<!--[if IE]><meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"><![endif]-->
-
 	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 	<meta name="description" content="Tourbooking.co" />
 	<meta name="author" content="Laborator.co" />
@@ -81,230 +84,86 @@ $query = mysql_query("SELECT tour.id,
 	<link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Noto+Sans:400,700,400italic"  id="style-resource-4">
 	<link rel="stylesheet" href="include/resource/css/neon.css"  id="style-resource-5">
 	<link rel="stylesheet" href="include/resource/css/custom.css"  id="style-resource-6">
+	<script src="include/resource/js/jquery-1.10.2.min.js"></script>
+	<!--<script type="text/javascript" src="timepicker/jquery.timepicker.js"></script>
+	<link rel="stylesheet" type="text/css" href="timepicker/jquery.timepicker.css" />-->
 	<!--<link rel="stylesheet" href="include/resource/css/easyWizardSteps.css"  id="style-resource-6">-->
-<style type="text/css">
+	<style type="text/css">
 
-.submit {
-	display:none!important;
+		.submit { 
+		display:none!important;
+		}
+
+		div.upload {
+		margin-top: -10px;
+		width: 157px;
+		height: 57px;
+		background: url(https://lh6.googleusercontent.com/-dqTIJRTqEAQ/UJaofTQm3hI/AAAAAAAABHo/w7ruR1SOIsA/s157/upload.png);
+		overflow: hidden;
 	}
 
-	div.upload {
-	margin-top: -10px;
-    width: 157px;
-    height: 57px;
-    background: url(https://lh6.googleusercontent.com/-dqTIJRTqEAQ/UJaofTQm3hI/AAAAAAAABHo/w7ruR1SOIsA/s157/upload.png);
-    overflow: hidden;
-}
+	div.upload input {
+		display: block !important;
+		width: 157px !important;
+		height: 57px !important;
+		opacity: 0 !important;
+		overflow: hidden !important;
+	}
+	.preview
+	{
+	width:200px;
+	border:solid 1px #dedede;
+	padding:10px;
+	}
+	#preview
+	{
+	color:#cc0000;
+	font-size:12px
+	}
 
-div.upload input {
-    display: block !important;
-    width: 157px !important;
-    height: 57px !important;
-    opacity: 0 !important;
-    overflow: hidden !important;
-}
-.preview
-{
-width:200px;
-border:solid 1px #dedede;
-padding:10px;
-}
-#preview
-{
-color:#cc0000;
-font-size:12px
-}	
+	</style>
 
-</style>
-
-
-	<!--<script src="http://code.jquery.com/jquery-latest.js"></script>
-	<script src="include/resource/js/jquery.easyWizard.js"></script>-->
-
-	<script type="text/javascript" src="js/jquery.min.js"></script>
-<script type="text/javascript" src="js/jquery.form.js"></script>
-
-<script type="text/javascript" >
- $(document).ready(function() {
-
-            $('#photoimg').live('change', function()			{
-			           $("#preview").html('');
-			    $("#preview").html('<img src="loader.gif" alt="Please wait...."/>');
-			$("#imageform").ajaxForm({
-						target: '#preview'
-		}).submit();
-
-			});
-        });
-</script>
 
 <script type="text/javascript">
-$(document).ready(function(){
+
 	/**
 			* tour
 			*@author:	razamalik@outlook.com
 			*@date:	1 january 2014 2:22 PM GM+5
 			*/
-
-	$('.edit_submit').click(function(){
-			
-		// alert('done');
-		
-		var title = $('#title').val();
-		var overview = $('#overview').val();
-		var hilight =	$('#hilight').val();
-		var why_this =	$('#why_this').val();
-		var location_id =	$('#location_id').val();
-		var duration =	$('#duration').val();
-
-		var deparchture_point = $('#deparchture_point').val();
-		var deparchture_time = $('#deparchture_time').val();
-		var return_detail = $('#return_detail').val();
-		var inclusions = $('#inclusions').val();
-		var exclusions = $('#exclusions').val();
-		var voucher_info = $('#voucher_info').val();
-		var local_operator_info = $('#local_operator_info').val();
-		var supplier_id = '<?php echo $_SESSION['supplier_id']; ?>';
-		var tour_id = '<?php echo $_GET['tour_id']; ?>';
-			// alert(tour_id);
-
-
-           $.ajax({
-				type:  'post',
-				url:  'ajax_request_function/ajax_edit_tour.php',
-				data: {tour_id:tour_id ,title:title,overview:overview,hilight:hilight,why_this:why_this,location_id:location_id,duration:duration,
-						deparchture_point:deparchture_point,deparchture_time:deparchture_time,return_detail:return_detail,inclusions:inclusions,
-						exclusions:exclusions,voucher_info:voucher_info,local_operator_info:local_operator_info,supplier_id:supplier_id
-				},
-				success: function(mesg) {
-				  alert(mesg);
-				   // if(mesg == 'create tour successful'){
-					 // $('.success_mesg').empty().append('tour successful create');
-					// $('#title').val("");
-					// $('#overview').val("");
-					// $('#hilight').val("");
-					// $('#why_this').val("");
-					// $('#location_id').val("");
-					// $('#duration').val("");
-					// $('#deparchture_point').val("");
-					// $('#deparchture_time').val("");
-					// $('#return_detail').val("");
-					// $('#inclusions').val("");
-					// $('#exclusions').val("");
-					// $('#voucher_info').val("");
-					// $('#local_operator_info').val("");
-
-					// }
-				}
-			});
-
-
-
-		var currency_id = $('#currency_id').val();
-
-		var price_per_person =	$('#price_per_person').val();
-		var price_child =	$('#price_child').val();
-
-           $.ajax({
-				type:  'post',
-				url:  'ajax_request_function/ajax_edit_tour_price.php',
-				data: {currency_id:currency_id,tour_id:tour_id,price_per_person:price_per_person,price_child:price_child},
-				success: function(mesg) {
-				  // alert(mesg);
-
-				   // if(mesg == 'price tour successful'){
-					 // $('.success_mesg').empty().append('price successful create');
-					// $('#tour_id').val("");
-					// $('#currency_id').val("");
-					// $('#price_per_person').val("");
-					// $('#price_child').val("");
-					// $('#price_adult').val("");
-
-					// }
-				}
-			});
-
-
-
-	});
-
-
-
- // $('#photo_submit').click(function(){
-// alert('ok');
-		// var title = $( "#title" ).val();
-
-		// $.ajax({
-				// type: 'post',
-				// url: 'ajax_request_function/ajax_photo_uploaded.php',
-				// data: {title:title},
-
-				// success: function(mesg) {
-					// alert(mesg);
-					 // $('#photo_detail').append(mesg);
-
-				// }
-
-		// });
-
-	// });
-
-	// $('#delete_pic').click(function(){
-// alert('ok');
-		// var title = $( "#title" ).val();
-
-		// $.ajax({
-				// type: 'post',
-				// url: 'ajax_request_function/ajax_photo_uploaded.php',
-				// data: {title:title},
-
-				// success: function(mesg) {
-					// alert(mesg);
-					 // $('#photo_detail').append(mesg);
-
-				// }
-
-		// });
-
-	// });
-
-
-
-});
-</script>
-<script type="text/javascript">
-$(document).ready(function(){
-
-
-$('#deparchture_time option').val( '' );
-
-// Using the text:
-
-$('#deparchture_time option').filter(function() { 
-    return ($(this).val() == '<?php echo $tour_deparchture_time;?>'); //To select Blue
-}).prop('selected', true);
-
-
-	// $('#myWizard').easyWizard({
-		// buttonsClass: 'btn',
-		// submitButtonClass: 'btn btn-info',
-		// before: function(wizardObj, currentStepObj, nextStepObj) {
-
-		// },
-		// after: function(wizardObj, prevStepObj, currentStepObj) {
-
-		// },
-		// beforeSubmit: function(wizardObj) {
-
-
-
-
-
-		// }
-	// });
+			$(document).ready(function() {
+    $("#commission_box").keydown(function (e) {
+        // Allow: backspace, delete, tab, escape, enter and .
+        if ($.inArray(e.keyCode, [46, 8, 9, 27, 13, 110, 190]) !== -1 ||
+             // Allow: Ctrl+A
+            (e.keyCode == 65 && e.ctrlKey === true) || 
+             // Allow: home, end, left, right
+            (e.keyCode >= 35 && e.keyCode <= 39)) {
+                 // let it happen, don't do anything
+                 return;
+        }
+        // Ensure that it is a number and stop the keypress
+        if ((e.shiftKey || (e.keyCode < 48 || e.keyCode > 57)) && (e.keyCode < 96 || e.keyCode > 105)) {
+            e.preventDefault();
+        }
+    });
 });
 
 </script>
+	<script type="text/javascript">
+	  // $(function() {
+		// $('#defaultValueExample').timepicker({ 'scrollDefaultNow': true });
+	  // });
+	  $(document).ready(function($) { 
+   // STOCK OPTIONS
+	$('input.maxtickets_enable_cb').change(function(){
+		if ($(this).is(':checked'))
+    $('#commission').show();
+else
+    $('#commission').hide();
+	}).change();
+});
+	</script>
 </head>
 
 
@@ -321,6 +180,10 @@ $('#deparchture_time option').filter(function() {
 				<li>
 					<a href="dashboard.php"><i class="entypo-home"></i>Home</a>
 				</li>
+				<li class="active">
+					<strong> Tour</strong>
+				</li>
+				
 				<li class="active">
 					<strong>Edit Tour</strong>
 				</li>
@@ -349,31 +212,133 @@ $('#deparchture_time option').filter(function() {
 
 
 			<div class="panel-body">
-			<?php
+				<?php 
+					if($_POST['submit'] == 'submit')
+					{
+							// $tour_id2 = $_GET['tour_id'];
+							// echo $tour_id2;
+						$tour_type = mysql_real_escape_string($_POST['tour_type']);
+						$title = mysql_real_escape_string($_POST['title']);
+						$overview = mysql_real_escape_string($_POST['overview']);
+						$hilight = mysql_real_escape_string($_POST['hilight']);
+						$why_this = mysql_real_escape_string($_POST['tour_speciality']);
+						$country = mysql_real_escape_string($_POST['country']);
+						$city = mysql_real_escape_string($_POST['city']);
+						$duration = mysql_real_escape_string($_POST['duration']);
 
-				$result = mysql_query("SELECT id FROM tour");
+						$deparchture_point = mysql_real_escape_string($_POST['deparchture_point']);
+						$deparchture_time = mysql_real_escape_string($_POST['deparchture_time']);
+						$return_detail = mysql_real_escape_string($_POST['return_detail']);
+						$inclusions = mysql_real_escape_string($_POST['inclusions']);
+						$exclusions = mysql_real_escape_string($_POST['exclusions']);
+						$voucher_info = mysql_real_escape_string($_POST['voucher_info']);
+						$local_operator_info = mysql_real_escape_string($_POST['local_operator_info']);						
+						$currency_id = mysql_real_escape_string($_POST['currency_id']);
+						$price_child = mysql_real_escape_string($_POST['price_child']);
+						$price_per_person = mysql_real_escape_string($_POST['price_adult']);
+						$commission_rate = mysql_real_escape_string($_POST['commission']); 
+							if($commission_rate=="")
+							{
+								$price_customer_adult = $price_per_person - ($price_per_person * (10 / 100));
+								$price_customer_child = $price_child - ($price_child * (10 / 100));
+							}
+							else {
+									$price_customer_adult = $price_per_person - ($price_per_person * ($commission_rate / 100));
+									$price_customer_child = $price_child - ($price_child * ($commission_rate / 100));
+							}
+						//current date
+						$today_current_date = mktime(0,0,0,date("m"),date("d"),date("Y"));
+						$update_date = date("m/d/Y", $today_current_date);
+						//tour edit
+						$tour_id = mysql_real_escape_string($_POST['tour_id']);
+						// echo $tour_id;
+						$query_update_tour = "UPDATE tour
+										SET title='".$title."', tour_type='".$tour_type."', overview='".$overview."', 
+										hilight='".$hilight."', why_this='".$why_this."',
+										location_id='".$country."',city='".$city."', duration='".$duration."',
+										deparchture_point='".$deparchture_point."', deparchture_time='".$deparchture_time."', 
+										return_detail='".$return_detail."', inclusions='".$inclusions."',
+										exclusions='".$exclusions."', voucher_info='".$voucher_info."',
+										local_operator_info='".$local_operator_info."',update_date='".$update_date."'
+										WHERE id='".$tour_id."'";
+							$result_tour = mysql_query($query_update_tour) or die('Error, query failed');        
+					
+						$query_update = "UPDATE tour_price
+						SET currency_id='".$currency_id."',
+						price_per_person='".$price_customer_adult."', price_child='".$price_customer_child."',
+						price_customer_adult='".$price_per_person."', price_customer_child='".$price_child."',
+						commission_rate='".$commission_rate."',update_date='".$update_date."'
+							WHERE tour_id='".$tour_id."'";
+							$result = mysql_query($query_update) or die('Error, query failed');        
 
-										//fetch tha data from the database
-										while ($row = mysql_fetch_array($result))
-										{
-											$tour_id_counter =  $row['id'];
+							 if($result_tour){
+								echo "Successfull";
+							}else {
+								echo "error";
+							} 
+															
+								//tour price edit
+						
 
-										}
-			?>
-			<input type="hidden" id="tour_id" value="<?php echo $tour_id_counter + 1 ; ?>" />
+					
+							 if($result){
+								echo " tour updated";
+							}else {
+								echo "error";
+							} 
+									  
 
+					}
+					else {
+					
+					
+				
+				 
+				
+				?>
+				
+				<form   method="post" role="form" id="form1"   class="form-horizontal validate" enctype="multipart/form-data" action='<?php echo $_SERVER['PHP_SELF'] ;?>'>
+						<input type="hidden" name="tour_id" value="<?php echo $tour_id; ?>" />
+						<div class="form-group" style="display:none;">
+							<label class="col-sm-3 control-label">Tour Category</label>
+							
+							<div class="col-sm-5"><!---<option value="Uncategory">Uncategory</option>-->
+								<select style="width: 60%;" name="tour_type"  id="tour_type"  class="form-control" required>
 
+									
+									<option value="">Select a Category</option>
+									<option value="Outdoor Activities">Outdoor Activities</option>
+									<option value="Tours & Sightseeing">Tours & Sightseeing</option>
+									<option value="Cultural & Theme Tours">Cultural & Theme Tours</option>
+									<option value="Day Trips & Excursions">Day Trips & Excursions </option>
+									<option value="Theme Parks">Theme Parks</option>
+									<option value="Sightseeing Tickets & Passes">Sightseeing Tickets & Passes</option>
+									<option value="Transfers & Ground Transport">Transfers & Ground Transport</option>
+									<option value="Food, Wine & Nightlife">Food, Wine & Nightlife</option>
+									<option value="Private & Custom Tours">Private & Custom Tours</option>
+									<option value="Shows, Concerts & Sports">Shows, Concerts & Sports</option>
+									<option value="Walking & Biking Tours">Walking & Biking Tours</option>
+									<option value="Water Sports">Water Sports</option>
+									<option value="Cruises, Sailing & Water Tours">Cruises, Sailing & Water Tours</option>
+									<option value="Multi-day & Extended Tours">Multi-day & Extended Tours</option>
+									<option value="Shore Excursions">Shore Excursions</option>
+			
+								</select>
+							</div>
+						</div>
+						
+						<div class="form-group">
+							<label for="field-1" class="col-sm-3 control-label">Tour Type</label>
 
-
-
-
-				<form  id="imageform" method="post" class="form-horizontal" enctype="multipart/form-data" action='upload.php'>
-
+							<div class="col-sm-5">
+								<input type="text" data-validate="required" data-message-required="This is  required field." value="<?php echo $tour_type ;?>" class="form-control" name="tour_type" id="title" placeholder="Tour Title" required>
+							</div>
+						</div>
 						<div class="form-group">
 							<label for="field-1" class="col-sm-3 control-label">Tour Title</label>
 
 							<div class="col-sm-5">
-								<input type="text"  class="form-control" id="title" value="<?php echo $tour_title ;?>" placeholder="Tour Title">
+								<input type="text" data-validate="required" data-message-required="This is  required field." value="<?php echo $tour_title ;?>" class="form-control" name="title" id="title" placeholder="Tour Title" required>
 							</div>
 						</div>
 
@@ -381,74 +346,85 @@ $('#deparchture_time option').filter(function() {
 							<label for="field-1" class="col-sm-3 control-label">Country</label>
 
 							<div class="col-sm-5">
-								<input type="text" style="width:35%" class="form-control"  value="<?php echo $tour_location ;?>"  id="photo_location_id" placeholder="Country">
+								<input type="text" style="width:35%" class="form-control" name="country"   value="<?php echo $tour_location ;?>"  id="location_id" placeholder="Country" required>
 							</div>
 						</div>
+
 						<div class="form-group">
 							<label for="field-1" class="col-sm-3 control-label">City</label>
 
 							<div class="col-sm-5">
-								<input type="text" style="width:35%" class="form-control" id="city"  value="<?php echo $tour_city ;?>" placeholder="City">
+								<input type="text" style="width:35%" class="form-control" name="city" id="city" value="<?php echo $tour_city ;?>" placeholder="City" required="true">
 							</div>
 						</div>
-
-
-						<div class="form-group">
-							<label for="field-1" class="col-sm-3 control-label">Tour Duration</label>
+						
+				
+						<div  class="form-group">
+							<label for="field-1" class="col-sm-3 control-label">Tour Duration </label>
 
 							<div class="col-sm-5">
-								<span><input type="text" style="width:35%" class="form-control" id="duration"  value="<?php echo $tour_duration ;?>" placeholder="Tour Duration"> </span>
-								<span style="margin-right: 203px;float: right;margin-top: -30PX;"></span>
+								<span><input type="text" style="width:43%; clear:both; float:left;" class="form-control" name="duration"  value="<?php echo $tour_duration ;?>" id="duration" placeholder="" required> </span>
+								
 							</div>
+							<div class="clear"></div>
 						</div>
-
+						
 						<div class="form-group">
 							<label for="field-ta" class="col-sm-3 control-label">Tour Overview</label>
-
-							<div class="col-sm-5">
-								<textarea style="width:600px;height:140px;" class="form-control autogrow"  id="overview" placeholder="Tour Overview"><?php echo $tour_overview ;?></textarea>
+					
+							<div class="form-group" style="width: 572px;margin-left: 272px;">
+								<textarea style="width:600px;height:140px;" class="form-control wysihtml5 overview" name="overview" id="tour_overview" required><?php echo $tour_overview ;?></textarea>
 							</div>
+		
 						</div>
+						
+
+		
 						<div class="form-group">
 							<label for="field-ta" class="col-sm-3 control-label">Tour Highlights</label>
 
-							<div class="col-sm-5">
-								<textarea style="width:600px;height:140px;" class="form-control autogrow"   id="hilight" placeholder="Tour Hilights"><?php echo $tour_hilight ;?></textarea>
+							<!--<div class="col-sm-5">
+								<textarea style="width:600px;height:140px;" class="form-control autogrow" id="hilight" placeholder="Tour Hilights"></textarea>
+							</div>-->
+								<div class="form-group" style="width: 572px;margin-left: 272px;">
+								<textarea style="width:600px;height:140px;" class="form-control wysihtml5 hilight" name="hilight" id="tour_highlights" required><?php echo $tour_hilight ;?></textarea>
 							</div>
+		
 						</div>
 						<div class="form-group">
 							<label for="field-ta" class="col-sm-3 control-label">Tour Speciality</label>
 
-							<div class="col-sm-5">
-								<textarea style="width:600px;height:140px;" class="form-control autogrow"  id="why_this" placeholder="Tour Speciality"><?php echo $tour_why_this ;?></textarea>
+								<div class="form-group" style="width: 572px;margin-left: 272px;">
+								<textarea style="width:600px;height:140px;" class="form-control wysihtml5 why_this" name="tour_speciality" id="sample_wysiwyg" required><?php echo $tour_why_this ;?></textarea>
 							</div>
 						</div>
+
 
 <div style="clear: both;">&nbsp;</div>
 						<hr style="width:100%"/>
 							<div class="">
 								<h5>Tour Price</h5>
 							</div>
-						<hr />
+						<hr/>
 <br />
 
-
+						
 						<div class="form-group">
 							<label class="col-sm-3 control-label">Select Currency</label>
 
 							<div class="col-sm-5">
-								<select style="width: 35%;"  id="currency_id"  class="form-control">
-								<?php
-										$result = mysql_query("SELECT * FROM currency");
+								<select style="width: 35%;" name="currency"  id="currency_id"  class="form-control">
+									<?php
+											$result = mysql_query("SELECT * FROM currency");
 
-										//fetch tha data from the database
-										while ($row = mysql_fetch_array($result))
-										{
-												$selected = ($row['id']==$tour_currency_id) ? ' selected="selected"' : '';
-											echo '<option value="'.$row['id'].'" '.$selected.'>'.$row['name'].'</option>';
+											//fetch tha data from the database
+											while ($row = mysql_fetch_array($result))
+											{
+													$selected = ($row['id']==$tour_currency_id) ? ' selected="selected"' : '';
+												echo '<option value="'.$row['id'].'" '.$selected.'>'.$row['name'].'</option>';
 
-										}
-								?>
+											}
+									?>
 								</select>
 							</div>
 						</div>
@@ -457,16 +433,26 @@ $('#deparchture_time option').filter(function() {
 							<label for="field-1" class="col-sm-3 control-label">Price/Adult</label>
 
 							<div class="col-sm-5">
-								<input type="text" style="width: 35%;" class="form-control" id="price_per_person"  value="<?php echo $tour_price_per_person ;?>" placeholder="Price Per Person">
+								<input type="text" style="width: 35%;" class="form-control" name="price_adult" id="price_per_person" value="<?php echo $tour_price_per_person ;?>" placeholder="Price Per Person" required>
 							</div>
 						</div>
 						<div class="form-group">
 							<label for="field-1" class="col-sm-3 control-label">Price/Child</label>
 
 							<div class="col-sm-5">
-								<input type="text" style="width: 35%;" class="form-control"  value="<?php echo $tour_price_child ;?>" id="price_child" placeholder="Price Child">
+								<input type="text" style="width: 35%;" class="form-control" name="price_child" value="<?php echo $tour_price_child ;?>" id="price_child" placeholder="Price Child" required>
 							</div>
 						</div>
+						<div id="add_commission" style="margin-left: 2px;"  class="form-group">
+							<label for="field-1" class="col-sm-3 control-label">Commission</label>
+						<input type="checkbox" class="maxtickets_enable_cb" name="opwp_wootickets">check box <br /> <br />
+						
+							<div id="commission" style="display:none;">
+							<input type="text" style="float: left;margin-left: 252px;width: 15%;" class="form-control" name="commission" id="commission_box" value="<?php echo $commission_rate; ?>"  min="10" max="100"  placeholder=""><div style="float: left;padding-left: 12px;padding-top: 7px;">%</div>
+							</div>
+						
+						</div> 
+
 
 						<hr />
 							<div class="">
@@ -477,29 +463,25 @@ $('#deparchture_time option').filter(function() {
 							<label for="field-1" class="col-sm-3 control-label">Departure Point</label>
 
 							<div class="col-sm-5">
-								<input type="text" class="form-control" id="deparchture_point"  value="<?php echo $tour_deparchture_point ;?>" placeholder="Deparchture Point">
+								<input type="text" class="form-control"  name="deparchture_point" value="<?php echo $tour_deparchture_point ;?>" id="deparchture_point" placeholder="Departure Point" required>
 							</div>
 						</div>
+							
 
+		
 						<div class="form-group">
 							<label class="col-sm-3 control-label">Departure Time</label>
 
 							<div class="col-sm-5">
-								<select style="width: 35%;"  id="deparchture_time"  class="form-control">
-									<?php	//$selected = ($row['id']==$tour_currency_id) ? ' selected="selected"' : ''; ?>
-									<option value="1">1 Hour</option>
-									<option value="2">2 Hour</option>
-									<option value="3">3 Hour</option>
-									<option value="4">4 Hour</option>
-
-								</select>
+							<input id="defaultValueExample" style="width: 6.5em;" type="text" name="deparchture_time" value="<?php echo $tour_deparchture_time ;?>" class="form-control time deparchture_time" required/>
+		
 							</div>
 						</div>
 						<div class="form-group">
 							<label for="field-1" class="col-sm-3 control-label">Return Detail</label>
 
 							<div class="col-sm-5">
-								<input type="text"  class="form-control"  value="<?php echo $tour_return_detail ;?>" id="return_detail" placeholder="Return Detail">
+								<input type="text"  class="form-control" name="return_detail" id="return_detail" value="<?php echo $tour_return_detail ;?>" placeholder="Return Detail" required>
 							</div>
 						</div>
 
@@ -512,37 +494,50 @@ $('#deparchture_time option').filter(function() {
 						<div class="form-group">
 							<label for="field-ta" class="col-sm-3 control-label">Inclusions</label>
 
-							<div class="col-sm-5">
-								<textarea style="width:600px;height:140px;"  class="form-control autogrow" id="inclusions" placeholder="Inclusions"><?php echo $tour_inclusions ;?></textarea>
+							<div class="form-group" style="width: 572px;margin-left: 272px;">
+								<textarea style="width:600px;height:140px;" class="form-control wysihtml5 inclusions" name="inclusions" id="sample_wysiwyg" required><?php echo $tour_inclusions ;?></textarea>
 							</div>
 						</div>
 						<div class="form-group">
 							<label for="field-ta" class="col-sm-3 control-label">Exclusions</label>
-
+<!--
 							<div class="col-sm-5">
-								<textarea style="width:600px;height:140px;"   class="form-control autogrow" id="exclusions" placeholder="Exclusions"><?php echo $tour_exclusions ;?></textarea>
+								<textarea style="width:600px;height:140px;" class="form-control autogrow" id="exclusions" placeholder="Exclusions"></textarea>
+							</div>-->
+							<div class="form-group" style="width: 572px;margin-left: 272px;">
+								<textarea style="width:600px;height:140px;" class="form-control wysihtml5 exclusions" name="exclusions" id="sample_wysiwyg" required><?php echo $tour_exclusions ;?></textarea>
 							</div>
 						</div>
 						<div class="form-group">
 							<label for="field-ta" class="col-sm-3 control-label">Voucher info</label>
 
-							<div class="col-sm-5">
-								<textarea style="width:600px;height:140px;"   class="form-control autogrow" id="voucher_info" placeholder="Voucher info"><?php echo $tour_voucher_info ;?></textarea>
+							<!--<div class="col-sm-5">
+								<textarea style="width:600px;height:140px;" class="form-control autogrow" id="voucher_info" placeholder="Voucher info"></textarea>
+							</div>-->
+							<div class="form-group" style="width: 572px;margin-left: 272px;">
+								<textarea style="width:600px;height:140px;" class="form-control wysihtml5 voucher_info" name="voucher_info" id="sample_wysiwyg" required><?php echo $tour_voucher_info ;?></textarea>
 							</div>
 						</div>
 						<div class="form-group">
 							<label for="field-ta" class="col-sm-3 control-label">Local operator information</label>
 
-							<div class="col-sm-5">
-								<textarea style="width:600px;height:140px;"  class="form-control autogrow" id="local_operator_info" placeholder="Local operator information"><?php echo $tour_local_operator_info ;?></textarea>
+							<!--<div class="col-sm-5">
+								<textarea style="width:600px;height:140px;" class="form-control autogrow" id="local_operator_info" placeholder="Local operator information"></textarea>
+							</div>-->
+							<div class="form-group" style="width: 572px;margin-left: 272px;">
+								<textarea style="width:600px;height:140px;" class="form-control wysihtml5 local_operator_info" name="local_operator_info" id="sample_wysiwyg" required><?php echo $tour_local_operator_info ;?></textarea>
 							</div>
 						</div>
 						<span style="padding-left: 450px;font-size: 14px;" class="success_mesg"></span>
-						<input style="margin-left: 750px;margin-top: 10px;" type="button" value="submit" class="btn btn-info edit_submit" />
+						<input style="margin-left: 750px;margin-top: 10px;" type="submit" name="submit" value="submit" class="btn btn-info ok" />
 
 
 				</form>
+<?php 
+}
 
+
+?>
 			</div>
 
 		</div>
@@ -674,7 +669,7 @@ $('#deparchture_time option').filter(function() {
 
 
 
-
+<!--
 	<script src="include/resource/js/gsap/main-gsap.js" id="script-resource-1"></script>
 	<script src="include/resource/js/jquery-ui/js/jquery-ui-1.10.3.minimal.min.js" id="script-resource-2"></script>
 	<script src="include/resource/js/bootstrap.min.js" id="script-resource-3"></script>
@@ -682,9 +677,28 @@ $('#deparchture_time option').filter(function() {
 	<script src="include/resource/js/resizeable.js" id="script-resource-5"></script>
 	<script src="include/resource/js/neon-api.js" id="script-resource-6"></script>
 	<script src="include/resource/js/bootstrap-switch.min.js" id="script-resource-7"></script>
+	<script src="include/resource/js/jquery.validate.min.js" id="script-resource-7"></script>
 	<script src="include/resource/js/neon-chat.js" id="script-resource-8"></script>
 	<script src="include/resource/js/neon-custom.js" id="script-resource-9"></script>
-	<script src="include/resource/js/neon-demo.js" id="script-resource-10"></script>
+	<script src="include/resource/js/neon-demo.js" id="script-resource-10"></script>-->
+	
+		<link rel="stylesheet" href="include/resource/js/wysihtml5/bootstrap-wysihtml5.css"  id="style-resource-1">
+
+	<script src="include/resource/js/gsap/main-gsap.js" id="script-resource-1"></script>
+	<script src="include/resource/js/jquery-ui/js/jquery-ui-1.10.3.minimal.min.js" id="script-resource-2"></script>
+	<script src="include/resource/js/bootstrap.min.js" id="script-resource-3"></script>
+	<script src="include/resource/js/joinable.js" id="script-resource-4"></script>
+	<script src="include/resource/js/resizeable.js" id="script-resource-5"></script>
+	<script src="include/resource/js/neon-api.js" id="script-resource-6"></script>
+	<script src="include/resource/js/wysihtml5/wysihtml5-0.4.0pre.min.js" id="script-resource-7"></script>
+	<script src="include/resource/js/wysihtml5/bootstrap-wysihtml5.js" id="script-resource-8"></script>
+	<script src="include/resource/js/ckeditor/ckeditor.js" id="script-resource-9"></script>
+	<script src="include/resource/js/ckeditor/adapters/jquery.js" id="script-resource-10"></script>
+	<script src="include/resource/js/neon-chat.js" id="script-resource-11"></script>
+	<script src="include/resource/js/neon-custom.js" id="script-resource-12"></script>
+	<script src="include/resource/js/jquery.validate.min.js" id="script-resource-7"></script>
+	<script src="include/resource/js/neon-demo.js" id="script-resource-13"></script>
+	
 	<script type="text/javascript">
 
 		var _gaq = _gaq || [];
@@ -700,6 +714,24 @@ $('#deparchture_time option').filter(function() {
 		})();
 
 	</script>
+															
+					<!--			<script>
+			// Replace the <textarea id="editor1"> with an CKEditor instance.
+			CKEDITOR.replace( 'editor1', {
+				on: {
+					focus: onFocus,
+					blur: onBlur,
 
+					// Check for availability of corresponding plugins.
+					pluginsLoaded: function( evt ) {
+						var doc = CKEDITOR.document, ed = evt.editor;
+						if ( !ed.getCommand( 'bold' ) )
+							doc.getById( 'exec-bold' ).hide();
+						if ( !ed.getCommand( 'link' ) )
+							doc.getById( 'exec-link' ).hide();
+					}
+				}
+			});
+		</script>-->
 </body>
 </html>

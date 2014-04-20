@@ -11,7 +11,7 @@
 	<meta name="description" content="Neon Admin Panel" />
 	<meta name="author" content="Laborator.co" />
 	
-	<title>Neon | Compose Message</title>
+	<title>Tour bookings</title>
 
 	<link rel="stylesheet" href="include/resource/js/jquery-ui/css/no-theme/jquery-ui-1.10.3.custom.min.css"  id="style-resource-1">
 	<link rel="stylesheet" href="include/resource/css/font-icons/entypo/css/entypo.css"  id="style-resource-2">
@@ -46,7 +46,7 @@
 				// var to = $('#to').val();
 				var subject = $('#subject').val();
 				var message = $('#sample_wysiwyg').val();
-				alert(to);
+				//alert(to);
 				// alert(admin_pass);
 				$.ajax({
 						type: 'post',
@@ -59,8 +59,9 @@
 						// }else{
 							// $('.message').empty().append('User Name & Password Wrong!');	
 						// }
-						
-							alert(mesg);
+						$('#orderMessageTop').html(mesg).show('fast').animate({opacity: 1.0}, 2000).fadeOut('slow');
+							//alert(mesg);
+							location.reload();
 						
 						}
 				
@@ -81,7 +82,7 @@
 <?php include('include/header/header.php'); ?>
 <hr />
 <div class="mail-env">
-
+<h1 style="color:green;" id="orderMessageTop"></h1>
 	<!-- compose new email button -->
 	<div class="mail-sidebar-row visible-xs">
 		<a href="../../../neon-x/mailbox/compose/index.html" class="btn btn-success btn-icon btn-block">

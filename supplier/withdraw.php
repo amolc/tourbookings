@@ -112,7 +112,7 @@ $(document).ready(function(){
 
 			<div class="panel-heading">
 				<div class="panel-title">
-					Over View
+					Overview
 				</div>
 
 				<div class="panel-options">
@@ -134,14 +134,14 @@ $(document).ready(function(){
 						$withdraw_amount = mysql_real_escape_string($_POST['withdraw_amount']);
 						
 						$sql4 = mysql_query("SELECT
-											MAX(available_balance) as b
+											available_balance
 											FROM
 											supplier_balance
 											WHERE  supplier_id = '".$supplier_id."'
 											");
 						while ($row4 = mysql_fetch_array($sql4)) 
 							{
-								$supplier_balance4 = $row4['b'];
+								$supplier_balance4 = $row4['available_balance'];
 							
 							}
 							if($withdraw_amount > $supplier_balance4 || $withdraw_amount < 0)
@@ -150,10 +150,11 @@ $(document).ready(function(){
 							}
 							else 
 							{
+								$total = "";
 								$today_date = mktime(0,0,0,date("m"),date("d"),date("Y"));
 								$current_date = date("m/d/Y", $today_date);
 								$total = $supplier_balance4 - $withdraw_amount; 
-								$sql2   = "insert into supplier_balance(supplier_id,account_id,available_balance,amount_deposit,type,description,amount_withdraw,insert_date) values ('$supplier_id','$account_id','$total','0','withdraw','withdraw','$withdraw_amount','$current_date')";
+								$sql2   = "insert into supplier_balance(supplier_id,account_id,available_balance,amount_deposit,type,description,amount_withdraw,status,insert_date) values ('$supplier_id','$account_id','$total','0','withdraw','withdraw','$withdraw_amount','pending','$current_date')";
 								$query = mysql_query($sql2);
 								
 								if($query)
@@ -215,6 +216,9 @@ $(document).ready(function(){
 								<h2><?php echo"$ ". $supplier_balance;?></h2>
 							</div>
 						</div>
+						<?php $result = mysql_query("SELECT * FROM supplier_bank_account WHERE  supplier_id = '".$supplier_id."'");
+										if(mysql_num_rows($result) > 0){
+										?>
 						<div class="form-group">
 							<label class="col-sm-3 control-label">Account Name</label>
 
@@ -222,13 +226,13 @@ $(document).ready(function(){
 								<select style="width: 35%;"  name="account_name" id="currency_id"  class="form-control" required>
 									
 								<?php
-										$result = mysql_query("SELECT * FROM supplier_bank_account");
-
+										
 										//fetch tha data from the database
 										while ($row = mysql_fetch_array($result))
 										{
+																		
 											echo '<option value="'.$row['id'].'">'.$row['account_name'].'</option>';
-
+									
 										}
 										?>
 								</select>
@@ -245,7 +249,11 @@ $(document).ready(function(){
 						
 						
 						<input style="margin-left: 750px;margin-top: 10px;" type="submit" name="submit" value="submit" class="btn btn-info ok" />
-
+<?php 	}
+else{
+echo "<h3 style='color:red;'>Please add an account</h3>";
+}
+?>
 
 				</form>
 <?php 

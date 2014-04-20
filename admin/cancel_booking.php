@@ -281,7 +281,11 @@ session_start();
 						<li>
 				<a href="dashboard.php"><i class="entypo-home"></i>Home</a>
 			</li>
-				<li class="active">
+					<li class="active">
+			
+							<strong>Booking</strong>
+					</li>
+					<li class="active">
 			
 							<strong>Cancel Booking</strong>
 					</li>
@@ -295,7 +299,7 @@ session_start();
 <table class="table table-bordered datatable" id="table-1">
 	<thead>
 		<tr>
-			<th>Booking Id</th>
+			<th>Booking ID</th>
 			<th>Booking Date</th>
 			<th>Supplier ID</th>
 			<th>User ID</th>
@@ -349,13 +353,11 @@ session_start();
 									// WHERE booking.status = 'pending'  ORDER BY booking.id DESC
 									// ");	
 			$result = mysql_query("SELECT
-									booking.id,
-									booking.tour_id,
-									booking.user_id,
-									booking.start_date,
-									booking.status,
-									payment.total_price,
-									booking.supplier_id,
+									Supplier_Booking.id,
+									Supplier_Booking.tour_id,
+									Supplier_Booking.start_date,
+									Supplier_Booking.status,
+									Supplier_Booking.supplier_id,
 									tour_price.price_per_person,
 									tour.title,
 									tour.overview,
@@ -366,27 +368,14 @@ session_start();
 									supplier.company_name,
 									supplier.email AS supplier_email,
 									supplier.city AS supplier_city,
-									supplier.country AS supplier_country,
-									user.first_name AS user_first_name,
-									user.last_name AS user_last_name,
-									user.country AS user_country,
-									user.city AS user_city,
-									user.email AS user_email,
-									user.phone AS user_phone,
-									user.address AS user_address,
-									traveler.last_name as traveler_last_name ,
-									traveler.first_name as traveler_first_name
+									supplier.country AS supplier_country
 									FROM
-									booking
-									INNER JOIN tour ON tour.id = booking.tour_id
+									Supplier_Booking
+									INNER JOIN tour ON tour.id = Supplier_Booking.tour_id
 									INNER JOIN tour_price ON tour_price.tour_id = tour.id
-									INNER JOIN user ON user.id = booking.user_id
-									INNER JOIN supplier ON supplier.id = booking.supplier_id
-									INNER JOIN payment ON payment.id = booking.payment_id
-									INNER JOIN traveler ON user.id = traveler.user_id AND tour.id = traveler.tour_id
-									WHERE booking.status = 'cancel'
-									GROUP BY booking.id
-									ORDER BY booking.id DESC
+									INNER JOIN supplier ON supplier.id = Supplier_Booking.supplier_id
+									WHERE Supplier_Booking.status = 'cancel'  Group BY Supplier_Booking.id 
+									ORDER BY Supplier_Booking.id DESC
 									");
 		
 		//fetch tha data from the database 
@@ -404,7 +393,7 @@ session_start();
 			<td>2 Days</td>
 			<td>'.$row['start_date'].'</td>
 			
-			<td>confirm</td>
+			<td>cancel</td>
 			<td>
 				<a  style="" id="'.$row['id'].'" class="confirm">
 					Confirm
@@ -542,7 +531,7 @@ session_start();
 	</tbody>
 	<tfoot>
 		<tr>
-			<th>Booking Id</th>
+			<th>Booking ID</th>
 			<th>Booking Date</th>
 			<th>Supplier ID</th>
 			<th>User ID</th>

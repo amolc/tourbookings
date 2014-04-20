@@ -60,13 +60,22 @@ font-size:12px
 <script type="text/javascript" >
  $(document).ready(function() {
 
-            $('#photoimg').live('change', function()			{
-			           $("#preview").html('');
-			    $("#preview").html('<img src="loader.gif" alt="Please wait...."/>');
-			$("#imageform").ajaxForm({
-						target: '#preview'
-		}).submit();
-
+            $('#photoimg').live('change', function(){
+			//alert('qasim');
+		var title = $( "#photo_title" ).val();
+		var des =  $( "#description" ).val();
+		if (title =="" || des == "")
+		{
+		$('.title_error').html('Title and Description are required').show('fast').animate({opacity: 1.0}, 3000).fadeOut('slow');
+		$( "#photoimg" ).val('');
+		}else
+		{
+			     $("#preview").html('');
+			     $("#preview").html('<img src="loader.gif" alt="Please wait...."/>');
+			     $("#imageform").ajaxForm({
+				 target: '#preview'
+		        }).submit();
+         }
 			});
         });
 </script>
@@ -76,6 +85,12 @@ $(document).ready(function(){
 
  $('#photo_submit').click(function(){
 	// alert('ok');
+	     var title = $( "#photo_title" ).val();
+		var des =  $( "#description" ).val();
+		if (title =="" || des == ""){
+		$('.title_error').html('Title and Description are required').show('fast').animate({opacity: 1.0}, 3000).fadeOut('slow');
+		
+		}else{
 		var tour_id = '<?php echo $_GET['tour_id']; ?>';
 		// alert(tour_id);
 		// var title = $( "#photo_title" ).val();
@@ -87,8 +102,8 @@ $(document).ready(function(){
 
 				success: function(mesg) {
 					alert("Image uploaded successfully");
-					 $('#photo_detail').empty().append(mesg);
-					 // location.reload();
+					 $('#photo_detail').append(mesg);
+					 location.reload();
 					 // photo_title,description,photoimg
 					 $( "#photo_title" ).val('');
 					 $( "#description" ).val('');
@@ -97,7 +112,7 @@ $(document).ready(function(){
 				}
 
 		});
-
+}
 	});
 	
 	$(document).delegate('.delete_pic', 'click', function(){
@@ -160,11 +175,11 @@ $(document).ready(function(){
 					<a href="../../../neon-x/dashboard/main/index.html"><i class="entypo-home"></i>Home</a>
 				</li>
 				<li class="active">
-					<strong>Create Tour</strong>
+					<strong>Image Upload</strong>
 				</li>
 			</ol>
 
-			<h2>Create Tour</h2>
+			<h2>Image Upload</h2>
 			<br />
 
 <div class="row">
@@ -185,6 +200,7 @@ $(document).ready(function(){
 				</div>
 			</div>
 
+			<div class="title_error" style="color:red; font-size:16px;"></div>
 
 			<div class="panel-body">
 			<?php
@@ -206,13 +222,13 @@ $(document).ready(function(){
 											
 
 
-					<input type="hidden" id="tour_id" name="tour_id" value="<?php echo $tour_id ; ?>" />
+					<input type="hidden" id="tour_id" name="tour_id" value="<?php echo $tour_id ; ?>" required/>
 					<td>
 						<div class="form-group">
 							<!--<label for="field-1" class="col-sm-3 control-label">Photo Title</label>-->
 
 							<div class="col-sm-5">
-								<input type="text" style="width: 180px;" class="form-control" name="title" id="photo_title" placeholder="Title">
+								<input type="text" style="width: 180px;" class="form-control" name="title" id="photo_title" placeholder="Title" required>
 							</div>
 
 
@@ -223,7 +239,7 @@ $(document).ready(function(){
 							<!--<label for="field-ta" class="col-sm-3 control-label">Photo Description</label>-->
 
 							<div class="col-sm-5">
-								<textarea style="width: 370px;" class="form-control autogrow" name="description" id="description" placeholder="Photo Description"></textarea>
+								<textarea style="width: 370px;" class="form-control autogrow" name="description" id="description" placeholder="Photo Description" required></textarea>
 							</div>
 						</div>
 					</td>
@@ -236,6 +252,7 @@ $(document).ready(function(){
 							</div>
 							<div style="margin-left: 22px;margin-top: 22px;" id='preview'></div> 
 						</div>
+                        <div>Maximum image Size 1MB</div>
 					</td>
 					<td>
 					<span><input value="upload" id="photo_submit" style="border: none;padding:10px;" type="button"/></span>

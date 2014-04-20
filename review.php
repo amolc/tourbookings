@@ -395,8 +395,8 @@ $query = mysql_query("SELECT
 									 <div  style="padding-bottom: 5px;">Comment:</div>
 										<textarea name="comments" id="comments_box" cols="50" rows="7"></textarea>
 									</div>
-									<div style="margin-top:10px;" class="comments_button">
-										<a id="comments_button"  style="background:#fd8900;padding: 10px;color:#fff;">Comment</a>
+									<div id="comments_button">
+										<a id="comments_button">Comment</a>
 									</div>
 								</div>
                             </div>

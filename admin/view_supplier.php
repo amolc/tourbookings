@@ -29,6 +29,31 @@
 	<![endif]-->
 	
 	<!-- TS1387507125: Neon - Responsive Admin Template created by Laborator -->
+		<script type="text/javascript">
+		$(document).ready(function(){ 
+			
+				$('.delete_supplier').click(function(){
+					
+				var supplier_id = $( this ).parent().parent().attr('id');
+// alert(user_id);
+				$.ajax({
+						type: 'post',
+						url: 'ajax_request_function/delete_supplier_in_admin.php',
+						data: {supplier_id:supplier_id},
+
+						success: function(mesg) {
+							alert(mesg);
+							
+							location.reload();
+
+						}
+
+				});
+
+			});		
+			
+		});
+	</script>	
 </head>
 <body class="page-body">
 
@@ -48,7 +73,30 @@
 					</ol>
 			
 <h2>Supplier</h2>
-
+<div style="float:right;margin-top: -28px;display:none;">
+				<a href="view_supplier.php?delete_all='all'" class=" delete_user btn btn-danger btn-sm btn-icon icon-left">
+					<i class="entypo-cancel"></i>
+					Delete all
+				</a>
+</div>
+<?php 
+		if(isset($_REQUEST["del"])){ 
+			echo "<h1 style='color:red;'>Record Deleted...</h1>";
+		}
+		// if(isset($_REQUEST["delete_all"])){ 
+				// $sql3 = mysql_query("DELETE from supplier_2" );
+				// if($sql3 )
+				// {
+					// echo "<h1 style='color:red;'>All Record Deleted...</h1>";
+				// }
+				// else
+				// {
+					// echo "<h1 style='color:red;'>Error All Record Not Deleted...</h1>";
+				// }
+			
+		// }
+		
+		?>
 <br />
  
 <table class="table table-bordered datatable" id="table-1">
@@ -62,12 +110,14 @@
 			<th>Country</th>
 			<th>Tours</th>
 			<th>Bookings</th>
-			<th>Earnings</th>
-			<th>Action</th>
+			<th>Delete</th>
+		
 		</tr>
 	</thead>
 	<tbody>
 	<?php
+		// <th>Earnings</th>
+			// <th>Action</th>
 			// $result = mysql_query("SELECT * FROM supplier");
 			// $result = mysql_query("SELECT
 									// tour.title,
@@ -89,10 +139,35 @@
 																		
 									// ");
 									
+									// $result = mysql_query("SELECT
+															// tour.title,
+															// tour.tour_type,
+															// tour.overview,
+															// supplier.phone,
+															// supplier.email,
+															// supplier.company_name,
+															// supplier.city,
+															// supplier.id,
+															// supplier.country,
+															// supplier.`status`,
+															// supplier_payment.`status`,
+															// supplier_payment.total_price,
+															// tour.id as tours_id,
+															// supplier.first_name,
+															// booking.supplier_id,
+															// booking.user_id,
+															// booking.tour_id,
+															// booking.id as booking_id,
+															// booking.start_date
+															// FROM
+															// supplier
+															// INNER JOIN tour ON supplier.id = tour.supplier_id
+															// INNER JOIN supplier_payment ON supplier.id = supplier_payment.supplier_id
+															// INNER JOIN booking ON supplier.id = booking.supplier_id
+															// GROUP BY supplier.id
+																		
+									// ");									
 									$result = mysql_query("SELECT
-															tour.title,
-															tour.tour_type,
-															tour.overview,
 															supplier.phone,
 															supplier.email,
 															supplier.company_name,
@@ -100,20 +175,9 @@
 															supplier.id,
 															supplier.country,
 															supplier.`status`,
-															supplier_payment.`status`,
-															supplier_payment.total_price,
-															tour.id as tours_id,
-															supplier.first_name,
-															booking.supplier_id,
-															booking.user_id,
-															booking.tour_id,
-															booking.id as booking_id,
-															booking.start_date
+															supplier.first_name
 															FROM
 															supplier
-															INNER JOIN tour ON supplier.id = tour.supplier_id
-															INNER JOIN supplier_payment ON supplier.id = supplier_payment.supplier_id
-															INNER JOIN booking ON supplier.id = booking.supplier_id
 															GROUP BY supplier.id
 																		
 									");
@@ -123,26 +187,33 @@
 		{ 
 		
 	echo'
-		<tr class="odd gradeX">
+		<tr class="odd gradeX" id="'.$row['id'].'">
 			<td>'.$row['id'].'</td>
 			<td>'.$row['email'].'</td>
 			<td>'.$row['phone'].'</td>
 			<td>'.$row['company_name'].'</td>
 			<td>'.$row['city'].'</td>
 			<td>'.$row['country'].'</td>
-			<td><a href="supplier_tours.php?tour_id='.$row['tours_id'].'">Tours</a></td>
+			<td><a href="supplier_tours.php?supplier_id='.$row['id'].'">Tours</a></td>
 			<td><a href="supplier_bookings.php?supplier_id='.$row['id'].'">Bookings</a></td>
-			<td>'.$row['total_price'].'</td>
 			<td>
-				 
-				<a href="#" class="btn btn-danger btn-sm btn-icon icon-left">
+				<a href="#" class=" delete_supplier btn btn-danger btn-sm btn-icon icon-left">
 					<i class="entypo-cancel"></i>
 					Delete
 				</a>
 			</td>
+			
+			
 		</tr>
 		';
-		
+		// <td>'.$row['total_price'].'</td>
+		// <td>
+				 
+				// <a href="delete_view_supplier.php?id='.$row['id'].'" class="btn btn-danger btn-sm btn-icon icon-left">
+					// <i class="entypo-cancel"></i>
+					// Delete
+				// </a>
+			// </td>
 		}
 	?>
 		
@@ -158,8 +229,7 @@
 			<th>Country</th>
 			<th>Tours</th>
 			<th>Bookings</th>
-			<th>Earnings</th>
-			<th>Action</th>
+			<th>Delete</th>
 		</tr>
 	</tfoot>
 </table>

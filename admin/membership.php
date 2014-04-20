@@ -124,6 +124,7 @@
 <table class="table table-bordered datatable" id="table-1">
 	<thead>
 		<tr>
+			<th>ID</th>
 			<th>Name</th>
 			<th>Phone</th>
 			<th>Email</th>
@@ -159,6 +160,7 @@
 		
 	echo'
 		<tr class="odd gradeX">
+			<td>'.$row['id'].'</td>
 			<td>'.$row['first_name'].'</td>
 			<td>'.$row['phone'].'</td>
 			<td>'.$row['email'].'</td>
@@ -188,6 +190,7 @@
 	</tbody>
 	<tfoot>
 		<tr>
+			<th>ID</th>
 			<th>Name</th>
 			<th>Phone</th>
 			<th>Email</th>

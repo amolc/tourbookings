@@ -307,11 +307,11 @@ session_start();
 					</li>
 					<li class="active">
 			
-							<strong> My Earning</strong>
+							<strong>My Earnings</strong>
 					</li>
 					</ol>
 			
-<h2> My Earning</h2>
+<h2> My Earnings</h2>
 
 <br />
 	<form  method="post" class="form-horizontal" enctype="multipart/form-data" action='tour_iamges_upload.php'>
@@ -319,7 +319,7 @@ session_start();
 <table class="table table-bordered datatable" id="table-1">
 	<thead>
 		<tr>
-			<th>Booking Id</th>
+			<th>Booking ID</th>
 			<th>Booking Date</th>			
 			<th>User ID</th>
 			<th>Trip title</th>
@@ -423,7 +423,7 @@ session_start();
 		
 	echo'
 		<tr class="odd gradeX">
-			<td><a  style="" id="'.$row['id'].'" class="fancybox" href="#inline'.$row['id'].'">'.$row['id'].'</a></td>
+			<td><a  style="" id="'.$row['id'].'" class="" href="booking_detail.php?booking_id='.$row['id'].'">'.$row['id'].'</a></td>
 			<td>'.$row['start_date'].'</td>
 			
 			<td>'.$row['user_id'].'</td>
@@ -558,7 +558,7 @@ session_start();
 	</tbody>
 	<tfoot>
 		<tr>
-			<th>Booking Id</th>
+			<th>Booking ID</th>
 			<th>Booking Date</th>
 			
 			<th>User ID</th>

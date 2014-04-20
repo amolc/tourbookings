@@ -96,8 +96,9 @@
 					</li>
 					</ol>
 			
-<h2>Tour List</h2>
 
+<h5 style="float: right;"><a href="javascript:history.back(1)" style="padding:5px 15px; color:white; border-radius:2px; background-color: #fd8900;">Go Back</a></h>
+<h2 style="width:85%; ">Tour List</h2>
 <br />
 
 	<form  method="post" class="form-horizontal" enctype="multipart/form-data" action=''>
@@ -260,6 +261,8 @@ INNER JOIN tour_price ON tour.id = tour_price.tour_id
 							<th>Description</th>
 							<th>City</th>
 							<th>Country</th>
+							<th>Duration</th>
+							<th>Departure Time</th>
 						</tr>
 					</thead>
 						<tr>
@@ -267,6 +270,8 @@ INNER JOIN tour_price ON tour.id = tour_price.tour_id
 							<td>'.$row['overview'].'</td>
 							<td>'.$row['tour_city'].'</td>
 							<td>'.$row['tour_country'].'</td>
+							<td>'.$row['duration'].'</td>
+							<td>'.$row['deparchture_time'].'</td>
 						</tr>
 					<tbody>
 					

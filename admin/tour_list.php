@@ -1,5 +1,6 @@
 <?php
  include('../include/database/db.php'); 
+ $upmark_tour_id = $_GET['upmark_tour_id'];
  ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -36,7 +37,13 @@
 	<script src="include/resource/js/jquery-1.10.2.min.js"></script>
 		<script type="text/javascript">
 		$(document).ready(function(){
-			
+			// $('#table-1_filter').children('input').val('<?php echo $upmark_tour_id; ?>');
+/*
+*
+*@author:			raza<raza.malik@fountaintechies.com>
+*@Date & Time:		1-Jan-2014 GM +5
+*@Modified Date:	1-Jan-2014 GM +5
+*/	
 				$('.accept').click(function(){
 					// alert('ok');
 				var tour_id = $( this ).parent().parent().attr('id');
@@ -75,6 +82,27 @@
 			});
 			
 			
+				$('.delete').click(function(){
+					
+				var tour_id = $( this ).parent().parent().attr('id');
+				$( this ).parent().parent().remove();
+						// alert(tour_id);
+				$.ajax({
+						type: 'post',
+						url: 'ajax_request_function/ajax_delete.php',
+						data: {tour_id:tour_id},
+
+						success: function(mesg) {
+							alert(mesg);
+							location.reload();
+							
+						}
+
+				});
+
+			});
+			
+			
 		});
 	</script>
 </head>
@@ -87,10 +115,12 @@
 
 			<ol class="breadcrumb bc-3">
 						<li>
-				<a href="../../../neon-x/dashboard/main/index.html"><i class="entypo-home"></i>Home</a>
+				<a href="dashboard.php"><i class="entypo-home"></i>Home</a>
 			</li>
+					<li class="active">
+							<strong>Tour </strong>
+					</li>	
 				<li class="active">
-			
 							<strong>Tour List</strong>
 					</li>
 					</ol>
@@ -102,11 +132,9 @@
 <table class="table table-bordered datatable" id="table-1">
 	<thead>
 		<tr>
+			<th>ID</th>
 			<th>Title</th>
-			<th>Overview</th>
-			<th>Highlight</th>
 			<th>Tour Photo</th>
-			<th>Why This ?</th>
 			<th>Duration</th>
 			<th>Status</th>
 			<th>Accept/Decline</th>
@@ -131,49 +159,106 @@
 						// FROM
 						// tour
 						// INNER JOIN tour_photo ON tour.id = tour_photo.tour_id Where tour.status = 'pending'  GROUP BY tour.title");
-						
-$result = mysql_query("SELECT
-						t.title,
-						t.url,
-						p.id,
-						p.title,
-						p.city,
-						p.`status`,
-						p.supplier_id,
-						p.overview,
-						p.hilight,
-						p.why_this,
-						p.duration
-						FROM tour p LEFT JOIN tour_photo t ON (
-							p.id = t.tour_id
-						)
-						GROUP BY p.id 
-						");
+/*
+*tour list
+*@author:			raza<raza.malik@fountaintechies.com>
+*@Date & Time:		1-Jan-2014 GM +5
+*@Modified Date:	1-Jan-2014 GM +5
+*/	
+if($upmark_tour_id == '')
+{
+	$result = mysql_query("SELECT
+							t.title,
+							t.url,
+							p.id,
+							p.title,
+							p.city,
+							p.`status`,
+							p.supplier_id,
+							p.overview,
+							p.hilight,
+							p.why_this,
+							p.duration
+							FROM tour p LEFT JOIN tour_photo t ON (
+								p.id = t.tour_id
+							)
+							GROUP BY p.id 
+							");
+	}
+	else 
+	{
+	$result = mysql_query("SELECT
+							t.title,
+							t.url,
+							p.id,
+							p.title,
+							p.city,
+							p.`status`,
+							p.supplier_id,
+							p.overview,
+							p.hilight,
+							p.why_this,
+							p.duration
+							FROM tour p LEFT JOIN tour_photo t ON (
+								p.id = t.tour_id
+							)
+							WHERE p.id = '".$upmark_tour_id."'
+							GROUP BY p.id 
+							");
+	}
 
 		//fetch tha data from the database 
 		while ($row = mysql_fetch_array($result)) 
 		{ 
+			if($row['url']==""){
+				$no_pic = 'no_preview.png';
+			   }
+			else {
+				 $no_pic = $row['url']; 
+				 }
+		
+		if($row['status'] == 'accepted') 
+		{
+			$action ='	<td>				
+							<a style="margin-bottom: 6px;" href="#" class="decline btn btn-danger btn-sm btn-icon icon-left">
+								<i class="entypo-cancel"></i>
+								Decline
+							</a>
+							<a href="#" class="delete btn btn-danger btn-sm btn-icon icon-left" style="padding-right: 15px;">
+								Delete
+							</a>
+						</td>
+					';
+		}
+		else 
+		{
+		
+			$action ='	<td>				
+							<a style="margin-bottom: 6px;" href="#" class="accept btn btn-danger btn-sm btn-icon icon-left">
+								<i class="entypo-cancel"></i>
+								Accept
+							</a>
+							<a href="#" class="delete btn btn-danger btn-sm btn-icon icon-left" style="padding-right: 15px;">
+								Delete
+							</a>
+						</td>
+					';
+		}
 		
 	echo'
 		<tr class="odd gradeX" id="'.$row['id'].'">
+			<td>'.$row['id'].'</td>
 			<td><a href="tour_detail.php?tour_id='.$row['id'].'">'.$row['title'].'</a></td>
-			<td>'.$row['overview'].'</td>
-			<td>'.$row['hilight'].'</td>
-			<td><img class="preview" src="../supplier/uploads/'.$row['url'].'"/></td>
-			<td>'.$row['why_this'].'</td>
-			<td>'.$row['duration'].'</td>
-			<td>'.$row['status'].'</td>
+			
 			<td>
-				<a href="#" class="accept btn btn-default btn-sm btn-icon icon-left">
-					<i class="entypo-pencil"></i>
-					Accept
-				</a>
-				
-				<a href="#" class="decline btn btn-danger btn-sm btn-icon icon-left">
-					<i class="entypo-cancel"></i>
-					Decline
+				<a href="tour_image_upload.php?tour_id='.$row['id'].'">
+					<img class="preview" alt="No Image Available" title="click to upload image" src="../supplier/uploads/'.$no_pic.'"/>
 				</a>
 			</td>
+		
+			<td>'.$row['duration'].'</td>
+			<td>'.$row['status'].'</td>
+			'.$action.'
 		</tr>
 		';
 		
@@ -184,11 +269,9 @@ $result = mysql_query("SELECT
 	</tbody>
 	<tfoot>
 		<tr>
+			<th>ID</th>
 			<th>Title</th>
-			<th>Overview</th>
-			<th>Highlight</th>
 			<th>Tour Photo</th>
-			<th>Why This ?</th>
 			<th>Duration</th>
 			<th>Status</th>
 			<th>Accept/Decline</th>

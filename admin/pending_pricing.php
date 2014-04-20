@@ -285,13 +285,15 @@ else {
 						<li>
 				<a href="dashboard.php"><i class="entypo-home"></i>Home</a>
 			</li>
-				<li class="active">
-			
-							<strong>Pending Pricing</strong>
+					<li class="active">
+							<strong>Set Upmark Pricing</strong>
 					</li>
-					</ol>
+					<li class="active">
+							<strong>Set Upmark Pricing</strong>
+					</li>
+					</ol> 
 			
-<h2>Pending Pricing</h2>
+<h2>Set Upmark Pricing</h2>
 
 <br />
 	<form  method="post" class="form-horizontal" enctype="multipart/form-data" action='tour_iamges_upload.php'>
@@ -351,7 +353,7 @@ else {
 										
 	echo'
 		<tr class="odd gradeX">
-			<td>'.$row['id'].'</td>
+			<td>'.$row['tour_id'].'</td>
 			<td><a  style="" id="'.$row['tour_id'].'" class="fancybox" href="tour_detail.php?tour_id='.$row['tour_id'].'">'.$row['title'].'</a></td>
 			<td>'.$currency_name.'</td>
 			<td>'.$row['price_per_person'].'</td>

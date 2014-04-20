@@ -1,6 +1,6 @@
 <?php
  include('../include/database/db.php'); 
- $tour_id = $_GET['tour_id'];
+ $supplier_id = $_GET['supplier_id'];
  // echo  $tour_id;
  ?> 
 <!DOCTYPE html>
@@ -171,22 +171,31 @@
 									tour.supplier_id,
 									tour.`status`,
 									tour.insert_date,
-									tour.update_date
+									tour.update_date,
+									tour_photo.url
 									FROM
 									tour
-									WHERE tour.id ='".$tour_id."' GROUP BY tour.id 
+									LEFT JOIN tour_photo ON tour.id = tour_photo.id
+									WHERE
+									tour.supplier_id ='".$supplier_id."'
+									GROUP BY tour.id 
 														");
 
 		//fetch tha data from the database 
 		while ($row = mysql_fetch_array($result)) 
 		{ 
-		
+				if($row['url']==""){
+				$no_pic = 'no_preview.png';
+			   }
+			else {
+				 $no_pic = $row['url']; 
+				 }
 	echo'
 		<tr class="odd gradeX" id="'.$row['id'].'">
 			<td>'.$row['title'].'</td>
 			<td>'.$row['overview'].'</td>
 			<td>'.$row['hilight'].'</td>
-			<td><img class="preview" src="../supplier/uploads/'.$row['url'].'"/></td>
+			<td><img class="preview" src="../supplier/uploads/'.$no_pic.'"/></td>
 			<td>'.$row['why_this'].'</td>
 			<td>'.$row['duration'].'</td>
 			<td>'.$row['status'].'</td>

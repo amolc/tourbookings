@@ -306,8 +306,6 @@ session_start();
 			<th>Trip title</th>
 			<th>Start Date</th>
 			<th>Supplier Status</th>
-			<th>Action</th>
-			<th>Delete</th>
 		</tr>
 	</thead>
 
@@ -406,18 +404,8 @@ session_start();
 			<td>'.$row['title'].'</td>
 			<td>'.$row['start_date'].'</td>
 			
-			<td>confirm</td>
-			<td> 
-				<a style="color: red;" id="'.$row['id'].'" class="cancel">
-					Cancel
-				</a>
-			</td>
-			<td>				
-				<a id="'.$row['id'].'" class="delete_tour_list">
-					<i class="entypo-cancel"></i>
-				
-				</a>
-			</td>
+			<td>Confirmed</td>
+			
 		</tr>
 		';
 		
@@ -548,8 +536,6 @@ session_start();
 			<th>Trip title</th>
 			<th>Start Date</th>
 			<th>Supplier Status</th>
-			<th>Action</th>
-			<th>Delete</th>
 		</tr>
 	</tfoot>
 </table>

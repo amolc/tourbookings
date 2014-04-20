@@ -26,9 +26,10 @@ session_start();
 	<script src="include/resource/js/jquery-1.10.2.min.js"></script>
 	<script type="text/javascript">
 		$(document).ready(function(){
-			
+			$('.loading').hide();
 				$('.delete_tour_list').click(function(){
 					// alert('ok');
+					$('.loading').show();
 				var tour_id = $( this ).attr('id');
 
 				$.ajax({
@@ -37,7 +38,11 @@ session_start();
 						data: {tour_id:tour_id},
 
 						success: function(mesg) {
-							alert(mesg);
+							// alert(mesg);
+									$('.loading').hide();
+							$('.msg2').empty().html('Deleted').show('fast').animate({opacity: 1.0}, 3000).fadeOut('slow');							
+							
+							location.reload();
 							 // $('#photo_detail').append(mesg);
 
 						}
@@ -48,15 +53,20 @@ session_start();
 
 			$('.confirm').click(function(){
 					// alert('ok');
+					$('.loading').show();
 				var tour_id = $( this ).attr('id');
+				var supplier_id = $( this ).attr('data');
 
 				$.ajax({
 						type: 'post',
 						url: 'ajax_request_function/ajax_confirm_booking.php',
-						data: {tour_id:tour_id},
+						data: {tour_id:tour_id,supplier_id:supplier_id},
 
 						success: function(mesg) {
-							alert(mesg);
+							// alert(mesg); 
+							$('.loading').hide();
+							$('.msg2').empty().html('Declined').show('fast').animate({opacity: 1.0}, 3000).fadeOut('slow');	
+							location.reload();
 							 // $('#photo_detail').append(mesg);
 
 						}
@@ -67,6 +77,7 @@ session_start();
 
 			$('.cancel').click(function(){
 					// alert('ok');
+					$('.loading').show();
 				var tour_id = $( this ).attr('id');
 
 				$.ajax({
@@ -75,7 +86,10 @@ session_start();
 						data: {tour_id:tour_id},
 
 						success: function(mesg) {
-							alert(mesg);
+							// alert(mesg);
+									$('.loading').hide();
+							$('.msg2').empty().html('Confirm').show('fast').animate({opacity: 1.0}, 3000).fadeOut('slow');	
+							location.reload();
 							 // $('#photo_detail').append(mesg);
 
 						}
@@ -293,7 +307,17 @@ session_start();
 					</ol>
 			
 <h2>Pending Booking</h2>
-
+<div style="margin-left: 352px;display:none;" class="loading">Your Request is processing <img src="uploads/loading_gif.gif" alt="" width=80px/></div>
+<div style="color:green;margin-left: 352px;" class="msg"></div>
+<div style="color:red;margin-left: 352px;" class="msg2"></div>
+<?php
+if(isset($_REQUEST['del'])){
+echo '<h2 style="color:red">Deleted</h2>'; 
+}
+if(isset($_REQUEST['edit'])){
+echo '<h2 style="color:green">Updated</h2>'; 
+}
+ ?>
 <br />
 	<form  method="post" class="form-horizontal" enctype="multipart/form-data" action='tour_iamges_upload.php'>
 
@@ -403,7 +427,7 @@ session_start();
 		
 	echo'
 		<tr class="odd gradeX">
-			<td><a  style="" id="'.$row['id'].'" class="fancybox" href="#inline'.$row['id'].'">'.$row['id'].'</a></td>
+			<td><a  style="" id="'.$row['id'].'"  class="fancybox" href="#inline'.$row['id'].'">'.$row['id'].'</a></td>
 			<td>'.$row['start_date'].'</td>
 			<td>'.$row['supplier_id'].'</td>
 			<td>'.$row['user_id'].'</td>
@@ -414,7 +438,7 @@ session_start();
 			
 			<td>Pending</td>
 			<td>
-				<a  style="" id="'.$row['id'].'" class="confirm">
+				<a  style="" id="'.$row['id'].'" data="'.$row['supplier_id'].'" class="confirm">
 					Confirm
 				</a>   /  
 				<a style="color: red;" id="'.$row['id'].'" class="cancel">

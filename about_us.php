@@ -41,7 +41,7 @@
                            <!-- <span>Access</span>-->
                             <p>Have trouble booking your tour? Can’t find the information you require? Or are you in need of a long vacation but too busy to do the planning? Drop us an email or a call and we will answer all your queries! What more do you need?</p>
                           </div>
-                          <div class="handpicked  fl">
+                          <div class="handpicked  fl" style="margin-top:12px;">
                             <h1>Convenience</h1>
                             <!--<span>Guaranteed</span>-->
                               <p>There is no need for you to browse through tons of data on the web to find what is fun or can be done, we have all the tours that you can find on here! Everything is conveniently consolidated unto our page and made accessible to you whenever and wherever you want.</p>

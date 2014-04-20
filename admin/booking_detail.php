@@ -2,7 +2,7 @@
 
 session_start();
  include('../include/database/db.php'); 
- $supplier_id = $_SESSION['supplier_id'];
+ // $supplier_id = $_SESSION['supplier_id'];
  $booking_id = $_GET['booking_id'];
  ?>
 <!DOCTYPE html>
@@ -288,9 +288,11 @@ session_start();
 					</li>
 					</ol>
 			
-<h2>Confirm Booking</h2>
+<h2 style="float:left; width:85%;">Confirm Booking</h2>
+<br />		
 
-<br />
+<h4 style="float: right;"><a href="javascript:history.back(1)" style="padding:5px 15px; color:white; border-radius:2px; background-color: #fd8900;">Go Back</a></h4>
+<br />		
 	<form  method="post" class="form-horizontal" enctype="multipart/form-data" action='tour_iamges_upload.php'>
 
 	<?php

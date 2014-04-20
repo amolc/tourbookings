@@ -328,7 +328,6 @@ else {
                             	<h1>Welcome to Tour Bookings!</h1>
                           <p><img src="images/welcome_pic.jpg" width="238" height="200">
 		
-<br>
 Here at Tour Bookings, every customer is our VIP! There is no need for you to scour the web to search for things to do on your vacation, no need to rummage through the tons of information on the Internet. We have done all of that for you! Everything is made available to your in the comfort of your home, on a single site. What’s more, we have a dedicated team that will be available to tend to your every query 24/7!
 <br />
 <a href="about_us.php">View More...</a></p>

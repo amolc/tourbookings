@@ -52,15 +52,17 @@ else {
 
 			$('.confirm').click(function(){
 					// alert('ok');
-				var tour_id = $( this ).attr('id');
+				var payment_id = $( this ).attr('id');
+					var supplier_email = $( this ).attr('data');
 
 				$.ajax({
 						type: 'post',
-						url: 'ajax_request_function/ajax_confirm_booking.php',
-						data: {tour_id:tour_id},
+						url: 'ajax_request_function/ajax_confirm_payment.php',
+						data: {payment_id:payment_id,supplier_email:supplier_email},
 
 						success: function(mesg) {
 							alert(mesg);
+							location.reload();
 							 // $('#photo_detail').append(mesg);
 
 						}
@@ -71,15 +73,17 @@ else {
 
 			$('.cancel').click(function(){
 					// alert('ok');
-				var tour_id = $( this ).attr('id');
+				var payment_id = $( this ).attr('id');
+				var supplier_email = $( this ).attr('data');
 
 				$.ajax({
 						type: 'post',
-						url: 'ajax_request_function/ajax_cancel_booking.php',
-						data: {tour_id:tour_id},
+						url: 'ajax_request_function/ajax_cancel_payment.php',
+						data: {payment_id:payment_id,supplier_email:supplier_email},
 
 						success: function(mesg) {
 							alert(mesg);
+							location.reload();
 							 // $('#photo_detail').append(mesg);
 
 						}
@@ -338,7 +342,7 @@ else {
 
 <div class="row">
 			
-<h2> Recent Bookings</h2>
+<h2>Pending Payment</h2>
 
 <br />
 	<form  method="post" class="form-horizontal" enctype="multipart/form-data" action='tour_iamges_upload.php'>
@@ -350,9 +354,12 @@ else {
 			<th>Booking Date</th>
 			<th>Supplier ID</th>
 			<th>User ID</th>
-			<th>Trip title</th>
+			<th>Currency</th>
+			<th>Total Price</th>
+			<th>Card Name</th>
+			<th>Card Number</th>
 			<th>Start Date</th>
-			<th>Supplier Status</th>
+			<th>Payment Status</th>
 			<th>Action</th>
 			<th>Delete</th>
 		</tr>
@@ -398,15 +405,66 @@ else {
 									// INNER JOIN payment ON payment.id = booking.payment_id
 									// WHERE booking.status = 'pending'  ORDER BY booking.id DESC
 									// ");	
+			// $result = mysql_query("SELECT
+									// booking.id,
+									// booking.tour_id,
+									// booking.user_id,
+									// booking.start_date,
+									// booking.status,
+									// payment.status as payment_status,
+									// payment.total_price,
+									// payment.credit_card_no,
+									// payment.email,
+									// payment.phone,
+									// booking.supplier_id,
+									// tour_price.price_per_person,
+									// tour.title,
+									// tour.overview,
+									// tour.city AS tour_city,
+									// tour.location_id AS tour_country,
+									// supplier.first_name AS supplier_first_name,
+									// supplier.last_name AS supplier_last_name,
+									// supplier.company_name,
+									// supplier.email AS supplier_email,
+									// supplier.city AS supplier_city,
+									// supplier.country AS supplier_country,
+									// user.first_name AS user_first_name,
+									// user.last_name AS user_last_name,
+									// user.country AS user_country,
+									// user.city AS user_city,
+									// user.email AS user_email,
+									// user.phone AS user_phone,
+									// user.address AS user_address,
+									// traveler.last_name as traveler_last_name ,
+									// traveler.first_name as traveler_first_name
+									// FROM
+									// booking
+									// INNER JOIN tour ON tour.id = booking.tour_id
+									// INNER JOIN tour_price ON tour_price.tour_id = tour.id
+									// INNER JOIN user ON user.id = booking.user_id
+									// INNER JOIN supplier ON supplier.id = booking.supplier_id
+									// INNER JOIN payment ON payment.id = booking.payment_id
+									// INNER JOIN traveler ON user.id = traveler.user_id AND tour.id = traveler.tour_id
+									// WHERE booking.status = 'pending' Group BY booking.id 
+									// ORDER BY booking.id DESC
+									
+									// ");	
 			$result = mysql_query("SELECT
 									booking.id,
 									booking.tour_id,
 									booking.user_id,
 									booking.start_date,
 									booking.status,
+									payment.status AS payment_status,
 									payment.total_price,
+									payment.credit_card_no,
+									payment.name as credit_card_name,
+									payment.id as payment_id,
+									payment.email,
+									payment.phone,
 									booking.supplier_id,
 									tour_price.price_per_person,
+									tour_price.currency_id,
 									tour.title,
 									tour.overview,
 									tour.city AS tour_city,
@@ -424,8 +482,8 @@ else {
 									user.email AS user_email,
 									user.phone AS user_phone,
 									user.address AS user_address,
-									traveler.last_name as traveler_last_name ,
-									traveler.first_name as traveler_first_name
+									traveler.last_name AS traveler_last_name,
+									traveler.first_name AS traveler_first_name
 									FROM
 									booking
 									INNER JOIN tour ON tour.id = booking.tour_id
@@ -434,15 +492,22 @@ else {
 									INNER JOIN supplier ON supplier.id = booking.supplier_id
 									INNER JOIN payment ON payment.id = booking.payment_id
 									INNER JOIN traveler ON user.id = traveler.user_id AND tour.id = traveler.tour_id
-									WHERE booking.status = 'pending' AND payment.status = 'confirm'  Group BY booking.id 
+									WHERE booking.status = 'pending' AND payment.status = 'pending' 
+									Group BY booking.id
 									ORDER BY booking.id DESC
-									
 									");
 		
 		//fetch tha data from the database 
 		// $counter =1;
 		while ($row = mysql_fetch_array($result)) 
 		{ 
+			$result2 = mysql_query("SELECT * FROM currency where id = '".$row['currency_id']."'");
+										while ($row2 = mysql_fetch_array($result2))
+										{
+												$currency_name = $row2['name'];
+											
+
+										}
 		
 	echo'
 		<tr class="odd gradeX">
@@ -450,15 +515,18 @@ else {
 			<td>'.$row['start_date'].'</td>
 			<td>'.$row['supplier_id'].'</td>
 			<td>'.$row['user_id'].'</td>
-			<td>'.$row['title'].'</td>
+			<td>'.$currency_name.'</td>
+			<td>'.$row['total_price'].'</td>
+			<td>'.$row['credit_card_name'].'</td>
+			<td>'.$row['credit_card_no'].'</td>
 			<td>'.$row['start_date'].'</td>
+			<td>'.$row['payment_status'].'</td>
 			
-			<td>'.$row['status'].'</td>
 			<td>
-				<a  style="" id="'.$row['id'].'" class="confirm">
+				<a  style="" id="'.$row['payment_id'].'" data="'.$row['supplier_email'].'" class="confirm">
 					Confirm
 				</a>   /  
-				<a style="color: red;" id="'.$row['id'].'" class="cancel">
+				<a style="color: red;" id="'.$row['payment_id'].'" data="'.$row['supplier_email'].'" class="cancel">
 					Cancel
 				</a>
 			</td>
@@ -595,9 +663,12 @@ else {
 			<th>Booking Date</th>
 			<th>Supplier ID</th>
 			<th>User ID</th>
+			<th>Currency</th>
 			<th>Trip title</th>
+			<th>Card Name</th>
+			<th>Card Number</th>
 			<th>Start Date</th>
-			<th>Supplier Status</th>
+			<th>Payment Status</th>
 			<th>Action</th>
 			<th>Delete</th>
 		</tr>

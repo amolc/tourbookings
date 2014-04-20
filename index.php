@@ -11,6 +11,7 @@
 <title>Tour bookings</title>
 <link href="css/style.css" rel="stylesheet" type="text/css">
 <link href="css/flexslider.css" rel="stylesheet" type="text/css">
+<link href="css/flexslider2.css" rel="stylesheet" type="text/css">
 <link href="css/jquery-ui.css" rel="stylesheet" type="text/css">
      <!-- Picker UI-->	
     <script type="text/javascript" src="js/jquery.v2.0.3.js"></script>
@@ -78,7 +79,6 @@ $(document).ready(function(){
 
 });
 </script>
-
 	
 </head>
 
@@ -150,74 +150,7 @@ $(document).ready(function(){
 						Through the hard work of our staff here at Tour Bookings, we are able to bring to you these irresistible deals at highly affordable prices. With a wide range of tours and deals available for all ages at these six beautifully unique countries, what are you waiting for? It doesn’t get anymore Asian than this!
 
 							</p>
-                        </div>
-					<div  class="hot_destinations fl" style="margin:0px 0px 0px 0px; padding-left:20px; width:188px;">
-                        	<h2></h2>
-                            <ul>
-                            	<li><a href="index_city.php?location=Japan"><span class="country_index">Japan</span></a></li>
-                                <li><a href="index_city.php?location=South Korea"><span class="country_index">South Korea</span></a></li>
-                                <li><a href="index_city.php?location=Australia"><span class="country_index">Australia</span></a></li>
-                                <li><a href="index_city.php?location=India"><span class="country_index">India</span></a></li>
-                                <li><a href="index_city.php?location=Singapore"><span class="country_index">Singapore</span></a></li>
-                                
-                            </ul>
-                            
-                    </div>
-
-					<div class="hot_destinations fl" style="margin:0px 0px 0px 0px; padding-left:61px; width:150px;">
-                        	<h2></h2>
-                            <ul>
-                            	<li><a href="hongkong_city.php?location=Hong Kong"><span class="country_index">Hong Kong</span></a></li>
-                                <li><a href="index_city.php?location=Indonesia"><span class="country_index">Indonesia</span></a></li>
-                                <li><a href="index_city.php?location=Philippines"><span class="country_index">Philippines</span></a></li>
-                                <li><a href="index_city.php?location=Malaysia"><span class="country_index">Malaysia</span></a></li>
-                                <li><a href="index_city.php?location=Taiwan"><span class="country_index">Taiwan</span></a></li>
-                                
-                            </ul>
-                            
-                    </div>			
-
-					
-						<div class="hot_destinations fl" style="margin:0px 0px 0px 0px; width:205px; padding-left:123px;">
-                        	<h2></h2>
-                            <ul>
-                            	<li><a href="index_city.php?location=Thailand"><span class="country_index">Thailand</span></a></li>
-                                <li><a href="index_city.php?location=Maldives"><span class="country_index">Maldives</span></a></li>
-                                <li><a href="index_city.php?location=New Zealand"><span class="country_index">New Zealand</span></a></li>
-                                <li><a href="index_city.php?location=Switzerland"><span class="country_index">Switzerland</span></a></li>
-                                <li><a href="index_city.php?location=Paris"><span class="country_index">Paris</span></a></li>
-                                
-                            </ul>
-                            <!--<ul class="mrgn_right">
-								<li><a href='category_view.php?cat_name=Outdoor Activities'>Outdoor Activities</a></li>
-                                <li><a href='category_view.php?cat_name=Day Trips & Excursions'>Day Trips & Excursions</a></li>
-                                <li><a href='category_view.php?cat_name=Food, Wine & Nightlife'>Food, Wine & Nightlife</a></li>
-                                <li><a href='category_view.php?cat_name=Water Sports'>Water Sports</a></li>
-                                <li><a href='category_view.php?cat_name=Private & Custom Tours'>Private & Custom Tours</a></li>
-                                <li><a href='category_view.php?cat_name=Multi-day & Extended Tours'>Multi-day & Extended Tours</a></li>
-                            </ul>-->
-                        </div>	
-						
-						<div class="hot_destinations fl" style="margin:0px 0px 0px 0px; padding-left:41px; width:150px;">
-                        	<h2></h2>
-                            <ul>
-                            	<li><a href="index_city.php?location=Germany"><span class="country_index">Germany</span></a></li>
-                                <li><a href="index_city.php?location=France"><span class="country_index">France</span></a></li>
-                                <li><a href="index_city.php?location=Dubai"><span class="country_index">Dubai</span></a></li>
-                                <li><a href="index_city.php?location=Vietnam"><span class="country_index">Vietnam</span></a></li>
-                                <li><a href="index_city.php?location=Cambodia"><span class="country_index">Cambodia</span></a></li>
-                                
-                            </ul>
-                            <!--<ul class="mrgn_right">
-								<li><a href='category_view.php?cat_name=Outdoor Activities'>Outdoor Activities</a></li>
-                                <li><a href='category_view.php?cat_name=Day Trips & Excursions'>Day Trips & Excursions</a></li>
-                                <li><a href='category_view.php?cat_name=Food, Wine & Nightlife'>Food, Wine & Nightlife</a></li>
-                                <li><a href='category_view.php?cat_name=Water Sports'>Water Sports</a></li>
-                                <li><a href='category_view.php?cat_name=Private & Custom Tours'>Private & Custom Tours</a></li>
-                                <li><a href='category_view.php?cat_name=Multi-day & Extended Tours'>Multi-day & Extended Tours</a></li>
-                            </ul>-->
-                        </div>	
-						
+                        </div>					
                         
                    	  <div class="different_city fl">
 						 <?php
@@ -276,16 +209,69 @@ $(document).ready(function(){
                           </div>-->
 
                       </div>
+                <div style="padding-bottom:40px; margin-bottom:40px;border-bottom:1px solid #dbdbdb;float:left;width:1000px">     
+					<div  class="hot_destinations fl" style="margin:0px 0px 0px 0px; padding-left:20px; width:188px;">
                       
-                      	<div class="hot_destinations fl">
-                        	<h2>Hot Destinations</h2>
                             <ul>
-                            	<li><a href='tour_list.php?location=Bali'>Bali</a></li>
-                                <li><a href='tour_list.php?location=Delhi'>Delhi</a></li>
-                                <li><a href='tour_list.php?location=Singapore'>Singapore</a></li>
-                                <li><a href='tour_list.php?location=Kuala Lumpur'>Kuala Lumpur</a></li>
-                                <li><a href='tour_list.php?location=Boracay'>Boracay</a></li>
-                                <li><a href='hongkong_city.php?location=Hong Kong'>Hong Kong</a></li>
+                            	<li><a href="index_city.php?location=Japan"><span class="country_index">Japan</span></a></li>
+                                <li><a href="index_city.php?location=South Korea"><span class="country_index">South Korea</span></a></li>
+                                <li><a href="index_city.php?location=Australia"><span class="country_index">Australia</span></a></li>
+                                <li><a href="index_city.php?location=India"><span class="country_index">India</span></a></li>
+                                <li><a href="index_city.php?location=Singapore"><span class="country_index">Singapore</span></a></li>
+                                
+                            </ul>
+                            
+                    </div>
+
+					<div class="hot_destinations fl" style="margin:0px 0px 0px 0px; padding-left:61px; width:150px;">
+                        	
+                            <ul>
+                            	<li><a href="hongkong_city.php?location=Hong Kong"><span class="country_index">Hong Kong</span></a></li>
+                                <li><a href="index_city.php?location=Indonesia"><span class="country_index">Indonesia</span></a></li>
+                                <li><a href="index_city.php?location=Philippines"><span class="country_index">Philippines</span></a></li>
+                                <li><a href="index_city.php?location=Malaysia"><span class="country_index">Malaysia</span></a></li>
+                                <li><a href="index_city.php?location=Taiwan"><span class="country_index">Taiwan</span></a></li>
+                                
+                            </ul>
+                            
+                    </div>			
+
+					
+						<div class="hot_destinations fl" style="margin:0px 0px 0px 0px; width:205px; padding-left:123px;">
+                        	
+                            <ul>
+                            	<li><a href="index_city.php?location=Thailand"><span class="country_index">Thailand</span></a></li>
+                                <li><a href="index_city.php?location=Maldives"><span class="country_index">Maldives</span></a></li>
+                                <li><a href="index_city.php?location=New Zealand"><span class="country_index">New Zealand</span></a></li>
+                                <li><a href="index_city.php?location=Switzerland"><span class="country_index">Switzerland</span></a></li>
+                                <li><a href="index_city.php?location=Paris"><span class="country_index">Paris</span></a></li>
+                                
+                            </ul>
+                        </div>	
+						
+						<div class="hot_destinations fl" style="margin:0px 0px 0px 0px; padding-left:41px; width:150px;">
+                        	
+                            <ul>
+                            	<li><a href="index_city.php?location=Germany"><span class="country_index">Germany</span></a></li>
+                                <li><a href="index_city.php?location=France"><span class="country_index">France</span></a></li>
+                                <li><a href="index_city.php?location=United Arab Emirates"><span class="country_index">United Arab Emirates</span></a></li>
+                                <li><a href="index_city.php?location=Vietnam"><span class="country_index">Vietnam</span></a></li>
+                                <li><a href="index_city.php?location=Cambodia"><span class="country_index">Cambodia</span></a></li>
+                                
+                            </ul>
+                        </div>	
+				</div> 	
+                      	<div class="hot_destinations fl" style="width:250px;">
+                        	<h2 style="width:275px;">Hot Destinations</h2>
+                            <ul style="width:245px;">
+                            	<li style="width:245px;"><a href='tour_list.php?location=Bali'>Bali</a></li>
+                                <li style="width:245px;"><a href='tour_list.php?location=Delhi'>Delhi</a></li>
+                                <li style="width:245px;"><a href='tour_list.php?location=Singapore'>Singapore</a></li>
+                                <li style="width:245px;"><a href='tour_list.php?location=Kuala Lumpur'>Kuala Lumpur</a></li>
+                                <li style="width:245px;"><a href='tour_list.php?location=Boracay'>Boracay</a></li>
+                                <li style="width:245px;"><a href='hongkong_city.php?location=Hong Kong'>Hong Kong</a></li>
+								<li style="width:245px;"><a href='tour_list.php?location=jaipur'>Jaipur</a></li>
+								<li style="width:245px;"><a href='tour_list.php?location=Kota Kinabalu'>Kota Kinabalu</a></li>
                             </ul>
                             <!--<ul class="mrgn_right">
 								<li><a href='category_view.php?cat_name=Outdoor Activities'>Outdoor Activities</a></li>
@@ -296,18 +282,99 @@ $(document).ready(function(){
                                 <li><a href='category_view.php?cat_name=Multi-day & Extended Tours'>Multi-day & Extended Tours</a></li>
                             </ul>-->
                         </div>
-                        
-                   	  <div class="welcome fl">
-                            	<h1>Our Featured Tours</h1>
-                          <p><img src="images/welcome_pic.jpg" width="238" height="200">
+						
+						<div class="welcome fl" style="float:left;width:300px;">
+                            	<h1>Why Tour Bookings!</h1>
+                         <img src="images/welcome_pic_1.jpg" width="300" height="169">
 		
-<br>
-Here at Tour Bookings, every customer is our VIP! There is no need for you to scour the web to search for things to do on your vacation, no need to rummage through the tons of information on the Internet. We have done all of that for you! Everything is made available to your in the comfort of your home, on a single site. What’s more, we have a dedicated team that will be available to tend to your every query 24/7!
-<br />
-<a href="about_us.php">View More...</a></p>
+<br> <p style="width:300px;">
+Here at Tour Bookings, every customer is our VIP! There is no need for you to scour the web to search for things to do on your vacation, no need to rummage through the tons of information on the Internet. We have done all of that for you! Everything is made available to your in the comfort of your home, on a single site. 
+</p>
 							
 
                         </div>
+                        
+                   	  <div class="our_featured fr">
+					  <?php
+			
+// $result2 = mysql_query("SELECT
+						// t.title,
+						// t.url,
+						// p.id,
+						// p.title,
+						// p.city,
+						// p.`status`,
+						// p.supplier_id,
+						// p.overview,
+						// p.hilight,
+						// p.why_this,
+						// p.duration
+						// FROM tour p LEFT JOIN tour_photo t ON (
+							// p.id = t.tour_id
+						// )
+						// GROUP BY p.id ORDER BY p.id DESC LIMIT 10
+						// ");			
+$result2 = mysql_query("SELECT
+						tour.id,
+						tour.tour_type,
+						tour.title,
+						tour.overview,
+						tour.hilight,
+						tour.why_this,
+						tour.location_id,
+						tour.city,
+						tour.duration,
+						tour.deparchture_point,
+						tour.deparchture_time,
+						tour.return_detail,
+						tour.inclusions,
+						tour.exclusions,
+						tour.voucher_info,
+						tour.local_operator_info,
+						tour.status,
+						tour.supplier_id,
+						tour_photo.url,
+						tour_photo.title,
+						tour_price.price_per_person,
+						tour_price.price_customer_adult,
+						tour_photo.description
+						FROM
+						tour
+						INNER JOIN tour_price ON tour.id = tour_price.tour_id
+						INNER JOIN tour_photo ON tour.id = tour_photo.tour_id
+						WHERE tour.status = 'accepted'   GROUP BY tour.id
+						DESC LIMIT 10
+						");
+				
+	?>	
+	
+                            	<h1>Our Featured Tours</h1>
+                 <div class="banner fr" style="width:310px;">
+            	<div  class="flexslider" id="flexslider">
+          <ul class="slides" >
+		  <?php while ($row2 = mysql_fetch_array($result2)) 
+		{ 
+if (strlen($string=$row2["overview"]) > 190) {
+
+														// truncate string
+														$stringCut = substr($string, 0, 190);
+
+														// make sure it ends in a word so assassinate doesn't become ass...
+														// $string = substr($stringCut, 0, strrpos($stringCut, ' ')); 
+														 $string = substr($stringCut, 0, strrpos($stringCut, ' ')).'...';
+													}		
+
+		
+           echo '<li>'
+		   .'<img style="width:310px; float:left;" src="supplier/uploads/'.$row2['url'].'" alt="Tour Image" width="310" height="169" />'
+		   .'<p style="float:left; height:65px;">'.$string.'</p>'
+		   .'<div class="view_more"><a href="tour_detail.php?tour_id='.$row2['id'].'">View More...</a></div>'
+		   .'</li>';           		
+		  } ?>	  	  			
+          </ul>
+        </div>
+      </div>
+                     </div>
                         
                     </div>
                 

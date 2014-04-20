@@ -34,7 +34,7 @@ else {
 				$('.delete_tour_list').click(function(){
 					// alert('ok');
 				var tour_id = $( this ).attr('id');
-
+				
 				$.ajax({
 						type: 'post',
 						url: 'ajax_request_function/ajax_delete_booking.php',
@@ -53,14 +53,17 @@ else {
 			$('.confirm').click(function(){
 					// alert('ok');
 				var tour_id = $( this ).attr('id');
-
+				var supplier_id = $( this ).attr('data');
+				var total_price = $( this ).attr('data1');
+				// alert(supplier_id);
 				$.ajax({
 						type: 'post',
 						url: 'ajax_request_function/ajax_confirm_booking.php',
-						data: {tour_id:tour_id},
+						data: {tour_id:tour_id,supplier_id:supplier_id,total_price:total_price},
 
 						success: function(mesg) {
 							alert(mesg);
+							location.reload();
 							 // $('#photo_detail').append(mesg);
 
 						}
@@ -285,6 +288,10 @@ else {
 						<li>
 				<a href="dashboard.php"><i class="entypo-home"></i>Home</a>
 			</li>
+			<li class="active">
+			
+							<strong>Booking</strong>
+					</li>
 				<li class="active">
 			
 							<strong>Pending Booking</strong>
@@ -299,7 +306,7 @@ else {
 <table class="table table-bordered datatable" id="table-1">
 	<thead>
 		<tr>
-			<th>Booking Id</th>
+			<th>Booking ID</th>
 			<th>Booking Date</th>
 			<th>Supplier ID</th>
 			<th>User ID</th>
@@ -408,7 +415,7 @@ else {
 			
 			<td>'.$row['status'].'</td>
 			<td>
-				<a  style="" id="'.$row['id'].'" class="confirm">
+				<a  style="" id="'.$row['id'].'" data1="'.$row['total_price'].'" data="'.$row['supplier_id'].'" class="confirm">
 					Confirm
 				</a>   /  
 				<a style="color: red;" id="'.$row['id'].'" class="cancel">
@@ -544,7 +551,7 @@ else {
 	</tbody>
 	<tfoot>
 		<tr>
-			<th>Booking Id</th>
+			<th>Booking ID</th>
 			<th>Booking Date</th>
 			<th>Supplier ID</th>
 			<th>User ID</th>

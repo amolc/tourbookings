@@ -12,27 +12,34 @@ if (isset($_POST["submit"]))
 	$travYears = mysql_real_escape_string($_POST['travYears']);
 	$numbersAdult = mysql_real_escape_string($_POST['numbersAdult']);
 	$numbersChildren = mysql_real_escape_string($_POST['numbersChildren']);
+	$lookingFor = mysql_real_escape_string($_POST['lookingFor']);
 	
-	$numbersAdult = mysql_real_escape_string($_POST['numbersAdult']);
-	$numbersChildren = mysql_real_escape_string($_POST['numbersChildren']);
-	
-  }
-else
-  // the user has submitted the form
-  {
-  // Check if the "from" input field is filled out
-  if (isset($_POST["from"]))
-    {
-    $from = $_POST["from"]; // sender
-    $subject = $_POST["subject"];
-    $message = $_POST["message"];
+$to = "apache@iamamol.com" ;
+					$subject =  "Partner Membership"; 
+					$message = "Dear Admin
+								
+								MY Login Information :
+								Name: $contactGroup
+								Email: $email
+								Phone: $phoneNumber 
+								Best Time: $bestTime 
+								Travel Months: $travMonths 
+								Travel Days: $travDays 
+								Travel Years: $travYears 
+								Adults: $numbersAdult 
+								Children: $numbersChildren 
+								Description: $lookingFor							
+								Best Wishes</h2>
+								http://tourbookings.co/
+								"; 
+						
     // message lines should not exceed 70 characters (PHP rule), so wrap it
-    $message = wordwrap($message, 70);
+   // $message = wordwrap($message, 70);
     // send mail
-    mail("webmaster@example.com",$subject,$message,"From: $from\n");
-    echo "Thank you for sending us feedback";
+    mail($to,$subject,$message,"From: $email\n");
+    
     }
-  }
+  
  
  ?>
 <!doctype html>
@@ -57,7 +64,7 @@ else
             	<div class="center_body fl">
                 
                 	<div class="body_content fl">
-                    <div class="about_us">
+                    <div class="about_us" style="border-bottom:none;">
                        	  <h1>Corporate / Group</h1>
                           <p><div class="main-wide unitRight">
             <div class="mod basic viamod man mbl">
@@ -201,82 +208,102 @@ if(navigator.appVersion.indexOf('MSIE')>=0)document.write(unescape('%3C')+'\!-'+
             </div><!-- End of Omniture Code -->
 			
 			For groups 18 or larger, Tour Bookings can plan an itinerary that is tailored to your needs. With our uniquely authentic Asian destinations, we are sure to be able to find the tours that you are looking for regardless of age.
+            
             <form action="group_services.php" id="groupBooking" method="post">
                 <p class="xsmall note mhn">All fields marked <span class="required">*</span> are mandatory .</p>
                 
                 
                 
-                <div class="cms-content">
-                <p>
+                <div class="corporate_group fl">
 
-                    <label for="contactgroup"><span class="required">*</span> Contact Person (point of contact)</label><br>
-                    <input type="text" id="contactgroup" name="contactGroup" value="" class="input-large">
-                </p>
+                    <label for="contactgroup">* Contact Person (point of contact)</label>
+                    <input type="text" id="contactgroup"  name="contactgroup" value="" required>
 
-                <p>
-                    <label for="email"><span class="required">*</span> Email address</label><br>
-                    <input type="email" id="email" name="email" value="" class="input-large">
-                </p>
+                    <label for="email">* Email address</label>
+                    <input type="text" id="email" name="email" value="" required>
+                    
+                    <label for="phonenumber">* Contact number</label>
+                    <input type="text" id="phonenumber" name="phonenumber" value="" required>
 
-                <p>
-                    <label for="phoneNumber"><span class="required">*</span> Contact number</label><br>
-                    <input type="tel" id="phoneNumber" name="phoneNumber" value="" class="input-large">
-                </p>
-
-                <p><label for="contact_time"><span class="required">*</span> Best time to contact:</label><br>
+                    <label for="contact_time">* Best time to contact:</label>
                     <select id="bestTime" name="bestTime">
                         <option value="Morning">Morning</option>
                         <option value="Afternoon">Afternoon</option>
                         <option value="Evening">Evening</option>
                     </select>
-                </p>
+                
 
-                <p><label for="travDate" class=""><span class="required">*</span> Date you wish to go on the tour</label><br>
-                    <select id="travMonths" name="travMonths" class="">
-                    <option value="01">January</option><option selected="" value="02">February</option><option value="03">March</option><option value="04">April</option><option value="05">May</option><option value="06">June</option><option value="07">July</option><option value="08">August</option><option value="09">September</option><option value="10">October</option><option value="11">November</option><option value="12">December</option></select>
-                    <select id="travDays" name="travDays" class="">
-                    <option value="01">01</option><option value="02">02</option><option value="03">03</option><option value="04">04</option><option value="05">05</option><option value="06">06</option><option value="07">07</option><option value="08">08</option><option value="09">09</option><option value="10">10</option><option value="11">11</option><option value="12">12</option><option value="13">13</option><option value="14">14</option><option value="15">15</option><option selected="" value="16">16</option><option value="17">17</option><option value="18">18</option><option value="19">19</option><option value="20">20</option><option value="21">21</option><option value="22">22</option><option value="23">23</option><option value="24">24</option><option value="25">25</option><option value="26">26</option><option value="27">27</option><option value="28">28</option><option value="29">29</option><option value="30">30</option><option value="31">31</option></select>
-                    <select id="travYears" name="travYears" class="">
-                    <option selected="" value="2014">2014</option><option value="2015">2015</option><option value="2016">2016</option><option value="2017">2017</option></select>
-                </p>
+                <label for="travDate">* Date you wish to go on the tour</label>
+                    <select id="travMonths" name="travMonths" style="width:133px; margin-right:10px;">
+                    <option value="01">January</option>
+                    <option selected="" value="02">February</option>
+                    <option value="03">March</option>
+                    <option value="04">April</option>
+                    <option value="05">May</option>
+                    <option value="06">June</option>
+                    <option value="07">July</option>
+                    <option value="08">August</option>
+                    <option value="09">September</option>
+                    <option value="10">October</option>
+                    <option value="11">November</option>
+                    <option value="12">December</option>
+                    </select>
+                    
+                    <select id="travDays" name="travDays" style="width:80px; margin-right:10px;">
+                    <option value="01">01</option>
+                    <option value="02">02</option>
+                    <option value="03">03</option>
+                    <option value="04">04</option>
+                    <option value="05">05</option>
+                    <option value="06">06</option>
+                    <option value="07">07</option>
+                    <option value="08">08</option>
+                    <option value="09">09</option>
+                    <option value="10">10</option>
+                    <option value="11">11</option>
+                    <option value="12">12</option>
+                    <option value="13">13</option>
+                    <option value="14">14</option>
+                    <option value="15">15</option>
+                    <option selected="" value="16">16</option>
+                    <option value="17">17</option>
+                    <option value="18">18</option>
+                    <option value="19">19</option>
+                    <option value="20">20</option>
+                    <option value="21">21</option>
+                    <option value="22">22</option>
+                    <option value="23">23</option>
+                    <option value="24">24</option>
+                    <option value="25">25</option>
+                    <option value="26">26</option>
+                    <option value="27">27</option>
+                    <option value="28">28</option>
+                    <option value="29">29</option>
+                    <option value="30">30</option>
+                    <option value="31">31</option>
+                    </select>
+                    
+                    <select id="travYears" name="travYears" style="width:80px;">
+                    <option selected="" value="2014">2014</option>
+                    <option value="2015">2015</option>
+                    <option value="2016">2016</option>
+                    <option value="2017">2017</option>
+                    </select>
+                
+                <label for="numGroup">* Number of people </label>
+                
+                <input type="text" id="numbersAdult" name="numbersAdult" value="" size="3" placeholder="Adults" style="width:140px; margin-right:5px;" required>
+                
+                <input type="text" value="" id="numbersChildren" name="numbersChildren" size="3" placeholder="Children" style="width:140px; margin-left:5px;" required>
+                      
 
-                <div class="mvm"><label for="numGroup"><span class="required">*</span> Number of people </label><br>
-                    <div class="media mtn mhn mbs">
-                        <div class="img">
-                            <input type="text" id="numbersAdult" name="numbersAdult" value="" class="input-xsmall" size="3">
-                        </div>
-                        <div class="bd">
-                            <div class="mts mlm">Adults</div>
-                        </div>
-                    </div>
-                    <div class="media man">
-                        <div class="img">
-                            <input type="text" value="" id="numbersChildren" name="numbersChildren" size="3" class="input-xsmall">
-                        </div>
-                        <div class="bd">
-                             <div class="mts mlm">Children</div>
-                        </div>
-                    </div>
-                </div>
-
-                <p>
-                    <label for="lookingFor"><span class="required">*</span>  Tours that you would be interested in</label><br><span class="small note">This is the text located at the top of every product page.</span><br>
+                    <label for="lookingFor" style="line-height:20px;">* Tours that you would be interested in This is the text located at the top of every product page.</label>
                     <textarea rows="5" cols="40" id="lookingFor" name="lookingFor"></textarea>
-                </p>
-
-
-                </div>
-                <div class="line">
-                    <div class="btn unitRight size-btn-submit">
-					 <div style="float:left;" class="submit_cart">
-										<input name="submit" type="submit" value="Submit">
-									</div>
+					<input name="submit" type="submit" value="Submit">
 					
 					</div>
-                </div>
             </form>
         </div>
-                          </p>
                       </div>
                 	</div>
                 	<?php include('footer.php'); ?>

@@ -42,6 +42,7 @@ else {
 
 						success: function(mesg) {
 							alert(mesg);
+							location.reload();
 							 // $('#photo_detail').append(mesg);
 
 						}
@@ -61,6 +62,7 @@ else {
 
 						success: function(mesg) {
 							alert(mesg);
+							location.reload();
 							 // $('#photo_detail').append(mesg);
 
 						}
@@ -80,6 +82,7 @@ else {
 
 						success: function(mesg) {
 							alert(mesg);
+							location.reload();
 							 // $('#photo_detail').append(mesg);
 
 						}
@@ -285,8 +288,10 @@ else {
 						<li>
 				<a href="dashboard.php"><i class="entypo-home"></i>Home</a>
 			</li>
-				<li class="active">
-			
+					<li class="active">
+							<strong>Set Upmark Pricing</strong>
+					</li>
+					<li class="active">
 							<strong>Confirm Pricing</strong>
 					</li>
 					</ol>

@@ -133,10 +133,10 @@ $(document).ready(function(){
 			*@author:	razamalik@outlook.com
 			*@date:	1 january 2014 2:22 PM GM+5
 			*/
-	alert('done1');
+	//alert('done1');
 	$('.edit_submit').click(function(){
 			
-		alert('done');
+		//alert('done');
 		
 		var title = $('#title').val();
 		var overview = $('#overview').val();
@@ -199,7 +199,7 @@ $(document).ready(function(){
 				data: {currency_id:currency_id,tour_id:tour_id,price_per_person:price_per_person,price_child:price_child},
 				success: function(mesg) {
 				  // alert(mesg);
-
+					window.location.href = "recent_tour.php";
 				   // if(mesg == 'price tour successful'){
 					 // $('.success_mesg').empty().append('price successful create');
 					// $('#tour_id').val("");
@@ -324,7 +324,7 @@ $('#deparchture_time option').filter(function() {
 
 			<div class="panel-heading">
 				<div class="panel-title">
-					Over View
+					Overview
 				</div>
 
 				<div class="panel-options">
@@ -471,16 +471,8 @@ $('#deparchture_time option').filter(function() {
 
 						<div class="form-group">
 							<label class="col-sm-3 control-label">Deparchture Time</label>
-
 							<div class="col-sm-5">
-								<select style="width: 35%;"  id="deparchture_time"  class="form-control">
-									<?php	//$selected = ($row['id']==$tour_currency_id) ? ' selected="selected"' : ''; ?>
-									<option value="1">1 Hour</option>
-									<option value="2">2 Hour</option>
-									<option value="3">3 Hour</option>
-									<option value="4">4 Hour</option>
-
-								</select>
+								<input type="text" style="width: 35%;" id="deparchture_time" class="form-control"  value="<?php echo $tour_deparchture_time ;?>" id="price_child" placeholder="Deparchture Time">
 							</div>
 						</div>
 						<div class="form-group">

@@ -36,7 +36,12 @@
 	<script src="include/resource/js/jquery-1.10.2.min.js"></script>
 		<script type="text/javascript">
 		$(document).ready(function(){
-			
+/*
+*
+*@author:			raza<raza.malik@fountaintechies.com>
+*@Date & Time:		1-Jan-2014 GM +5
+*@Modified Date:	1-Jan-2014 GM +5
+*/
 				$('.accept').click(function(){
 					// alert('ok');
 				var tour_id = $( this ).parent().parent().attr('id');
@@ -58,12 +63,40 @@
 			
 				$('.decline').click(function(){
 					
+					$('#decline_popup_link').trigger('click');
+					$('#send_mesg').click(function(){
+					var reason_mesg = $('#reason_area').val();
+					// alert($('#reason_area').val());
+					// var tour_id = $( this ).parent().parent().attr('id');
+					var supplier_id = $('.supplier_class' ).attr('data');
+					
+					//$( this ).parent().parent().remove();
+							alert(supplier_id);
+							$('.fancybox-close').trigger('click');
+					$.ajax({
+							type: 'post',
+							url: 'ajax_request_function/ajax_decline.php',
+							data: {tour_id:tour_id,reason_mesg:reason_mesg,supplier_id:supplier_id},
+
+							success: function(mesg) {
+								alert(mesg);
+								
+								location.reload();
+								 
+							}
+
+					});
+				});
+
+			});
+				$('.delete').click(function(){
+					
 				var tour_id = $( this ).parent().parent().attr('id');
 				$( this ).parent().parent().remove();
 						// alert(tour_id);
 				$.ajax({
 						type: 'post',
-						url: 'ajax_request_function/ajax_decline.php',
+						url: 'ajax_request_function/ajax_delete.php',
 						data: {tour_id:tour_id},
 
 						success: function(mesg) {
@@ -79,9 +112,200 @@
 			
 		});
 	</script>
+	<!-- Add fancyBox main JS and CSS files -->
+	<script type="text/javascript" src="fancybox/jquery.fancybox.js?v=2.1.5"></script>
+	<link rel="stylesheet" type="text/css" href="fancybox/jquery.fancybox.css?v=2.1.5" media="screen" />
+
+
+	<script type="text/javascript">
+		$(document).ready(function() {
+			/*
+			 *  Simple image gallery. Uses default settings
+			 */
+
+			$('.fancybox').fancybox();
+
+			/*
+			 *  Different effects
+			 */
+
+			// Change title type, overlay closing speed
+			$(".fancybox-effects-a").fancybox({
+				helpers: {
+					title : {
+						type : 'outside'
+					},
+					overlay : {
+						speedOut : 0
+					}
+				}
+			});
+
+			// Disable opening and closing animations, change title type
+			$(".fancybox-effects-b").fancybox({
+				openEffect  : 'none',
+				closeEffect	: 'none',
+
+				helpers : {
+					title : {
+						type : 'over'
+					}
+				}
+			});
+
+			// Set custom style, close if clicked, change title type and overlay color
+			$(".fancybox-effects-c").fancybox({
+				wrapCSS    : 'fancybox-custom',
+				closeClick : true,
+
+				openEffect : 'none',
+
+				helpers : {
+					title : {
+						type : 'inside'
+					},
+					overlay : {
+						css : {
+							'background' : 'rgba(238,238,238,0.85)'
+						}
+					}
+				}
+			});
+
+			// Remove padding, set opening and closing animations, close if clicked and disable overlay
+			$(".fancybox-effects-d").fancybox({
+				padding: 0,
+
+				openEffect : 'elastic',
+				openSpeed  : 150,
+
+				closeEffect : 'elastic',
+				closeSpeed  : 150,
+
+				closeClick : true,
+
+				helpers : {
+					overlay : null
+				}
+			});
+
+			/*
+			 *  Button helper. Disable animations, hide close button, change title type and content
+			 */
+
+			$('.fancybox-buttons').fancybox({
+				openEffect  : 'none',
+				closeEffect : 'none',
+
+				prevEffect : 'none',
+				nextEffect : 'none',
+
+				closeBtn  : false,
+
+				helpers : {
+					title : {
+						type : 'inside'
+					},
+					buttons	: {}
+				},
+
+				afterLoad : function() {
+					this.title = 'Image ' + (this.index + 1) + ' of ' + this.group.length + (this.title ? ' - ' + this.title : '');
+				}
+			});
+
+
+			/*
+			 *  Thumbnail helper. Disable animations, hide close button, arrows and slide to next gallery item if clicked
+			 */
+
+			$('.fancybox-thumbs').fancybox({
+				prevEffect : 'none',
+				nextEffect : 'none',
+
+				closeBtn  : false,
+				arrows    : false,
+				nextClick : true,
+
+				helpers : {
+					thumbs : {
+						width  : 50,
+						height : 50
+					}
+				}
+			});
+
+			/*
+			 *  Media helper. Group items, disable animations, hide arrows, enable media and button helpers.
+			*/
+			$('.fancybox-media')
+				.attr('rel', 'media-gallery')
+				.fancybox({
+					openEffect : 'none',
+					closeEffect : 'none',
+					prevEffect : 'none',
+					nextEffect : 'none',
+
+					arrows : false,
+					helpers : {
+						media : {},
+						buttons : {}
+					}
+				});
+
+			/*
+			 *  Open manually
+			 */
+
+			$("#fancybox-manual-a").click(function() {
+				$.fancybox.open('1_b.jpg');
+			});
+
+			$("#fancybox-manual-b").click(function() {
+				$.fancybox.open({
+					href : 'iframe.html',
+					type : 'iframe',
+					padding : 5
+				});
+			});
+
+			$("#fancybox-manual-c").click(function() {
+				$.fancybox.open([
+					{
+						href : '1_b.jpg',
+						title : 'My title'
+					}, {
+						href : '2_b.jpg',
+						title : '2nd title'
+					}, {
+						href : '3_b.jpg'
+					}
+				], {
+					helpers : {
+						thumbs : {
+							width: 75,
+							height: 50
+						}
+					}
+				});
+			});
+
+
+		});
+	</script>
 </head>
 <body class="page-body">
+<a class="fancybox" id="decline_popup_link" style="display: none;" href="#decline_popup">click</a>
 
+	<div id="decline_popup" style="width:600px;display: none;">
+		<h2>Write Comments</h2>
+		<textarea style="width: 100%;height: 150px;" name="" id="reason_area"></textarea> <br /><br /><br />
+		<input type="button" id="send_mesg" value="Submit" />
+		
+	</div>
+	<div id="cancel_popup" style="width:600px;display: none;">
+
+	</div>
 <div class="page-container">	
 <?php include('include/side_menu/side_menu.php'); ?>
 	<div class="main-content">
@@ -91,28 +315,29 @@
 						<li>
 				<a href="dashboard.php"><i class="entypo-home"></i>Home</a>
 			</li>
-				<li class="active">
-			
-							<strong>Recent Tour</strong>
+					<li class="active">
+							<strong>Tour</strong>
+					</li>
+					<li class="active">
+							<strong>Approve Tour</strong>
 					</li>
 					</ol>
 			
-<h2>Recent Tour</h2>
-
+<h2>Approve Tour</h2>
+ 
 <br />
 
 <table class="table table-bordered datatable" id="table-1">
 	<thead>
 		<tr>
 			<th>Title</th>
-			<th>Overview</th>
-			<th>Highlight</th>
 			<th>Tour Photo</th>
-			<th>Why This ?</th>
 			<th>Duration</th>
 			<th>Status</th>
 			<th>Edit</th>
-			<th>Accept/Decline</th>
+			<th>Accept </th>
+			<th>Decline</th>
+			<th>Delete</th>
 		</tr>
 	</thead>
 	<tbody>
@@ -134,7 +359,12 @@
 						// FROM
 						// tour
 						// INNER JOIN tour_photo ON tour.id = tour_photo.tour_id Where tour.status = 'pending'  GROUP BY tour.title");
-						
+/*
+*	Recent Tour in admin for approval
+*@author:			raza<raza.malik@fountaintechies.com>
+*@Date & Time:		1-Jan-2014 GM +5
+*@Modified Date:	1-Jan-2014 GM +5
+*/
 $result = mysql_query("SELECT
 						t.title,
 						t.url,
@@ -147,46 +377,60 @@ $result = mysql_query("SELECT
 						p.hilight,
 						p.why_this,
 						p.duration
-FROM
-tour AS p
-LEFT JOIN tour_photo AS t ON (p.id = t.tour_id)
-INNER JOIN tour_price ON p.id = tour_price.tour_id
-WHERE p.`status` ='pending' AND tour_price.ishike ='1' 
-GROUP BY p.id
+						FROM
+						tour AS p
+						LEFT JOIN tour_photo AS t ON (p.id = t.tour_id)
+						INNER JOIN tour_price ON p.id = tour_price.tour_id
+						WHERE p.`status` ='pending' AND tour_price.ishike ='1' 
+						GROUP BY p.id
 						");
 
 		//fetch tha data from the database 
 		while ($row = mysql_fetch_array($result)) 
 		{ 
-		
-	echo'
-		<tr class="odd gradeX" id="'.$row['id'].'">
-			<td><a href="tour_detail.php?tour_id='.$row['id'].'">'.$row['title'].'</a></td>
-			<td>'.$row['overview'].'</td>
-			<td>'.$row['hilight'].'</td>
-			<td><img class="preview" src="../supplier/uploads/'.$row['url'].'"/></td>
-			<td>'.$row['why_this'].'</td>
-			<td>'.$row['duration'].'</td>
-			<td>'.$row['status'].'</td>
-			<td><a href="edit_tour.php?tour_id='.$row['id'].'" class="btn btn-default btn-sm btn-icon icon-left edit_tour_list">
-					<i class="entypo-pencil"></i>
-				
-					Edit
-				</a>
-			</td>
-			<td>
-				<a href="#" class="accept btn btn-default btn-sm btn-icon icon-left">
-					Accept
-				</a>
-				
-				<a href="#" class="decline btn btn-danger btn-sm btn-icon icon-left">
-					Decline
-				</a>
-			</td>
-		</tr>
-		';
+			if($row['url']==""){
+				$no_pic = 'no_preview.png';
+			}
+			else {
+				$no_pic = $row['url'];
+			}
+			echo'
+				<tr class="odd gradeX supplier_class" id="'.$row['id'].'" data="'.$row['supplier_id'].'">
+					<td><a href="tour_detail.php?tour_id='.$row['id'].'">'.$row['title'].'</a></td>
+					<td><a href="tour_image_upload.php?tour_id='.$row['id'].'"><img class="preview" src="../supplier/uploads/'.$no_pic.'"/></a></td>
+					<td>'.$row['duration'].'</td>
+					<td>'.$row['status'].'</td>
+					<td><a href="edit_tour.php?tour_id='.$row['id'].'" class="btn btn-default btn-sm btn-icon icon-left edit_tour_list">
+							<i class="entypo-pencil"></i>
+							Edit
+						</a>
+					</td>
+					<td>
+						<a href="#" style="padding-left: 10px;" class="accept btn btn-default btn-sm btn-icon icon-left">
+							Accept
+						</a>
+					</td>
+					<td>
+						<a href="#" style="padding-left: 10px;" class="decline btn btn-danger btn-sm btn-icon icon-left">
+							Decline
+						</a>
+					</td>
+					<td>
+						<a href="#" style="padding-left: 10px;" class="delete btn btn-danger btn-sm btn-icon icon-left">
+							Delete
+						</a>
+					</td>
+				</tr>
+				';
 		
 		}
+			//comment code of edit tour option 
+			// <td><a href="edit_tour.php?tour_id='.$row['id'].'" class="btn btn-default btn-sm btn-icon icon-left edit_tour_list">
+							// <i class="entypo-pencil"></i>
+						
+							// Edit
+						// </a>
+					// </td>
 	?>
 		
 
@@ -194,14 +438,13 @@ GROUP BY p.id
 	<tfoot>
 		<tr>
 			<th>Title</th>
-			<th>Overview</th>
-			<th>Highlight</th>
 			<th>Tour Photo</th>
-			<th>Why This ?</th>
 			<th>Duration</th>
 			<th>Status</th>
 			<th>Edit</th>
-			<th>Accept/Decline</th>
+			<th>Accept </th>
+			<th>Decline</th>
+			<th>Delete</th>
 		</tr>
 	</tfoot>
 </table>
@@ -349,7 +592,7 @@ GROUP BY p.id
 	<link rel="stylesheet" href="include/resource/js/select2/select2.css"  id="style-resource-2">
 
 	<script src="include/resource/js/gsap/main-gsap.js" id="script-resource-1"></script>
-	<script src="include/resource/js/jquery-ui/js/jquery-ui-1.10.3.minimal.min.js" id="script-resource-2"></script>
+
 	<script src="include/resource/js/bootstrap.min.js" id="script-resource-3"></script>
 	<script src="include/resource/js/joinable.js" id="script-resource-4"></script>
 	<script src="include/resource/js/resizeable.js" id="script-resource-5"></script>

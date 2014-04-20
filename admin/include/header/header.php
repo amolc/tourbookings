@@ -21,6 +21,12 @@
 					
 					<!-- Profile sub-links -->
 					<li>
+						<a href="admin_change_password.php">
+							<i class="entypo-user"></i>
+							Change Password
+						</a>
+					</li>
+					<!--<li>
 						<a href="#">
 							<i class="entypo-user"></i>
 							Edit Profile
@@ -46,7 +52,7 @@
 							<i class="entypo-clipboard"></i>
 							Tasks
 						</a>
-					</li>
+					</li>-->
 				</ul>
 			</li>
 		

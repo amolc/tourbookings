@@ -28,6 +28,7 @@ $query = mysql_query("SELECT
 						tour_price.currency_id,
 						tour_price.price_per_person,
 						tour_price.price_customer_adult,
+						tour_price.price_customer_child,
 						tour_price.price_child,
 						tour_price.price_adult,
 						tour_photo.url,
@@ -37,7 +38,7 @@ $query = mysql_query("SELECT
 						INNER JOIN tour_price ON tour.id = tour_price.tour_id
 						INNER JOIN tour_photo ON tour.id = tour_photo.tour_id
 						WHERE tour.status = 'accepted' AND tour.id = '".$tour_id."' GROUP BY tour.id");
-						$tour_pic_url=="";
+						
 	while ($record = mysql_fetch_array($query))
 		{
 			$tour_title =  $record['title'];
@@ -61,6 +62,7 @@ $query = mysql_query("SELECT
 			// echo $tour_pic_url;
 			$tour_price_per_person =  $record['price_per_person'];
 			$price_customer_adult =  $record['price_customer_adult'];
+			$price_customer_child =  $record['price_customer_child'];
 			// echo $tour_price_per_person;
 			$tour_price_child =  $record['price_child'];
 
@@ -84,9 +86,24 @@ $query = mysql_query("SELECT
   <script src="js/jquery-1.7.1.min.js" type="text/javascript"></script>
   <script src="js/jquery.hashchange.min.js" type="text/javascript"></script>
   <script src="js/jquery.easytabs.min.js" type="text/javascript"></script>
+<style type="text/css">
+.tour_detail_calendr > #ui-datepicker-div {
+	top: 427px!important;
+	left: 202px!important;
+}
 
+</style>
 	<script type="text/javascript">
     $(document).ready( function() {
+	$(".next").hide();
+	
+	$(".change").click(function(){
+	var source = $(this).attr('src');
+  $(".first_image").hide();
+  $(".next_image").attr('src',source) ;
+  $(".next").show();
+});
+
       $('#tab-container').easytabs();
 	  
 	  $('#add_to_itinerary').click(function(){
@@ -98,7 +115,7 @@ $query = mysql_query("SELECT
 			var c = '<?php echo $current_date; ?>';
 				var datepicker3 = $('#datepicker3').val();
 				var datepicker4 = $('#datepicker4').val();
-		if(datepicker3 > c)	{
+		if(datepicker3 > c || datepicker3 == c )	{
 			
 			
 				if(datepicker3 == "" || datepicker4 == "") {
@@ -107,7 +124,7 @@ $query = mysql_query("SELECT
 				}
 				
 				if(adult == "" || adult == "0") {
-					alert('please Enter');
+					alert('Number of Adults cannot be blank');
 					return false;
 					adult.focus();
 				}
@@ -154,7 +171,15 @@ $query = mysql_query("SELECT
 	  
     });
     </script>
-
+<div id="fb-root"></div>
+	<script>(function(d, s, id) {
+	  var js, fjs = d.getElementsByTagName(s)[0];
+	  if (d.getElementById(id)) return;
+	  js = d.createElement(s); js.id = id;
+	  js.src = "//connect.facebook.net/en_GB/all.js#xfbml=1&appId=784941191519375";
+	  fjs.parentNode.insertBefore(js, fjs);
+	}(document, 'script', 'facebook-jssdk'));
+	</script>
 
 </head>
 
@@ -171,9 +196,11 @@ $query = mysql_query("SELECT
     	<div class="center_body fl">
 		<!--<form action="add_to_cart.php" method="post">-->
            	<div class="left_penal background fl">
-                    	<div class="price_calender fl">
-                          <p>From USD</p>
-                          <h1 style="text-align: center;"><?php echo"$". $price_customer_adult; ?></h1>
+                    	<div class="price_calender fl" style="height:160px;">
+                          
+                          <h1 style="font-size:30px;"><p style="font-size:30px; margin:0px;">Adult</p><?php echo"$". $price_customer_adult; ?></h1>
+                          
+                          <h1 style="border:none; margin-bottom:0px; padding-bottom:0px; font-size:30px;"><p style="font-size:30px; margin:0px;">Child</p><?php echo"$". $price_customer_child; ?></h1>
                           <!--<a href="#">View price calendar</a>-->
                           <a href="low_price_guarantee.php"></a>
 
@@ -182,10 +209,10 @@ $query = mysql_query("SELECT
 					echo '<form method="post" action="cart_update.php">';
 					
 					?>
-                        <div class="select_travel_date fl">
+                        <div class="select_travel_date fl tour_detail_calendr">
                         	<h2>Select Travel Date</h2>
 							<div class="Departing_tour_detail">
-								<label>Departing</label>
+								<label>Travel Date</label>
 								<input type="text" class="mySelectCalendar" id="datepicker3" name="datepicker3" placeholder="mm/dd/yyyy"/>
 							</div>
                             <a   style="display:none" href="#" class="mrgn_top">What's this, and can I change it?</a>
@@ -226,9 +253,10 @@ $query = mysql_query("SELECT
 
                           <div class="picks_head fl">
                             <h2 ><?php echo $tour_title ; ?></h2>
+                            <span></span>
 							
                           </div>
-
+						<div>
                           <div class="zoo_night fl">
 						  <?php		$no_pic="";
 								 if($tour_pic_url==""){
@@ -238,126 +266,32 @@ $query = mysql_query("SELECT
 									  $no_pic = $tour_pic_url;
 									  }
 						  ?>
-                          	<span class="fl"><img src="supplier/uploads/<?php echo $no_pic; ?>" alt="" width="380" height="329"></span>
-
-                             <div class="rating fl">
-                            	<p><a href="review.php?tour_id=<?php echo $tour_id; ?>">
-								<div class="rate-bg" style="width:6%"></div>
-									<div class="rate-stars"></div>
-								<span class="Reviews_tour_detail">
-								<?php
-									$qry_count = mysql_query("SELECT COUNT(*)
-													FROM
-													tour_feedback WHERE tour_id = '".$tour_id."'");
-													$count_row = mysql_fetch_array($qry_count);
-								echo $count_row[0]; ?> Reviews
-								</span>
-								
-								</a></p>
-                                <ul>
-								<?php
-								
-									$query = "SELECT  rating , CONCAT(COUNT(*)) AS  col_num
-														FROM     tour_feedback WHERE tour_id = '".$tour_id."'
-														GROUP BY rating";
-														
-									$result = mysql_query($query);
-									if(mysql_num_rows($result)){
-									
-									while($row = mysql_fetch_array($result,MYSQL_ASSOC)) { 
-									while(list($key, $value) = each($row)) 
-									{ 
-									if($key!="col_num") $name = $value;
-									else $count[$name]=$value;
-									}
-									}
-									while(list($key, $value) = each($count))
-									// echo "$key = $value<br>"; 
-									
-										echo '<li>
-										  <p>Star '.$key.' </p>
-										  <progress value="'.$value.'" max="100"></progress>
-										  <a href="#">'.$value.'</a>
-										</li>';
-								}
-								
-								else {
-								
-								}
-									// $qry_count = mysql_query("SELECT   CONCAT(COUNT(rating)) result
-																// FROM     tour_feedback
-																// GROUP BY rating"); 
-						// $qry_count1 = mysql_query("SELECT  rating , CONCAT(COUNT(*)) AS  result
-														// FROM     tour_feedback WHERE tour_id = '".$tour_id."'
-														// GROUP BY rating"); 
-											
-					// $qry_count = mysql_query("SELECT CONCAT('Start',rating, '<progress value=', COUNT(rating),'max='100'></progress>',COUNT(rating))  result
-											// FROM     tour_feedback
-											// GROUP BY rating ");
-																	
-											// $c =1;
-									// $count_row1 = mysql_free_result($qry_count1);
-									// $count_row1 = mysql_fetch_field($qry_count1);
-									// for($i=1 ; $i<6; $i++)
-									// {
-										// echo $count_row[0]; 
-										
-										
-										// echo '<li>
-										  // <p>Star '.$i.'</p>
-										  // <progress value="'.$count_row1.'" max="100"></progress>
-										  // <a href="#">'.$count_row1.'</a>
-										// </li>';
-										
-										// $c++;
-									
-									
-									// }
-									// echo '<li>
-										  // <p>Star '.$i.'</p>
-										  // <progress value="'.$count_row1[0].'" max="100"></progress>
-										  // <a href="#">'.$count_row1[0].'</a>
-										// </li>';
-										// echo '<li>
-										  // <p>Star '.$i.'</p>
-										  // <progress value="'.$count_row2[0].'" max="100"></progress>
-										  // <a href="#">'.$count_row2[0].'</a>
-										// </li>';
-										// echo '<li>
-										  // <p>Star '.$i.'</p>
-										  // <progress value="'.$count_row3[0].'" max="100"></progress>
-										  // <a href="#">'.$count_row3[0].'</a>
-										// </li>';
-										// echo '<li>
-										  // <p>Star '.$i.'</p>
-										  // <progress value="'.$count_row3[0].'" max="100"></progress>
-										  // <a href="#">'.$count_row3[0].'</a>
-										// </li>';
-								
-								?>
-                                
-                                </ul>
-                            </div>
-
-                            <div class="rating border fl">
-								  <p>Location: Singapore, Singapore <br>
-									Duration: 4 hours (approx)</p>
-								<img src="images/share_this.jpg" alt="" width="140" height="55" class="mrgn_top">
-								<div class="save">
-                                	<a href="wish_list.php?tour_id=<?php echo $tour_id; ?>"><img src="images/save.jpg" alt="" width="13" height="13">save</a>
-                                    <!--<a href="wish_list.php?tour_id=<?php echo $tour_id; ?>"><img src="images/email.jpg" alt="" width="13" height="13">Email</a>
-                                    <a href="wish_list.php?tour_id=<?php echo $tour_id; ?>"><img src="images/print.jpg" alt="" width="13" height="13">Print</a>
-										-->
-								</div>
-							</div>
-
-                          </div>
+                          	<span class="fl first_image"><img src="supplier/uploads/<?php echo $no_pic; ?>" alt="" width="665" height="329"></span>
+                          <span  class="fl next"><img class="next_image" src="" alt="" width="665" height="329"></span></div>
+						  <div style="float:left;width:380px; height:89px; overflow-x: auto; white-space: nowrap; margin-bottom:20px;">
+						  <?php
+						  $img_query = "select url from tour_photo where tour_id = '$tour_id'";
+						  $img_result = mysql_query($img_query) or die (mysql_error());
+						  while($img_row = mysql_fetch_array($img_result)){$no_pic="";
+								 if($img_row['url']==""){
+									  $no_pic = 'no_preview.png';
+									  }
+									  else {
+									  $no_pic = $img_row['url'];
+									  }
+						  ?>
+						  <a class="change" src="supplier/uploads/<?php echo $no_pic; ?>" href="#"><img  class="preview change_image" src="supplier/uploads/<?php echo $no_pic; ?>" alt="" width="69" height="69"></a>
+						  <?php
+						  }
+						  ?>
+						</div>
+						
 
                           	<div id="tab-container">
                               <ul class='etabs'>
                                 <li class='tab'><a href="#tabs1">Overview</a></li>
                                 <li class='tab'><a href="#tabs2">Schedule</a></li>
-                                <li class='tab'><a href="#tabs3">Hotel Pick-up</a></li>
+                                <li class='tab'><a href="#tabs3">Additional Info</a></li>
                               </ul>
                               <div id="tabs1" class=" three_tabs fl">
                                 <div class="overview fl">
@@ -366,14 +300,10 @@ $query = mysql_query("SELECT
 									</p>
                                   <h1>Highlights</h1>
                                   <ul class="border-bottom">
-                                    	<!--<li>Award-winning nighttime jungle safari by open tram</li>
-                                        <li>Close-up views of the animals on a guided trail walk</li>
-                                        <li>Optional dinner at the Ulu Ulu Safari Restaurant</li>
-                                        <li>Close-up views of the animals on a guided trail walk</li>
-                                        <li>Optional dinner at the Ulu Ulu Safari Restaurant</li>-->
+                                    	
 										<?php echo $tour_hilight ; ?>
                                     </ul>
-                                  <h1>Why Our Insiders Chose This Tour</h1>
+                                  <h1>Why Travelers Chose this Tour</h1>
                                   <p>
 									<?php echo $tour_why_this ; ?>
 								  </p>
@@ -381,27 +311,45 @@ $query = mysql_query("SELECT
                                 <!-- content -->
                               </div>
                               <div id="tabs2" class=" three_tabs fl">
-
-									<p><?php echo $tour_deparchture_point ;?> </p>
-									<p><?php //echo $tour_deparchture_time ;?> </p>
-									<p><?php echo$tour_return_detail ;?> </p>
+									  	 <div class="overview fl">
+									<h1>Departure </h1>
+                                	<ul class="border-bottom">
+                                    	
+										<?php echo $tour_deparchture_point ; ?>
+                                    </ul>
+                                    <h1>Return </h1>
+                                	<ul class="border-bottom">
+                                    	
+										<?php echo $tour_return_detail ; ?>
+                                    </ul>
+                                   </div>
 
                                 <!-- content -->
                               </div>
                               <div id="tabs3" class=" three_tabs fl">
-
-									<p><?php echo $tour_inclusions ;?> </p>
-									<p><?php echo $tour_exclusions ;?> </p>
-									<p><?php echo $tour_voucher_info ;?> </p>
-									<p><?php echo $tour_local_operator_info ;?> </p>
-
+                              	 <div class="overview fl">
+									<h1>Inclusions</h1>
+                                	<ul class="border-bottom">
+                                    	
+										<?php echo $tour_inclusions ; ?>
+                                    </ul>
+                                    
+                                   <h1>Exclusions</h1>
+                                	<ul class="border-bottom">
+                                    	
+										<?php echo $tour_exclusions ; ?>
+                                    </ul>
+                                   
+                                    </div>
+								
                                 <!-- content -->
                               </div>
                             </div>
 
                         </div>
-                     <?php include('footer.php'); ?>
+                     
                 </div>
+                <?php include('footer.php'); ?>
       <div style="clear:both"></div>
    </div>
 

@@ -45,7 +45,7 @@
                     </ul>
                 </div>
 <br /><br /><br />
-                <h3 id="whoWeAre" class="strong mtn mhn mbs"><span id="we_privacy">Who We Are</span></h3>
+                <h3 id="whoWeAre" class="strong mtn mhn mbs"><span id="we_privacy"><h2>Who We Are</h2></span></h3>
                 <div class="cms-content">
 					<p>Tour Bookings comprises of a team of dedicated staff who links up with the various suppliers for the deals you see to make them available to you at the lowest prices guaranteed.
 					
@@ -56,7 +56,7 @@
 				</div>
                 <div class="line"><div class="unitRight mbl"><a href="#top" class="inverse-link xsmall"><i class="icon icon-arrow-north unit"></i>Back to top</a></div></div>
 <br /><br />
-                <h3 id="whatInfo" class="strong mtn mhn mbs"><span class="privacy_new">Information that are collected</span></h3>
+                <h3 id="whatInfo" class="strong mtn mhn mbs"><span class="privacy_new"><h2>Information that are collected</h2></span></h3>
                 <div class="cms-content">
 					<p>Here at Tour Bookings, the information we collect from you can generally be classified under two categories: Personal Information and General Information. Personal Information includes, but is not limited to, your credit card details and your address. General Information includes, but is not limited to, your gender and your country of residence.
 					To facilitate and allow the booking and confirmation of your tour, we will require you to divulge Personal Information that we deem to be necessary only. In refusing to divulge said information, we will not be able to successfully process your booking.</p>
@@ -67,7 +67,7 @@
                 </div>
                 <div class="line"><div class="unitRight mbl"><a href="#top" class="inverse-link xsmall"><i class="icon icon-arrow-north unit"></i>Back to top</a></div></div>
 <br /><br />
-                <h3 id="cookies" class="strong mtn mhn mbs"><span id="cookie_privacy">What Cookies do we collect?</span></h3>
+                <h3 id="cookies" class="strong mtn mhn mbs"><span id="cookie_privacy"><h2>What Cookies do we collect?</h2></span></h3>
                 <div class="cms-content">
 					<p>"Cookies" are pieces of information that are stored by your web browser on your computer's hard disk, for record-keeping purposes. Cookies as mentioned above, do not immediately reveal your personal identity
 					First-Party Cookies: At Tour Bookings we make use of cookies to store your preferences, record session information, collect information on how you visit and access our websites, and to tailor our web pages to your needs. We also use cookies to analyze and measure the effectiveness of our email communications, website features and offerings, and advertisements.</p>
@@ -82,7 +82,7 @@
                 </div>
                 <div class="line"><div class="unitRight mbl"><a href="#top" class="inverse-link xsmall"><i class="icon icon-arrow-north unit"></i>Back to top</a></div></div>
 <br /><br />
-                <h3 id="personalInfo" class="strong mtn mhn mbs"><span id="info_privacy">Why do we need your Personal Information?</span></h3>
+                <h3 id="personalInfo" class="strong mtn mhn mbs"><span id="info_privacy"><h2>Why do we need your Personal Information?</h2></span></h3>
                 <div class="cms-content">
 					<p>In addition to allowing us to provide you with the most relevant content, there are several other reasons as well:</p>
 					<ul class="simple-list">
@@ -111,7 +111,7 @@
 			   </div>
                 <div class="line"><div class="unitRight mbl"><a href="#top" class="inverse-link xsmall"><i class="icon icon-arrow-north unit"></i>Back to top</a></div></div>
 <br /><br />
-                <h3 id="emailCommunications" class="strong mtn mhn mbs"><span class="privacy_new">Emails and Unsubscribing</span></span></h3>
+                <h3 id="emailCommunications" class="strong mtn mhn mbs"><span class="privacy_new"><h2>Emails and Unsubscribing</h2></span></span></h3>
                 <div class="cms-content">
 					<p>We will constantly update you about the latest deals and promotions that we have to offer here at Tour Bookings. If you wish to opt out of this free-of-charge service, there are several methods for you to do so:
 					
@@ -123,13 +123,13 @@
                 </div>
                 <div class="line"><div class="unitRight mbl"><a href="#top" class="inverse-link xsmall"><i class="icon icon-arrow-north unit"></i>Back to top</a></div></div>
 <br /><br />
-                <h3 id="distPartners" class="strong mtn mhn mbs"><span class="privacy_new">Our Distribution Partners and Suppliers</span></h3>
+                <h3 id="distPartners" class="strong mtn mhn mbs"><span class="privacy_new"><h2>Our Distribution Partners and Suppliers</h2></span></h3>
                 <div class="cms-content">
 					<p>In order to bring you the lowest priced deals, we have suppliers that operate from all over the world. In the case that these suppliers violate any of our Privacy Policy by divulging your Personal Information, we will seek to take any actions that we are able to and will even consider severing our business relations to prevent future occurrences. However, do take note that Tour Bookings will not be held responsible for the actions of the suppliers and distributors that we work with.</p>
                 </div>
                 <div class="line"><div class="unitRight mbl"><a href="#top" class="inverse-link xsmall"><i class="icon icon-arrow-north unit"></i>Back to top</a></div></div>
 <br /><br />
-                <h3 id="securityStorage" class="strong mtn mhn mbs"><span class="privacy_new">Security Measures</span></h3>
+                <h3 id="securityStorage" class="strong mtn mhn mbs"><span class="privacy_new"><h2>Security Measures</h2></span></h3>
                 <div class="cms-content">
 					<p>With your security and privacy being our main priority, we will do our best to ensure the highest level of security that we are able to provide.
 					Industry-standard encryption protocols are adopted into our system to ensure secure receiving and transferring of any information. We also establish a secure session using a Secure Socket Layer (SSL) before any information is requested. All these information will be stored in a secure environment with limited access to lower the possibility of misuse.
@@ -138,14 +138,14 @@
                 </div>
                 <div class="line"><div class="unitRight mbl"><a href="#top" class="inverse-link xsmall"><i class="icon icon-arrow-north unit"></i>Back to top</a></div></div>
 <br /><br />
-                <h3 id="changes" class="strong mtn mhn mbs"><span class="privacy_new">Changes to Privacy Policy</span></h3>
+                <h3 id="changes" class="strong mtn mhn mbs"><span class="privacy_new"><h2>Changes to Privacy Policy</h2></span></h3>
                 <div class="cms-content">
 					<p>As our business continues to grow to include more deals and tours, this Privacy Policy may be reviewed and revised.
 					Tour Bookings reserves the right to change this Privacy Policy by posting the changes on its website. You can determine when this Privacy Policy was last updated by reviewing the "<i>LAST UPDATED</i>" legend below.</p>
                 </div>
                 <div class="line"><div class="unitRight mbl"><a href="#top" class="inverse-link xsmall"><i class="icon icon-arrow-north unit"></i>Back to top</a></div></div>
 <br /><br />
-                <h3 id="contact" class="strong mtn mhn mbs"><span class="privacy_new">Contacting Us</span></h3>
+                <h3 id="contact" class="strong mtn mhn mbs"><span class="privacy_new"><h2>Contacting Us</h2></span></h3>
                 <div class="cms-content">
 					<p>Please email our Privacy Officer at <a href="mailto:privacy@Tour Bookings.co">privacy@Tour Bookings.co</a>.</p>
                 </div>

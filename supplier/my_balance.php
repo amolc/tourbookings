@@ -1,19 +1,25 @@
 <?php
-
-session_start();
- include('../include/database/db.php'); 
- $supplier_id = $_SESSION['supplier_id'];
+	session_start();
+	include('../include/database/db.php');//database connection 
+	if(isset($_SESSION['supplier_id']))
+	{
+		$supplier_id = $_SESSION['supplier_id'];
+	}
+	else 
+	{
+		header('Location: index.php');
+	}
  ?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
 	<meta charset="utf-8">
 	<!--[if IE]><meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"><![endif]-->
-	
+
 	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 	<meta name="description" content="Tourbooking.co" />
 	<meta name="author" content="Laborator.co" />
-	
+
 	<title>Tourbooking.co</title>
 
 	<link rel="stylesheet" href="include/resource/js/jquery-ui/css/no-theme/jquery-ui-1.10.3.custom.min.css"  id="style-resource-1">
@@ -26,7 +32,7 @@ session_start();
 	<script src="include/resource/js/jquery-1.10.2.min.js"></script>
 	<script type="text/javascript">
 		$(document).ready(function(){
-			
+
 				$('.delete_tour_list').click(function(){
 					// alert('ok');
 				var tour_id = $( this ).attr('id');
@@ -44,7 +50,7 @@ session_start();
 
 				});
 
-			});		
+			});
 
 			$('.confirm').click(function(){
 					// alert('ok');
@@ -63,7 +69,7 @@ session_start();
 
 				});
 
-			});	
+			});
 
 			$('.cancel').click(function(){
 					// alert('ok');
@@ -83,7 +89,7 @@ session_start();
 				});
 
 			});
-			
+
 				$('.transfer_account').click(function(){
 					// alert('ok');
 				// var tour_id = $( this ).attr('id');
@@ -104,195 +110,15 @@ session_start();
 
 				});
 
-			});	
-			
-		});
-	</script>
-	
-	<!-- Add fancyBox main JS and CSS files -->
-	<script type="text/javascript" src="fancybox/jquery.fancybox.js?v=2.1.5"></script>
-	<link rel="stylesheet" type="text/css" href="fancybox/jquery.fancybox.css?v=2.1.5" media="screen" />
-
-
-	<script type="text/javascript">
-		$(document).ready(function() {
-			/*
-			 *  Simple image gallery. Uses default settings
-			 */
-
-			$('.fancybox').fancybox();
-
-			/*
-			 *  Different effects
-			 */
-
-			// Change title type, overlay closing speed
-			$(".fancybox-effects-a").fancybox({
-				helpers: {
-					title : {
-						type : 'outside'
-					},
-					overlay : {
-						speedOut : 0
-					}
-				}
 			});
-
-			// Disable opening and closing animations, change title type
-			$(".fancybox-effects-b").fancybox({
-				openEffect  : 'none',
-				closeEffect	: 'none',
-
-				helpers : {
-					title : {
-						type : 'over'
-					}
-				}
-			});
-
-			// Set custom style, close if clicked, change title type and overlay color
-			$(".fancybox-effects-c").fancybox({
-				wrapCSS    : 'fancybox-custom',
-				closeClick : true,
-
-				openEffect : 'none',
-
-				helpers : {
-					title : {
-						type : 'inside'
-					},
-					overlay : {
-						css : {
-							'background' : 'rgba(238,238,238,0.85)'
-						}
-					}
-				}
-			});
-
-			// Remove padding, set opening and closing animations, close if clicked and disable overlay
-			$(".fancybox-effects-d").fancybox({
-				padding: 0,
-
-				openEffect : 'elastic',
-				openSpeed  : 150,
-
-				closeEffect : 'elastic',
-				closeSpeed  : 150,
-
-				closeClick : true,
-
-				helpers : {
-					overlay : null
-				}
-			});
-
-			/*
-			 *  Button helper. Disable animations, hide close button, change title type and content
-			 */
-
-			$('.fancybox-buttons').fancybox({
-				openEffect  : 'none',
-				closeEffect : 'none',
-
-				prevEffect : 'none',
-				nextEffect : 'none',
-
-				closeBtn  : false,
-
-				helpers : {
-					title : {
-						type : 'inside'
-					},
-					buttons	: {}
-				},
-
-				afterLoad : function() {
-					this.title = 'Image ' + (this.index + 1) + ' of ' + this.group.length + (this.title ? ' - ' + this.title : '');
-				}
-			});
-
-
-			/*
-			 *  Thumbnail helper. Disable animations, hide close button, arrows and slide to next gallery item if clicked
-			 */
-
-			$('.fancybox-thumbs').fancybox({
-				prevEffect : 'none',
-				nextEffect : 'none',
-
-				closeBtn  : false,
-				arrows    : false,
-				nextClick : true,
-
-				helpers : {
-					thumbs : {
-						width  : 50,
-						height : 50
-					}
-				}
-			});
-
-			/*
-			 *  Media helper. Group items, disable animations, hide arrows, enable media and button helpers.
-			*/
-			$('.fancybox-media')
-				.attr('rel', 'media-gallery')
-				.fancybox({
-					openEffect : 'none',
-					closeEffect : 'none',
-					prevEffect : 'none',
-					nextEffect : 'none',
-
-					arrows : false,
-					helpers : {
-						media : {},
-						buttons : {}
-					}
-				});
-
-			/*
-			 *  Open manually
-			 */
-
-			$("#fancybox-manual-a").click(function() {
-				$.fancybox.open('1_b.jpg');
-			});
-
-			$("#fancybox-manual-b").click(function() {
-				$.fancybox.open({
-					href : 'iframe.html',
-					type : 'iframe',
-					padding : 5
-				});
-			});
-
-			$("#fancybox-manual-c").click(function() {
-				$.fancybox.open([
-					{
-						href : '1_b.jpg',
-						title : 'My title'
-					}, {
-						href : '2_b.jpg',
-						title : '2nd title'
-					}, {
-						href : '3_b.jpg'
-					}
-				], {
-					helpers : {
-						thumbs : {
-							width: 75,
-							height: 50
-						}
-					}
-				});
-			});
-
 
 		});
 	</script>
-</head>
+
+
+	</head>
 <body class="page-body">
-<div class="page-container">	
+<div class="page-container">
 <?php include('include/side_menu/side_menu.php'); ?>
 	<div class="main-content">
 <?php include('include/header/header.php'); ?>
@@ -302,16 +128,16 @@ session_start();
 				<a href="dashboard.php"><i class="entypo-home"></i>Home</a>
 			</li>
 				<li class="active">
-			
+
 							<strong> Account</strong>
 					</li>
 					<li class="active">
-			
-							<strong> Transaction</strong>
+
+							<strong>My Transactions</strong>
 					</li>
 					</ol>
-			
-<h2> Transaction</h2>
+
+<h2>My Transactions</h2>
 
 <br />
 	<form  method="post" class="form-horizontal" enctype="multipart/form-data" action='tour_iamges_upload.php'>
@@ -320,9 +146,10 @@ session_start();
 	<thead>
 		<tr>
 			<th>ID</th>
-			<th>Date</th>			
 			<th>Deposit (Dr)</th>
 			<th>Paid(Cr)</th>
+			<th>Description</th>
+			<th>Date</th>
 			<th>Balance</th>
 		</tr>
 	</thead>
@@ -366,66 +193,69 @@ session_start();
 									// INNER JOIN supplier ON supplier.id = booking.supplier_id
 									// INNER JOIN payment ON payment.id = booking.payment_id
 									// WHERE booking.status = 'pending'  ORDER BY booking.id DESC
-									// ");	
+									// ");
+									
 			$result = mysql_query("SELECT
 									*
 									from
 									supplier_balance
-			
-									WHERE supplier_balance.supplier_id = '".$supplier_id."'
-									GROUP BY supplier_balance.id
-									ORDER BY supplier_balance.id DESC
+									WHERE supplier_id = '".$supplier_id."' AND status ='accepted'
+									ORDER BY id ASC
 									");
-		
-		//fetch tha data from the database 
-		// $counter =1;
-                
-		while ($row = mysql_fetch_array($result)) 
-		{
-			$sum += $row['total_price'];
-			if($row['amount_withdraw']=='0')
-			{
-				$amount_withdraw=" ";
-			}
-			else 
-			{
-				$amount_withdraw =$row['amount_withdraw'];
-			}
-			if($row['amount_deposit']=='0')
-			{
-				$amount_deposit=" ";
-			}
-			else 
-			{
-				$amount_deposit =$row['amount_deposit'];
-			}
-		
-	echo'
-		<tr class="odd gradeX">
-			<td><a  style="" id="'.$row['id'].'" class="fancybox" href="#inline'.$row['id'].'">'.$row['id'].'</a></td>
-			<td>'.$row['insert_date'].'</td>
-			
-			<td>'.$amount_deposit.'</td>
-			<td>'.$amount_withdraw.'</td>
-			<td>'.$row['available_balance'].'</td>
-			
-	
 
-			
-		</tr>
-		';
-		
-		}
+			//fetch tha data from the database ORDER BY id DESC
+			$counter =1;
+
+			while ($row = mysql_fetch_array($result))
+			{
+				$sum += $row['total_price'];
+				$description= $row['description'];
+				if($row['amount_withdraw']=='0')
+				{
+					$amount_withdraw=" ";
+				}
+				else
+				{
+					$amount_withdraw =$row['amount_withdraw'];
+				}
+				if($row['amount_deposit']=='0')
+				{
+					$amount_deposit=" ";
+				}
+				else
+				{
+					$amount_deposit =$row['amount_deposit'];
+				}
+
+				echo'
+					<tr >
+						<td>'.$counter.'</td>
+
+						<td>'.$amount_deposit.'</td>
+						<td>'.$amount_withdraw.'</td>
+						<td>'.$description.'</td>
+						
+						<td>'.$row['insert_date'].'</td>
+						<td>'.$row['available_balance'].'</td>
+
+
+
+
+					</tr>
+					';
+				$counter++;
+			}
 	?>
-		
+
 
 	</tbody>
 	<tfoot>
 		<tr>
 			<th>ID</th>
-			<th>Date</th>			
 			<th>Deposit (Dr)</th>
 			<th>Paid(Cr)</th>
+			<th>Description</th>
+			<th>Date</th>
 			<th>Balance</th>
 		</tr>
 	</tfoot>
@@ -439,7 +269,7 @@ session_start();
 			"aLengthMenu": [[10, 25, 50, -1], [10, 25, 50, "All"]],
 			"bStateSave": true
 		});
-		
+
 		$(".dataTables_wrapper select").select2({
 			minimumResultsForSearch: -1
 		});
@@ -454,77 +284,77 @@ session_start();
 <br />
 <br />
 <!-- Footer -->
-<?php include('include/footer/footer.php'); ?>	
+<?php include('include/footer/footer.php'); ?>
 
 
 </div>
-	
-	
+
+
 <div id="chat" class="fixed" data-current-user="Art Ramadani" data-order-by-status="1" data-max-chat-history="25">
-	
+
 	<div class="chat-inner">
-	
-		
+
+
 		<h2 class="chat-header">
 			<a href="#" class="chat-close" data-animate="1"><i class="entypo-cancel"></i></a>
-			
+
 			<i class="entypo-users"></i>
 			Chat
 			<span class="badge badge-success is-hidden">0</span>
 		</h2>
-		
-		
+
+
 		<div class="chat-group" id="group-1">
 			<strong>Favorites</strong>
-			
+
 			<a href="#" id="sample-user-123" data-conversation-history="#sample_history"><span class="user-status is-online"></span> <em>Catherine J. Watkins</em></a>
 			<a href="#"><span class="user-status is-online"></span> <em>Nicholas R. Walker</em></a>
 			<a href="#"><span class="user-status is-busy"></span> <em>Susan J. Best</em></a>
 			<a href="#"><span class="user-status is-offline"></span> <em>Brandon S. Young</em></a>
 			<a href="#"><span class="user-status is-idle"></span> <em>Fernando G. Olson</em></a>
 		</div>
-		
-		
+
+
 		<div class="chat-group" id="group-2">
 			<strong>Work</strong>
-			
+
 			<a href="#"><span class="user-status is-offline"></span> <em>Robert J. Garcia</em></a>
 			<a href="#" data-conversation-history="#sample_history_2"><span class="user-status is-offline"></span> <em>Daniel A. Pena</em></a>
 			<a href="#"><span class="user-status is-busy"></span> <em>Rodrigo E. Lozano</em></a>
 		</div>
-		
-		
+
+
 		<div class="chat-group" id="group-3">
 			<strong>Social</strong>
-			
+
 			<a href="#"><span class="user-status is-busy"></span> <em>Velma G. Pearson</em></a>
 			<a href="#"><span class="user-status is-offline"></span> <em>Margaret R. Dedmon</em></a>
 			<a href="#"><span class="user-status is-online"></span> <em>Kathleen M. Canales</em></a>
 			<a href="#"><span class="user-status is-offline"></span> <em>Tracy J. Rodriguez</em></a>
 		</div>
-	
+
 	</div>
-	
+
 	<!-- conversation template -->
 	<div class="chat-conversation">
-		
+
 		<div class="conversation-header">
 			<a href="#" class="conversation-close"><i class="entypo-cancel"></i></a>
-			
+
 			<span class="user-status"></span>
-			<span class="display-name"></span> 
+			<span class="display-name"></span>
 			<small></small>
 		</div>
-		
-		<ul class="conversation-body">	
+
+		<ul class="conversation-body">
 		</ul>
-		
+
 		<div class="chat-textarea">
 			<textarea class="form-control autogrow" placeholder="Type your message"></textarea>
 		</div>
-		
+
 	</div>
-	
+
 </div>
 
 
@@ -535,19 +365,19 @@ session_start();
 		<p>Are you here?</p>
 		<span class="time">09:00</span>
 	</li>
-	
+
 	<li class="opponent">
 		<span class="user">Catherine J. Watkins</span>
 		<p>This message is pre-queued.</p>
 		<span class="time">09:25</span>
 	</li>
-	
+
 	<li class="opponent">
 		<span class="user">Catherine J. Watkins</span>
 		<p>Whohoo!</p>
 		<span class="time">09:26</span>
 	</li>
-	
+
 	<li class="opponent unread">
 		<span class="user">Catherine J. Watkins</span>
 		<p>Do you like it?</p>
@@ -565,7 +395,7 @@ session_start();
 		<p>I am going out.</p>
 		<span class="time">08:21</span>
 	</li>
-	
+
 	<li class="opponent unread">
 		<span class="user">Daniel A. Pena</span>
 		<p>Call me when you see this message.</p>
@@ -591,20 +421,20 @@ session_start();
 	<script src="include/resource/js/neon-custom.js" id="script-resource-11"></script>
 	<script src="include/resource/js/neon-demo.js" id="script-resource-12"></script>
 	<script type="text/javascript">
-		
+
 		var _gaq = _gaq || [];
 		_gaq.push(['_setAccount', 'UA-28991003-3']);
 		_gaq.push(['_setDomainName', 'laborator.co']);
 		_gaq.push(['_setAllowLinker', true]);
 		_gaq.push(['_trackPageview']);
-		
+
 		(function() {
 		var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
 		ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
 		var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
 		})();
-		
+
 	</script>
-	
+
 </body>
 </html>

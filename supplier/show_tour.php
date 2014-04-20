@@ -81,8 +81,8 @@ session_start();
 		<tr>
 			<th aria-sort="descending">ID</th>
 			<th>Title</th>
-			<th>Overview</th>
-			<th>Highlight</th>
+		<!--<th>Overview</th>
+			<th>Highlight</th> -->
 			<th>Location</th>
 			<th>Images</th>
 			<th>Duration</th>
@@ -95,24 +95,53 @@ session_start();
 
 	<tbody>
 	<?php
-			$result = mysql_query("SELECT * FROM tour where supplier_id = ".$supplier_id." ORDER BY id DESC");
-		
+			//$result = mysql_query("SELECT * FROM tour where supplier_id = ".$supplier_id." ORDER BY id DESC");
+			$result = mysql_query("SELECT
+						t.title,
+						t.url,
+						p.location_id,
+						p.id,
+						p.title,
+						p.city,
+						p.`status`,
+						p.supplier_id,
+						p.overview,
+						p.hilight,
+						p.why_this,
+						p.duration
+						FROM tour p LEFT JOIN tour_photo t ON (
+							p.id = t.tour_id
+						)
+						where supplier_id = ".$supplier_id." 
+						GROUP BY p.id
+						ORDER BY p.id DESC 
+						");
+					//<td><a href="tour_iamges_upload.php?tour_id='.$row['id'].'">images</a></td>
 		//fetch tha data from the database 
 		while ($row = mysql_fetch_array($result)) 
 		{ 
-		
-	echo'
-		<tr class="odd gradeX">
-			<td>'.$row['id'].'</td>
-			<td>'.$row['title'].'</td>
-			<td>'.$row['overview'].'</td>
-			<td>'.$row['hilight'].'</td>
-			<td>'.$row['location_id'].'</td>
-			<td><a href="tour_iamges_upload.php?tour_id='.$row['id'].'">images</a></td>
-			<td>'.$row['duration'].' </td>
-			<td>'.$row['status'].'</td>
-			<td><a href="supplier_tour_bookings.php?tour_id='.$row['id'].'">Bookings</a></td>
-			<td>
+			if($row['url']==""){
+			$no_pic = 'no_preview.png';
+		   }
+		else {
+			 $no_pic = $row['url']; 
+			 }
+			if($row['status']=="accepted"){
+			$status = '<td>
+				<a href="edit_tour.php?tour_id='.$row['id'].'" class="edit_tour_list">
+					<i class="entypo-pencil"></i>
+					
+				</a>
+			</td>
+			<td>				
+				<a href="#" class="" disabled>
+					
+				
+				</a>
+			</td>';
+		   }
+		else {
+			 $status = '<td>
 				<a href="edit_tour.php?tour_id='.$row['id'].'" class="edit_tour_list">
 					<i class="entypo-pencil"></i>
 					
@@ -123,7 +152,18 @@ session_start();
 					<i class="entypo-cancel"></i>
 				
 				</a>
-			</td>
+			</td>'; 
+			 }
+	echo'
+		<tr class="odd gradeX">
+			<td>'.$row['id'].'</td>
+			<td>'.$row['title'].'</td>
+			<td>'.$row['location_id'].'</td>
+			<td><a href="tour_iamges_upload.php?tour_id='.$row['id'].'"><img class="preview" alt="No Image Available" title="click to upload image" width="100px" src="uploads/'.$no_pic.'"/></a></td>
+			<td>'.$row['duration'].' </td>
+			<td>'.ucfirst($row['status']).'</td> 
+			<td><a href="supplier_tour_bookings.php?tour_id='.$row['id'].'">Bookings</a></td>
+			'.$status.'
 		</tr>
 		';
 		}
@@ -135,8 +175,8 @@ session_start();
 		<tr>
 			<th>ID</th>
 			<th>Title</th>
-			<th>Overview</th>
-			<th>Highlight</th>
+		<!--	<th>Overview</th>
+			<th>Highlight</th> -->
 			<th>Location</th>
 			<th>Images</th>
 			<th>Duration</th>

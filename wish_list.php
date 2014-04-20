@@ -16,7 +16,7 @@ if(isset($_SESSION['user_id'])){
 // echo $tour_id;
 }
 else {
-	header('Location: index.php');
+	header('Location: user_login.php');
 }
 
 ?>

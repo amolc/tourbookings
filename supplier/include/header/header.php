@@ -1,4 +1,15 @@
-		
+<?php
+ // session_start();
+ //include('db.php');
+// if(isset($_SESSION['supplier_id'])){
+ // $supplier_id = $_SESSION['supplier_id'];
+ 
+ // $res = mysql_query("select id from booking where supplier_id = '$supplier_id'") or die(mysql_error());
+ // $notification = mysql_num_rows($res) or die (mysql_error());
+ //echo "total ".$notification;
+// }
+ 
+?> 
 <div class="row">
 	
 	<!-- Profile Info and Notifications -->
@@ -10,8 +21,14 @@
 			<li class="profile-info dropdown"><!-- add class "pull-right" if you want to place this from right -->
 				
 				<a href="#" class="dropdown-toggle" data-toggle="dropdown">
-					<img src="include/resource/images/thumb-1.png" alt="" class="img-circle" />
-					Supplier
+					<img style="display:none;" src="include/resource/images/thumb-1.png" alt="" class="img-circle" />
+                    
+					<?php 
+						if(isset($_SESSION['supplier_name'])){
+								$supplier_name = $_SESSION['supplier_name'];
+						}
+						echo"<span style='text-transform:capitalize;'>". $supplier_name."<span>";
+					?>
 				</a>
 				
 				<ul class="dropdown-menu">
@@ -21,20 +38,20 @@
 					
 					<!-- Profile sub-links -->
 					<li>
-						<a href="#">
+						<a href="edit_profile.php">
 							<i class="entypo-user"></i>
 							Edit Profile
 						</a>
 					</li>
 					
 					<li>
-						<a href="../../../neon-x/mailbox/main/index.html">
+						<a href="changepassword.php">
 							<i class="entypo-mail"></i>
-							Inbox
+							Change Password
 						</a>
 					</li>
 					
-					<li>
+					<!--<li>
 						<a href="../../../neon-x/extra/calendar/index.html">
 							<i class="entypo-calendar"></i>
 							Calendar
@@ -46,15 +63,15 @@
 							<i class="entypo-clipboard"></i>
 							Tasks
 						</a>
-					</li>
+					</li>-->
 				</ul>
 			</li>
 		
 		</ul>
 		
-		<ul class="user-info pull-left pull-right-xs pull-none-xsm">
+		<!--<ul class="user-info pull-left pull-right-xs pull-none-xsm">
 			
-			<!-- Raw Notifications -->
+			Raw Notifications
 			<li class="notifications dropdown">
 				
 				<a href="#" class="dropdown-toggle" data-toggle="dropdown" data-hover="dropdown" data-close-others="true">
@@ -164,12 +181,12 @@
 				
 			</li>
 			
-			<!-- Message Notifications -->
+			Message Notifications
 			<li class="notifications dropdown">
 				
 				<a href="#" class="dropdown-toggle" data-toggle="dropdown" data-hover="dropdown" data-close-others="true">
 					<i class="entypo-mail"></i>
-					<span class="badge badge-secondary">10</span>
+					<span class="badge badge-secondary">6<?php //echo $notification; ?></span>
 				</a>
 				
 				<ul class="dropdown-menu">
@@ -251,7 +268,7 @@
 				
 			</li>
 			
-			<!-- Task Notifications -->
+			Task Notifications
 			<li class="notifications dropdown">
 				
 				<a href="#" class="dropdown-toggle" data-toggle="dropdown" data-hover="dropdown" data-close-others="true">
@@ -359,7 +376,7 @@
 				
 			</li>
 		
-		</ul>
+		</ul>-->
 	
 	</div>
 	
@@ -368,7 +385,7 @@
 	<div class="col-md-6 col-sm-4 clearfix hidden-xs">
 		
 		<ul class="list-inline links-list pull-right">
-			<li>
+			<!--<li>
 				<a href="#">Live Site</a>
 			</li>
 			
@@ -383,8 +400,15 @@
 				</a>
 			</li>
 			
-			<li class="sep"></li>
+			<li class="sep"></li>-->
 			
+            
+            <li style="margin-right:10px; border-right: solid #ccc 1px; padding-right:10px;">
+				<a href="#">
+					Balance: $500
+				</a>
+			</li>
+            
 			<li>
 				<a href="index.php">
 					Log Out <i class="entypo-logout right"></i>

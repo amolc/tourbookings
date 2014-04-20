@@ -1,12 +1,14 @@
 <?php
- session_start();
-  include('../include/database/db.php'); 
-if(isset($_SESSION['supplier_id'])){
- $supplier_id = $_SESSION['supplier_id'];
-}
-else {
-	header('Location: index.php');
-}
+	session_start();
+	include('../include/database/db.php'); 
+	if(isset($_SESSION['supplier_id']))
+	{
+	 $supplier_id = $_SESSION['supplier_id'];
+	}
+	else 
+	{
+		header('Location: index.php');
+	}
  ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -91,188 +93,84 @@ else {
 			
 		});
 	</script>
-	
-	<!-- Add fancyBox main JS and CSS files -->
-	<script type="text/javascript" src="fancybox/jquery.fancybox.js?v=2.1.5"></script>
-	<link rel="stylesheet" type="text/css" href="fancybox/jquery.fancybox.css?v=2.1.5" media="screen" />
-
-
 	<script type="text/javascript">
-		$(document).ready(function() {
-			/*
-			 *  Simple image gallery. Uses default settings
-			 */
+		$(document).ready(function(){
+				$('.loading').hide();
+				$('.delete_tour_list2').click(function(){
+					// alert('ok');
+					$('.loading').show();
+				var tour_id = $( this ).attr('id');
 
-			$('.fancybox').fancybox();
+				$.ajax({
+						type: 'post',
+						url: 'ajax_request_function/ajax_supplier_cancel_booking.php',
+						data: {tour_id:tour_id},
 
-			/*
-			 *  Different effects
-			 */
+						success: function(mesg) {
+							// alert(mesg);
+									$('.loading').hide();
+							$('.msg2').empty().html('Deleted').show('fast').animate({opacity: 1.0}, 3000).fadeOut('slow');	
+							location.reload();
+							 // $('#photo_detail').append(mesg);
 
-			// Change title type, overlay closing speed
-			$(".fancybox-effects-a").fancybox({
-				helpers: {
-					title : {
-						type : 'outside'
-					},
-					overlay : {
-						speedOut : 0
-					}
-				}
-			});
-
-			// Disable opening and closing animations, change title type
-			$(".fancybox-effects-b").fancybox({
-				openEffect  : 'none',
-				closeEffect	: 'none',
-
-				helpers : {
-					title : {
-						type : 'over'
-					}
-				}
-			});
-
-			// Set custom style, close if clicked, change title type and overlay color
-			$(".fancybox-effects-c").fancybox({
-				wrapCSS    : 'fancybox-custom',
-				closeClick : true,
-
-				openEffect : 'none',
-
-				helpers : {
-					title : {
-						type : 'inside'
-					},
-					overlay : {
-						css : {
-							'background' : 'rgba(238,238,238,0.85)'
 						}
-					}
-				}
-			});
 
-			// Remove padding, set opening and closing animations, close if clicked and disable overlay
-			$(".fancybox-effects-d").fancybox({
-				padding: 0,
-
-				openEffect : 'elastic',
-				openSpeed  : 150,
-
-				closeEffect : 'elastic',
-				closeSpeed  : 150,
-
-				closeClick : true,
-
-				helpers : {
-					overlay : null
-				}
-			});
-
-			/*
-			 *  Button helper. Disable animations, hide close button, change title type and content
-			 */
-
-			$('.fancybox-buttons').fancybox({
-				openEffect  : 'none',
-				closeEffect : 'none',
-
-				prevEffect : 'none',
-				nextEffect : 'none',
-
-				closeBtn  : false,
-
-				helpers : {
-					title : {
-						type : 'inside'
-					},
-					buttons	: {}
-				},
-
-				afterLoad : function() {
-					this.title = 'Image ' + (this.index + 1) + ' of ' + this.group.length + (this.title ? ' - ' + this.title : '');
-				}
-			});
-
-
-			/*
-			 *  Thumbnail helper. Disable animations, hide close button, arrows and slide to next gallery item if clicked
-			 */
-
-			$('.fancybox-thumbs').fancybox({
-				prevEffect : 'none',
-				nextEffect : 'none',
-
-				closeBtn  : false,
-				arrows    : false,
-				nextClick : true,
-
-				helpers : {
-					thumbs : {
-						width  : 50,
-						height : 50
-					}
-				}
-			});
-
-			/*
-			 *  Media helper. Group items, disable animations, hide arrows, enable media and button helpers.
-			*/
-			$('.fancybox-media')
-				.attr('rel', 'media-gallery')
-				.fancybox({
-					openEffect : 'none',
-					closeEffect : 'none',
-					prevEffect : 'none',
-					nextEffect : 'none',
-
-					arrows : false,
-					helpers : {
-						media : {},
-						buttons : {}
-					}
 				});
 
-			/*
-			 *  Open manually
-			 */
+			});		
 
-			$("#fancybox-manual-a").click(function() {
-				$.fancybox.open('1_b.jpg');
-			});
+			$('.confirm2').click(function(){
+					// alert('ok');
+					$('.loading').show();
+				var tour_id = $( this ).attr('id');
+				var amount_deposit = $( this ).attr('data');
 
-			$("#fancybox-manual-b").click(function() {
-				$.fancybox.open({
-					href : 'iframe.html',
-					type : 'iframe',
-					padding : 5
-				});
-			});
+				$.ajax({
+						type: 'post',
+						url: 'ajax_request_function/ajax_supplier_confirm_booking.php',
+						data: {tour_id:tour_id,amount_deposit:amount_deposit},
 
-			$("#fancybox-manual-c").click(function() {
-				$.fancybox.open([
-					{
-						href : '1_b.jpg',
-						title : 'My title'
-					}, {
-						href : '2_b.jpg',
-						title : '2nd title'
-					}, {
-						href : '3_b.jpg'
-					}
-				], {
-					helpers : {
-						thumbs : {
-							width: 75,
-							height: 50
+						success: function(mesg) {
+							// alert(mesg);
+									$('.loading').hide();
+							$('.msg2').empty().html('Confirmed').show('fast').animate({opacity: 1.0}, 3000).fadeOut('slow');	
+							location.reload();
+							 // $('#photo_detail').append(mesg);
+
 						}
-					}
+
 				});
+
+			});	
+
+			$('.cancel2').click(function(){
+					// alert('ok');
+						$('.loading').show();
+				var tour_id = $( this ).attr('id');
+
+				$.ajax({
+						type: 'post',
+						url: 'ajax_request_function/ajax_supplier_cancel_booking.php',
+						data: {tour_id:tour_id},
+
+						success: function(mesg) {
+							// alert(mesg);
+									$('.loading').hide();
+							$('.msg2').empty().html('Declined').show('fast').animate({opacity: 1.0}, 3000).fadeOut('slow');	
+							location.reload();
+							 // $('#photo_detail').append(mesg);
+
+						}
+
+				});
+
 			});
-
-
+			
+			
 		});
 	</script>
+	
+
 </head>
 <body class="page-body page-fade">
 
@@ -320,95 +218,95 @@ else {
 									// INNER JOIN payment ON payment.id = booking.payment_id
 									// WHERE booking.status = 'pending'  ORDER BY booking.id DESC
 									// ");	
-			$result = mysql_query("SELECT
-									booking.id,
-									booking.tour_id,
-									booking.user_id,
-									booking.start_date,
-									booking.status,
-									payment.total_price,
-									booking.supplier_id,
-									tour_price.price_per_person,
-									tour.title,
-									tour.overview,
-                                                                        tour.duration,
-									tour.city AS tour_city,
-									tour.location_id AS tour_country,
-									supplier.first_name AS supplier_first_name,
-									supplier.last_name AS supplier_last_name,
-									supplier.company_name,
-									supplier.email AS supplier_email,
-									supplier.city AS supplier_city,
-									supplier.country AS supplier_country,
-									user.first_name AS user_first_name,
-									user.last_name AS user_last_name,
-									user.country AS user_country,
-									user.city AS user_city,
-									user.email AS user_email,
-									user.phone AS user_phone,
-									user.address AS user_address,
-									traveler.last_name as traveler_last_name ,
-									traveler.first_name as traveler_first_name
-									FROM
-									booking
-									INNER JOIN tour ON tour.id = booking.tour_id
-									INNER JOIN tour_price ON tour_price.tour_id = tour.id
-									INNER JOIN user ON user.id = booking.user_id
-									INNER JOIN supplier ON supplier.id = booking.supplier_id
-									INNER JOIN payment ON payment.id = booking.payment_id
-									INNER JOIN traveler ON user.id = traveler.user_id AND tour.id = traveler.tour_id
-									WHERE booking.status = 'confirm' AND booking.supplier_id = '".$supplier_id."'
-									AND booking.withdraw !='true'
-									GROUP BY booking.id
-									ORDER BY booking.id DESC
-									");
+			// $result = mysql_query("SELECT
+									// booking.id,
+									// booking.tour_id,
+									// booking.user_id,
+									// booking.start_date,
+									// booking.status,
+									// payment.total_price,
+									// booking.supplier_id,
+									// tour_price.price_per_person,
+									// tour.title,
+									// tour.overview,
+                                                                        // tour.duration,
+									// tour.city AS tour_city,
+									// tour.location_id AS tour_country,
+									// supplier.first_name AS supplier_first_name,
+									// supplier.last_name AS supplier_last_name,
+									// supplier.company_name,
+									// supplier.email AS supplier_email,
+									// supplier.city AS supplier_city,
+									// supplier.country AS supplier_country,
+									// user.first_name AS user_first_name,
+									// user.last_name AS user_last_name,
+									// user.country AS user_country,
+									// user.city AS user_city,
+									// user.email AS user_email,
+									// user.phone AS user_phone,
+									// user.address AS user_address,
+									// traveler.last_name as traveler_last_name ,
+									// traveler.first_name as traveler_first_name
+									// FROM
+									// booking
+									// INNER JOIN tour ON tour.id = booking.tour_id
+									// INNER JOIN tour_price ON tour_price.tour_id = tour.id
+									// INNER JOIN user ON user.id = booking.user_id
+									// INNER JOIN supplier ON supplier.id = booking.supplier_id
+									// INNER JOIN payment ON payment.id = booking.payment_id
+									// INNER JOIN traveler ON user.id = traveler.user_id AND tour.id = traveler.tour_id
+									// WHERE booking.status = 'confirm' AND booking.supplier_id = '".$supplier_id."'
+									// AND booking.withdraw !='true'
+									// GROUP BY booking.id
+									// ORDER BY booking.id DESC
+									// ");
 
                 
-		while ($row = mysql_fetch_array($result)) 
-		{
-			$amount_deposit += $row['total_price'];
+		// while ($row = mysql_fetch_array($result)) 
+		// {
+			// $amount_deposit += $row['total_price'];
 
-		}
+		// }
 
-		if($amount_deposit==0) 
-		{
+		// if($amount_deposit==0) 
+		// {
 		
-		}
-		else {
-			$today_date = mktime(0,0,0,date("m"),date("d"),date("Y"));
-		$current_date = date("m/d/Y", $today_date);
-			$sql = mysql_query("UPDATE booking SET withdraw = 'true' WHERE  supplier_id = '".$supplier_id."'");
-			$sql3 = mysql_query("SELECT
-									MAX(available_balance) as b
-									FROM
-									supplier_balance
-									WHERE  supplier_id = '".$supplier_id."'
-									");
-			while ($row = mysql_fetch_array($sql3)) 
-				{
-					$supplier_balance = $row['b'];
+		// }
+		// else {
+			// $today_date = mktime(0,0,0,date("m"),date("d"),date("Y"));
+		// $current_date = date("m/d/Y", $today_date);
+			// $sql = mysql_query("UPDATE booking SET withdraw = 'true' WHERE  supplier_id = '".$supplier_id."'");
+			// $sql3 = mysql_query("SELECT
+									// available_balance
+									// FROM
+									// supplier_balance
+									// WHERE  supplier_id = '".$supplier_id."'
+									// ");
+			// while ($row = mysql_fetch_array($sql3)) 
+				// {
+					// $supplier_balance = $row['available_balance'];
 				
-				}
-				$total = $amount_deposit + $supplier_balance;
-			echo $total;
+				// }
+				// $total = $amount_deposit + $supplier_balance;
+			// echo $total;
 			// $sql4 = mysql_query("DELETE  from supplier_balance  WHERE  supplier_id = '".$supplier_id."'");
 			
-		$sql2   = "insert into supplier_balance(supplier_id,available_balance,amount_deposit,type,description,insert_date) values ('$supplier_id','$total','$amount_deposit','deposit','earning from booking','$current_date')";
-			$query = mysql_query($sql2);
+		// $sql2   = "insert into supplier_balance(supplier_id,available_balance,amount_deposit,type,description,insert_date) values ('$supplier_id','$total','$amount_deposit','deposit','earning from booking','$current_date')";
+			// $query = mysql_query($sql2);
 			
-			if($sql)
-			{
-				echo "true";
-			}
-			else {
-				echo "error";
-			}
-}
+			// if($sql)
+			// {
+				// echo "true";
+			// }
+			// else {
+				// echo "error";
+			// }
+// }
 
 ?>
 
 
-<div class="row">
+<div style="display:none;" class="row">
 	<div class="col-sm-3">
 	
 		<div class="tile-stats tile-red">
@@ -462,11 +360,11 @@ else {
 
 <div class="row">
 			
-<h2>Pending Booking</h2>
+<h2>B2C Booking</h2>
 
 <br />
-	<form  method="post" class="form-horizontal" enctype="multipart/form-data" action='tour_iamges_upload.php'>
-
+	<form   method="post" class="form-horizontal" enctype="multipart/form-data" action=''>
+ 
 <table class="table table-bordered datatable" id="table-1">
 	<thead>
 		<tr>
@@ -736,18 +634,36 @@ else {
 </table>
 </form>
 <script type="text/javascript">
-	// jQuery(document).ready(function($)
-	// {
-		// $("#table-1").dataTable({
-			// "sPaginationType": "bootstrap",
-			// "aLengthMenu": [[10, 25, 50, -1], [10, 25, 50, "All"]],
-			// "bStateSave": true
-		// });
+	jQuery(document).ready(function($)
+	{
+		$("#table-1").dataTable({
+			"sPaginationType": "bootstrap",
+			"aLengthMenu": [[10, 25, 50, -1], [10, 25, 50, "All"]],
+			"bStateSave": true
+		});
 		
-		// $(".dataTables_wrapper select").select2({
-			// minimumResultsForSearch: -1
-		// });
-	// });
+		$(".dataTables_wrapper select").select2({
+			minimumResultsForSearch: -1
+		});
+		$("#table-2").dataTable({
+			"sPaginationType": "bootstrap",
+			"aLengthMenu": [[10, 25, 50, -1], [10, 25, 50, "All"]],
+			"bStateSave": true
+		});
+		
+		$(".dataTables_wrapper select").select2({
+			minimumResultsForSearch: -1
+		});
+		$("#table-3").dataTable({
+			"sPaginationType": "bootstrap",
+			"aLengthMenu": [[10, 25, 50, -1], [10, 25, 50, "All"]],
+			"bStateSave": true
+		});
+		
+		$(".dataTables_wrapper select").select2({
+			minimumResultsForSearch: -1
+		});
+	});
 </script>
 
 
@@ -755,6 +671,257 @@ else {
 <br />
 
 
+		
+<h2>B2B Booking</h2>
+<div style="margin-left: 352px;display:none;" class="loading">Your Request is processing <img src="uploads/loading_gif.gif" alt="" width=80px/></div>
+<div style="color:green;margin-left: 352px;" class="msg"></div>
+<div style="color:red;margin-left: 352px;" class="msg2"></div>
+<?php
+if(isset($_REQUEST['del'])){
+echo '<h2 style="color:red">Deleted</h2>'; 
+}
+if(isset($_REQUEST['edit'])){
+echo '<h2 style="color:green">Updated</h2>'; 
+}
+ ?>
+<br />
+	<form  method="post" class="form-horizontal" enctype="multipart/form-data" action='tour_iamges_upload.php'>
+
+<table class="table table-bordered datatable" id="table-2">
+	<thead>
+		<tr>
+			<th>Booking ID</th>
+			<th>Booking Date</th>
+			<th>Supplier ID</th>
+			<th>Trip title</th>
+			<th>Start Date</th>
+			<th>Supplier Status</th>
+			<th>Action</th>
+			<th>Delete</th>
+		</tr>
+	</thead>
+
+	<tbody>
+	<?php
+			// $result = mysql_query("SELECT * FROM booking WHERE status = 'pending'  ORDER BY id DESC");
+			// $result = mysql_query("SELECT
+									// booking.id,
+									// booking.tour_id,
+									// booking.user_id,
+									// booking.start_date,
+									// booking.status,
+									// payment.total_price,
+									// booking.supplier_id,
+									// tour_price.price_per_person,
+									// tour.title,
+									// tour.overview,
+									// tour.city as tour_city,
+									// tour.location_id as tour_country,
+									// supplier.first_name as supplier_first_name,
+									// supplier.last_name as supplier_last_name,
+									// supplier.company_name,
+									// supplier.email as supplier_email,
+									// supplier.city as supplier_city,
+									// supplier.country as supplier_country,
+									// user.first_name as user_first_name,
+									// user.last_name as user_last_name,
+									// user.country as user_country,
+									// user.city as user_city,
+									// user.email as user_email,
+									// user.phone as user_phone,
+									// user.address as user_address
+									// FROM
+									// booking
+									// INNER JOIN tour ON tour.id = booking.tour_id
+									// INNER JOIN booking ON booking.tour_id = traveler.tour_id
+									// INNER JOIN tour_price ON tour_price.tour_id = tour.id
+									// INNER JOIN user ON user.id = booking.user_id
+									// INNER JOIN user ON user.id = traveler.user_id
+									// INNER JOIN supplier ON supplier.id = booking.supplier_id
+									// INNER JOIN payment ON payment.id = booking.payment_id
+									// WHERE booking.status = 'pending'  ORDER BY booking.id DESC
+									// ");	
+			$result = mysql_query("SELECT
+									Supplier_Booking.id,
+									Supplier_Booking.tour_id,
+									Supplier_Booking.start_date,
+									Supplier_Booking.status,
+									Supplier_Booking.amount,
+									Supplier_Booking.supplier_id,
+									tour_price.price_per_person,
+									tour.title,
+									tour.overview,
+									tour.city AS tour_city,
+									tour.location_id AS tour_country,
+									supplier.first_name AS supplier_first_name,
+									supplier.last_name AS supplier_last_name,
+									supplier.company_name,
+									supplier.email AS supplier_email,
+									supplier.city AS supplier_city,
+									supplier.country AS supplier_country
+									FROM
+									Supplier_Booking
+									INNER JOIN tour ON tour.id = Supplier_Booking.tour_id
+									INNER JOIN tour_price ON tour_price.tour_id = tour.id
+									INNER JOIN supplier ON supplier.id = Supplier_Booking.supplier_id
+									WHERE Supplier_Booking.status = 'pending' AND Supplier_Booking.supplier_id !='".$supplier_id."' and tour.supplier_id='".$supplier_id."'   Group BY Supplier_Booking.id 
+									ORDER BY Supplier_Booking.id DESC
+									");
+		
+		//fetch tha data from the database 
+		// $counter =1; 
+		while ($row = mysql_fetch_array($result)) 
+		{ 
+		
+	echo'
+		<tr class="odd gradeX">
+			<td><a  style="" id="'.$row['id'].'" class="fancybox" href="supplier_booking_detail.php?booking_id='.$row['id'].'">'.$row['id'].'</a></td>
+			<td>'.$row['start_date'].'</td>
+			<td>'.$row['supplier_id'].'</td>
+			<td>'.$row['title'].'</td>
+			<td>'.$row['start_date'].'</td>
+			
+			<td>'.$row['status'].'</td>
+			<td>
+				<a  style="" id="'.$row['id'].'"  data="'.$row['amount'].'" class="confirm2">
+					Confirm
+				</a>   /  
+				<a style="color: red;" id="'.$row['id'].'" class="cancel2">
+					Cancel
+				</a>
+			</td>
+			<td>				
+				<a id="'.$row['id'].'" class="delete_tour_list2">
+					<i class="entypo-cancel"></i>
+				
+				</a>
+			</td>
+		</tr>
+		';
+		
+		}
+	?>
+		
+
+	</tbody>
+	<tfoot>
+		<tr>
+			<th>Booking ID</th>
+			<th>Booking Date</th>
+			<th>Supplier ID</th>
+			<th>Trip title</th>
+			<th>Start Date</th>
+			<th>Supplier Status</th>
+			<th>Action</th>
+			<th>Delete</th>
+		</tr>
+	</tfoot>
+</table>
+</form>
+
+
+
+<br />
+
+<h2>Tour List</h2>
+
+<br />
+	<form  method="post" class="form-horizontal" enctype="multipart/form-data" action='tour_iamges_upload.php'>
+<table class="table table-bordered datatable" id="table-3">
+	<thead>
+		<tr>
+			<th aria-sort="descending">ID</th>
+			<th>Images</th>
+			<th>Title</th>
+			<th>Location</th>
+			<th>City</th>
+			<th>Duration</th>
+			<th>Partner Price Adult</th>
+			<th>Partner Price child</th>
+			<th>Book Now</th>
+		</tr>
+	</thead>
+
+	<tbody>
+	<?php
+						$result = mysql_query("SELECT
+						t.title,
+						t.url,
+						p.id,
+						p.title,
+						p.location_id,
+						p.city,
+						p.`status`,
+						p.supplier_id,
+						p.overview,
+						p.hilight,
+						p.why_this,
+						p.duration,
+						tour_price.price_customer_adult,
+						tour_price.price_customer_child,
+						tour_price.price_partner_adult,
+						tour_price.price_partner_child
+					FROM
+					tour AS p
+					LEFT JOIN tour_photo AS t ON (p.id = t.tour_id)
+					INNER JOIN tour_price ON p.id = tour_price.tour_id
+					WHERE p.status = 'accepted'
+					GROUP BY p.id
+					ORDER BY id DESC
+						");
+		//fetch tha data from the database
+
+
+
+		$no_pic ="";
+		while ($row = mysql_fetch_array($result))
+		{
+
+		if($row['url']==""){
+           $no_pic = 'no_preview.png';
+           }
+           else {
+           $no_pic = $row['url'];
+           }
+
+	echo'
+		<tr class="odd gradeX">
+			<td>'.$row['id'].'</td> 
+			<td><img style="width:90px;height: 90px;" class="preview" src="uploads/'.$no_pic .'"/></td>
+			<td style=""><a href="supplier_view_tour_detail.php?tour_id='.$row['id'].'" class="">'.$row['title'].'</a></td>
+			<td>'.$row['location_id'].'</td>
+			<td>'.$row['city'].'</td>
+			<td>'.$row['duration'].' </td>
+			<td>$'.$row['price_partner_adult'].' </td>
+			<td>$'.$row['price_partner_child'].' </td>
+			<td>
+					<a href="book_now.php?tour_id='.$row['id'].'" class="btn btn-default">
+						Book Now
+					</a>
+			</td>
+		</tr>
+		';
+		}
+	?>
+
+
+	</tbody>
+	<tfoot>
+		<tr>
+			<th aria-sort="descending">ID</th>
+			<th>Images</th>
+			<th>Title</th>
+			<th>Location</th>
+			<th>City</th>
+			<th>Duration</th>
+			<th>Partner Price Adult</th>
+			<th>Partner Price child</th>
+			<th>Add To Cart</th>
+		</tr>
+	</tfoot>
+</table>
+</form>
+<br />
 
 
 <!-- Footer -->
@@ -944,7 +1111,10 @@ else {
 
 	<link rel="stylesheet" href="include/resource/js/jvectormap/jquery-jvectormap-1.2.2.css"  id="style-resource-1">
 	<link rel="stylesheet" href="include/resource/js/rickshaw/rickshaw.min.css"  id="style-resource-2">
-
+	
+<link rel="stylesheet" href="include/resource/js/select2/select2-bootstrap.css"  id="style-resource-1">
+	<link rel="stylesheet" href="include/resource/js/select2/select2.css"  id="style-resource-2">
+	
 	<script src="include/resource/js/gsap/main-gsap.js" id="script-resource-1"></script>
 	<script src="include/resource/js/jquery-ui/js/jquery-ui-1.10.3.minimal.min.js" id="script-resource-2"></script>
 	<script src="include/resource/js/bootstrap.min.js" id="script-resource-3"></script>
@@ -953,6 +1123,11 @@ else {
 	<script src="include/resource/js/neon-api.js" id="script-resource-6"></script>
 	<script src="include/resource/js/jvectormap/jquery-jvectormap-1.2.2.min.js" id="script-resource-7"></script>
 	<script src="include/resource/js/jvectormap/jquery-jvectormap-europe-merc-en.js" id="script-resource-8"></script>
+	
+	<script src="include/resource/js/jquery.dataTables.min.js" id="script-resource-7"></script>  
+	<script src="include/resource/js/dataTables.bootstrap.js" id="script-resource-8"></script>
+	<script src="include/resource/js/select2/select2.min.js" id="script-resource-9"></script>
+	
 	<script src="include/resource/js/jquery.sparkline.min.js" id="script-resource-9"></script>
 	<script src="include/resource/js/rickshaw/vendor/d3.v3.js" id="script-resource-10"></script>
 	<script src="include/resource/js/rickshaw/rickshaw.min.js" id="script-resource-11"></script>

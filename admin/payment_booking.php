@@ -2,7 +2,7 @@
 
 session_start();
  include('../include/database/db.php'); 
- $supplier_id = $_SESSION['supplier_id'];
+ // $supplier_id = $_SESSION['supplier_id'];
  ?>
 <!DOCTYPE html>
 <html lang="en">

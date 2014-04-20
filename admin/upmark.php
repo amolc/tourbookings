@@ -194,10 +194,11 @@ $('#deparchture_time option').filter(function() {
 					<strong>Edit Pricing</strong>
 				</li>
 			</ol>
+<h5 style="float: right;"><a href="javascript:history.back(1)" style="padding:5px 15px; color:white; border-radius:2px; background-color: #fd8900;">Go Back</a></h>
 
-			<h2>Edit Pricing</h2>
+			<h2 style="width:85%; ">Edit Pricing</h2>
+			
 			<br />
-
 <div class="row">
 	<div class="col-md-12">
 
@@ -205,7 +206,7 @@ $('#deparchture_time option').filter(function() {
 
 			<div class="panel-heading">
 				<div class="panel-title">
-					Over View
+					Overview
 				</div>
 
 				<div class="panel-options">
@@ -254,7 +255,8 @@ $('#deparchture_time option').filter(function() {
 								$result1 = mysql_query($query_update) or die('Error, query failed');        
 
 								 if($result1){
-									echo "Successfull Update";
+									echo 'Successfull Update <a href="tour_list.php?upmark_tour_id='.$tour_id.'">Click Here</a>';
+									// header('Location:tour_list.php?upmark_tour_id='.$tour_id.'');
 								}else {
 									echo "error";
 								} 

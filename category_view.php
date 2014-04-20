@@ -43,7 +43,9 @@ $query = mysql_query("SELECT
 						tour
 						INNER JOIN tour_price ON tour.id = tour_price.tour_id
 						INNER JOIN tour_photo ON tour.id = tour_photo.tour_id
-						WHERE tour.status = 'accepted' AND tour.id = '".$cat_name."'");
+						WHERE tour.status = 'accepted' AND tour.id = '".$cat_name."'
+						GROUP BY tour.id
+						");
 
 
 
@@ -65,8 +67,8 @@ $query = mysql_query("SELECT
             <div class="header_logo fl">
             	<?php include('header_logo.php'); ?>
             </div>
-    	</div>
-        	<div class="banner fl"><img src="images/banner.jpg" alt="" width="1002" height="391"></div>
+    	</div> 
+        	<div class="banner fl"><img src="images/banner-2.jpg" alt="" width="1002" height="260"></div>
             	<div class="center_body fl">
                 	<div class="left_penal fl">
                     	<div class="insider_guide fl">
@@ -155,18 +157,19 @@ $query = mysql_query("SELECT
                                     <!--<li class="border"><a href="#" class="active">See all attractions...</a></li>-->
                                 </ul>
                           </div>
-                        <div class="chat_now fl"><a href="javascript:void(0)"><img src="images/chat_now.jpg" alt="" width="296" height="186"></a></div>
+                        <div class="chat_now fl" style="display:none;"><a href="javascript:void(0)"><img src="images/chat_now.jpg" alt="" width="296" height="186"></a></div>
                     </div>
 					
 			                          <div class="picks_head fl">
-                            <h2><?php echo $name_cat ; ?></h2>
+                            <!--<h2><?php echo $name_cat ; ?></h2>-->
+				<h2>Top Attractions</h2>
                           </div>
                	  <div class="right_penal mrgn_top fl">
                     <?php
 						while ($record = mysql_fetch_array($query))
 							{						
 
-										echo '<div class="add_cart fl">
+										echo '<div class="add_cart fl" style="width:666px;">
 											<div class="tour_img fl"><img src="supplier/uploads/'.$record['url'].'" alt="" width="155" height="139"> </div>
 											
 												<div class="departs fl">
