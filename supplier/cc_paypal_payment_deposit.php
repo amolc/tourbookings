@@ -76,7 +76,18 @@ $(document).ready(function(){
 			*@date:	1 january 2014 2:22 PM GM+5
 			*/
 
-
+$('.credit_card_no').blur(function(){
+var cc_card = $(this).val().length;
+  if ( cc_card < 12){ 
+   $('#credit_card_no_error').empty().append("Please enter greater than 12 digin");
+    //$(this).val('100'); 
+  }
+    if ( cc_card > 12){ 
+   $('#credit_card_no_error').empty();
+    //$(this).val('100'); 
+  }
+  // $('.credit_card_no_error').remove(); 
+});
 });
 </script>
 
@@ -207,11 +218,11 @@ $(document).ready(function(){
 									$headers  = 'MIME-Version: 1.0' . "\r\n";
 									$headers .= 'Content-type: text/html; charset=iso-8859-1' . "\r\n";
 									$headers .= 'To: '.$email.'' . "\r\n";
-									$headers .= 'From: support@tourbookings.co' . "\r\n";					
+									$headers .= 'From: admin@tourbookings.co' . "\r\n";					
 									mail( $to, $subject, $message, $headers );
 									
 									//send email to admin
-									$to2 = 'support@tourbookings.co'; 
+									$to2 = 'admin@tourbookings.co'; 
 						
 										$subject2 = "Payment Deposit"; 
 										// $message = "Your user name is email  '".$email."' and password  '".$pass."'"; 
@@ -237,8 +248,8 @@ $(document).ready(function(){
 									$headers2 .= 'Content-type: text/html; charset=iso-8859-1' . "\r\n";
 
 									// Additional headers 
-									$headers2 .= 'To: support@tourbookings.co' . "\r\n";
-									$headers2 .= 'From: support@tourbookings.co' . "\r\n";
+									$headers2 .= 'To: admin@tourbookings.co' . "\r\n";
+									$headers2 .= 'From: admin@tourbookings.co' . "\r\n";
 
 									// $headers2 .= 'Cc: '.$customer_email.'' . "\r\n"; 
 
@@ -301,9 +312,9 @@ $(document).ready(function(){
 									$headers  = 'MIME-Version: 1.0' . "\r\n";
 									$headers .= 'Content-type: text/html; charset=iso-8859-1' . "\r\n";
 									$headers .= 'To: '.$email.'' . "\r\n";
-									$headers .= 'From: support@tourbookings.co' . "\r\n";					
+									$headers .= 'From: admin@tourbookings.co' . "\r\n";					
 									mail( $to, $subject, $message, $headers );
-								echo "error";
+								// echo "error";
 							}
 										
 
@@ -325,8 +336,9 @@ $(document).ready(function(){
 							<label for="field-1" class="col-sm-3 control-label">Credit Card Number</label>
 
 							<div class="col-sm-5">
-								<input type="text" data-validate="number"  style="width:43%;" class="form-control" name="credit_card_no" id="title0" placeholder="" required>
-							</div>
+								<input type="text" data-validate="number"  style="width:43%;" maxlength="16" class="form-control credit_card_no" name="credit_card_no" id="credit_card_no" placeholder="" required>
+							</div> 
+							<div style="margin-right: 373px;color:red;float: right;margin-top: -27px;" id="credit_card_no_error"></div>
 						</div>
 						<div class="form-group">
 							<label for="field-1" class="col-sm-3 control-label">Expiration Date (mm/yyyy)</label>
@@ -344,7 +356,7 @@ $(document).ready(function(){
 							<label for="field-1" class="col-sm-3 control-label">Security Code</label>
 
 							<div class="col-sm-5">
-								<input type="text" data-validate="number"  style="width:43%;" class="form-control" name="security_code" id="title033" placeholder="" required>
+								<input type="text" data-validate="number"  style="width:43%;" maxlength="3" class="form-control" name="security_code" id="title033" placeholder="" required>
 							</div>
 						</div>
 						<div class="form-group">
@@ -371,7 +383,7 @@ $(document).ready(function(){
 							</div>
 		
 						</div>
-						<input style="margin-left: 750px;margin-top: 10px;" type="submit" name="submit" value="submit" class="btn btn-info ok" />
+						<input style="margin-left:258px; margin-top:0px;" type="submit" name="submit" value="Submit" class="btn btn-info ok" />
 
 
 				</form>

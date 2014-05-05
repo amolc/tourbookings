@@ -328,7 +328,7 @@ $(document).ready(function(){
 				<form   method="post" role="form" id="form1"   novalidate="novalidate" class="form-horizontal validate" enctype="multipart/form-data" action='supplier_cart.php'>
 						
 						<div class="form-group">
-							<h1 style="color: #fd8900;position: relative;left: 200px;font-weight: bold;">Select Travel Date</h1>
+							<h1 style="color: #fd8900;position: relative;left: 200px;font-weight: bold; width:800px;">Select Travel Date</h1>
 						</div>
 						<div  class="form-group">
 							<label for="field-1" style="margin-left: 6px;" class="col-sm-3 control-label"><b>Travel Date</b></label>
@@ -340,7 +340,7 @@ $(document).ready(function(){
 						</div>
 						<input type="hidden" name="tour_id" value="<?php echo $tour_id;?>" /> 
 						<div class="form-group">
-							<h1 style="color: #fd8900;position: relative;left: 198px;font-weight: bold;">Enter Total Number of Travelers</h1>
+							<h1 style="color: #fd8900;position: relative;left: 198px;font-weight: bold; width:800px;">Enter Total Number of Travelers</h1>
 						</div>
 						
 						<div  class="form-group" style="float:left;margin-left: 170px;" >

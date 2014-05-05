@@ -453,7 +453,7 @@ alert('ok');
 			</div>
 
 
-			<div id="printableArea" style="padding-left: 220px!important;" class="panel-body">
+			<div id="printableArea" style="padding-left:175px!important;" class="panel-body">
 			
 				<form   method="post" role="form" id="form1"   novalidate="novalidate" class="form-horizontal validate" enctype="multipart/form-data" action='<?php echo $_SERVER['PHP_SELF'] ;?>'>
 							<div class="form-group">
@@ -572,9 +572,9 @@ alert('ok');
                         <div class="footer_heading">
                         	<h1>Tour Voucher</h1>
                         </div>
-                        <div class="signature">
+                        <!--<div class="signature">
                         	Signature Here 
-                        </div>
+                        </div>-->
                       </div>
                         
                     </div>
@@ -622,9 +622,9 @@ alert('ok');
                         <div class="footer_heading">
                         	<h1>Tour Voucher</h1>
                         </div>
-                        <div class="signature">
+                        <!--<div class="signature">
                         	Signature Here 
-                        </div>
+                        </div>-->
                       </div>
                         
                     </div>
@@ -644,7 +644,7 @@ alert('ok');
 				</form>
 				
 			</div>
-				<input style="padding: 5px 15px;color: white;border-radius: 2px;background-color: #fd8900;margin-left: 792px;position: absolute;margin-top: -68px;" type="button" onclick="printDiv('printableArea')" value="print Voucher" />
+				<input style="padding: 5px 15px;color: white;border-radius: 2px;background-color: #fd8900; border:none; margin-left:755px; position: absolute;margin-top: -68px;" type="button" onclick="printDiv('printableArea')" value="Print Voucher" />
 		</div>
 
 	</div>

@@ -65,6 +65,8 @@ $(document).ready(function(){
 	$("#email").blur(function(){
 
 		 var email = $('#email').val();
+		 if(email == ""){}
+		 else  {
 		 $.ajax({
 					type:  'post', 
 					url:  'ajax_request_function/ajax_check_email.php',
@@ -82,6 +84,7 @@ $(document).ready(function(){
 					  
 					}                    
 				});
+			}
 				$('.email_exit').empty();
 		
 	});
@@ -111,7 +114,7 @@ $(document).ready(function(){
   	    </div>
     	  <div class="header_logo fl">
            	<div class="logo fl" style="margin-top:7px;">
-            <a href="index.php"><img src="../images/tourbooking_logo.png" width="256" height="105"></a>
+            <a href="../index.php"><img src="../images/tourbooking_logo.png" width="256" height="105"></a>
 </div>      
             <div class="header_login fr">
             
@@ -123,7 +126,7 @@ $(document).ready(function(){
 				<input style="margin-bottom:0px;" id="password" type="password" name="password">
 				 <input type="submit" name="button" id="Login" value="Login">
 					<div class="mesg" style="font-weight: bold;color: #F00;float: left; margin-left: 90px;width: 434px;"></div> 
-                <a href="#" style="float: right; margin: 0px 22px 0px 0px;">Forgot Password</a>
+                <a href="forgot_password.php" style="float: right; margin: 0px 22px 0px 0px;">Forgot Password</a>
            <!-- </form>-->
             </div>
             </div>
@@ -176,58 +179,74 @@ $(document).ready(function(){
 										function new_signup() 
 										{
 										
-										$first_name = mysql_real_escape_string($_POST['first_name']);
-										$last_name = mysql_real_escape_string($_POST['last_name']);
-										$phone = mysql_real_escape_string($_POST['phone']);
-										$email = mysql_real_escape_string($_POST['email']);
+												$first_name = mysql_real_escape_string($_POST['first_name']);
+												$last_name = mysql_real_escape_string($_POST['last_name']);
+												$phone = mysql_real_escape_string($_POST['phone']);
+												$email = mysql_real_escape_string($_POST['email']);
 
-										$password = mysql_real_escape_string($_POST['password']);
-										$company_name = mysql_real_escape_string($_POST['company_name']);
-										$web_address = mysql_real_escape_string($_POST['web_address']);
-										$country = mysql_real_escape_string($_POST['country']);
+												$password = mysql_real_escape_string($_POST['password']);
+												$company_name = mysql_real_escape_string($_POST['company_name']);
+												$web_address = mysql_real_escape_string($_POST['web_address']);
+												$country = mysql_real_escape_string($_POST['country']);
 
-										$state = mysql_real_escape_string($_POST['state']);
-										$city = mysql_real_escape_string($_POST['city']);
-										$street_address = mysql_real_escape_string($_POST['street_address']);
-										$business_type = mysql_real_escape_string($_POST['business_type']);
-										$contact_number = mysql_real_escape_string($_POST['contact_number']);
-										$postcode = mysql_real_escape_string($_POST['postcode']);
-										$year_founded = mysql_real_escape_string($_POST['year_founded']);
-										$staff = mysql_real_escape_string($_POST['staff']);
-										$office_timing = mysql_real_escape_string($_POST['office_timing']);
-										$emergency_phone = mysql_real_escape_string($_POST['emergency_phone']);
-										$local_trips = mysql_real_escape_string($_POST['local_trips']);
+												$state = mysql_real_escape_string($_POST['state']);
+												$city = mysql_real_escape_string($_POST['city']);
+												$street_address = mysql_real_escape_string($_POST['street_address']);
+												$business_type = mysql_real_escape_string($_POST['business_type']);
+												$contact_number = mysql_real_escape_string($_POST['contact_number']);
+												$postcode = mysql_real_escape_string($_POST['postcode']);
+												$year_founded = mysql_real_escape_string($_POST['year_founded']);
+												$staff = mysql_real_escape_string($_POST['staff']);
+												$office_timing = mysql_real_escape_string($_POST['office_timing']);
+												$emergency_phone = mysql_real_escape_string($_POST['emergency_phone']);
+												$local_trips = mysql_real_escape_string($_POST['local_trips']);
 
-										$currency = mysql_real_escape_string($_POST['currency']);
-										$tour_product_description = mysql_real_escape_string($_POST['tour_product_description']);
-										$tour_product_country = mysql_real_escape_string($_POST['tour_product_country']);
-										$language = mysql_real_escape_string($_POST['language']);
-											 $sql   = "insert into supplier(first_name,last_name,phone,email,password,company_name,
+												$currency = mysql_real_escape_string($_POST['currency']);
+												$tour_product_description = mysql_real_escape_string($_POST['tour_product_description']);
+												$tour_product_country = mysql_real_escape_string($_POST['tour_product_country']);
+												$language = mysql_real_escape_string($_POST['language']);
+										  
+												if($first_name == ""	|| $last_name == "" ||	$phone == "" ||
+													$email == ""		|| $password == "" ||	$company_name == ""	||
+													$web_address == ""	|| 	$country == ""	|| $state == ""		||											
+													$city == ""	||	$street_address == "" ||	$business_type == ""||
+													$postcode == ""  ||  $currency == ""	|| $tour_product_description == "" ||
+													$tour_product_country == "" ||	$language == "")
+												{
+													echo "<h3 style='margin-bottom: 20px;background: rgba(204, 204, 204, 0.12);margin-top: 42px;padding: 15px;color: #FD8900;'><span style='font-size: 17px; '>Please Fill All Required Fields.</span> </h3>";
+													
+												}
+												else
+												{
+												
+												
+										
+													$sql   = "insert into supplier(first_name,last_name,phone,email,password,company_name,
 															web_address,business_type,street_address,city,state,postcode,
 															country,tour_product_description,tour_product_country,currency,language,year_founded,staff,office_timing,emergency_no,local_trip_date)
 															values ('$first_name','$last_name','$phone','$email','$password','$company_name','$web_address','$business_type','$street_address','$city','$state','$postcode','$country','$tour_product_description','$tour_product_country','$currency','$language','$year_founded','$staff','$office_timing','$emergency_phone','$local_trips')";
 												
-											   $query = mysql_query($sql);
-												$today_date = mktime(0,0,0,date("m"),date("d"),date("Y"));
-												$current_date = date("m/d/Y", $today_date);
-								
-												$timestamp = time()-86400;
-												$date = strtotime("+7 day", $timestamp);
-												$exp_date = date("m/d/Y", $date);
+												   $query = mysql_query($sql);
+													$today_date = mktime(0,0,0,date("m"),date("d"),date("Y"));
+													$current_date = date("m/d/Y", $today_date);
+									
+													$timestamp = time()-86400;
+													$date = strtotime("+7 day", $timestamp);
+													$exp_date = date("m/d/Y", $date);
 
-												if($query)
-												{
+													if($query)
+													{
+																		
+														$result1 = mysql_query("SELECT MAX(id) FROM supplier");
+														$row = mysql_fetch_row($result1);
+														$sup_id = $row[0];
 																	
-													$result1 = mysql_query("SELECT MAX(id) FROM supplier");
-													$row = mysql_fetch_row($result1);
-													$sup_id = $row[0];
-																
-													$sql1   = "insert into supplier_payment(supplier_id,card,exp_date,code,total_price,status,insert_date) values ('$sup_id','','$exp_date','','','trial','$current_date')";
-													$query1 = mysql_query($sql1);
+														$sql1   = "insert into supplier_payment(supplier_id,card,exp_date,code,total_price,status,insert_date) values ('$sup_id','','$exp_date','','','trial','$current_date')";
+														$query1 = mysql_query($sql1);
 
-													$to = $email;
-													$subject = 'Welcome to Tourbookings!'; 
-													$message = '<!doctype html>
+														$to = $email;
+														$subject = 'Welcome to Tourbookings!'; 
+														$message = '<!doctype html>
 																	<html> 
 																	<head>
 																	<meta charset="utf-8">
@@ -320,15 +339,15 @@ $(document).ready(function(){
 													$headers  = 'MIME-Version: 1.0' . "\r\n";
 													$headers .= 'Content-type: text/html; charset=iso-8859-1' . "\r\n";
 													$from_name ='Tourbookings Support Team';
-													$from_email ='support@tourbookings.co';
+													$from_email ='admin@tourbookings.co';
 													$headers .= "From: ". $from_name . " <" . $from_email . ">\r\n";
-													$headers .= 'Cc: support@tourbookings.co' . "\r\n";
+													$headers .= 'Cc: admin@tourbookings.co' . "\r\n";
 
 													$mail_sent = mail( $to, $subject, $message, $headers );
 													
 													//email send to admin 
 													
-													$to2 = 'support@tourbookings.co';
+													$to2 = 'admin@tourbookings.co';
 													$subject2 = 'Welcome to Tourbookings!'; 
 													$message2 = '<!doctype html>
 																	<html> 
@@ -427,14 +446,15 @@ $(document).ready(function(){
 
 													$mail_sent = mail( $to2, $subject2, $message2, $headers2 );
 													
-													
-													echo "<h3 style='margin-bottom: 20px;'><span style='font-size: 17px; '>Thank you for registering as a partner with tourbookings. Please login using your username and password</span> </h3>";
+	
+													echo "<h3 style='margin-bottom: 20px;background: rgba(204, 204, 204, 0.12);margin-top: 42px;padding: 15px;color: #FD8900;'><span style='font-size: 17px; '>Thank you for registering as a partner with tourbookings. Please login using your username and password</span> </h3>";
 													
 												}
 												else
 												{
 													echo "error";
 												} 
+											}
 										}
 									
 									if (isset($_POST['signup']))
@@ -464,7 +484,7 @@ $(document).ready(function(){
 								<input type="text" name="last_name" id="last_name" placeholder='Last Name' onBlur="if(this.placeholder=='') this.placeholder='Last Name'" onFocus="if(this.placeholder=='Last Name') this.placeholder=''" required/>
 								
 									
-								<input name="phone" id="phone" type="text" placeholder='Contact Number' onBlur="if(this.placeholder=='') this.placeholder='Contact Number'" onFocus="if(this.placeholder=='Contact Number') this.placeholder=''" required/>
+								<input name="phone" id="phone" type="text" onKeyPress="return isNumberKey(event)" placeholder='Contact Number' onBlur="if(this.placeholder=='') this.placeholder='Contact Number'" onFocus="if(this.placeholder=='Contact Number') this.placeholder=''" required/>
 									
 								<input name="email" id="email" type="email" placeholder='Email' onBlur="if(this.placeholder=='') this.placeholder='Email'" onFocus="if(this.placeholder=='Email') this.placeholder=''" required/>
 								 <span style="margin-right: 231px;float: right;color: red;padding-bottom: 5px;" class="email_exit"></span>
@@ -474,11 +494,11 @@ $(document).ready(function(){
 							  <input name="confirm_password"  id="confirm_password" type="password" placeholder='Confirm Password' onBlur="if(this.placeholder=='') this.placeholder='Confirm Password'" onFocus="if(this.placeholder=='Confirm Password') this.placeholder=''" required>
 								  <span style="margin-right: 231px;float: right;color: red;padding-bottom: 5px;" class="password_match"></span>
 									 
-									<input name="company_name" id="company_name" type="text" placeholder='Company Name' onBlur="if(this.placeholder=='') this.placeholder='Company Name'" onFocus="if(this.placeholder=='Company Name') this.placeholder=''">
+									<input name="company_name" id="company_name" type="text" placeholder='Company Name' onBlur="if(this.placeholder=='') this.placeholder='Company Name'" onFocus="if(this.placeholder=='Company Name') this.placeholder=''" required>
 								
-                                  <input name="web_address" id="web_address" type="text"  placeholder='Website Address' onBlur="if(this.placeholder=='') this.placeholder='Website Address'" onFocus="if(this.placeholder=='Website Address') this.placeholder=''">
+                                  <input name="web_address" id="web_address" type="text"  placeholder='Website Address' onBlur="if(this.placeholder=='') this.placeholder='Website Address'" onFocus="if(this.placeholder=='Website Address') this.placeholder=''" required>
 								
-                                  <select name="country" id="country">
+                                  <select name="country" id="country" required>
                                     <option value="">Select Country</option>
 										
 										<option value="AF">Afghanistan</option>
@@ -933,10 +953,10 @@ $(document).ready(function(){
                                   </select>
                                   
 								
-                                  <input name="state" id="state" type="text" placeholder='State/Province' onBlur="if(this.placeholder=='') this.placeholder='State/Province'" onFocus="if(this.placeholder=='State/Province') this.placeholder=''">
+                                  <input name="state" id="state" type="text" placeholder='State/Province' onBlur="if(this.placeholder=='') this.placeholder='State/Province'" onFocus="if(this.placeholder=='State/Province') this.placeholder=''" required>
 								
 								
-                                  <input name="city" id="city" type="text" placeholder='City' onBlur="if(this.placeholder=='') this.placeholder='City'" onFocus="if(this.placeholder=='City') this.placeholder=''"> 
+                                  <input name="city" id="city" type="text" placeholder='City' onBlur="if(this.placeholder=='') this.placeholder='City'" onFocus="if(this.placeholder=='City') this.placeholder=''" required> 
 								  
 								
                                   <input name="street_address" id="street_address" type="text" placeholder='Street Address' onBlur="if(this.placeholder=='') this.placeholder='Street Address'" onFocus="if(this.placeholder=='Street Address') this.placeholder=''" required>  
@@ -944,11 +964,11 @@ $(document).ready(function(){
 								
                                 <input name="postcode" id="postcode" type="text" placeholder='Postcode/ZIP' onBlur="if(this.placeholder=='') this.placeholder='Postcode/ZIP'" onFocus="if(this.placeholder=='Postcode/ZIP') this.placeholder=''" required>
 							
-									<textarea rows="" cols="" name="tour_product_description" placeholder="Briefly describe the product or tour you wish to sell through Tourbookings..." maxlength="100" onBlur="if(this.placeholder=='') this.placeholder='Briefly describe the product or tour you wish to sell through Tourbookings...'" onFocus="if(this.placeholder=='Briefly describe the product or tour you wish to sell through Tourbookings...') this.placeholder=''"></textarea>
+									<textarea rows="" cols="" name="tour_product_description" placeholder="Briefly describe the product or tour you wish to sell through Tourbookings..." maxlength="100" onBlur="if(this.placeholder=='') this.placeholder='Briefly describe the product or tour you wish to sell through Tourbookings...'" onFocus="if(this.placeholder=='Briefly describe the product or tour you wish to sell through Tourbookings...') this.placeholder=''" required></textarea>
 						
-                                  <input name="tour_product_country" id="last_name"  placeholder='Other Countries or Cities you operate in' onBlur="if(this.placeholder=='') this.placeholder='Other Countries or Cities you operate in'" onFocus="if(this.placeholder=='Other Countries or Cities you operate in') this.placeholder=''" type="text">
+                                  <input name="tour_product_country" id="last_name"  placeholder='Other Countries or Cities you operate in' onBlur="if(this.placeholder=='') this.placeholder='Other Countries or Cities you operate in'" onFocus="if(this.placeholder=='Other Countries or Cities you operate in') this.placeholder=''" type="text" required>
 							
-                                <select name="business_type" id="business_type">
+                                <select name="business_type" id="business_type" required>
                                   <option value="">Select Business Type</option>
 									<option value="Tour Operator">Tour Operator</option>
 									<option value="Travel Agency">Travel Agency</option>
@@ -997,5 +1017,17 @@ $(document).ready(function(){
             	</div>
       <div style="clear:both"></div>
    </div>
+   
+   <!-- Google Analytics-->
+  <script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-50362006-1', 'tourbookings.co');
+  ga('send', 'pageview');
+
+  </script>
 </body>
 </html>

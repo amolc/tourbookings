@@ -180,7 +180,19 @@ $query = mysql_query("SELECT
 	  fjs.parentNode.insertBefore(js, fjs);
 	}(document, 'script', 'facebook-jssdk'));
 	</script>
+  <SCRIPT language="Javascript">
+       
+       function isNumberKey(evt)
+       {
+          var charCode = (evt.which) ? evt.which : event.keyCode;
+          if (charCode != 46 && charCode > 31 
+            && (charCode < 48 || charCode > 57))
+             return false;
 
+          return true;
+       }
+       
+    </SCRIPT>
 </head>
 
 <body>
@@ -221,11 +233,11 @@ $query = mysql_query("SELECT
                        	  <h2 class="mrgn_top">Enter Total Number of Travelers</h2>
                         <div class="Adult_tour_detail">
                             <label>Adult</label>
-							<input type="text" name="adult" id="adult"/>
+							<input type="text" onKeyPress="return isNumberKey(event)" name="adult" id="adult"/>
                         </div>
-                        <div class="Child_tour_detail" >
+                        <div class="Child_tour_detail" > 
                             <label>Child</label>
-							<input type="text" name="child" id="child"/>
+							<input type="text" onKeyPress="return isNumberKey(event)" name="child" id="child"/>
                         </div>
 
 

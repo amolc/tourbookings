@@ -1710,7 +1710,7 @@ output {
   display: block;
   width: 100%;
   /*height: 40px;*/
-  padding: 6px 12px;
+  padding: 6px 5px;
   font-size: 12px;
   line-height: 1.428571429;
   color: #555555;
@@ -3452,8 +3452,7 @@ fieldset[disabled] .btn-green.active {
 }
 .btn-info {
   color: #ffffff;
-  background-color: #21a9e1;
-  border-color: #21a9e1;
+  background-color: #FD8900;
 }
 .btn-info:hover,
 .btn-info:focus,
@@ -3461,8 +3460,7 @@ fieldset[disabled] .btn-green.active {
 .btn-info.active,
 .open .dropdown-toggle.btn-info {
   color: #ffffff;
-  background-color: #1a8fbf;
-  border-color: #1782ad;
+  background-color: #323232;
 }
 .btn-info:active,
 .btn-info.active,

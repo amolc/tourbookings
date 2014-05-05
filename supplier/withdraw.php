@@ -139,7 +139,7 @@ $(document).ready(function(){
 											supplier_balance
 											WHERE  supplier_id = '".$supplier_id."'
 											");
-						while ($row4 = mysql_fetch_array($sql4)) 
+						while ($row4 = mysql_fetch_array($sql4))  
 							{
 								$supplier_balance4 = $row4['available_balance'];
 							
@@ -150,10 +150,10 @@ $(document).ready(function(){
 							}
 							else 
 							{
-								$total = "";
+								$total = $supplier_balance4;
 								$today_date = mktime(0,0,0,date("m"),date("d"),date("Y"));
 								$current_date = date("m/d/Y", $today_date);
-								$total = $supplier_balance4 - $withdraw_amount; 
+								// $total = $supplier_balance4 - $withdraw_amount; 
 								$sql2   = "insert into supplier_balance(supplier_id,account_id,available_balance,amount_deposit,type,description,amount_withdraw,status,insert_date) values ('$supplier_id','$account_id','$total','0','withdraw','withdraw','$withdraw_amount','pending','$current_date')";
 								$query = mysql_query($sql2);
 								
@@ -245,10 +245,10 @@ $(document).ready(function(){
 								<input type="text" style="width: 35%;" data-validate="number"   class="form-control" name="withdraw_amount" id="title" placeholder="" required>
 							</div>
 						</div>
-					
+					 
 						
 						
-						<input style="margin-left: 750px;margin-top: 10px;" type="submit" name="submit" value="submit" class="btn btn-info ok" />
+						<input style="margin-left:258px; margin-top: 10px;" type="submit" name="submit" value="submit" class="btn btn-info ok" />
 <?php 	}
 else{
 echo "<h3 style='color:red;'>Please add an account</h3>";

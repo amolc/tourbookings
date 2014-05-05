@@ -77,7 +77,17 @@ $(document).ready(function(){
 						
                         <div class="about_us">
                        	  <h1>Travel Partner Program</h1>
-                          <p>Our Travel Partner Program allows you access to our wealth of customers that visits TourBookings on a regular basis to plan their vacation. Specialising in Asia, our travel portal will serve to advertise and market the tours that you have.</p>
+                          <p>Welcome to our Travel Partner Program. By signing up, you will receive access to our entire database of hotels, tours, activities, travel partners, and customers. Our custom made dashboard and marketplace will let you sell, create, and purchase hotels, tours, and activities of your choice.</p>
+
+<h2>Benefits of joining us:</h2><br>
+
+<ul>
+<li style="list-style:disc inside !important">Large network of travel partners and customers</li>
+<li style="list-style:disc inside !important">Purchase tours at very low rates</li>
+<li style="list-style:disc inside !important">Become a supplier for your country</li>
+</ul>
+<p>We are constantly on the lookout for operators who have a strong track record and a good reputation in their city. We evaluate the customer-service procedures of the operator, and make sure that they meet our high standards of quality and safety.</p>
+
                         </div>
                         
                         
@@ -86,23 +96,22 @@ $(document).ready(function(){
                         
                         <div class="about_us_category border fl">
                           <div class="handpicked fl">
-                            <h1>Why TourBookings?</h1>
-							<p>Refer to <a href="about_us.php">About Us.</a></p>
-						</div>
+                            <h2>Interested in Becoming a Tourbookings Travel Partner?</h2>
+		<br>
+					
+Tourbookings is alwaysinterestedto find new, quality products from local operators who provide attraction passes,sightseeing and guided tours,outdoor activities,events,or any specialty offerings to tourists.
+Please notethatwe try not to contract duplicate products. If you are interested in distributing your products through our Tourbookings, and through our global network of affiliates, please sign up through our Travel Partner Sign Up.<br><br>
+
+
+<p><a href="<?php echo SITE_URL; ?>/supplier/index.php">Sign up now!</a></p>
+
+	<br>
+					</div>
                         
-                        <div class="handpicked fl">
-                            <h1>How to join us?</h1>
-                           <p>Simply sign up for an account by clicking on the Sign Up tab below and follow the steps provided.</p>
-                          </div>
-                          
-                          <div class="handpicked fl">
-                            <h1>How much will this cost?</h1>
-                            <p>At TourBookings, we strive to bring you the best at an affordable price. With our Travel Partner Program, you will only have to pay for a monthly administrative fee of $50, with a minimal commitment period of three months.</p>
-                          </div>
                       </div>
 
                               <div class="register_form fl" style="width:auto; margin:0px 0px 0px 20px;">
-                                <a href="partner/partner_signup.php"><input style="margin-left:0px;" name="submit" value="Sign Up" id="registeration_button" type="submit"></a>
+                                <a href="supplier/index.php"><input style="margin-left:0px;" name="submit" value="Sign Up" id="registeration_button" type="submit"></a>
                               </div>
 							
                      <?php include('footer.php'); ?>

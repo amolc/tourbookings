@@ -29,11 +29,11 @@
 </head>
 <body class="page-body">
 
-<div class="page-container">	
+<div style="padding-left: 0;" class="page-container">	
 
-<?php include('include/side_menu/side_menu.php'); ?>	
+<?php //include('include/side_menu/side_menu.php'); ?>	
 	<div class="main-content">
-<?php include('include/header/header.php'); ?>
+<?php //include('include/header/header.php'); ?>
 
 			<ol class="breadcrumb bc-3">
 				<li>

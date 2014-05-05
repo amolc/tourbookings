@@ -57,7 +57,58 @@ $(document).ready(function(){
 
 });
 </script>
+<script type="text/javascript">
+$(document).ready(function(){
+	/**
+	*raza malik <razamalik@outlook.com>
+	*/
 
+	$( "#confirm_password" ).blur(function() {
+			var password =	$('#signup_password').val();
+			var confirm_password =	$('#confirm_password').val();
+			// alert(password);
+			// alert(confirm_password);
+			if(password != confirm_password) {
+				$('.password_match').empty().append("Password Don't Match");
+				$('#registeration_button').prop("disabled", true);
+			}
+			if(password == confirm_password) {
+				$('.password_match').empty();
+				$('#registeration_button').prop("disabled", false);
+			}
+			
+	});
+		
+	
+	$("#email").blur(function(){
+
+		 var email = $('#email').val();
+		if(email==""){				}
+		else {
+		 $.ajax({
+					type:  'post', 
+					url:  'ajax_request_function/ajax_check_email.php',
+					data: { email:email }, 
+					success: function(mesg) {
+				
+					if(mesg!="") {
+						$("#email").focus();
+						$('#registeration_button').prop("disabled", true);
+						 $('.email_exit').append(mesg);
+					  } else  {
+					 
+						$('#registeration_button').prop("disabled", false);
+						
+					  }
+					  
+					}                    
+				});
+		}
+				$('.email_exit').empty();
+		
+	});
+});
+</script>
 </head>
 
 <body>
@@ -161,14 +212,18 @@ $(document).ready(function(){
                                   <input name="first_name" id="first_name" type="text" placeholder="First Name" required>
                                   <label> Last name:</label>
                                   <input name="last_name" id="last_name" type="text" placeholder="Last Name" required>
-                                <label>  Email:</label>
+					
+							   <label>  Email:</label>
                                   <input name="email" id="email" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$"  type="text" placeholder="Email" required>
-                                
+                                <span style="margin-right: 231px;float: right;color: red;padding-bottom: 5px;" class="email_exit"></span>
+								
                                 <label> Password:</label>
-                                <input name="password" id="password" type="password" placeholder="Password" required>
+                                <input name="password" id="signup_password" type="password" placeholder="Password" required>
                                 <label> Confirm Password:</label>
-                                  <input name="password" type="password" placeholder="Confirm Password" required>
-                              </div>
+                                  <input name="password" id="confirm_password" type="password" placeholder="Confirm Password" required>
+									  <span style="margin-right: 231px;float: right;color: red;padding-bottom: 5px;" class="password_match"></span>
+									 
+							  </div>
                             </div>
 
                             <!--<div style="display:none;" class="administrator_details fl">-->
@@ -179,13 +234,130 @@ $(document).ready(function(){
                               <div class="register_form fl" required>
                                 <label> Gender:</label>
                                 <select name="gender" id="gender">
+                                	<option value="Select One">Select One</option>
 									<option value="Male">Male</option>
-							
 									<option value="Female">Female</option>
                                 </select>
 
-                                <label> Age:</label>
-								<input name="age" id="age" type="text" placeholder="Age" required>
+                                <label> Birthday:</label>
+								<select name="day" id="day" onchange="" size="1" style=" width:80px;">
+                                  <option value="Day">Day</option>
+                                  <option value="01">01</option>
+                                  <option value="02">02</option>
+                                  <option value="03">03</option>
+                                  <option value="04">04</option>
+                                  <option value="05">05</option>
+                                  <option value="06">06</option>
+                                  <option value="07">07</option>
+                                  <option value="08">08</option>
+                                  <option value="09">09</option>
+                                  <option value="10">10</option>
+                                  <option value="11">11</option>
+                                  <option value="12">12</option>
+                                  <option value="13">13</option>
+                                  <option value="14">14</option>
+                                  <option value="15">15</option>
+                                  <option value="16">16</option>
+                                  <option value="17">17</option>
+                                  <option value="18">18</option>
+                                  <option value="19">19</option>
+                                  <option value="20">20</option>
+                                  <option value="21">21</option>
+                                  <option value="22">22</option>
+                                  <option value="23">23</option>
+                                  <option value="24">24</option>
+                                  <option value="25">25</option>
+                                  <option value="26">26</option>
+                                  <option value="27">27</option>
+                                  <option value="28">28</option>
+                                  <option value="29">29</option>
+                                  <option value="30">30</option>
+                                  <option value="31">31</option>
+                                </select>
+                                
+                                <select name="month" id="month" onchange="" size="1" style="width:122px; margin:0px 15px;">
+                                  <option value="Month">Month</option>
+                                  <option value="01">January</option>
+                                  <option value="02">February</option>
+                                  <option value="03">March</option>
+                                  <option value="04">April</option>
+                                  <option value="05">May</option>
+                                  <option value="06">June</option>
+                                  <option value="07">July</option>
+                                  <option value="08">August</option>
+                                  <option value="09">September</option>
+                                  <option value="10">October</option>
+                                  <option value="11">November</option>
+                                  <option value="12">December</option>
+                              </select>
+                                <select name="year" id="year" style="width:80px;">
+                                  <option value="Year">Year</option>
+                                  <option value="2014">2014</option>
+                                  <option value="2013">2013</option>
+                                  <option value="2012">2012</option>
+                                  <option value="2011">2011</option>
+                                  <option value="2010">2010</option>
+                                  <option value="2009">2009</option>
+                                  <option value="2008">2008</option>
+                                  <option value="2007">2007</option>
+                                  <option value="2006">2006</option>
+                                  <option value="2005">2005</option>
+                                  <option value="2004">2004</option>
+                                  <option value="2003">2003</option>
+                                  <option value="2002">2002</option>
+                                  <option value="2001">2001</option>
+                                  <option value="2000">2000</option>
+                                  <option value="1999">1999</option>
+                                  <option value="1998">1998</option>
+                                  <option value="1997">1997</option>
+                                  <option value="1996">1996</option>
+                                  <option value="1995">1995</option>
+                                  <option value="1994">1994</option>
+                                  <option value="1993">1993</option>
+                                  <option value="1992">1992</option>
+                                  <option value="1991">1991</option>
+                                  <option value="1990">1990</option>
+                                  <option value="1989">1989</option>
+                                  <option value="1988">1988</option>
+                                  <option value="1987">1987</option>
+                                  <option value="1986">1986</option>
+                                  <option value="1985">1985</option>
+                                  <option value="1984">1984</option>
+                                  <option value="1983">1983</option>
+                                  <option value="1982">1982</option>
+                                  <option value="1981">1981</option>
+                                  <option value="1980">1980</option>
+                                  <option value="1979">1979</option>
+                                  <option value="1978">1978</option>
+                                  <option value="1977">1977</option>
+                                  <option value="1976">1976</option>
+                                  <option value="1975">1975</option>
+                                  <option value="1974">1974</option>
+                                  <option value="1973">1973</option>
+                                  <option value="1972">1972</option>
+                                  <option value="1971">1971</option>
+                                  <option value="1970">1970</option>
+                                  <option value="1969">1969</option>
+                                  <option value="1968">1968</option>
+                                  <option value="1967">1967</option>
+                                  <option value="1966">1966</option>
+                                  <option value="1965">1965</option>
+                                  <option value="1964">1964</option>
+                                  <option value="1963">1963</option>
+                                  <option value="1962">1962</option>
+                                  <option value="1961">1961</option>
+                                  <option value="1960">1960</option>
+                                  <option value="1959">1959</option>
+                                  <option value="1958">1958</option>
+                                  <option value="1957">1957</option>
+                                  <option value="1956">1956</option>
+                                  <option value="1955">1955</option>
+                                  <option value="1954">1954</option>
+                                  <option value="1953">1953</option>
+                                  <option value="1952">1952</option>
+                                  <option value="1951">1951</option>
+                                  <option value="1950">1950</option>
+                                </select>
 
                                   <label> Country:</label>
                                   <select name="country" id="country"  required>
@@ -642,12 +814,12 @@ $(document).ready(function(){
 										<option value="ZW">Zimbabwe</option>
                                   </select>
                                 <label> City:</label>
-                                  <input name="city" id="city" type="text" placeholder="city" required>
+                                  <input name="city" id="city" type="text" placeholder="City" required>
 								
-                                <label> Contact Number:</label>
+                               <!-- <label> Contact Number:</label>
                                   <input name="phone" id="phone" type="text" placeholder="Contact Number" required>
                                 <label> Address:</label>
-                                  <input name="address" id="address" type="text" placeholder="Address" required>
+                                  <input name="address" id="address" type="text" placeholder="Address" required>-->
 
                             </div>
                             </div>
@@ -669,6 +841,16 @@ $(document).ready(function(){
 
       <div style="clear:both"></div>
    </div>
+   <!-- Google Analytics-->
+  <script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
 
+  ga('create', 'UA-50362006-1', 'tourbookings.co');
+  ga('send', 'pageview');
+
+  </script>
 </body>
 </html>

@@ -11,7 +11,7 @@ $username_exist = mysql_num_rows($sql); //total records
 	
 	//if value is more than 0, username is not available
 	if($username_exist) {
-		echo 'Email Already Exit';
+		echo 'Email already exist';
 	}else{
 		// die('<img src="imgs/available.png" />');
 	}

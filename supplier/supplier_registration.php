@@ -51,7 +51,7 @@ $(document).ready(function(){
 					  
 					}                    
 				});
-				$('.email_exit').empty();
+				$('.email_exit').empty('');
 		
 	});
 });
@@ -199,7 +199,7 @@ $(document).ready(function(){
 					  </form>
 					  <form action="search.php" method="post" >
 						
-						  <input type="text" value="Keyword Search" name="Keyword" onblur="if(this.value=='') this.value='Keyword Search'" onfocus="this.value=''">
+						  <input type="text" value="Keyword Search" name="Keyword" onBlur="if(this.value=='') this.value='Keyword Search'" onFocus="this.value=''">
 						  <input type="submit" name="button" id="search" value="GO">
 						</form>
                 	</div>
@@ -314,11 +314,11 @@ $(document).ready(function(){
                                 
                               <div class="register_form fl">
                                 <label>* Company Name:</label>
-									<input name="company_name" id="company_name" type="text">
+									<input name="company_name" id="company_name" type="text" required>
 								<label>* Website Address:</label>
-                                  <input name="web_address" id="web_address" type="text">
+                                  <input name="web_address" id="web_address" type="text" required>
 								<label>* Country:</label>
-                                  <select name="country" id="country">
+                                  <select name="country" id="country" required>
                                     <option value="">Select Country</option>
 										
 										<option value="AF">Afghanistan</option>
@@ -777,7 +777,7 @@ $(document).ready(function(){
                                   <input name="state" id="state" type="text">
 								
 								<label>*  City:</label>
-                                  <input name="city" id="city" type="text">
+                                  <input name="city" id="city" type="text" required>
 								  
 								<label>* Street Address:</label>
                                   <input name="street_address" id="street_address" type="text" required>  
@@ -810,14 +810,14 @@ $(document).ready(function(){
                                 <div class="register_form fl">
                                   <label>*Description:</label>
 								  
-									<textarea rows="" cols="" name="tour_product_description" maxlength="100" style="width: 306px;height: 80px;margin-bottom: 15px;" placeholder="Briefly describe the product or tour you wish to sell through Tourbookings..."></textarea>
+									<textarea rows="" cols="" name="tour_product_description" maxlength="100" style="width: 306px;height: 80px;margin-bottom: 15px;" placeholder="Briefly describe the product or tour you wish to sell through Tourbookings..." required></textarea>
 								 
 								 <label>Countries/Cities:</label>
                                   <input name="tour_product_country" id="last_name" placeholder="Other Countries or Cities you operate in" type="text">
                                 
                                 <label>* Business Type:</label>
 							
-                                <select name="business_type" id="business_type">
+                                <select name="business_type" id="business_type" required>
                                   <option value="">Please select</option>
 									<option value="Tour Operator">Tour Operator</option>
 									<option value="Travel Agency">Travel Agency</option>

@@ -84,9 +84,11 @@
 							$username = $_SESSION['user_name'];
 					?>	
 						<li><a href=""><?php echo $username; ?></a></li>
-						<li><a href="change_user_password.php">Change Password</a></li>
-                                                 <li><a href="blog_view.php">Blog</a></li>
-						<li><a href="logout.php">Logout</a></li>
+						<li><a href="<?php echo SITE_URL; ?>/change_user_password.php">Change Password</a></li>
+						<li><a href="my_tour.php">My Tour</a></li>
+							<li><a href="<?php echo SITE_URL; ?>/cart_update.php">My Cart</a></li>
+                                                 <li><a href="<?php echo SITE_URL; ?>/blog_view.php">Blog</a></li>
+						<li><a href="<?php echo SITE_URL; ?>/logout.php">Logout</a></li>
 						
 						<!--<li><a href="#">Help</a></li>-->
 
@@ -97,14 +99,15 @@
 							<!--<li><a href="contact_us.php">Contact&nbsp;Us</a></li>-->
 							
 							<li><a href="<?php echo SITE_URL; ?>/user_registeration_form.php">Sign Up</a></li>
-                                                         <li><a href="<?php echo SITE_URL; ?>/blog_view.php">Blog</a></li>
 							<li><a href="<?php echo SITE_URL; ?>/user_login.php">Login</a></li>
+							<li><a href="<?php echo SITE_URL; ?>/cart_update.php">My Cart</a></li>
+                                                         <li><a href="<?php echo SITE_URL; ?>/blog_view.php">Blog</a></li>
 							<!--<li><a href="help.php">Help</a></li>-->
 						<?php
 
 						}
 					?>
-                </ul>
+                </ul> 
                   <div class="wish_list">
                       <a href="#">0</a>
                   </div>

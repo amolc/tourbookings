@@ -850,7 +850,7 @@ $result = mysql_query("SELECT
 						// echo'<h5>You do not have enough balance to buy the tour. Please deposit '.$supplier_balance.' into your account. Update your deposit here.</h5>';
 						echo'<h5>Insufficient Funds. Please deposit <a href="payment_deposit.php">here</a></h5>';
 						// $to2 = $supplier_email;
-						$to2 = 'support@tourbookings.co'; 
+						$to2 = 'admin@tourbookings.co'; 
 						// $to1 ='';
 						$subject2 = "New Lead - Partner Trying to Buy Tour"; 
 						// $message = "Your user name is email  '".$email."' and password  '".$pass."'"; 
@@ -883,7 +883,7 @@ $result = mysql_query("SELECT
 
 					// Additional headers 
 					$headers2 .= 'To: '.$email.'' . "\r\n";
-					$headers2 .= 'From: support@tourbookings.co' . "\r\n";
+					$headers2 .= 'From: admin@tourbookings.co' . "\r\n"; 
 
 					// $headers2 .= 'Cc: '.$customer_email.'' . "\r\n"; 
 

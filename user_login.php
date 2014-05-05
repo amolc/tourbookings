@@ -1,5 +1,6 @@
 <?php 
  include('include/database/db.php'); 
+ $back_url = $_GET['back_url'];
 ?>
 <!doctype html>
 <html>
@@ -57,7 +58,13 @@ $(document).ready(function(){
 						 $('.success_mesg').empty().append('Username or Password is incorrect!');
 						}
 						else {
-							window.location.href = 'index.php'
+								var back_url = '<?php echo $back_url; ?>';
+								if(back_url=="") {								
+									window.location.href = 'index.php';
+								}
+								else {
+									window.location.href = 'cart_update.php'; 
+								}
 						}
 					}
 				});

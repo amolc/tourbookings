@@ -1,17 +1,31 @@
 <?php
 session_start();
 $temp = false;
+$chk = $_GET['chk']; 
 if(isset($_SESSION['user_id'])){
  $user_id = $_SESSION['user_id'];
+
+	if(isset($_SESSION['user_email'])){
+	 $user_email = $_SESSION['user_email'];
+	}
 }
 else {
-// header("Location: user_login.php");
+
+	if($chk == "")
+	{
+		header("Location: user_login.php"); 
+	}
+	else 
+	{
+		header("Location: user_login.php?back_url=cart_update.php"); 
+	}
+
 $temp = true;
 
 }
  include('include/database/db.php');
 
-	 // $user_id = mysql_real_escape_string($_POST['user_id']);
+	
 	$trip_title = mysql_real_escape_string($_POST['name']);
 	$tour_id = mysql_real_escape_string($_POST['tour_id']);
 	$supplier_id = mysql_real_escape_string($_POST['supplier_id']);
@@ -22,13 +36,12 @@ $temp = true;
 
  	$price = mysql_real_escape_string($_POST['price']);
  	$deparchture_time = mysql_real_escape_string($_POST['deparchture_time']);
- 	// $name = mysql_real_escape_string($_POST['name']);
- 	// $date = mysql_real_escape_string($_POST['date']);
+
  	$ad = mysql_real_escape_string($_POST['ad']);
  	$ch = mysql_real_escape_string($_POST['ch']);
  	$total = mysql_real_escape_string($_POST['total']);
  	$qty = mysql_real_escape_string($_POST['qty']);
-	// echo $tour_id;
+
 
 ?>
 
@@ -39,6 +52,7 @@ $temp = true;
 <meta charset="utf-8">
 <title>Tour bookings</title>
 <link href="css/style.css" rel="stylesheet" type="text/css">
+  <script src="admin/include/resource/js/jquery-1.10.2.min.js"></script>
   <SCRIPT language="Javascript">
        
        function isNumberKey(evt)
@@ -52,6 +66,83 @@ $temp = true;
        }
        
     </SCRIPT>
+	<script type="text/javascript">
+$(document).ready(function(){
+	/**
+			* tour
+			*@author:	razamalik@outlook.com
+			*@date:	28 april 2014 12:35PM GM+5
+			*/
+
+$('.credit_card_no').blur(function(){
+var cc_card = $(this).val().length;
+  if ( cc_card < 13){ 
+   $('#credit_card_no_error').empty().append("Please enter greater than 13 digin");
+
+  }
+    if ( cc_card > 13){ 
+   $('#credit_card_no_error').empty();
+
+  }
+
+});
+
+var d = new Date(),
+
+    n = d.getMonth(),
+
+    y = d.getFullYear();
+	var month = "";
+	var year = "";
+	$("#months").change(function()
+    {
+		// $('select option:selected').text();
+         month = $(this).val();
+        // if(month > n) 
+		// {
+			//alert('ok');
+				 // $('#exp_data').empty();
+		// }
+		// else {  
+			// $('#months option[value="month"]').prop('selected', true);
+			  // $('#exp_data').empty().append("Please select corrent date");
+		// }
+		// return false;
+		    if(year > y || year == y && month>n )
+		{
+			//alert('ok');
+			 $('#exp_data').empty();
+		}
+		else {
+		$('#months option[value="month"]').prop('selected', true);
+		   $('#exp_data').empty().append("Please select corrent date");
+			$('#years option[value="years"]').prop('selected', true);
+		}
+		return false;
+
+    });	
+	
+	$("#year").change(function()
+    { 
+         year = $(this).val();
+		// alert(month); 
+          if(year > y || year == y && month>n )
+		{
+			//alert('ok');
+			 $('#exp_data').empty();
+		}
+		else {
+		$('#months option[value="month"]').prop('selected', true);
+		   $('#exp_data').empty().append("Please select corrent date");
+			$('#years option[value="years"]').prop('selected', true);
+		}
+		return false;
+    });
+
+
+
+});
+</script>
 </head>
 
 <body>
@@ -93,7 +184,7 @@ $temp = true;
 							{
 
 								echo '<label> Adult Name:</label>
-                                <input name="txt[]" type="text" required>';
+                                <input name="adult_name[]" type="text" required>'; 
 								$c++;
 
 							}
@@ -120,10 +211,10 @@ $temp = true;
 									<h4>Contact Details</h4>
 								  <div class="register_form fl">
 								   <label> Email:</label>
-							  <input name="email" value="<?php echo  $user_id; ?>" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$" type="text" required>
+							  <input name="email" value="<?php echo  $user_email; ?>" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$" type="text" required>
 							  <label> Contact Number:</label>
-							  <input name="phone" type="text" required>
-								</div>
+							  <input name="phone" onKeyPress="return isNumberKey(event)" type="text" required>
+								</div> 
 							</div>
 
 							  <?php
@@ -185,10 +276,11 @@ $temp = true;
 
                                 
 								  <label> Credit Card Number:</label>
-                                  <input name="credit_card_no"  type="text" required>
-                                <label> Expiration Date:</label>
-                                <select name="month" style="width:140px;" required>
-                                   <option value="">Select month</option>
+                                  <input class="credit_card_no" name="credit_card_no" maxlength="16" onKeyPress="return isNumberKey(event)" type="text" required>
+                               <div style="margin-left: 203px;color: #F00;margin-bottom: 13px;" id="credit_card_no_error"></div>
+							   <label> Expiration Date:</label>
+                                <select name="month" id="months" style="width:140px;" required>
+                                   <option value="month">Select month</option>
 
 										<option value="1">1</option>
 
@@ -215,8 +307,8 @@ $temp = true;
 										<option value="12">12</option>
                                 </select>
                                 <label style="width:30px; text-align:center; margin:0px;">To</label>
-                                <select name="year" style="width:141px;" required>
-								<option value="">Select year</option>
+                                <select name="year" id="year" style="width:141px;" required>
+								<option value="years">Select year</option>
                                   <option value="2014">2014</option>
 
 									<option value="2015">2015</option>
@@ -242,8 +334,9 @@ $temp = true;
 									<option value="2025">2025</option>
 
                                 </select>
+							<div style="margin-top: 180px;margin-left: 203px;color: #F00;margin-bottom: 13px;" id="exp_data"></div>
                                 <label> Security Code:</label>
-                                  <input name="security_code" type="text" maxlength="3" onkeypress="return isNumberKey(event)" style="width:129px; margin-right:150px;" required>
+                                  <input name="security_code" type="text" maxlength="3" onKeyPress="return isNumberKey(event)" style="width:129px; margin-right:150px;" required>
                               </div>
                             </div>
 							

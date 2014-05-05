@@ -15,6 +15,7 @@ $location = $_GET['location'];
 <link href="css/flexslider.css" rel="stylesheet" type="text/css">
  
  <script type="text/javascript" src="js/jquery.v2.0.3.js"></script>
+    <script type="text/javascript" src="js/jquery.v2.0.3.js"></script>
 <!-- Add fancyBox main JS and CSS files -->
  <script type="text/javascript" src="admin/fancybox/jquery.fancybox.js?v=2.1.5"></script>
  <link rel="stylesheet" type="text/css" href="admin/fancybox/jquery.fancybox.css?v=2.1.5" media="screen" />
@@ -23,19 +24,19 @@ $location = $_GET['location'];
   $(document).ready(function() {
   // alert('oddk');
     //for update cart data start
-		  $('#add_to_itinerary').click(function(){
-		
-			var adult = $('#adult').val();
-			var child = $('#child').val();
-			
+		  $('.add_to_itinerary').click(function(){
+		 var recordid = $(this).prop('id');
+			var adult = $('#adult'+recordid).val();
+			var child = $('#child'+recordid).val();
+
 			// var curent_d = $('.ui-datepicker-today').children().text();
 			// var c = '<?php echo $current_date; ?>';
-				var datepicker3 = $('#datepicker3').val();
-				var datepicker4 = $('#datepicker4').val();
+				var datepicker3 = $('#dp'+recordid).val();
+				//var datepicker4 = $('#datepicker4').val();
 		// if(datepicker3 > c || datepicker3 == c )	{
 			
 			
-				if(datepicker3 == "" || datepicker4 == "") {
+				if(datepicker3 == "") {
 					alert('please select date');
 					return false;
 				}
@@ -464,7 +465,7 @@ $query1 = mysql_query("SELECT
 															<h2>Select Travel Date</h2>
 															<div class="Departing_tour_detail">
 																<label>Travel Date</label>
-																<input type="text" class="mySelectCalendar" id="datepicker3" name="datepicker3" placeholder="mm/dd/yyyy"/ required>
+																<input type="text" class="datepicker3" id="dp'.$record['id'].'" name="datepicker3" placeholder="mm/dd/yyyy"/ required>
 															</div>
 														  
 														</div>
@@ -472,11 +473,11 @@ $query1 = mysql_query("SELECT
 															<h2 class="mrgn_top">Enter Total Number of Travelers</h2>
 															<div class="Adult_tour_detail">
 																<label>Adult</label>
-																<input type="text" name="adult" id="adult" required/>
+																<input type="text" name="adult" id="adult'.$record['id'].'" required/>
 															</div>
 															<div class="Child_tour_detail" >
 																<label>Child</label>
-																<input type="text" name="child" id="child" required/>
+																<input type="text" name="child" id="child'.$record['id'].'" required/>
 															</div>';
 															echo '<input type="hidden" name="supplier_id" id="temp_supplier_id" value="'.$record['supplier_id'].'" />';
 															echo '<input type="hidden" id="temp_tour_title" name="tour_title" value="'.$record['title'].'" />';
@@ -489,7 +490,7 @@ $query1 = mysql_query("SELECT
 																<input type="hidden" name="tour_id" value="'.$_GET['tour_id'].'"/>
 																<input type="hidden" name="tour_title" value="'.$tour_title.'" />
 																<a>
-																	<input class="submit_button" id="add_to_itinerary" type="submit" value="Add to my Itinerary"/>
+																	<input class="submit_button add_to_itinerary" id="'.$record['id'].'" type="submit" value="Add to my Itinerary"/>
 																</a>
 																<p>Please note: After your purchase is
 																	confirmed we will email you a link to

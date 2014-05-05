@@ -4,11 +4,66 @@
 if(isset($_POST['submit']))
 {
 	    session_start();
-		$name = $_SESSION['user_name'];
+		$email = $_SESSION['user_name'];
 		$new_pass = $_POST['con_pass'];
-		$update_query = "update user set password = '$new_pass' where email = '$name'";
+		$update_query = "update user set password = '$new_pass' where email = '$email'";
 		//echo $update_query;exit;
-		mysql_query($update_query)or die(mysql_error());
+		$responce = mysql_query($update_query)or die(mysql_error());
+if($responce) {
+		
+		$to = $email;
+				$subject = " Password Changed";
+				$message = '<!doctype html>
+					<html>
+					<head>
+					<meta charset="utf-8">
+					<title>Tour bookings</title>
+					<style>
+					body { margin:0px; padding:0px;}
+					</style>
+					</head>
+
+					<body>
+					 <div style="width:500px; min-height:450px; margin:0 auto; background:#e2e2e2;">
+						
+						 <div style="width:440px; min-height:390px; margin:30px; float:left; background:white;">
+							 <div style="width:440px; height:80px; border-bottom:#e1e1e1 solid 1px; background:#f5f5f5;">
+								 <a href="#" style="float:left; margin:18px 20px 0px 19px;"><img width="112" height="45 " alt="" src="http://tourbookings.co/images/tourbooking_logo.png"></a>
+								 <h1 style="float:left; font-family:Arial, Helvetica, sans-serif; line-height:80px; color:#fd8900 !important; font-size:24px; letter-spacing:2px; font-weight:bold; display:block; margin:0px; text-decoration:none;">TOURBOOKINGS.CO</h1>
+								</div>
+					   
+								
+								<div style="width:440px; float:left;">
+								 <h1 style="float:left; border-bottom:#e1e1e1 solid 1px; width:440px; font-family:Arial, Helvetica, sans-serif; text-indent:20px; line-height:40px; color:#323232; font-size:14px; font-weight:bold; display:block; margin:0px; text-decoration:none;"><span style="color:#fd8900; margin-right:5px;">Dear,</span> Member</h1>
+									
+									<p style="float:left; width:400px;padding:0px 20px; font-family:Arial, Helvetica, sans-serif; color:#727172; font-size:14px; line-height:20px; margin-bottom:80px;">Your Password hase been changed  . 
+									Password:'.$new_pass.'
+									<br /></p>
+								</div>
+								
+								<div style="width:440px; float:left;">
+								 <h1 style="float:left; border-top:#e1e1e1 solid 1px; width:420px; font-family:Arial, Helvetica, sans-serif; height:53px; color:#323232; font-size:14px; font-weight:bold; display:block; margin:0px; text-decoration:none; padding:15px 0px 0px 20px;">Best Wishes,<br>
+
+					<a href="#" style="color:#fb8900; text-decoration:none;">TourBookings</a></h1>
+								</div>
+
+
+							</div>
+							<div style="clear:both;"></div>
+					   </div>
+					</body>
+					</html>';								
+					$headers  = 'MIME-Version: 1.0' . "\r\n";
+					$headers .= 'Content-type: text/html; charset=iso-8859-1' . "\r\n";
+					$headers .= 'To: '.$email.'' . "\r\n";
+					$headers .= 'From: admin@tourbookings.co' . "\r\n";
+					$mail_sent = mail( $to, $subject, $message, $headers );
+					
+	echo "<div style='position: absolute;top: 204px;right: 232px; color:#fd8900;'><h2>Your Password changed and  sent to Your Email.</h2></div> ";
+		}
+		else {
+		
+		}
       //echo '<script type="text/javascript">$('."'.old_error'".').empty().append('."'Password Changed'".');</script>';
 	}
 

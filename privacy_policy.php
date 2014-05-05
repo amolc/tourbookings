@@ -25,136 +25,224 @@
                           <p>
 <div class="main unit">
                 <h2 class="strong mtn mhn mbs">The Tour Bookings Privacy Policy</h2>
-                <div class="cms-content">                        
-					<p>Our Privacy Policy will help you to understand how Tour Bookings utilizes and safeguards the Personal Information (as defined below) you provide to us through our websites, email, and our service providers and distribution partners.
-					This Privacy Policy does not extend to, and we are not responsible for, the privacy policy, information handling or any other practices of any third party, including, but not limited to, any third-party distribution partners, suppliers and tour operators, and any third party operated sites that are linked to Tour Bookings. By providing any information and using our website, you agree to the terms and conditions of this Privacy Policy.</p>
+  <div class="cms-content">                        
+					<p>This is the privacy policy of Tourbookings to help you understand how we collect, use and protect the Personal Information you provide to us on our website, through email, and through our affiliates and distribution partners. Tourbookings only acquires your personal information if you provide it to us. We are not responsible for the privacy policies of any third party, including third-party distribution, affiliates or tour partners. By using our website and services, you agree to the terms and conditions of Tourbookings' Privacy Policy.</p>
                 </div>
         
-                <div id="top" class="main-shader mvl main-border-t main-border-b">
-                    <ul class="line pal man">
-                        <li class="mbxs"><a href="#whoWeAre" class="inverse-link"><i class="icon icon-arrow-east unit mts"></i>Who We Are</a></li>
-                        <li class="mbxs"><a href="#whatInfo" class="inverse-link"><i class="icon icon-arrow-east unit mts"></i>What Information Do We Collect?</a></li>
-                        <li class="mbxs"><a href="#cookies" class="inverse-link"><i class="icon icon-arrow-east unit mts"></i>What cookies do we collect?</a></li>
-                        <li class="mbxs"><a href="#personalInfo" class="inverse-link"><i class="icon icon-arrow-east unit mts"></i>Why do we need your Personal Information?</a></li>
-                        <li class="mbxs"><a href="#emailCommunications" class="inverse-link"><i class="icon icon-arrow-east unit mts"></i>Emails and Unsubscribing</a></li>
-                        <li class="mbxs"><a href="#distPartners" class="inverse-link"><i class="icon icon-arrow-east unit mts"></i>Our Distribution Partners and Suppliers</a></li>
-                        <li class="mbxs"><a href="#securityStorage" class="inverse-link"><i class="icon icon-arrow-east unit mts"></i>Security Measures</a></li>
-                        <li class="mbxs"><a href="#changes" class="inverse-link"><i class="icon icon-arrow-east unit mts"></i>Changes to Privacy Policy</a></li>
-                        <li><a href="#contact" class="inverse-link"><i class="icon icon-arrow-east unit mts"></i>Contacting Us</a></li>
-                        <!--<li><a href="#furtherInfo">Further Information about Privacy Laws</a></li>-->
-                    </ul>
-                </div>
-<br /><br /><br />
-                <h3 id="whoWeAre" class="strong mtn mhn mbs"><span id="we_privacy"><h2>Who We Are</h2></span></h3>
+                <h2>The Information We Collect</h2>
                 <div class="cms-content">
-					<p>Tour Bookings comprises of a team of dedicated staff who links up with the various suppliers for the deals you see to make them available to you at the lowest prices guaranteed.
-					
-						<strong>Tour Bookings.co</strong> Tour Bookings.co is our flagship website, where we consolidate all the deals that our staff have identified as VIP worthy and make them available to you. Through painstakingly working through all the information and promotions available, and with our close relationship with our suppliers.
-            We also work with distributors who manage the hosting, purchase and payment for our products and services.</p>
+<p>Tourbookings collects your personal information when you book a reservation or purchase a product from our website. We also collect your information when you contact us about a purchase or tour by email, letter, fax or phone. We also collect secondary information about you such as gender, age, country of residence as well as other demographic information. Information about you is also gathered if you sign up for online subscriptions, newsletters, competitions etc.</p>
+
+<p>When purchasing something from us, it becomes necessary for you to disclose personal information. We will only acquire the information you provide to us. Failure to provide the necessary information can result in our failure to fulfill your booking or purchase. Tourbookings will not collect any personal information without your consent.</p>
+
+<p>It is also possible for you to contribute information to our website via testimonials, photo uploads, your profile and ratings. This information (your "content") can be stored by us, displayed or used for promotional purposes. Be aware that if you include personal information in your "content," others can view it. We will not be held responsible for the information you disclose in your "content."</p>
 						
 					
 				</div>
-                <div class="line"><div class="unitRight mbl"><a href="#top" class="inverse-link xsmall"><i class="icon icon-arrow-north unit"></i>Back to top</a></div></div>
-<br /><br />
-                <h3 id="whatInfo" class="strong mtn mhn mbs"><span class="privacy_new"><h2>Information that are collected</h2></span></h3>
-                <div class="cms-content">
-					<p>Here at Tour Bookings, the information we collect from you can generally be classified under two categories: Personal Information and General Information. Personal Information includes, but is not limited to, your credit card details and your address. General Information includes, but is not limited to, your gender and your country of residence.
-					To facilitate and allow the booking and confirmation of your tour, we will require you to divulge Personal Information that we deem to be necessary only. In refusing to divulge said information, we will not be able to successfully process your booking.</p>
-					<p>In registering with us, we will collect General Information, as mentioned above. However, if you sign up using Facebook of Google+, we may access your General Information that you choose to reveal on these platforms. If you do not wish for us to access these information, you may review and adjust your privacy settings on these media platforms.
-					When you visit us, we will also have a record of you IP address, which can only be used to identify the computer you used to visit our website.
-					We also use cookies to collect information regarding the performance and usability of our websites.</p>
-					<p>You contribute by writing reviews or submitting photos of your tour to us, as well as commenting and rating the various tours that you have participated in. Kindly note that these information that you provide to us can and may be used by us for marketing purposes.</p>
-                </div>
-                <div class="line"><div class="unitRight mbl"><a href="#top" class="inverse-link xsmall"><i class="icon icon-arrow-north unit"></i>Back to top</a></div></div>
-<br /><br />
-                <h3 id="cookies" class="strong mtn mhn mbs"><span id="cookie_privacy"><h2>What Cookies do we collect?</h2></span></h3>
-                <div class="cms-content">
-					<p>"Cookies" are pieces of information that are stored by your web browser on your computer's hard disk, for record-keeping purposes. Cookies as mentioned above, do not immediately reveal your personal identity
-					First-Party Cookies: At Tour Bookings we make use of cookies to store your preferences, record session information, collect information on how you visit and access our websites, and to tailor our web pages to your needs. We also use cookies to analyze and measure the effectiveness of our email communications, website features and offerings, and advertisements.</p>
-					<p>If you wish to prevent the use of Cookies, visit the relevant links provided below: </p>
-					<ul class="simple-list">
-						<li>Internet Explorer: <a target="_blank" href="http://windows.microsoft.com/en-US/windows-vista/Cookies-frequently-asked-questions">http://windows.microsoft.com/en-US/windows-vista/Cookies-frequently-asked-questions</a></li>
-						<li>Firefox: <a target="_blank" href="http://support.mozilla.org/en-US/kb/cookies-information-websites-store-on-your-computer">http://support.mozilla.org/en-US/kb/cookies-information-websites-store-on-your-computer</a></li>
-						<li>Chrome: <a target="_blank" href="https://support.google.com/chrome/bin/answer.py?hl=en&amp;answer=95647&amp;p=cpn_cookies">https://support.google.com/chrome/bin/answer.py?hl=en&amp;answer=95647&amp;p=cpn_cookies</a></li>
-						<li>Safari: <a target="_blank" href="http://support.apple.com/kb/PH5042">http://support.apple.com/kb/PH5042</a></li>
-					</ul>
-					<p>Third-Party Cookies: We use third-party to allow advertising companies to post ads on our site. These companies are able to place and access their own cookies that are stored on your computer. Do note that the information we gather through the use of our Cookies are only accessible and will only be accessed by Tour Bookings and that Cookies stored by third parties are not subject to Tour Booking’s Privacy Policy.</p>
-                </div>
-                <div class="line"><div class="unitRight mbl"><a href="#top" class="inverse-link xsmall"><i class="icon icon-arrow-north unit"></i>Back to top</a></div></div>
-<br /><br />
-                <h3 id="personalInfo" class="strong mtn mhn mbs"><span id="info_privacy"><h2>Why do we need your Personal Information?</h2></span></h3>
-                <div class="cms-content">
-					<p>In addition to allowing us to provide you with the most relevant content, there are several other reasons as well:</p>
-					<ul class="simple-list">
-						<li>We will need to process your bookings</li>
-						<li>To allow the necessary arrangements to be made for your purchase</li>
-						<li>To send you confirmation emails</li>
-						<li>To send you any updates and promotions</li>
-						<li>To ensure that we are able to provide you with content that are most suitable and relevant to you</li>
-						<li>To process requests for refunds</li>
-						<li>To improve our website to better suit your needs. If you do not want us to gain access to data that allows us to bring you </li>
-						<li>better deals and services, clicking here.</li>
-					</ul>
-					<p>You will be notified and will be able to determine how, if at all, these personal information will be used, apart from the above list uses.</p>
-					Connecting social media platforms such as Facebook to Tour Bookings will allow us to access your contact list, if you choose to, and will allow you to view reviews that your friends write, along with photos that you upload, and vice versa.
-					You will also be able to access social media platforms such as YouTube and Google+ on Tour Bookings. However, these platforms are not subjected to our Privacy Policy and we advise you to review their Privacy Policy if you wish to access those sites.
-					<p>Under certain circumstances, we may be required to reveal your Personal Information. These circumstances include, but are not limited to:</p>
-					<ul class="simple-list">
-						<li>Request made from local authorities</li>
-						<li>Request made by official authorities of other nations</li>
-						<li>To ensure that no law has been broken</li>
-						<li>To ensure that your rights are protected</li>
-						<li>To ensure that our rights are protected</li>
-						<li>In compliance with legal processes</li>
-					</ul>
-					<p>We may also disclose any General Information you provide to us if we deem necessary. In the instance where General Information is mixed with Personal Information, that information will be treated with the same level of discretion as Personal Information.</p>
-			   </div>
-                <div class="line"><div class="unitRight mbl"><a href="#top" class="inverse-link xsmall"><i class="icon icon-arrow-north unit"></i>Back to top</a></div></div>
-<br /><br />
-                <h3 id="emailCommunications" class="strong mtn mhn mbs"><span class="privacy_new"><h2>Emails and Unsubscribing</h2></span></span></h3>
-                <div class="cms-content">
-					<p>We will constantly update you about the latest deals and promotions that we have to offer here at Tour Bookings. If you wish to opt out of this free-of-charge service, there are several methods for you to do so:
-					
-						You may log on to your account at Tour Bookings and uncheck the box that indicates your preference on the matter.
-						You may send an email to <a href="mailto:privacy@Tour Bookings.com">privacy@Tour Bookings.com </a>and request to unsubscribe by including your name, email address, and the words "unsubscribe" in the subject.</p>
-						
-					
-					<p>Note that even if you opt out of this service, we will still receive emails such as confirmation of bookings from us.</p>
-                </div>
-                <div class="line"><div class="unitRight mbl"><a href="#top" class="inverse-link xsmall"><i class="icon icon-arrow-north unit"></i>Back to top</a></div></div>
-<br /><br />
-                <h3 id="distPartners" class="strong mtn mhn mbs"><span class="privacy_new"><h2>Our Distribution Partners and Suppliers</h2></span></h3>
-                <div class="cms-content">
-					<p>In order to bring you the lowest priced deals, we have suppliers that operate from all over the world. In the case that these suppliers violate any of our Privacy Policy by divulging your Personal Information, we will seek to take any actions that we are able to and will even consider severing our business relations to prevent future occurrences. However, do take note that Tour Bookings will not be held responsible for the actions of the suppliers and distributors that we work with.</p>
-                </div>
-                <div class="line"><div class="unitRight mbl"><a href="#top" class="inverse-link xsmall"><i class="icon icon-arrow-north unit"></i>Back to top</a></div></div>
-<br /><br />
-                <h3 id="securityStorage" class="strong mtn mhn mbs"><span class="privacy_new"><h2>Security Measures</h2></span></h3>
-                <div class="cms-content">
-					<p>With your security and privacy being our main priority, we will do our best to ensure the highest level of security that we are able to provide.
-					Industry-standard encryption protocols are adopted into our system to ensure secure receiving and transferring of any information. We also establish a secure session using a Secure Socket Layer (SSL) before any information is requested. All these information will be stored in a secure environment with limited access to lower the possibility of misuse.
-					However, even with all the measure that we have in place, it is factual that Internet transactions can never be 100% secure. In the unlikely even that your information has been compromised, do inform us, and we will do everything that we can to ensure that the situation is contained and that your information</p>
-					
-                </div>
-                <div class="line"><div class="unitRight mbl"><a href="#top" class="inverse-link xsmall"><i class="icon icon-arrow-north unit"></i>Back to top</a></div></div>
-<br /><br />
-                <h3 id="changes" class="strong mtn mhn mbs"><span class="privacy_new"><h2>Changes to Privacy Policy</h2></span></h3>
-                <div class="cms-content">
-					<p>As our business continues to grow to include more deals and tours, this Privacy Policy may be reviewed and revised.
-					Tour Bookings reserves the right to change this Privacy Policy by posting the changes on its website. You can determine when this Privacy Policy was last updated by reviewing the "<i>LAST UPDATED</i>" legend below.</p>
-                </div>
-                <div class="line"><div class="unitRight mbl"><a href="#top" class="inverse-link xsmall"><i class="icon icon-arrow-north unit"></i>Back to top</a></div></div>
-<br /><br />
-                <h3 id="contact" class="strong mtn mhn mbs"><span class="privacy_new"><h2>Contacting Us</h2></span></h3>
-                <div class="cms-content">
-					<p>Please email our Privacy Officer at <a href="mailto:privacy@Tour Bookings.co">privacy@Tour Bookings.co</a>.</p>
-                </div>
-                <div class="line"><div class="unitRight mbl"><a href="#top" class="inverse-link xsmall"><i class="icon icon-arrow-north unit"></i>Back to top</a></div></div>
 
-                <!--<h3 id="furtherInfo">Further Information About Privacy Laws</h3>
-                <p>There is no single global entity that regulates personal information online. Instead, Tour Booking has made a conscious choice to follow the privacy guidelines as established by law in the major markets where we operate and where we have offices. In Australia that means being guided by the <a href="http://www.privacy.gov.au/publications/nppgl_01.html" title="National Privacy Principles" target="_blank">National Privacy Principles</a>. In the United States that means adhering to the Federal Trade Commission's <a href="http://www.ftc.gov/privacy/" title="guidelines" target="_blank">guidelines</a>. In Europe that means adhering to EC Directive 95/46/EC and complying with the EU Safe Harbor framework as set forth by the US Department of Commerce regarding the collection, use and retention of personal data from the European Union.</p>
-                <div class="line"><div class="unitRight mbl"><a href="#top" class="inverse-link xsmall"><i class="icon icon-arrow-north unit"></i>Back to top</a></div></div>-->
-               <!-- <p class="mhn xsmall note">Last updated: October 10, 2012</p>--->
+                <h2>Security Measures and Protection</h2>
+                <div class="cms-content">
+<p>Tourbookings will strive to take all reasonable measures to secure any and all information we have collected from you. We use industry-standard encryption protocols when transferring and receiving your personal information exchanged over our Web pages. We require a "secure session" first be established using Secure Socket Layer (SSL) when you transfer personal information to us.</p>
+
+<p>We store your personal information in secure operating environments that are not accessible by the general public. Tourbookings has put security measures in place at our physical facilities to protect against the loss, misuse or alteration of your personal information by our employees or other parties.</p>
+<p>However, no data transmission over the Internet can be guaranteed to be 100% secure, so we cannot give an absolute assurance that the information you provide to us will be secure at all times. Tourbookings will not be held responsible for events arising from unauthorized access to your personal information.</p>
+                </div>
+                <h2>How We Use Cookies</h2><br>
+
+                <div class="cms-content">
+                <h3><strong>What are cookies? </strong></h3>
+<p>"Cookies" are pieces of information that are stored by your web browser on your computer's hard disk, for record-keeping purposes. Cookies only identify your computer; they do not personally identify you.</p>
+
+<p>Tourbookings uses two types of cookies, session cookies and first-party cookies. Session cookies are used to maintain session state.Session cookies allow users to be recognized within a website so any page changes, items or data selection you make is remembered from page to page. The most common example of this is the shopping cart feature of any e-commerce site. When you select an item and move from selection to checkout, the session cookie remembers your selection. Session cookies are required for functionality but they are not used to identify you personally.</p>
+
+<p>First-party cookies are used to store your preferences, identify you from visit to visit, what you selected and looked at. It allows us to modify our web pages to your preferences. Our aim is to improve your experience and make sure you get the offers you might want. We use the information to also analyze the performance of our emails, advertisements and offers.</p>
+
+                </div>
+                
+                <div class="cms-content">
+<h3><strong>Third-Party Tracking</strong></h3>
+
+<p>Tourbookings' uses third-party advertising companies to deliver ads while you are browsing our websites. We allow these advertising companies to place and access their own cookies on your computer during the course of delivering ads. These companies may place cookies or tracking devices to measure the effectiveness of their ads. Our privacy policy does not cover third-party cookies. Third-party cookies are subject to their own privacy policies and practices. We recommend you take a look at them through their company's respective websites.</p>
+
+                </div>
+                
+                <div class="cms-content">
+<h3><strong>Block Cookies</strong></h3>
+
+<p>Changing the settings on your Internet browser to turn off "first-party" or "third-party" cookies can block cookies. For more information about your Internet browser's cookie settings, please refer to the your browser's link:</p>
+<ul class="block-cookies">
+<li>Internet Explorer: <a href="http://windows.microsoft.com/en-US/windows-vista/Cookies-frequently-asked-questions" target="_blank">http://windows.microsoft.com/en-US/windows-vista/Cookies-frequently-asked-questions</a></li>
+<li>Firefox: <a href="http://support.mozilla.org/en-US/kb/cookies-information-websites-store-on-your-computer" target="_blank">http://support.mozilla.org/en-US/kb/cookies-information-websites-store-on-your-computer</a></li>
+<li>Chrome: <a href="https://support.google.com/chrome/bin/answer.py?hl=en&answer=95647&p=cpn_cookies" target="_blank">https://support.google.com/chrome/bin/answer.py?hl=en&answer=95647&p=cpn_cookies</a></li>
+<li>Safari: <a href="http://support.apple.com/kb/PH5042" target="_blank">http://support.apple.com/kb/PH5042</a></li>
+</ul>
+
+
+                </div>
+                
+ <br>
+<br>
+       
+                
+                <h2>How We Use Your Information</h2>
+                <div class="cms-content">
+<p>Tourbookings' uses your personal information in a variety of ways:</p>
+
+<ul class="disc-inside">
+<li>To enable us to provide you with the necessary information you request about our products and offerings.</li>
+<li>To fulfill your bookings, confirm your purchases and certify you are being correctly charged.</li>
+<li>To track, measure and analyze demographic details about you, the customer.</li>
+<li>To tailor content on our website to resemble your personal preferences.</li>
+</ul>
+
+<p>We may contact you from time to time with information about new products or services offered by us to inform you or to help improve our website. If you wish to stop receiving these notifications, simply opt out by checking the appropriate tick box where indicated on our website.</p>
+
+<p>Some of the information collected may be used and shared by our service partners who are involved in the process of fulfilling your orders. The only information we provide to them is your name and contact details. You only give all other pieces of information, if you wish. If you access our website through any social media such as Facebook, Twitter or Pinterest, you are sharing information with those sites and are therefore governed by their respective privacy policies.</p>
+
+<p>Your personal information can also be shared with independent outside contractors and online partners who provide us with marketing services, data reporting, data analytics, internet business optimization, advertising effectiveness and other measures of this nature. To enable this, we use web beacons and cookies provided by such marketing companies in connection with our websites. The information we collect helps us learn things like what pages are most attractive to our visitors, which of our products most interest our customers, and what kinds of offers our customers like to see. If you do not want to help us learn how to improve our site, products, offers and marketing strategy, you can "opt-out" of our ability to analyze such data by clicking on the appropriate tick box displayed on our website.</p>
+
+
+
+<p><strong>Contact Us</strong></p>
+
+<p>For any inquiries concerning our privacy policy or the information we collect, please email us at support@tourbookings.co.</p>
+			   </div>
+                <div class="line"></div>
+
+                <h2>Tourbookings
+Terms and Conditions</h2>
+
+          <div class="cms-content">
+<p>All purchases made through Tourbookings.co or any affiliated website are subject to the terms and conditions that follow. In any and all purchases, the person who makes the booking shall be considered to have accepted these conditions on behalf of all persons named in the booking.</p>
+
+<p>Tourbookings offers tickets for tours and activities ("products") through our website (<a href="http://tourbookings.co" target="_blank">www.tourbookings.co</a>).</p>
+
+
+
+<h3><strong>Terms of Use</strong></h3>
+<ol class="no-outside">
+<li>By using Tourbooking.co or any Tourbooking-affiliated website, you agree to be legally bound by these terms, which shall take effect immediately.</li>
+<li>You accept all financial responsibility for any and all transactions made under your name or account.</li>
+<li>You must be at least 18 years of age and have competent legal capacity.</li>
+<li>All information you provide about yourself or others is true and accurate.</li>
+<li>Tourbookings can, at any time,alter the Terms & Conditions by posting changes on our website. Any unceasing use of Tourbooking.com or a Tourbooking affiliated website after changes are posted confirms that you agree to be legally bound by these terms as updated and/or amended.</li>
+<li>These web "sites" are for your personal and non-commercial use. The content and information on these web "sites" (including, without limitation, price and availability of travel services), as well as the infrastructure used to provide such content and information, is proprietary to Tourbookings.co. </li>
+<li>You are not permitted to modify, copy, distribute, transmit, display, perform, reproduce, publish, license, create derivative works from, transfer, or sell or re-sell any information, products or services obtained from Tourbookings sites.</li> 
+<li>All Tourbooking.co and Tourbooking-affiliated websites cannot be used for illegal purposes or in any way that infringes the rights of, restricts or inhibits anyone else's use of Tourbookings.co</li>
+<li>You are not permitted to use any information or products from Tourbookings.co or any of Tourbookings-affiliates for commercial purposes. Information provided is strictly for personal use.</li>
+<li>You must not have been banned or suspended from Tourbookings and must have full authority with no coercion enter into these Terms of Use.</li>
+<li>In viewing or using our site, you may be exposed to content that is offensive, indecent, inaccurate, objectionable, or otherwise inappropriate. Tourbookings does not endorse such content, and cannot vouch for its accuracy. You therefore access and use the site at your own discretion.</li>
+</ol>
+
+<h3><strong>Payments, Pricing and Cancelation Policy</strong></h3>
+<ol class="no-outside" start="12">
+<li>The person whose account is used assumes all financial responsibility for any person named in the booking of a product.</li>
+<li>Payments must be paid in full upon booking to finalize your reservation.</li>
+<li>All payments can only be made through credit or debit cards. We only accept the following cards: Visa and Mastercard.</li>
+<ol class="alpha-outside">
+    <li>You will not be charged a transaction or service fee. </li>
+    <li>Payment will be billed as "Tourbookings" on your credit or debit card statement.</li>
+</ol>
+<li>All products are non-refundable once a tour has begun. </li>
+<li>All prices listed on Tourbookings.co are per person unless otherwise stated.</li>
+<li>Prices are subject to change at any given moment, without notice, until your booking has been confirmed.</li>
+<li>Prices listed are not inclusive of any possible given taxes, local or foreign.</li>
+<li>Any and all prices listed are not inclusive of any extra fees such as tips, visa fees, insurance and/or beverages and meals.</li>
+<li>All cancelations may be subject to cancelation fees depending on the date and type of product purchased.</li>
+    <ol class="alpha-outside">
+   <li>If cancelation occurs before <strong>14 calendar days</strong> of scheduled tour, there is no fee.</li>
+    <li>If cancelation occurs, between <strong>4 and 13calendar days</strong> of scheduled tour, there is a 50% cancelation fee.</li>
+    <li>If cancelation occurs, within <strong>3 calendar days</strong> of scheduled tour, there is a 100% cancelation fee. </li>
+    </ol>
+
+<li>There is a possibility that your bank can convert your payment into local currency and charge fees, which may result in a discrepancy between Tourbooking.co's listed price and the price listed on your bank statement.</li>
+</ol>
+
+<h3><strong>Payment Processing</strong></h3>
+<ol class="no-outside" start="22">
+<li>Payments are processed by (add merchant company).</li>
+</ol>
+
+<h3><strong>Products</strong></h3>
+<ol class="no-outside" start="23">
+<li>Any changes you want to make to your product choice needs to be sent to <a href="mailto:support@tourbookings.co">support@tourbookings.co</a>.</li>
+</ol>
+
+<ol class="alpha-outside">
+You will not be charged to move the dates of your product if the request reaches our support team at least 4 calendar days before the scheduled tour.
+
+Changes will only be made if the dates you want to change it to are not already full. If the only dates you wish to change it to are full and you want to cancel, please refer to the cancelation policy above.
+
+Changes are subject to the availability of our partners.
+</ol>
+
+<ol class="no-outside" start="24">
+<li>We reserve the right to change, cancel or substitute any tour, price, coverage, and requirements etc. at any given time for any product booked through Tourbookings.co.</li> 
+</ol>
+
+<ol class="alpha-outside">
+<li>You are entitled to a full refund if you do not like the changes made to your itinerary, if and only if, Tourbookings made those changes.</li>
+<li>We will attempt to the best of our ability to inform you as soon as possible about any and all changes made to your itinerary for whatever reason. </li>
+</ol>
+
+
+
+<h3><strong>User Accounts</strong></h3>
+<ol class="no-outside" start="25">
+<li>All customers must create an account to be able to purchase a product via Tourbookings.co.</li>
+<li>All information provided on that account is from you and is therefore your responsibility. This includes confidentiality and an agreement to notify us of any unauthorized access.</li>
+<li>Your account and any and all information is not for commercial use. This is for personal use only.</li>
+<li>You must sign up using only true information and cannot represent another person.</li>
+<li>We reserve the right to delete your account at any given time for any reason.</li>
+
+</ol>
+
+<h3><strong>Gift Certificates/Vouchers/Discounts</strong></h3>
+<ol class="no-outside" start="30">
+<li>All gift certificates, vouchers or discounts are not redeemable for cash.</li>
+<li>All tours or products purchased with gift certificates, vouchers or discounts may not be amended.</li>
+ </ol>
+ 
+<ol class="alpha-outside">
+<li>All sales purchased through gift certificates, vouchers or discounts are final and non-refundable.</li>
+</ol>
+
+<ol class="no-outside" start="32">
+<li>Gift certificates, vouchers or discounts are only available via Tourbookings.co.</li>
+<li>All gift certificates, vouchers or discounts are valid until the date of expiry listed.</li>
+<li>If the value of the items you book is greater than your Gift Certificate, you can pay the balance using an acceptable credit or debit card. If the value is less than your Gift Certificate, we'll store the balance in our database for you to use on another occasion. Note that your Gift Certificate, including any unused balance, expires two years after the date of issue, or as required by local law.</li>
+<li>We are not responsible for the loss or theft of any gift certificate, voucher or discount.</li>
+</ol>
+
+<h3><strong>Passports and Visas</strong></h3>
+<ol class="no-outside" start="36">
+<li>We are not responsible for any visa requirements, passport requirements or fees for visiting tourists. It is the responsibility of the passenger to find the necessary information.</li>
+</ol>
+
+
+<h3><strong>Insurance</strong></h3>
+<ol class="no-outside" start="37">
+<li>It is recommended that each passenger purchase Travel Insurance before your scheduled departure. </li>
+</ol>
+
+<h3><strong>Limited Liability</strong></h3>
+<ol class="no-outside" start="38">
+<li>Tourbookings and it's affiliates will not be held responsible for any losses or damage such as, loss of data, loss of revenue or anticipated profits, loss of business, loss of opportunity, loss of goodwill or injury to reputation, losses suffered by third parties, or any indirect, consequential, special or exemplary damages arising from the use of Tourbooking.co regardless of the form of action.</li>
+<li>Tourbookings and our affiliates will not be held responsible for any injuries or sickness that may befall you during your tours.</li>
+<li>We will not be held liable for anything that could happen to you that is completely out of our control, such as natural disasters, political unrest, acts of war or weather conditions.</li> 
+<li>Although we try to give the best product possible, we cannot fully guarantee that a product or tour purchased from Tourbookings or our affiliates will be error-free. </li>
+</ol>
+
+
+<p>If you do not agree with the Terms and Conditions, do not tick the agree box. If at any point you no longer agree with our Terms and Conditions, simply close your account. We reserve the right to continue to use and publish any information you have provided in your "content."</p>
+
+
+
+
+		  </div>
+                <!--cms-content-->
+
+
             </div>
                           </p>
                       </div>

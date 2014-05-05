@@ -58,8 +58,8 @@ $query = mysql_query("SELECT
 			var blog_id = '<?php echo $blog_id; ?>';
 			var rate = therate;
 			var comments_box = $('#comments_box').val();
-			  alert(rate);
-                        alert(blog_id);
+			  // alert(rate);
+                        // alert(blog_id);
 			if( comments_box == "") {
 				alert('please Enter Comment');
 				return false;
@@ -74,7 +74,7 @@ $query = mysql_query("SELECT
 								data: {blog_id:blog_id,rate:rate,comments_box:comments_box},
 								success: function(mesg) {
 								  alert(mesg);
-
+									location.reload();
 								   
 								}
 							});
@@ -93,7 +93,7 @@ $query = mysql_query("SELECT
                 for (var i = therate; i >= 0; i--) {
                     $('.rate-btn-'+i).addClass('rate-btn-hover');
                 };
-            });
+            }); 
                             
             // $('.rate-btn').click(function(){    
                 // var therate = $(this).attr('id');

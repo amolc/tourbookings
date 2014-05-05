@@ -1,16 +1,16 @@
-<?php 
+<?php
  include('include/database/db.php'); 
 
-if(isset($_POST['submit']))
+if(isset($_POST['Submit'])) 
 {
 	$email = mysql_real_escape_string($_POST['email']);
-	$result = mysql_query("SELECT password FROM supplier WHERE email = '".$email."'");
+	$result = mysql_query("SELECT password FROM user WHERE email = '".$email."'");
 	$row = mysql_fetch_array($result);
 	  
 		$password = $row['password'];
 		if($password=='')
-		{
-			echo "<h3>Your Email is not Valid</h3>";
+		{ 
+			echo "<div style='position: absolute;top: 522px; right: 322px; color:#fd8900;'><h3>Your Email is not Valid</h3></div>";
 		}else{
 		
 				$to = $email;
@@ -58,7 +58,7 @@ if(isset($_POST['submit']))
 					$headers  = 'MIME-Version: 1.0' . "\r\n";
 					$headers .= 'Content-type: text/html; charset=iso-8859-1' . "\r\n";
 					$headers .= 'To: '.$email.'' . "\r\n";
-					$headers .= 'From: apache@iamamol.com' . "\r\n";
+					$headers .= 'From: admin@tourbookings.co' . "\r\n";
 					$mail_sent = mail( $to, $subject, $message, $headers );
 					
 	echo "<div style='position: absolute;top: 522px; right: 322px; color:#fd8900;'><h2>Your Password is sent to Your Email.</h2></div> ";
@@ -368,7 +368,7 @@ if(isset($_POST['submit']))
 
 
                               <div class="register_form fl">
-                                <input name="submit" value="Submit" id="registeration_button" type="submit">
+                                <input name="Submit" value="Submit" id="registeration_button" type="submit">
 								<div style="float: right;padding: 6px; display:none;">
 									<div><a href="#">Forgot your password? </a></div>
 								<div><span>If Your Are Not Member?</span> <a href="user_registeration_form.php">Sign UP </a></div>

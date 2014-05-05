@@ -82,9 +82,227 @@ $(document).ready(function(){
 });
 </script>
 
+
+<!--flex slider start-->
+<link href="../css/flexslider.css" rel="stylesheet" type="text/css">
+
+<script src="../admin/include/resource/js/jquery-1.10.2.min.js"></script>
+
+ <script type="text/javascript" src="../admin/fancybox/jquery.fancybox.js?v=2.1.5"></script>
+ <link rel="stylesheet" type="text/css" href="../admin/fancybox/jquery.fancybox.css?v=2.1.5" media="screen" />
+
+  <!-- FlexSlider start-->
+ <script type="text/javascript">
+  $(document).ready(function() {
+  // alert('oddk');
+    //for update cart data start
+ $('.fancybox').click(function(){
+					 // alert('ok');
+				// var tour_title = $('#temp_tour_title').val();
+				// var supplier_id = $('#temp_supplier_id').val();
+				// var price_per_person = $('#temp_price_per_person').val();
+				// var product_code = $('#temp_product_code').val();
+				// var temp_type = $('#temp_type').val();
+				// var temp_return_url = $('#temp_return_url').val();
+
+				// $.ajax({
+						// type: 'post',
+						// url: 'admin/ajax_request_function/ajax_temp_cart.php',
+						// data: {tour_title:tour_title,supplier_id:supplier_id,price_per_person:price_per_person,product_code:product_code,temp_type:temp_type,temp_return_url:temp_return_url},
+
+						// success: function(mesg) {
+							// alert(mesg);
+
+						// }
+
+				// });
+
+			});
+	// for update cart data end
+	
+   $('.fancybox').fancybox();
+//alert('ok'); 
+   /*
+    *  Different effects
+    */
+
+   // Change title type, overlay closing speed
+   $(".fancybox-effects-a").fancybox({
+    helpers: {
+     title : {
+      type : 'outside'
+     },
+     overlay : {
+      speedOut : 0
+     }
+    }
+   });
+
+   // Disable opening and closing animations, change title type
+   $(".fancybox-effects-b").fancybox({
+    openEffect  : 'none',
+    closeEffect : 'none',
+
+    helpers : {
+     title : {
+      type : 'over'
+     }
+    }
+   });
+
+   // Set custom style, close if clicked, change title type and overlay color
+   $(".fancybox-effects-c").fancybox({
+    wrapCSS    : 'fancybox-custom',
+    closeClick : true,
+
+    openEffect : 'none',
+
+    helpers : {
+     title : {
+      type : 'inside'
+     },
+     overlay : {
+      css : {
+       'background' : 'rgba(238,238,238,0.85)'
+      }
+     }
+    }
+   });
+
+   // Remove padding, set opening and closing animations, close if clicked and disable overlay
+   $(".fancybox-effects-d").fancybox({
+    padding: 0,
+
+    openEffect : 'elastic',
+    openSpeed  : 150,
+
+    closeEffect : 'elastic',
+    closeSpeed  : 150,
+
+    closeClick : true,
+
+    helpers : {
+     overlay : null
+    }
+   });
+
+   /*
+    *  Button helper. Disable animations, hide close button, change title type and content
+    */
+
+   $('.fancybox-buttons').fancybox({
+    openEffect  : 'none',
+    closeEffect : 'none',
+
+    prevEffect : 'none',
+    nextEffect : 'none',
+
+    closeBtn  : false,
+
+    helpers : {
+     title : {
+      type : 'inside'
+     },
+     buttons : {}
+    },
+
+    afterLoad : function() {
+     this.title = 'Image ' + (this.index + 1) + ' of ' + this.group.length + (this.title ? ' - ' + this.title : '');
+    }
+   });
+
+
+   /*
+    *  Thumbnail helper. Disable animations, hide close button, arrows and slide to next gallery item if clicked
+    */
+
+   $('.fancybox-thumbs').fancybox({
+    prevEffect : 'none',
+    nextEffect : 'none',
+
+    closeBtn  : false,
+    arrows    : false,
+    nextClick : true,
+
+    helpers : {
+     thumbs : {
+      width  : 50,
+      height : 50
+     }
+    }
+   });
+
+   /*
+    *  Media helper. Group items, disable animations, hide arrows, enable media and button helpers.
+   */
+   $('.fancybox-media')
+    .attr('rel', 'media-gallery')
+    .fancybox({
+     openEffect : 'none',
+     closeEffect : 'none',
+     prevEffect : 'none',
+     nextEffect : 'none',
+
+     arrows : false,
+     helpers : {
+      media : {},
+      buttons : {}
+     }
+    });
+
+   /*
+    *  Open manually
+    */
+
+   $("#fancybox-manual-a").click(function() {
+    $.fancybox.open('1_b.jpg');
+   });
+
+   $("#fancybox-manual-b").click(function() {
+    $.fancybox.open({
+     href : 'iframe.html',
+     type : 'iframe',
+     padding : 5
+    });
+   });
+
+   $("#fancybox-manual-c").click(function() {
+    $.fancybox.open([
+     {
+      href : '1_b.jpg',
+      title : 'My title'
+     }, {
+      href : '2_b.jpg',
+      title : '2nd title'
+     }, {
+      href : '3_b.jpg'
+     }
+    ], {
+     helpers : {
+      thumbs : {
+       width: 75,
+       height: 50
+      }
+     }
+    });
+   });
+
+
+  });
+  
+ </script>
+  <!-- FlexSlider end-->
+
+
+        	
+
+
+
 </head>
 
 <body>
+
+
 	<div id="main_container">
     	<div class="header_main fl">
         	<div class="header_top fl">
@@ -220,7 +438,57 @@ $(document).ready(function(){
     
     	</div>
         
-        	<div class="banner fl"><img src="../images/banner.jpg" alt="" width="1002" height="391"></div>
+            
+        	<div class="banner fl">
+            	<div class="flexslider">
+          <ul class="slides">
+            <li>
+  	    	    <img src="../images/Hongkong.jpg" width="1002" height="391">
+				<div class="Hongkong_city_index">
+					<h1><a href="index_city.php?location=Hongkong">Hongkong</a></h1>
+				<!--	<p>For all you shopaholics, you cannot miss out on the plethora of markets that Hong Kong has to offer</p>-->
+				</div>
+  	    		</li>
+  	    		<li>
+  	    	    <img src="../images/India.jpg" width="1002" height="391">
+				<div class="India_city_index">
+			<h1><a href="index_city.php?location=India">	India</a></h1>
+					<!--<p>Visit the famous Taj Mahal, the ruins of Hampi or try Camel trekking!</p>-->
+				</div>
+  	    		</li>
+  	    		<li>
+  	    	    <img src="../images/Indonesia.jpg" width="1002" height="391">
+					<div class="Indonesia_city_index">
+				<h1><a href="index_city.php?location=Indonesia">Indonesia</a></h1>
+					<!--<p>Hosting some of the world�s most beautiful beaches</p>-->
+				</div>
+  	    		</li>
+  	    		<li>
+  	    	    <img src="../images/Malaysia.jpg" width="1002" height="391">
+					<div class="Malaysia_city_index">
+				<h1><a href="index_city.php?location=Malaysia">Malaysia</a></h1>
+					<!--<p>Playing host to one of the world�s tallest towers</p>-->
+					
+				</div>
+  	    		</li>
+                <li>
+  	    	    <img src="../images/Philippines.jpg" width="1002" height="391">
+					<div class="Philippines_city_index">
+				<h1><a href="index_city.php?location=Philippines">Philippines</a></h1>
+					<!--<p>the Banaue Rice Terraces, numerous diving spots and beaches</p>-->
+				</div>
+  	    		</li>
+                <li>
+  	    	    <img src="../images/Singapore.jpg" width="1002" height="391">
+					<div class="Singapore_city_index">
+				<h1><a href="index_city.php?location=Singapore">Singapore</a></h1>
+					<!--<p>A cosmopolitan city-state that got to where it is today in just half a decade</p>-->
+				</div>
+  	    		</li>
+          </ul>
+        </div>
+      </div>
+            
             
             	<div class="center_body fl">
                 	<div style="background:none;width:160px;" class="left_penal fl">
@@ -544,5 +812,25 @@ $exp_date = date("m/d/Y", $date);
       <div style="clear:both"></div>
    </div>
 
+
+
+  <!-- FlexSlider start-->
+  <script defer src="../js/jquery.flexslider.js"></script>
+
+  <script type="text/javascript">
+    $(function(){
+      SyntaxHighlighter.all();
+    });
+    $(window).load(function(){
+      $('.flexslider').flexslider({
+        animation: "slide",
+        start: function(slider){
+          $('body').removeClass('loading');
+        }
+      });
+    });
+  </script>
+  <!-- FlexSlider end-->
+  
 </body>
 </html>

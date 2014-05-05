@@ -8,7 +8,25 @@
  // $notification = mysql_num_rows($res) or die (mysql_error());
  //echo "total ".$notification;
 // }
- 
+session_start();
+ include('../include/database/db.php');
+if(isset($_SESSION['supplier_id'])){
+ $supplier_id = $_SESSION['supplier_id'];
+}
+else {
+	header('Location: index.php');
+}
+ $sql3 = mysql_query("SELECT
+			available_balance
+			FROM
+			supplier_balance
+			WHERE  supplier_id = '".$supplier_id."'
+			");
+			while ($row = mysql_fetch_array($sql3))
+				{
+					$supplier_balance = $row['available_balance'];
+
+				}
 ?> 
 <div class="row">
 	
@@ -405,7 +423,7 @@
             
             <li style="margin-right:10px; border-right: solid #ccc 1px; padding-right:10px;">
 				<a href="#">
-					Balance: $500
+					Balance: $<?php echo $supplier_balance; ?>
 				</a>
 			</li>
             

@@ -75,9 +75,9 @@ $query = mysql_query("SELECT
 <title>Tour bookings</title>
 <link href="css/style.css" rel="stylesheet" type="text/css">
 <link href="css/flexslider.css" rel="stylesheet" type="text/css">
-
+  <link href="css/jquery-ui.css" rel="stylesheet" type="text/css">
 <script src="admin/include/resource/js/jquery-1.10.2.min.js"></script>
-
+   <script type="text/javascript" src="js/jquery.v2.0.3.js"></script>
  <script type="text/javascript" src="admin/fancybox/jquery.fancybox.js?v=2.1.5"></script>
  <link rel="stylesheet" type="text/css" href="admin/fancybox/jquery.fancybox.css?v=2.1.5" media="screen" />
 
@@ -855,8 +855,8 @@ $query1 = mysql_query("SELECT
       <div style="clear:both"></div>
    </div>
      
-      <!-- jQuery 
-  <script src="http://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script>
+    <!-- jQuery -->
+  <!--<script src="http://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script>
   <script>window.jQuery || document.write('<script src="js/libs/jquery-1.7.min.js">\x3C/script>')</script>-->
 
   <!-- FlexSlider -->
@@ -881,14 +881,6 @@ $query1 = mysql_query("SELECT
   <script type="text/javascript" src="js/shCore.js"></script>
   <script type="text/javascript" src="js/shBrushXml.js"></script>
   <script type="text/javascript" src="js/shBrushJScript.js"></script>
-
-  <!-- Optional FlexSlider Additions -->
-  <script src="js/jquery.easing.js"></script>
-  <script src="js/jquery.mousewheel.js"></script>
-  <script defer src="js/demo.js"></script>
-  <link href="css/jquery-ui.css" rel="stylesheet" type="text/css">
-    <!-- Javascript -->
-
     <!-- This page JS -->
 	<script src="js/js-index.js"></script>
 
@@ -898,27 +890,9 @@ $query1 = mysql_query("SELECT
     <!-- Picker UI-->
 	<script src="js/jquery-ui.js"></script>
 
-	<!-- Easing -->
-    <script src="js/jquery.easing.js"></script>
-
-    <!-- jQuery KenBurn Slider  -->
-    <script type="text/javascript" src="js/jquery.themepunch.revolution.min.js"></script>
-
-   <!-- Nicescroll  -->
-	<script type="text/javascript" src="js/jquery.nicescroll.min.js"></script>
-
-    <!-- CarouFredSel -->
-    <script type="text/javascript" src="js/jquery.carouFredSel-6.2.1-packed.js"></script>
-    <script type="text/javascript" src="js/jquery.touchSwipe.min.js"></script>
-	<script type="text/javascript" src="js/jquery.mousewheel.min.js"></script>
-	<script type="text/javascript" src="js/jquery.transit.min.js"></script>
-	<script type="text/javascript" src="js/jquery.ba-throttle-debounce.min.js"></script>
-
-    <!-- Custom Select -->
-	<script type='text/javascript' src='js/jquery.customSelect.js'></script>
-
-    <!-- Include all compiled plugins (below), or include individual files as needed -->
-    <script src="dist/js/bootstrap.min.js"></script>	<script>  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)  })(window,document,'script','../../www.google-analytics.com/analytics.js','ga');  ga('create', 'UA-43203432-1', 'titanicthemes.com');  ga('send', 'pageview');</script>
- 
+  <!-- Optional FlexSlider Additions -->
+  <script src="js/jquery.easing.js"></script>
+  <script src="js/jquery.mousewheel.js"></script>
+  <script defer src="js/demo.js"></script>
 </body>
 </html>

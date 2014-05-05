@@ -16,6 +16,7 @@ if($row['email'] == $name && $row['password'] == $password){
 		// store session data
 		$_SESSION['user_id'] = $row['id'];
 		$_SESSION['user_name'] = $row['email'];
+		$_SESSION['user_email'] = $row['email'];
 		// header(location:'index.php');
 		echo "1";
 	}else {

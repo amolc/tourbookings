@@ -1566,7 +1566,7 @@ text-align: right;
     font-size:24px;
     font-weight:bold;
 	display:block;
-	margin:20px 0px 0px 0px;
+	margin:20px 0px 20px 0px;
 }
 
 .about_us p {
@@ -1582,7 +1582,7 @@ text-align: right;
 }
 .handpicked {
 	width: 953px;
-	height: 100px;
+	/*height: 100px;*/
 	/*width:286px;
 	height:220px;*/
 	margin:0px 50px 20px 0px;
@@ -1593,12 +1593,12 @@ text-align: right;
     font-size:22px;
 	font-weight:bold;
 	display:block;
-	margin:0px 0px 0px 0px;
+	margin:0px 0px 20px 0px;
 }
 .handpicked p {
     font-weight:normal;
 	display:block;
-	margin:2px 0px 0px 0px;
+	margin:2px 0px 20px 0px;
 }
 .handpicked span {
 	color:#fd8900;
@@ -2469,3 +2469,33 @@ padding-right: 10px;
 .header_login input[type="submit"]:hover {
 	background:#fd8900;
 }
+
+
+/*by kamil*/
+.block-cookies li, ul.disc-inside li
+{
+	list-style:disc inside !important;	
+	margin-bottom: 10px;
+}
+
+.no-outside, .alpha-outside
+{
+	padding-left:25px;
+	margin-top:10px;
+	margin-bottom:25px;
+}
+
+.no-outside li
+{
+	list-style:decimal !important;
+	margin-bottom: 10px;	
+}
+
+.alpha-outside li
+{
+	list-style:lower-alpha !important;
+	margin-bottom: 10px;	
+}
+
+
+

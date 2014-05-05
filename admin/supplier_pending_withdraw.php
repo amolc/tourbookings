@@ -34,18 +34,21 @@ else {
 					
 
 			$('.confirm').click(function(){
-					// alert('ok');
+					
 				var id = $( this ).attr('id');
-
-				$.ajax({
+				var supplier_id = $( this ).attr('data');
+				var withdraw_amount = $( this ).attr('data2');
+ // alert(supplier_id);
+ // alert(withdraw_amount);
+				$.ajax({ 
 						type: 'post',
 						url: 'ajax_request_function/ajax_confirm_withdraw.php',
-						data: {id:id},
+						data: {id:id,supplier_id:supplier_id,withdraw_amount:withdraw_amount},
 
 						success: function(mesg) {
 							alert(mesg);
 							location.reload();
-							 // $('#photo_detail').append(mesg);
+							
 
 						}
 
@@ -321,9 +324,9 @@ else {
 			<td>'.$row['amount_withdraw'].'</td>
 			<td>'.$row['type'].'</td>		
 			<td>'.$row['status'].'</td>
-			<td>'.$row['insert_date'].'</td>
+			<td>'.$row['insert_date'].'</td> 
 			<td>
-				<a  style="" id="'.$row['id'].'" class="confirm">
+				<a  style="" id="'.$row['id'].'" data="'.$row['supplier_id'].'" data2="'.$row['amount_withdraw'].'" class="confirm">
 					Confirm
 				</a> 
 			</td>

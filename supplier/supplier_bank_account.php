@@ -179,8 +179,17 @@ $(document).ready(function(){
 							
 						<div class="form-group">
 							<label for="field-1" class="col-sm-3 control-label">Account Type</label>
+								<div class="col-sm-5"><!---<option value="Uncategory">Uncategory</option>-->
+								<select style="width: 60%;" name="account_type"  id="tour_type"  class="form-control" required>
 
-							<div class="col-sm-5">
+									
+									<option value="">Select a Account</option>
+									<option value="Checking">Checking</option>
+									<option value="Savings">Savings</option>
+			
+								</select>
+							</div>
+							<div style="display:none;" class="col-sm-5">
 								<input type="text" data-validate="required"   class="form-control" name="account_type" id="title" placeholder="" required>
 							</div>
 						</div>

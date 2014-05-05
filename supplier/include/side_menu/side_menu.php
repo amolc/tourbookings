@@ -29,7 +29,7 @@
 
 
 	<ul id="main-menu" class="">
-		<li id="search">
+		<li style="display:none;" id="search">
 			<form method="get" action="#">
 				<input type="text" name="q" class="search-input" placeholder="Search something..." />
 				<button type="submit"><i class="entypo-search"></i></button>

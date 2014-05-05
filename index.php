@@ -8,6 +8,22 @@
 <html>
 <head>
 <meta charset="utf-8">
+
+<meta name="keywords" content="vacation tour books" />
+<meta name="keywords" content="online tour booking" />
+<meta name="keywords" content="virtual tour book" />
+<meta name="keywords" content="tour booking software" />
+<meta name="keywords" content="travel tour booking" />
+<meta name="keywords" content="tour booking system" />
+<meta name="keywords" content="tour booking agency" />
+<meta name="keywords" content="package tour booking" />
+<meta name="keywords" content="india tour booking" />
+<meta name="keywords" content="warped tour bookings" />
+<meta name="keywords" content="tour bookings" />
+<meta name="keywords" content="tourbookings" />
+<meta name="keywords" content="bookings" />
+<meta name="keywords" content="tour" />
+
 <title>Tour bookings</title>
 <link href="css/style.css" rel="stylesheet" type="text/css">
 <link href="css/flexslider.css" rel="stylesheet" type="text/css">
@@ -288,7 +304,7 @@ $(document).ready(function(){
                          <img src="images/welcome_pic_1.jpg" width="300" height="169">
 		
 <br> <p style="width:300px;">
-Here at Tour Bookings, every customer is our VIP! There is no need for you to scour the web to search for things to do on your vacation, no need to rummage through the tons of information on the Internet. We have done all of that for you! Everything is made available to your in the comfort of your home, on a single site. 
+Here at Tour Bookings, every customer is our VIP! There is no need for you to scour the web to search for things to do on your vacation, no need to rummage through the tons of information on the Internet. We have done all of that for you! Everything is made available to you in the comfort of your home, on a single site. 
 </p>
 							
 
@@ -414,5 +430,18 @@ if (strlen($string=$row2["overview"]) > 190) {
   <script src="js/jquery.easing.js"></script>
   <script src="js/jquery.mousewheel.js"></script>
   <script defer src="js/demo.js"></script>
+  
+  <!-- Google Analytics-->
+  <script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-50362006-1', 'tourbookings.co');
+  ga('send', 'pageview');
+
+  </script> 
+
 </body>
 </html>

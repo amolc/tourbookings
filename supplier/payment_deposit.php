@@ -128,19 +128,20 @@ $(document).ready(function(){
 			
 			
 				<?php 
-					if($_POST['submit'] == 'submit')
+					if($_POST['Submit'] == 'Submit') 
 					{
 						$amount_deposit = mysql_real_escape_string($_POST['amount_deposit']);
 						$description = mysql_real_escape_string($_POST['description']);
+						$deposit_type = "Bank";
 						$sql3 = mysql_query("SELECT
-							MAX(available_balance) as b
+							available_balance
 							FROM
 							supplier_balance
 							WHERE  supplier_id = '".$supplier_id."'
 							");
 							while ($row = mysql_fetch_array($sql3)) 
 								{
-									$supplier_balance = $row['b'];
+									$supplier_balance = $row['available_balance'];
 								
 								}
 
@@ -149,7 +150,7 @@ $(document).ready(function(){
 								$current_date = date("m/d/Y", $today_date);
 							// echo $total;
 							
-						$sql2   = "insert into supplier_balance(supplier_id,available_balance,amount_deposit,type,currency,description,status,insert_date) values ('$supplier_id','$total','$amount_deposit','deposit','USA Doller','$description','pending','$current_date')";
+						$sql2   = "insert into supplier_balance(supplier_id,available_balance,amount_deposit,type,currency,description,deposit_type,status,insert_date) values ('$supplier_id','$total','$amount_deposit','deposit','USA Doller','$description','$deposit_type','pending','$current_date')";
 							$query = mysql_query($sql2);
 							
 							if($query)
@@ -297,14 +298,14 @@ $(document).ready(function(){
 									$headers  = 'MIME-Version: 1.0' . "\r\n";
 									$headers .= 'Content-type: text/html; charset=iso-8859-1' . "\r\n";
 									$headers .= 'To: '.$email.'' . "\r\n";
-									$headers .= 'From: apache@iamamol.com' . "\r\n";					
+									$headers .= 'From: support@tourbookings.co' . "\r\n";					
 									mail( $to, $subject, $message, $headers );
 								echo "error";
 							}
 										
 
 					}
-					else {
+					// else {
 
 				?>
 				<form   method="post" role="form" id="form1"   novalidate="novalidate" class="form-horizontal validate" enctype="multipart/form-data" action='<?php echo $_SERVER['PHP_SELF'] ;?>'>
@@ -327,12 +328,12 @@ $(document).ready(function(){
 							</div>
 		
 						</div>
-						<input style="margin-left: 750px;margin-top: 10px;" type="submit" name="submit" value="submit" class="btn btn-info ok" />
+						<input style="margin-left: 258px; margin-top: 10px;" type="submit" name="Submit" value="Submit" class="btn btn-info ok" />
 
 
 				</form>
 <?php 
-}
+// }
 
 ?>
 			</div>

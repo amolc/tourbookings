@@ -190,8 +190,8 @@ else
 										// if (strtotime($exp_date) > $now) {
 										if($exp_date < $current_date || $exp_date == $current_date)
 										{
-											// echo "<h2>your payment status shows unpaid now please pay to continue</h2><a href='http://apps.fountaintechies.com/tourbookings/supplier/payment_booking.php'><button>Pay Now</button></a> ";
-											echo "<h2>your payment status shows unpaid now please pay to continue</h2><a href='http://apps.fountaintechies.com/tourbookings/supplier/payment_booking.php'><button>Pay Now</button></a> ";
+											// echo "<h2>Your payment status shows unpaid now please pay to continue</h2><a href='http://apps.fountaintechies.com/tourbookings/supplier/payment_booking.php'><button>Pay Now</button></a> ";
+											echo "<h2 style='font-size:18px; margin-bottom:20px;'>Your payment status shows unpaid now please pay to continue</h2><a href='payment_booking.php'><button>Pay Now</button></a> ";
 										}
 										// else if($status=='active'){
 										else {
@@ -249,7 +249,7 @@ else
 							$today_current_date = mktime(0,0,0,date("m"),date("d"),date("Y"));
 							$insert_date = date("m/d/Y", $today_current_date);
 
-							$sql   = "insert into tour(tour_type,title,overview,hilight,why_this,location_id,city,duration,deparchture_point,deparchture_time,return_detail,inclusions,exclusions,voucher_info,local_operator_info,supplier_id,status,insert_date) values ('$tour_type','$title','$overview','$hilight','$why_this','$country','$city','$duration','$deparchture_point','$deparchture_time','$return_detail','$inclusions','$exclusions','$voucher_info','$local_operator_info','$supplier_id','$status','$insert_date')";
+							$sql   = "insert into tour(tour_type,title,overview,hilight,why_this,location_id,city,duration,deparchture_point,deparchture_time,return_detail,inclusions,exclusions,voucher_info,local_operator_info,supplier_id,status,insert_date) values ('$tour_type','$title','$overview','$hilight','$why_this','$country','$city','$duration','$deparchture_point','$deparchture_time','$return_detail','$inclusions','$exclusions','$voucher_info','$local_operator_info','$supplier_id','pending','$insert_date')";
 							$query = mysql_query($sql);
 							 if($query){
 								// echo "create tour successful";
@@ -262,7 +262,7 @@ else
 									$row = mysql_fetch_row($result);
 
 									$tour_id = $row[0]; 
-								$sql2   = "insert into tour_price(currency_id,tour_id,price_per_person,price_child,price_adult,price_customer_adult,price_customer_child,ishike,commission_rate,insert_date) values ('$currency_id','$tour_id','$price_customer_adult','$price_customer_child','$price_adult','$price_per_person','$price_child','false','$commission_rate','$insert_date')";
+								$sql2   = "insert into tour_price(currency_id,tour_id,price_per_person,price_child,price_adult,price_customer_adult,price_customer_child,ishike,commission_rate,insert_date) values ('$currency_id','$tour_id','$price_customer_adult','$price_customer_child','$price_adult','$price_per_person','$price_child','0','$commission_rate','$insert_date')";
 								$query2 = mysql_query($sql2);
 								 if($query2){
 									echo '<div style="margin-left: 244px;" class="col-md-6"><div class="alert alert-success"><strong>Well done!</strong> Your tour has been created successfully!</div>Click here to see<a style="font-size:20px;" href="show_tour.php"> Tour List</a></div>';
@@ -457,7 +457,7 @@ else
 							<label for="field-1" class="col-sm-3 control-label">City</label>
 
 							<div class="col-sm-5">
-								<input type="text" style="width:35%" class="form-control" name="city" id="city" placeholder="City" required="true">
+								<input type="text" style="width:35%" class="form-control" name="city" id="city" placeholder="City" required>
 							</div>
 						</div>
 						
@@ -621,14 +621,23 @@ else
 								<textarea style="width:600px;height:140px;" class="form-control wysihtml5 voucher_info" name="voucher_info" id="sample_wysiwyg" required></textarea>
 							</div>
 						</div>
-						<div class="form-group">
+						<div style="" class="form-group">
 							<label for="field-ta" class="col-sm-3 control-label">Local operator information</label>
 
 							<!--<div class="col-sm-5">
 								<textarea style="width:600px;height:140px;" class="form-control autogrow" id="local_operator_info" placeholder="Local operator information"></textarea>
 							</div>-->
 							<div class="form-group" style="width: 572px;margin-left: 272px;">
-								<textarea style="width:600px;height:140px;" class="form-control wysihtml5 local_operator_info" name="local_operator_info" id="sample_wysiwyg" required></textarea>
+								<!--<textarea style="display:none;width:600px;height:140px;" class="form-control wysihtml5 local_operator_info" name="local_operator_info" id="sample_wysiwyg" required></textarea>-->
+								<div style="width: 100px;padding: 5px;float:left">Company</div>
+								<div style="padding: 5px;float:left">Fountain Technologies </div>
+								<div style="clear:both;"></div>
+								<div style="width: 100px;padding: 5px;float:left">Address</div>
+								<div style="padding: 5px;float:left">1 Raffles Place #44-02 One Raffles Place Tower One Singapore 048 616</div>
+								<div style="clear:both;"></div>
+								<div style="width: 100px;padding: 5px;float:left">Contact Number</div>	<div style="padding: 5px;float:left">+65 8606 5620</div>
+								
+								<div style="clear:both;"></div>
 							</div>
 						</div>
 						<span style="padding-left: 450px;font-size: 14px;" class="success_mesg"></span>

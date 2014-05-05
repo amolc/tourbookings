@@ -21,37 +21,32 @@
                 
                 	<div class="body_content fl">
                     	<div class="about_us">
-                       	  <h1>Who are we?</h1>
-                          <p>Our team of dedicated staff has worked long and hard to bring you the best possible deals on the site so what are you worried about? We even have a lowest prices guaranteed policy that will cover whatever you have paid in excess!</p>
+                       	  <h1>About Us</h1>
+
                         </div>
                         
                    	  <div class="about_us_category border fl">
-                          <div class="handpicked fl">
-                            <h1>VIPs</h1>
-                           <!-- <span>Tours & Activities</span>-->
-							<p>Here at Tour Bookings, each and everyone of you are treated as our VIP! Skip the long queues, have a chauffeur bring you around, dine on exquisite local delicacies in the opulence of he best diners around!</p>
-						</div>
+                      
+                      
                         <div class="handpicked fl">
-                            <h1> Lowest Prices Around</h1>
-                            <!--<span>Reviews & Photos</span>-->
-                           <p>Do not bother finding others sites cause there is no other that is better, we have the best deals at the lowest prices you can find. Through our close relationship with our vast network of suppliers, we are able to bring to you the best of the best. We do the comparisons, all you have to do is pick which ones you one cause they are all the cheapest you can find.</p>
-                          </div>
-                          <div class="handpicked mrgn fl">
-                            <h1>Your Personal Concierge</h1>
-                           <!-- <span>Access</span>-->
-                            <p>Have trouble booking your tour? Can’t find the information you require? Or are you in need of a long vacation but too busy to do the planning? Drop us an email or a call and we will answer all your queries! What more do you need?</p>
-                          </div>
-                          <div class="handpicked  fl" style="margin-top:12px;">
-                            <h1>Convenience</h1>
-                            <!--<span>Guaranteed</span>-->
-                              <p>There is no need for you to browse through tons of data on the web to find what is fun or can be done, we have all the tours that you can find on here! Everything is conveniently consolidated unto our page and made accessible to you whenever and wherever you want.</p>
-                          </div>
-                          <div class="handpicked mrgn  fl">
-                            <h1>Reviews</h1>
-                           <!-- <span>Anywhere, Anytime</span>-->
-                              <p>Here at Tour Bookings, we have nothing to hide. Our travellers are able to post the experience they had for the tours that they have taken with us and rate the tours as well! We also have photo submissions to prove that we are not the ones writing these reviews!</p>
-                          </div>
+                        <h1>What We Do?</h1>
+                          <p>Tourbookings specializes in adventure holidays and city attractions. From diving in Indonesia, trekking in India,to Universal Studios in Singapore,  we offer a diverse range of acitivites for everyone.Through our website, Tourbookings.co, travelers from everywhere can research and book their activities online.</p>
 
+                        <p>Currently, we primarily operate in Singapore, Hong Kong, India, Indonesia, Malaysia and the Philippines. We are expanding into Thailand, Vietnam and Cambodia, and already have some tours avaialable in those countries!</p>
+                        </div>
+                        
+                        <div class="handpicked fl">
+                        <h1>Our Goal</h1>
+                        <p>Our aim is to provide quality tours and attractions that allows youto experience more from your holidays! By going on tailor made tours or city attractions, travelereswill be able to truly experience a city and what it has to offer without the trouble of having to go on multiple websites or read a bunch of different magazies. We offer a simple and easy way to research, book and enjoy your vacation like you never have before!	</p>
+                        </div>
+                        
+                        <div class="handpicked fl">
+                        <h1>Why Tourbookings?</h1>
+                        <p>We, at Tourbookings, provide only the best tours and attractions that a city has to offer. Well researched and planned, we proved our customers only the best!</p>
+                        <p>To make your stay even more enjoyable, we offer transfer services to and from the airport, your tour and even your attraction!</p>
+                        <p>To ensure the best service possible, we have a 24/7 customer service line ready to help you, whenever you need it.</p>
+                        
+                        </div>
                       </div>
                 	</div>
                 	  <?php include('footer.php'); ?>

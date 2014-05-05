@@ -285,7 +285,7 @@ else {
 			<th>Supplier ID</th>
 			<th>Available Balance</th>
 			<th>Amount Deposit</th>
-			
+			<th>Deposit Type</th>
 			<th>Insert Date</th>
 			<th>Action</th>
 		</tr>
@@ -299,6 +299,7 @@ else {
 									supplier_id,
 									available_balance,
 									amount_deposit,
+									deposit_type,
 									type,
 									status,
 									insert_date
@@ -319,6 +320,7 @@ else {
 			<td>'.$row['supplier_id'].'</td>
 			<td>'.$row['available_balance'].'</td>
 			<td>'.$row['amount_deposit'].'</td>
+			<td>'.$row['deposit_type'].'</td>
 			
 			<td>'.$row['insert_date'].'</td>
 			<td>
@@ -339,6 +341,7 @@ else {
 			<th>Supplier ID</th>
 			<th>Available Balance</th>
 			<th>Amount Deposit</th>
+			<th>Deposit Type</th>
 			<th>Insert Date</th>
 			<th>Action</th>
 		</tr>

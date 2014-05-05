@@ -11,14 +11,11 @@ if(isset($_REQUEST['submit'])){
 $supplier_id = $_SESSION['supplier_id'];
  $pass = $_REQUEST['pass'];
  $old_pass = $_REQUEST['old_pass'];
- $email = $_REQUEST['email'];
- $phone = $_REQUEST['phone'];
- $street_address = $_REQUEST['street_address'];
  //echo $supplier_id;
 // echo "<br>$old_pass ";exit;
  $res = mysql_query("select * from supplier where id='$supplier_id' and password='$old_pass'") or die(mysql_error());
  if(mysql_num_rows($res)>0){
- mysql_query("update supplier set password='$pass' ,email='$email',phone='$phone',street_address='$street_address' where id='$supplier_id'") or die(mysql_error());
+ mysql_query("update supplier set password='$pass' where id='$supplier_id'") or die(mysql_error());
  header("Location:changepassword.php?set=ok");
  }
  else
@@ -78,6 +75,11 @@ padding:10px;
 {
 color:#cc0000;
 font-size:12px;
+}
+
+#contact_detail:hover {
+background: #373E4A;
+color: #FFF;
 }
 
 </style>
@@ -163,19 +165,31 @@ echo '<h2 style="color:red;">Old password doesnot match </h2>';
 if(isset($_REQUEST['set'])){
 echo '<h2 style="color:green;">Password changed ! </h2>';
 } 
+
+ $result = mysql_query("select * from supplier where id='$supplier_id'") or die(mysql_error());
+ while ($fetch_row = mysql_fetch_array($result))
+ {
+	$sup_address = $fetch_row['street_address'];
+	$sup_phone = $fetch_row['phone'];
+	$sup_email = $fetch_row['email'];
+ }
 ?>
 			<h2>Account Detail</h2>
 			<br />
 
 <div class="row">
-	<div class="col-md-12">
+	<div class="col-md-12"> 
 
 		<div class="panel panel-primary" data-collapsed="0">
 
 			<div class="panel-heading">
-				<div class="panel-title">
-					Change Password
+				<div style="padding-right: 0;" class="panel-title">
+					<a id="change_password" style="background: #373E4A;padding: 11px;color: #FFF;" href="changepassword.php">Change Password</a>
 				</div>
+				<div style="padding-left: 1px;" class="panel-title">
+					<a id="contact_detail" style="padding: 11px;" href="change_contact_detail.php">Change Contact Detail</a>
+				</div>
+
 
 				<div class="panel-options">
 					<a href="#sample-modal" data-toggle="modal" data-target="#sample-modal-dialog-1" class="bg"><i class="entypo-cog"></i></a>
@@ -191,28 +205,9 @@ echo '<h2 style="color:green;">Password changed ! </h2>';
 
 			
 				<form   method="post" role="form" id="form1"   novalidate="novalidate" class="form-horizontal validate" enctype="multipart/form-data" action=''>
+					
+
 						<div class="form-group">
-							<label for="field-1" class="col-sm-3 control-label">Email</label>
-
-							<div class="col-sm-5">
-								<input type="email" style="width:45%" class="form-control" id="email" name="email" placeholder="Email">
-							</div>
-							<div class="old_error" style="color:red;"></div>
-						</div><div class="form-group">
-							<label for="field-1" class="col-sm-3 control-label">Phone</label>
-
-							<div class="col-sm-5">
-								<input type="text" style="width:45%" class="form-control" id="phone" name="phone" placeholder="Phone">
-							</div>
-							<div class="old_error" style="color:red;"></div>
-						</div><div class="form-group">
-							<label for="field-1" class="col-sm-3 control-label">Address</label>
-
-							<div class="col-sm-5">
-								<input type="text" style="width:45%" class="form-control" id="street_address" name="street_address" placeholder="Address">
-							</div>
-							<div class="old_error" style="color:red;"></div>
-						</div><div class="form-group">
 							<label for="field-1" class="col-sm-3 control-label">Old Password</label>
 
 							<div class="col-sm-5">
@@ -241,8 +236,8 @@ echo '<h2 style="color:green;">Password changed ! </h2>';
                                   <input name="show_pass" id="show_pass" type="checkbox">	
                               </div>
 						
-						<span style="padding-left: 375px;font-size: 14px;" class="success_mesg"></span>
-						<input style="margin-left: 0px;margin-top: 10px;" type="submit" name="submit" value="submit" class="btn btn-info ok" />
+						<span style="padding-left: 258px;font-size: 14px;" class="success_mesg"></span>
+						<input style="margin-left: 0px;margin-top: 10px;" type="submit" name="submit" value="Submit" class="btn btn-info ok" />
 
 
 				</form>

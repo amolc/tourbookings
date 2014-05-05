@@ -108,7 +108,10 @@ $last_name = mysql_real_escape_string($_POST['last_name']);
 
 $password = mysql_real_escape_string($_POST['password']);
 $gender = mysql_real_escape_string($_POST['gender']);
-$age = mysql_real_escape_string($_POST['age']);
+$day = mysql_real_escape_string($_POST['day']);
+$month = mysql_real_escape_string($_POST['month']);
+$year = mysql_real_escape_string($_POST['year']);
+$age = $day."/".$month."/".$year;
 $country = mysql_real_escape_string($_POST['country']);
 $city = mysql_real_escape_string($_POST['city']);
 $address = mysql_real_escape_string($_POST['address']);
@@ -176,16 +179,26 @@ $message = '<!doctype html>
 														</div>
 														<div style="width:100%; float:left;">
 															
-															<h1 style="width:100%; float:left; margin:0px; padding:0px; line-height:75px; font-family:Arial, Helvetica, sans-serif; font-size:20px; color:#fd8900; font-weight:bold; display:block;">User Information</h1>
+															<h1 style="width:100%; float:left; margin:0px; padding:0px; line-height:75px; font-family:Arial, Helvetica, sans-serif; font-size:20px; color:#fd8900; font-weight:bold; display:block;">User Details</h1>
 															
-															<p style="width:100%; float:left; margin:0px 0px 15px 0px; padding:0px; font-family:Arial, Helvetica, sans-serif; font-size:14px; color:#323232; font-weight:normal; display:block;">User Name: <a href="#" style="text-decoration:none; color:#fd8900; font-family:Arial, Helvetica, sans-serif;">'.$first_name.' '.$last_name.'</a></p>
+															<p style="width:100%; float:left; margin:0px 0px 15px 0px; padding:0px; font-family:Arial, Helvetica, sans-serif; font-size:14px; color:#323232; font-weight:normal; display:block;">Username: <a href="#" style="text-decoration:none; color:#fd8900; font-family:Arial, Helvetica, sans-serif;">'.$email.'</a></p>
 															
-															<p style="width:100%; float:left; margin:0px 0px 45px 0px; padding:0px; font-family:Arial, Helvetica, sans-serif; font-size:14px; color:#323232; font-weight:normal; display:block;">User Email: <a href="#" style="text-decoration:none; color:#fd8900; font-family:Arial, Helvetica, sans-serif;">'.$email.'</a></p>
+															<p style="width:100%; float:left; margin:0px 0px 45px 0px; padding:0px; font-family:Arial, Helvetica, sans-serif; font-size:14px; color:#323232; font-weight:normal; display:block;">Password: <a href="#" style="text-decoration:none; color:#fd8900; font-family:Arial, Helvetica, sans-serif;">'.$password.'</a></p>
+															
+											<p style="width:100%; float:left; margin:0px 0px 20px 0px; padding:0px; font-family:Arial, Helvetica, sans-serif; font-size:14px; color:#323232; font-weight:normal; display:block;">Best Wishes, <br /> The Tourbooking Teams</p>
+<br>
+<br>
+										
+											<p style="width:100%; float:left; margin:0px 0px 45px 0px; padding:0px; font-family:Arial, Helvetica, sans-serif; font-size:14px; color:#323232; font-weight:normal; display:block;">If you are searching for your next vacation, try using our marketplace. Simply log in to your account, fill up where you want to go and what you want to do, then send it. Our vast network of suppliers will send you offers based on what you want and then you can select the one you like best!</p>															
 															
 														</div>
 													</div>
 												</div>
 											</div>
+											
+											
+
+											
 											
 											<div style="width:90%; float:left; padding:0px 30px 25px 30px;">
 											<div style="width:100%; float:left; padding:25px 0px; border-bottom:#cecece solid 1px; font-family:Arial, Helvetica, sans-serif; color:#323232; font-size:14px;">Here at Tour Bookings, every customer is our VIP! There is no need for you to scour the web to search for things to do on your vacation, no need to rummage through the tons of information on the Internet.</div>
@@ -345,9 +358,9 @@ body { margin:0px; padding:0px;}
                 <p style="float:left; width:400px;padding:0px 20px; font-family:Arial, Helvetica, sans-serif; color:#727172; font-size:14px; line-height:20px; margin-bottom:80px;">
 					A new user successfully registerd with folowwing details - 
 				</p>
-				<p>User Information :</p>
-				<p>User Name:'.$first_name.'&nbsp'.$last_name.'</p>
-				<p>User Email: '.$email.'</p>
+				<p style="padding:0px 20px;">User Details :</p>
+				<p style="padding:0px 20px;">Name: '.$first_name.' '.$last_name.'</p>
+				<p style="padding:0px 20px;">Email: '.$email.'</p>
 								
             </div>
             

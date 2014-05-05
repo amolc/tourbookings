@@ -145,7 +145,7 @@ $(document).ready(function(){
 
 		</li>
 		<li>
-			<a href=""><i class="entypo-layout"></i><span>Booking</span></a>
+			<a href=""><i class="entypo-layout"></i><span>B2C Booking</span></a>
 			<ul>
 			<!--	<li>
 					<a href="today_booking.php"><span>Today's Booking</span></a>
@@ -165,7 +165,7 @@ $(document).ready(function(){
 			</ul>
 		</li>
 		<li>
-			<a href=""><i class="entypo-layout"></i><span> Supplier Booking</span></a>
+			<a href=""><i class="entypo-layout"></i><span>B2B Booking</span></a>
 			<ul>	
 				<!--<li>
 					<a href="today_booking.php"><span>Today's Booking</span></a>
@@ -186,10 +186,16 @@ $(document).ready(function(){
 			<a href=""><i class="entypo-layout"></i><span>Account</span></a>
 				<ul>
 					<li>
+						<a href="../../../supplier/my_balance.php"><span>My Transactions</span></a>
+					</li>
+					<li>
 						<a href="../../../supplier/payment_due.php"><span>My Earnings</span></a>
 					</li>
 					<li>
 						<a href="../../../supplier/payment_deposit.php"><span>Deposit</span></a>
+					</li>
+					<li>
+						<a href="../../../supplier/cc_paypal_payment_deposit.php"><span>CreditCard/ Paypal Deposit</span></a>
 					</li>
 					<li>
 						<a href="../../../supplier/withdraw.php"><span>Withdraw</span></a>
@@ -198,8 +204,9 @@ $(document).ready(function(){
 						<a href="../../../supplier/account_list.php"><span>Bank Account</span></a>
 					</li>
 					<li>
-						<a href="../../../supplier/my_balance.php"><span>My Transaction</span></a>
+						<a href="../../../supplier/changepassword.php"><span>Account Details</span></a>
 					</li>
+					
 				</ul>
 
 		</li>
@@ -827,39 +834,43 @@ $payment->setIntent("sale")
 try {
 	$payment->create($apiContext);
 } catch (PayPal\Exception\PPConnectionException $ex) {
-	echo "Exception: " . $ex->getMessage() . PHP_EOL;
-	var_dump($ex->getData());
-	exit(1);
+	// echo "Exception: " . $ex->getMessage() . PHP_EOL;
+	// var_dump($ex->getData());
+	// exit(1);
+	echo "Oops ! Something went wrong. please  Back  to navigate to the page you have previously come";
 }
 
 
-		echo $payment->getId();
+		
 
 	 // var_dump($payment->toArray());
 
 
 					if($payment->getId()) 
 					{
+						$deposit_key = $payment->getId();
 						$amount_deposit = mysql_real_escape_string($_POST['amount_deposit']);
 						$description = mysql_real_escape_string($_POST['description']);
 						$sql3 = mysql_query("SELECT
-							MAX(available_balance) as b
+							available_balance
 							FROM
 							supplier_balance
 							WHERE  supplier_id = '".$supplier_id."'
 							");
 							while ($row = mysql_fetch_array($sql3)) 
 								{
-									$supplier_balance = $row['b'];
+									$supplier_balance = $row['available_balance'];
 								
 								}
 
 								$total = $amount_deposit + $supplier_balance;
 									$today_date = mktime(0,0,0,date("m"),date("d"),date("Y"));
 								$current_date = date("m/d/Y", $today_date);
+								$deposit_type = "credit card";
+								
 							// echo $total;
 							
-						$sql2   = "insert into supplier_balance(supplier_id,available_balance,amount_deposit,type,currency,description,status,insert_date) values ('$supplier_id','$total','$amount_deposit','deposit','USA Doller','$description','pending','$current_date')";
+						$sql2   = "insert into supplier_balance(supplier_id,available_balance,amount_deposit,type,currency,description,deposit_type,deposit_key,status,insert_date) values ('$supplier_id','$total','$amount_deposit','deposit','USA Doller','$description','$deposit_type','$deposit_key','pending','$current_date')";
 							$query = mysql_query($sql2);
 							
 							if($query)
@@ -915,10 +926,10 @@ try {
 									$headers  = 'MIME-Version: 1.0' . "\r\n";
 									$headers .= 'Content-type: text/html; charset=iso-8859-1' . "\r\n";
 									$headers .= 'To: '.$email.'' . "\r\n";
-									$headers .= 'From: apache@iamamol.com' . "\r\n";					
+									$headers .= 'From: admin@tourbookings.co' . "\r\n";					
 									mail( $to, $subject, $message, $headers );
 					
-								echo "Successful Deposit";
+								echo "Deposit Successful Your Deposit Key is ".$payment->getId();
 							}
 							else {
 							$supplier_result = mysql_query("select * from supplier where id ='".$supplier_id."'");
@@ -938,7 +949,7 @@ try {
 									<style>
 									body { margin:0px; padding:0px;}
 									</style>
-									</head>
+									</head> 
 
 									<body>
 									 <div style="width:500px; min-height:450px; margin:0 auto; background:#e2e2e2;">
@@ -973,15 +984,15 @@ try {
 									$headers  = 'MIME-Version: 1.0' . "\r\n";
 									$headers .= 'Content-type: text/html; charset=iso-8859-1' . "\r\n";
 									$headers .= 'To: '.$email.'' . "\r\n";
-									$headers .= 'From: apache@iamamol.com' . "\r\n";					
+									$headers .= 'From: admin@tourbookings.co' . "\r\n";					
 									mail( $to, $subject, $message, $headers );
-								echo "error";
+								// echo "error";
 							}
 										
 					}
 					else 
 					{
-						echo"payment deposit error";
+						// echo"payment deposit error";
 					}
 			
 

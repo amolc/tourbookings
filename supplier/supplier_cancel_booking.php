@@ -69,8 +69,8 @@ else {
 
 			});	
 
-			$('.cancel').click(function(){
-					// alert('ok');
+			/*$('.cancel').click(function(){
+				
 				var tour_id = $( this ).attr('id');
 
 				$.ajax({
@@ -80,13 +80,13 @@ else {
 
 						success: function(mesg) {
 							alert(mesg);
-							 // $('#photo_detail').append(mesg);
+							
 
 						}
 
 				});
 
-			});
+			});*/
 			
 			
 		});
@@ -397,10 +397,7 @@ else {
 			<td>
 				<a  style="" id="'.$row['id'].'" class="confirm">
 					Confirm
-				</a>   /  
-				<a style="color: red;" id="'.$row['id'].'" class="cancel">
-					Cancel
-				</a>
+				</a>  
 			</td>
 			<td>				
 				<a id="'.$row['id'].'" class="delete_tour_list">

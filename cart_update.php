@@ -247,7 +247,7 @@ $(".adult").keyup(function(){
 								$total = 0;
 								$total_ad = 0;
 								$total_ch = 0;
-								echo '<form method="post" action="payment.php">';
+								echo '<form method="post" action="payment.php?chk=true">';
 								foreach ($_SESSION["products"] as $cart_itm)
 								{
 								
@@ -325,7 +325,7 @@ $(".adult").keyup(function(){
                     // </div> <div style="clear:both;"></div>';
 					
 						$subtotal = ($cart_itm["price"]*$cart_itm["qty"]);
-									$total = ($total + $subtotal);
+									$total = ($total + $cart_itm["price"]);
 
 						// $subtota_qty = $cart_itm["qty"];
 									If($total_ad < $cart_itm['ad'] )

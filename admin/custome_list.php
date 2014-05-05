@@ -82,11 +82,11 @@
 			<th>ID</th>
 			<th>User Name</th>
 			<th>Gender</th>
-			<th>Age</th>
+			<th>Birthday</th>
 			<th>Country</th>
 			<th>City</th>
-			<th>Address</th>
-			<th>Phone</th>
+			<!--<th>Address</th>
+			<th>Phone</th>-->
 			<th>Email</th>
 			<th>Delete</th>
 		</tr>
@@ -107,8 +107,6 @@
 			<td>'.$row['age'].'</td>
 			<td>'.$row['country'].'</td>
 			<td>'.$row['city'].'</td>
-			<td>'.$row['address'].'</td>
-			<td>'.$row['phone'].'</td>
 			<td>'.$row['email'].'</td>
 			<td>				
 				<a href="#" class=" delete_user btn btn-danger btn-sm btn-icon icon-left">
@@ -127,12 +125,11 @@
 	<tfoot>
 		<tr>
 			<th>ID</th>
+			<th>User Name</th>
 			<th>Gender</th>
-			<th>Age</th>
+			<th>Birthday</th>
 			<th>Country</th>
 			<th>City</th>
-			<th>Address</th>
-			<th>Phone</th>
 			<th>Email</th>
 			<th>Delete</th>
 		</tr>
