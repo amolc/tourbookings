@@ -98,10 +98,10 @@
 						?>
 							<!--<li><a href="contact_us.php">Contact&nbsp;Us</a></li>-->
 							
-							<li><a href="<?php echo SITE_URL; ?>/index.php">Suppiler</a></li>
-							<li><a>|</a></li>
+							<li><a href="supplier/index.php">Suppiler</a></li>
+							
 
-							<li><a href="<?php echo SITE_URL; ?>/user_login.php">Customer</a></li>
+							<li><a href="user_login.php">Customer</a></li>
 							
 							<!--<li><a href="help.php">Help</a></li>-->
 						<?php
