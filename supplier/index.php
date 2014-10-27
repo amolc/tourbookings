@@ -132,7 +132,7 @@ $(document).ready(function(){
             </div>
     	</div> 
 			
-        	<div class="banner fl"><img src="../images/partner_signup_banner.jpg" class="fl" alt="" width="1002" height="240"></div>
+        	<div class="banner fl">
             	<div class="center_body fl">
                 
                 	<div class="body_content fl">
