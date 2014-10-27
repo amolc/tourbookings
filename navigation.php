@@ -98,17 +98,16 @@
 						?>
 							<!--<li><a href="contact_us.php">Contact&nbsp;Us</a></li>-->
 							
-							<li><a href="<?php echo SITE_URL; ?>/user_registeration_form.php">Sign Up</a></li>
-							<li><a href="<?php echo SITE_URL; ?>/user_login.php">Login</a></li>
-							<li><a href="<?php echo SITE_URL; ?>/cart_update.php">My Cart</a></li>
-                                                         <li><a href="<?php echo SITE_URL; ?>/blog_view.php">Blog</a></li>
+							<li><a href="<?php echo SITE_URL; ?>/index.php">Suppiler</a></li>
+							<li><a>|</a></li>
+
+							<li><a href="<?php echo SITE_URL; ?>/user_login.php">Customer</a></li>
+							
 							<!--<li><a href="help.php">Help</a></li>-->
 						<?php
 
 						}
 					?>
                 </ul> 
-                  <div class="wish_list">
-                      <a href="#">0</a>
-                  </div>
+                  
               </div>
