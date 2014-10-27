@@ -203,7 +203,7 @@ textarea:focus, input[type="text"]:focus, input[type="checkbox"]:focus, input[ty
 .top_nav {
 	/*width:335px;*/
 	position:relative;
-	
+	float: right;
 }
 .top_nav ul {
 	float:left;
@@ -250,7 +250,7 @@ textarea:focus, input[type="text"]:focus, input[type="checkbox"]:focus, input[ty
 	border-right: solid 1px #cbcbcb;
 }
 .logo {
-	margin:14px 0px 0px 20px;
+	margin:14px 0px 0px 45px;
 	width:256px !important;
 	overflow:visible !important;
 }
@@ -2325,7 +2325,7 @@ padding-right: 10px;
 }
 .convenience {
 	widows:370px;
-	margin:25px 0px 50px 0px;
+	margin:25px 0px 50px 75px;
 }
 .convenience h1 {
 	float:left;
@@ -2353,8 +2353,8 @@ padding-right: 10px;
 	width:553px;
 	height:690px;
 	margin-bottom:-25px;
-	background:#f9f9f9;
-	border-left: #eaeaea solid 1px;
+	/*background:#f9f9f9;
+	border-left: #eaeaea solid 1px;*/
 }
 
 .partner_form {
@@ -2475,8 +2475,14 @@ padding-right: 10px;
 /************** Partner Landing Page By Bilal **************/
 
 .header_login {
-   
-    /*width: 655px;*/
+margin-left: 20px;
+width: 385px;
+height: 210px;
+/* padding: 20px; */
+padding-top: 40px;
+padding-left: 13px;
+background: background-color: #f9f9f9;
+background-color: #f9f9f9;
 }
 .header_login label {
     display: block;
@@ -2494,7 +2500,7 @@ padding-right: 10px;
     display: block;
     /*float: left;*/
     height: 30px;
-    margin-bottom: 15px;
+    margin-bottom: 20px;
     padding: 0 5px;
     width: 242px;
 
@@ -2516,7 +2522,7 @@ padding-right: 10px;
     font-weight: normal;
     height: 32px;
     line-height: 32px;
-   margin: 15px 0 10px 90px;
+   margin:25px 0 10px 49px;
     opacity: 0.9;
     text-align: center;
     text-decoration: none;

@@ -112,34 +112,70 @@ $(document).ready(function(){
     	  <div class="header_top fl">
     	    <?php include('../navigation.php'); ?>
   	    </div>
+
+
     	  <div class="header_logo fl">
            	<div class="logo fl" style="margin-top:7px;">
             <a href="../index.php"><img src="../images/tourbooking_logo.png" width="256" height="105"></a>
-</div>      
+			</div>      
             
-            </div>
-    	</div> 
-			
-        	<div class="banner fl">
-            	<div class="center_body fl">
+           </div>
 
-                
-                	<div class="body_content fl">
-                   	  <div class="left_colm fl">
-                   	  <div class="header_login fr">
+
+
+    	</div>   	
+  		<div class="banner fl">
+            		<div class="center_body fl">
+
+                    <div class="body_content fl">
+                   	<div class="left_colm fl">
+                   	<div class="header_login fr">
             
             <!--<form action="" method="post" >-->
                 <label>* Username:</label>
 				<input id="username" type="text" name="username">
                
                 <label>* Password:</label>
-				<input style="margin-bottom:0px;" id="password" type="password" name="password">
-				 <input type="submit" name="button" id="Login" value="Login">
+                <div style="margin-left: 42px;">
+					<input style="margin-bottom:0px;" id="password" type="password" name="password">
+					 <input type="submit" name="button" id="Login" value="Login">
 					<div class="mesg" style="font-weight: bold;color: #F00;float: left; margin-left: 90px;width: 434px;"></div> 
-                <a href="forgot_password.php" style=" margin: 0px 22px 0px 8px;">Forgot Password</a>
+					<a href="signup.php"><input type="submit" name="button" id="signup" value="signup"></a>
+	                
+	                <div><a href="forgot_password.php" style=" margin: 0px 22px 0px 47px;">Forgot Password</a></div>
+	            </div>
            <!-- </form>-->
-            </div>
-                        	<div class="convenience fl">
+          
+                    <!--     	<div class="convenience fl">
+                            	<span class="fl"><img src="../images/convenience_icon.png" alt="" width="45" height="45"></span>
+                              <h1>CONVENIENCE</h1>
+                                <p>Everything is available at the click of the button. No need to go scurrying about to find an operator foractivities to fill your tour or to promote your own.</p>
+                        </div>
+                          <div class="convenience fl">
+                            	<span class="fl"><img src="../images/rates_icon.png" alt="" width="45" height="45"></span>
+                            <h1>COMPETITIVE RATES</h1>
+                                <p>We bring you competitive rates that you will not get elsewhere.</p>
+                        </div>
+                          <div class="convenience fl">
+                            	<span class="fl"><img src="../images/saas_icon.png" alt="" width="52" height="45"></span>
+                            <h1>SAAS</h1>
+                                <p>Use the application for just a monthly fee. Competitive and easy.</p>
+                        </div>
+                          <div class="convenience fl">
+                            	<span class="fl"><img src="../images/contact_icon.png" alt="" width="45" height="45"></span>
+                            <h1>CONTACT US</h1>
+                                <p><a href="index.php">Tourbookings.co</a><br>
+                                  <a href="mailto:support@tourbookings.co">support@tourbookings.co</a><br>
+                                  10th Floor, Collective Works,<br>
+                                  100 Cecil Street, <br>
+                            Singapore - 069532 </p>
+                        </div> -->
+                     </div>     
+                      </div>
+                        <!-- <form action="<?php $_SERVER["PHP_SELF"]; ?>" method="post">  -->
+							<div style="height: auto;" class="right_colm fr">
+
+							<div class="convenience fl">
                             	<span class="fl"><img src="../images/convenience_icon.png" alt="" width="45" height="45"></span>
                               <h1>CONVENIENCE</h1>
                                 <p>Everything is available at the click of the button. No need to go scurrying about to find an operator foractivities to fill your tour or to promote your own.</p>
@@ -163,11 +199,7 @@ $(document).ready(function(){
                                   100 Cecil Street, <br>
                             Singapore - 069532 </p>
                         </div>
-                          
-                      </div>
-                        <form action="<?php $_SERVER["PHP_SELF"]; ?>" method="post"> 
-							<div style="height: auto;" class="right_colm fr">
-							  <div class="partner_form fl">
+							 <!--  <div class="partner_form fl">
 								<h1>Join Us as a partner</h1>
 								<?php
 									error_reporting(0);
@@ -1016,11 +1048,12 @@ $(document).ready(function(){
 									
 							  </div>
 							</div>
-                        </form>
+                        </form>  -->
                 	</div>
                 	<?php include('../footer.php'); ?>
             	</div>
       <div style="clear:both"></div>
+
    </div>
    
    <!-- Google Analytics-->
