@@ -159,7 +159,7 @@ session_start();
 			<td>'.$row['id'].'</td>
 			<td>'.$row['title'].'</td>
 			<td>'.$row['location_id'].'</td>
-			<td><a href="tour_iamges_upload.php?tour_id='.$row['id'].'"><img class="preview" alt="No Image Available" title="click to upload image" width="100px" src="uploads/'.$no_pic.'"/></a></td>
+			<td><a href="tour_images_upload.php?tour_id='.$row['id'].'"><img class="preview" alt="No Image Available" title="click to upload image" width="100px" src="uploads/tour_logo/'.$no_pic.'"/></a></td>
 			<td>'.$row['duration'].' </td>
 			<td>'.ucfirst($row['status']).'</td> 
 			<td><a href="supplier_tour_bookings.php?tour_id='.$row['id'].'">Bookings</a></td>

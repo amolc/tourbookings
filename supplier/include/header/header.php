@@ -8,8 +8,6 @@
  // $notification = mysql_num_rows($res) or die (mysql_error());
  //echo "total ".$notification;
 // }
-session_start();
- include('../include/database/db.php');
 if(isset($_SESSION['supplier_id'])){
  $supplier_id = $_SESSION['supplier_id'];
 }

@@ -20931,4 +20931,37 @@ filter: alpha(opacity=90);
 	-o-box-shadow:0px 0px 3px #d1d1d1;
 }
 
+/* by ray */
 
+.btn-upload{
+    position: relative;
+    overflow: hidden;
+    background-color: #323232;
+    cursor: pointer;
+    width: 70px;
+    margin-left: 15px;
+    margin-right: 10px;
+    padding: 10px 15px;
+    border-radius: 3px;
+}
+
+.btn-upload input[type=file]{
+    position: absolute;
+    top: 0;
+    right: 0;
+    min-width: 100%;
+    min-height: 100%;
+    font-size: 15px;
+    text-align: right;
+    filter: alpha(opacity=0);
+    opacity: 0;
+    outline: none;
+    background: white;
+    cursor: inherit;
+    display: block;
+    
+}
+
+#display_logo_name{
+    margin-top: 10px;
+}

@@ -15,14 +15,14 @@
 		
 		// alert(name);
 		// alert(admin_pass); 
-		$('#Login').click(function(){
-			var name = $('#username').val();
+		$('#Login').bind('click','keypress',function(){
+			var username = $('#username').val();
 			var password = $('#password').val();
 			
 			$.ajax({
 					type: 'post',
 					url: 'ajax_request_function/ajax_login.php',
-					data: {name:name,password:password},
+					data: {username:username,password:password},
 					
 					success: function(mesg) {
 					if(mesg =='1'){
@@ -183,7 +183,8 @@ $(document).ready(function(){
 												$last_name = mysql_real_escape_string($_POST['last_name']);
 												$phone = mysql_real_escape_string($_POST['phone']);
 												$email = mysql_real_escape_string($_POST['email']);
-
+                                                                                                
+                                                                                                $username = mysql_real_escape_string($_POST['username']);
 												$password = mysql_real_escape_string($_POST['password']);
 												$company_name = mysql_real_escape_string($_POST['company_name']);
 												$web_address = mysql_real_escape_string($_POST['web_address']);
@@ -207,7 +208,7 @@ $(document).ready(function(){
 												$language = mysql_real_escape_string($_POST['language']);
 										  
 												if($first_name == ""	|| $last_name == "" ||	$phone == "" ||
-													$email == ""		|| $password == "" ||	$company_name == ""	||
+													$email == ""    || $username == "" || $password == "" ||	$company_name == ""	||
 													$web_address == ""	|| 	$country == ""	|| $state == ""		||											
 													$city == ""	||	$street_address == "" ||	$business_type == ""||
 													$postcode == ""  ||  $currency == ""	|| $tour_product_description == "" ||
@@ -221,10 +222,10 @@ $(document).ready(function(){
 												
 												
 										
-													$sql   = "insert into supplier(first_name,last_name,phone,email,password,company_name,
+													$sql   = "insert into supplier(user_name,first_name,last_name,phone,email,password,company_name,
 															web_address,business_type,street_address,city,state,postcode,
 															country,tour_product_description,tour_product_country,currency,language,year_founded,staff,office_timing,emergency_no,local_trip_date)
-															values ('$first_name','$last_name','$phone','$email','$password','$company_name','$web_address','$business_type','$street_address','$city','$state','$postcode','$country','$tour_product_description','$tour_product_country','$currency','$language','$year_founded','$staff','$office_timing','$emergency_phone','$local_trips')";
+															values ('$username','$first_name','$last_name','$phone','$email','$password','$company_name','$web_address','$business_type','$street_address','$city','$state','$postcode','$country','$tour_product_description','$tour_product_country','$currency','$language','$year_founded','$staff','$office_timing','$emergency_phone','$local_trips')";
 												
 												   $query = mysql_query($sql);
 													$today_date = mktime(0,0,0,date("m"),date("d"),date("Y"));
@@ -489,7 +490,9 @@ $(document).ready(function(){
 								<input name="email" id="email" type="email" placeholder='Email' onBlur="if(this.placeholder=='') this.placeholder='Email'" onFocus="if(this.placeholder=='Email') this.placeholder=''" required/>
 								 <span style="margin-right: 231px;float: right;color: red;padding-bottom: 5px;" class="email_exit"></span>
 								
-                                <input name="password" id="signup_password" type="password" placeholder='Password' onBlur="if(this.placeholder=='') this.placeholder='Password'" onFocus="if(this.placeholder=='Password') this.placeholder=''" required>
+                                                                <input name="username" id="signup_username" type="text" placeholder='Username' onBlur="if(this.placeholder=='') this.placeholder='Username'" onFocus="if(this.placeholder=='Username') this.placeholder=''" required>
+                                                                 
+                                                                 <input name="password" id="signup_password" type="password" placeholder='Password' onBlur="if(this.placeholder=='') this.placeholder='Password'" onFocus="if(this.placeholder=='Password') this.placeholder=''" required>
                                 
 							  <input name="confirm_password"  id="confirm_password" type="password" placeholder='Confirm Password' onBlur="if(this.placeholder=='') this.placeholder='Confirm Password'" onFocus="if(this.placeholder=='Confirm Password') this.placeholder=''" required>
 								  <span style="margin-right: 231px;float: right;color: red;padding-bottom: 5px;" class="password_match"></span>

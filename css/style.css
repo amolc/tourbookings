@@ -281,6 +281,7 @@ textarea:focus, input[type="text"]:focus, input[type="checkbox"]:focus, input[ty
 	margin:0px 10px 0px 55px;
 	background:white;
 	border:solid #cbcbcb 1px;
+        text-align: center;
 }
 .header_form input[type="text"]:focus {
 	box-shadow:0px 0px 3px #d1d1d1;
@@ -367,10 +368,54 @@ textarea:focus, input[type="text"]:focus, input[type="checkbox"]:focus, input[ty
 	width: 1002px;
 }
 .center_body {
-	width:1000px;
-	margin:0px 0px 0px 0px;
-	border:#cbcbcb solid 1px
+    width:1000px;
+    margin:0px 0px 0px 0px;
+    border:#cbcbcb solid 1px;
+    border-top: none;
 }
+
+.header_menu{
+    padding: 10px;
+    height: 30px;
+    background: #f3f3f4;
+}
+
+.header_menu ul{
+    float: left;
+    margin-left: -10px;
+}
+
+.header_menu li{
+    display: inline;
+    margin-right: 10px;
+    padding: 18px;
+}
+
+.header_menu li a{
+    text-decoration: none;
+    color: #585858;
+    font-size: 20px;
+}
+
+.header_menu li a:hover{
+    color: #fd8900;
+}
+
+.header_bar{
+	padding: 10px;
+	height: 30px;
+	margin-left: 10px;
+}
+
+.header_bar h2{
+	color: #fd8900;
+}
+
+.attractions{
+	width: 1000px;
+	border-bottom: 1px solid #dbdbdb;
+}
+
 .body_content {
 	width:1000px;
 }
@@ -398,7 +443,7 @@ textarea:focus, input[type="text"]:focus, input[type="checkbox"]:focus, input[ty
 }
 .different_city {
 	width:1000px;
-	margin:35px 0px 20px 0px;
+	margin: 5px 0px 20px 0px;
 	padding-bottom:15px;
 	border-bottom:#dbdbdb solid 1px;
 }
@@ -721,10 +766,15 @@ textarea:focus, input[type="text"]:focus, input[type="checkbox"]:focus, input[ty
 
 /*************** Tour Listing ***************/
 
-.left_penal {
-	width:296px;
-	margin:0px 20px 10px 0px;
-	background:#f2f2f2;
+.left_penal{
+    width:295px;
+    margin:0px 20px 10px 0px;
+    background:#f2f2f2;
+}
+
+.left_penal_tour_detail {
+    width:665px;
+    margin:0 0 20px 20px;
 }
 .insider_guide {
 	width:295px;
@@ -823,9 +873,15 @@ textarea:focus, input[type="text"]:focus, input[type="checkbox"]:focus, input[ty
 
 /*************** Right Penal ***************/
 
-.right_penal {
-	width:665px;
-	margin:0px;
+.right_penal{
+    width:665px;
+    margin:0 0 0 20px;
+}
+
+.right_penal_tour_detail {
+    width:290px;
+    margin:0px 20px 10px 0px;
+/*    background:#f2f2f2;*/
 }
 .picks_head {
 	width:665px;
@@ -2497,5 +2553,298 @@ padding-right: 10px;
 	margin-bottom: 10px;	
 }
 
+/* ray */
+.travel_pricing h2{
+    float: right;
+}
+
+.supplier_details{
+    width:280px;
+    margin: 55px 0 0 20px;
+    padding: 5px;
+    border-bottom: 1px solid #dedede;
+}
+
+.supplier_details .company_logo img{
+    margin-top: 5px;
+    width: 255px;
+    height: 49px;
+}
+
+.supplier_details .company_name{
+    font-weight: bold;
+    padding: 5px 0 10px 0;
+    font-size: 20px;
+    color: #888;
+    text-align: left;
+}
+
+.supplier_street_address{
+    padding: 2px;
+    font-size: 13px;
+}
+
+.supplier_city{
+    padding: 2px;
+    font-size: 13px;  
+}
+
+.supplier_contact{
+    padding: 2px;
+    font-size: 13px;
+    margin-bottom: 5px;
+}
+
+#form_send_enquiry{
+   width: 320px;
+   margin-top: 9px;
+}
+
+#form_send_enquiry .form-row{
+    padding: 5px;
+    line-height: 40px;
+}
+
+#form_send_enquiry label{
+    display: block;
+    width: 100px;
+    float: left;
+    font-size: 13px;
+    margin-left: 5px;
+    margin-right: 5px;
+}
+
+.form-row input[type="text"]{
+    width: 178px;
+    padding: 3px;
+    font-size: 13px;
+}
+
+.form-row .enquiry_message{
+    width: 217px; 
+    height: 100px; 
+    padding: 3px; 
+    font-size: 13px;
+    font-family: Arial,Helvetica,sans-serif;
+}
+
+#adult_child_pricing span:nth-child(1){
+    margin: 0 10px 0 15px;
+}
+
+.form-row #adult_pricing{
+    width: 75px !important;
+    margin-left: 11px;
+}
+
+.form-row #child_pricing{
+    width: 75px !important;
+    margin-left: 12px;
+}
 
 
+.book_now_btn{
+    padding: 7px;
+    width: 140px;
+    font-size: 14px;
+    font-weight: bold;
+    display: block;
+    float: left;
+    margin-left: 15px;
+    color: #fff;
+    cursor: pointer;
+    text-align: center;
+    background: #fd8900;
+    border: none;
+    transition: background .5s ease-in;
+    opacity: 0.9;
+}
+
+.book_now_btn:hover{
+    background: #323232;
+}
+
+.send_enquiry_btn{
+    padding: 7px;
+    width: 140px;
+    font-size: 14px;
+    font-weight: bold;
+    display: block;
+    float: right;
+    margin-right: 9px;
+     border: none;
+    color: #fff;
+    cursor: pointer;
+    text-align: center;
+    background: #fd8900;
+    transition: background .5s ease-in;
+    opacity: 0.9;
+}
+
+.send_enquiry_btn:hover{
+    background: #323232;
+}
+
+.send_enquiry_errors{
+	width: 273px;
+	border: 1px solid #ffd700;
+	background: #ffffdd;
+	padding: 5px;
+	margin: 5px 0 0 20px;
+	border-radius: 3px;
+	display: none;
+}
+
+.send_enquiry_errors .close{
+    font-size: 15px;
+    margin-top: -5px;
+	color: #ccc;
+	display: block;
+	float: right;
+	outline-style: none;
+	position: relative; 
+}
+
+.book_now_errors{
+	width: 273px;
+	border: 1px solid #ffd700;
+	background: #ffffdd;
+	padding: 5px;
+	margin: 5px 0 0 20px;
+	border-radius: 3px;
+	display: none;
+}
+
+.book_now_errors .close{
+    font-size: 15px;
+    margin-top: -5px;
+	color: #ccc;
+	display: block;
+	float: right;
+	outline-style: none;
+	position: relative; 
+}
+
+.enquire_thank_you{
+    width: 300px;
+    padding: 20px;
+    background: #dedede;
+    color: #323232;
+    margin: 0 0 20px 20px;
+    font-size: 15px;
+}
+
+.enquire_thank_you h3{
+   margin-left: 5px;
+   font-weight: bold;
+}
+
+.enquire_thank_you p{
+    padding: 5px;
+}
+
+.payment_thank_you{
+	width: 920px;
+    padding: 20px;
+    background: #dedede;
+    color: #323232;
+    margin: 0 0 20px 20px;
+    font-size: 15px;
+}
+
+.payment_thank_you .msg{
+	font-weight: bold;
+	font-size: 30px;
+	width: 100%;
+	text-align: center;
+}
+
+.payment_thank_you p{
+	padding: 5px;
+	text-align: center;
+	color: #fd8900;
+	font-size: 18px;
+
+}
+
+
+/* Smart Wizard Override CSS */
+.swMain{
+	width: 960px !important;
+	margin: 0 0 20px 20px !important;
+}
+.swMain ul.anchor li a{
+	width: 225px !important;
+}
+.swMain ul.anchor li a .stepDesc{
+	font: bold 15px Verdana, Arial, Helvetica, sans-serif !important;
+}
+.swMain ul.anchor li a.selected{
+	background: #fd8900 !important;
+	border: 1px solid #fd8900 !important;
+}
+
+.swMain ul.anchor li a{
+	border-radius: initial !important;
+	moz-border-radius: initial !important;
+	-webkit-border-radius: initial !important;
+}
+.swMain .stepContainer div.content{
+	border-radius: initial !important;
+	moz-border-radius: initial !important;
+	-webkit-border-radius: initial !important;
+	width: 941px !important;
+}
+.swMain div.actionBar{
+	border-radius: initial !important;
+	moz-border-radius: initial !important;
+	-webkit-border-radius: initial !important;
+	width: 951px;
+}
+.swMain .buttonPrevious{
+	border-radius: initial !important;
+	moz-border-radius: initial !important;
+	-webkit-border-radius: initial !important;
+}
+.swMain .buttonNext{
+	border-radius: initial !important;
+	moz-border-radius: initial !important;
+	-webkit-border-radius: initial !important;
+}
+.swMain .buttonFinish{
+	border-radius: initial !important;
+	moz-border-radius: initial !important;
+	-webkit-border-radius: initial !important;
+}
+
+.step_errors{
+	border: 1px solid #ffd700;
+	background: #ffffdd;
+	padding: 5px;
+	/*margin: 5px 0 0 0;*/
+	border-radius: 3px;
+}
+.step_errors .close{
+	color: #ccc;
+	display: block;
+	float: right;
+	outline-style: none;
+	position: relative; 
+}
+
+.traveler_names td{
+	text-transform: capitalize;
+}
+
+/** JQuery UI Datepicker Override CSS */
+.ui-datepicker-header{
+	background: #fd8900 !important;
+}
+
+.ui-datepicker-calendar td.ui-datepicker-today a{
+	background: #fd8900 !important
+}
+
+.ui-datepicker{
+	border: 1px solid #fd8900 !important;
+}

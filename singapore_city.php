@@ -344,6 +344,43 @@ $query = mysql_query("SELECT
         </div>
       </div>
             	<div class="center_body fl">
+                    
+                        <?php
+                            $sql_tour = "SELECT
+                                    tour.id,
+                                    tour.tour_type,
+                                    tour.title,
+                                    tour.overview,
+                                    tour.hilight,
+                                    tour.why_this,
+                                    tour.location_id,
+                                    tour.city,
+                                    tour.duration,
+                                    tour.deparchture_point,
+                                    tour.deparchture_time,
+                                    tour.return_detail,
+                                    tour.inclusions,
+                                    tour.exclusions,
+                                    tour.voucher_info,
+                                    tour.local_operator_info,
+                                    tour.status,
+                                    tour.supplier_id,
+                                    tour_photo.url,
+                                    tour_price.price_customer_adult,
+                                    tour_price.price_per_person,
+                                    tour_price.price_child,
+                                    tour_photo.description
+                                    FROM
+                                    tour
+                                    INNER JOIN tour_price ON tour.id = tour_price.tour_id
+                                    INNER JOIN tour_photo ON tour.id = tour_photo.tour_id
+                                    WHERE tour.city = '".$location."'";
+                            $result_tour = mysql_query($sql_tour);
+                            if(!$result_tour)die('Error query'.  mysql_error());
+                            $count = mysql_num_rows($result_tour);
+                        
+                            if($count > 0){
+                        ?>
                 	<div  class="left_penal fl">
                     	<div  class="insider_guide fl">
                          <h1>Tour Bookings Guide to <?php echo $location; ?></h1>
@@ -561,37 +598,8 @@ $query = mysql_query("SELECT
 	$today_date = mktime(0,0,0,date("m"),date("d"),date("Y"));
 $current_date = date("m/d/Y", $today_date);
  $counter =0;
-$query1 = mysql_query("SELECT
-						tour.id,
-						tour.tour_type,
-						tour.title,
-						tour.overview,
-						tour.hilight,
-						tour.why_this,
-						tour.location_id,
-						tour.city,
-						tour.duration,
-						tour.deparchture_point,
-						tour.deparchture_time,
-						tour.return_detail,
-						tour.inclusions,
-						tour.exclusions,
-						tour.voucher_info,
-						tour.local_operator_info,
-						tour.status,
-						tour.supplier_id,
-						tour_photo.url,
-						tour_price.price_customer_adult,
-						tour_price.price_per_person,
-						tour_price.price_child,
-						tour_photo.description
-						FROM
-						tour
-						INNER JOIN tour_price ON tour.id = tour_price.tour_id
-						INNER JOIN tour_photo ON tour.id = tour_photo.tour_id
-						WHERE tour.city = '".$location."'");
 						// WHERE tour.status = 'accepted' AND tour.city = '".$location."' AND tour.tour_type = '".$alla[$j]."'  GROUP BY tour.location_id");
-						  	while ($record = mysql_fetch_array($query1))
+						  	while ($record = mysql_fetch_array($result_tour))
 								{
 									$record['id'];
 									$tour_title =  $record['title'];
@@ -713,15 +721,6 @@ $query1 = mysql_query("SELECT
 								?>
 
                             </div>
-
-							<?php
-									// }
-							?>
-
-
-
-							<!---->
-
                             <!--<div class="picks_head fl">
                             	<h2>Outdoor Activities</h2>
                                 <a href="#">See All</a>
@@ -849,7 +848,164 @@ $query1 = mysql_query("SELECT
                               </div>
                           </div>
                             </div>-->
-                  </div>
+                </div>
+                <?php
+                    }
+                    else{
+                        
+                    $sql = mysql_query("SELECT
+                                        tour.id,
+                                        tour.tour_type,
+                                        tour.title,
+                                        tour.overview,
+                                        tour.hilight,
+                                        tour.why_this,
+                                        tour.location_id,
+                                        tour.city,
+                                        tour.duration,
+                                        tour.deparchture_point,
+                                        tour.deparchture_time,
+                                        tour.return_detail,
+                                        tour.inclusions,
+                                        tour.exclusions,
+                                        tour.voucher_info,
+                                        tour.local_operator_info,
+                                        tour.supplier_id,
+                                        tour.`status`,
+                                        tour.insert_date,
+                                        tour.update_date,
+                                        supplier.first_name,
+                                        supplier.last_name,
+                                        supplier.phone,
+                                        supplier.email,
+                                        supplier.`password`,
+                                        supplier.company_name,
+                                        supplier.web_address,
+                                        supplier.business_type,
+                                        supplier.street_address,
+                                        supplier.state,
+                                        supplier.postcode,
+                                        supplier.country,
+                                        supplier.currency,
+                                        supplier.`language`,
+                                        supplier.year_founded,
+                                        supplier.staff,
+                                        supplier.office_timing,
+                                        supplier.emergency_no,
+                                        supplier.local_trip_date,
+                                        supplier.`status`,
+                                        supplier_payment.supplier_id,
+                                        supplier_payment.card,
+                                        supplier_payment.exp_date,
+                                        supplier_payment.`code`,
+                                        supplier_payment.total_price,
+                                        supplier_payment.`status`,
+                                        supplier_payment.insert_date,
+                                        tour_photo.url
+                                        FROM
+                                        tour
+                                        INNER JOIN tour_photo ON tour.id = tour_photo.tour_id
+                                        INNER JOIN supplier ON supplier.id = tour.supplier_id
+                                        INNER JOIN supplier_payment ON supplier.id = supplier_payment.supplier_id
+                                        WHERE tour.status = 'accepted' AND tour.location_id = '".$location."' AND supplier_payment.`status` != 'suspend'
+                                        GROUP BY tour.city
+                                        ORDER BY id DESC
+                                        ");
+                    
+                    $sql2 = mysql_query("SELECT country_desc FROM country WHERE country_name='".$location."'");		
+                    
+                    while ($row2 = mysql_fetch_array($sql2)) 
+                    { 
+                    $des = $row2['country_desc'];
+
+                    }
+                ?>
+                <div class="body_content fl">
+                    	<div class="latest_offers">
+                        	<h1><?php echo $location; ?></h1>
+                            <p><?php echo $des; ?></p>
+                        </div>
+                        
+                   	  <div class="different_city fl">
+                <?php
+                    
+                
+                 if(mysql_num_rows($sql)){
+
+                        while ($row = mysql_fetch_array($sql)) 
+		{ 
+		  if($row['url']==""){
+			  $no_pic = 'no_preview.png';
+			  }
+			  else {
+			  $no_pic = $row['url'];
+			  }
+                        echo'
+                          <div id="onload_id" class="city_tour fl">
+                                <span>
+                                  <img src="supplier/uploads/'.$no_pic.'" alt="" width="310" height="169">  
+                                  </span>
+                                  <h1>'.$row['city'].'</h1>
+                                  <p>'.$row['overview'].'</p>
+                                  <a href="tour_list.php?location='.$row['city'].'">View All</a>
+                          </div>
+                        ';
+
+                        }
+                        }
+                        else {
+
+                                echo "<span style='font-size: 20px; font-weight: bold;padding-left: 20px;'>Uh No! No tours at the moment, maybe contact <span style='color:#fd8900;'>support@tourbookings.co</span></span>";
+                        }			
+
+						?>
+					  
+
+                        <!--  <div class="city_tour fl">
+                              <span><img src="images/city_pic_4.jpg" alt="" width="310" height="169"></span>
+                              <h1>Lorem ipsum dolor sit amet</h1>
+                              <p>Lorem ipsum dolor sit amet, consec tetuer adipiscing. Praesent vestibu lum molestie lacuiirhs.</p>
+                              <a href="tour_list.html">View All</a>
+                          </div>-->
+
+                      </div>
+                      
+                      	<div class="hot_destinations fl">
+                        	<h2>Hot Destinations</h2>
+                              <ul>
+                            	<li><a href='tour_list.php?location=Bali'>Bali</a></li>
+                                <li><a href='tour_list.php?location=Delhi'>Delhi</a></li>
+                                <li><a href='tour_list.php?location=Singapore'>Singapore</a></li>
+                                <li><a href='tour_list.php?location=Kuala Lumpur'>Kuala Lumpur</a></li>
+                                <li><a href='tour_list.php?location=Boracay'>Boracay</a></li>
+                                <li><a href='tour_list.php?location=Hong Kong'>Hong Kong</a></li>
+                            </ul>
+                            <!--<ul class="mrgn_right">
+								<li><a href='category_view.php?cat_name=Outdoor Activities'>Outdoor Activities</a></li>
+                                <li><a href='category_view.php?cat_name=Day Trips & Excursions'>Day Trips & Excursions</a></li>
+                                <li><a href='category_view.php?cat_name=Food, Wine & Nightlife'>Food, Wine & Nightlife</a></li>
+                                <li><a href='category_view.php?cat_name=Water Sports'>Water Sports</a></li>
+                                <li><a href='category_view.php?cat_name=Private & Custom Tours'>Private & Custom Tours</a></li>
+                                <li><a href='category_view.php?cat_name=Multi-day & Extended Tours'>Multi-day & Extended Tours</a></li>
+                            </ul>-->
+                        </div>
+                        
+                              	  <div class="welcome fl">
+                            	<h1>Welcome to Tour Bookings!</h1>
+                          <p><img src="images/welcome_pic.jpg" width="238" height="200">
+		
+                        Here at Tour Bookings, every customer is our VIP! There is no need for you to scour the web to search for things to do on your vacation, no need to rummage through the tons of information on the Internet. We have done all of that for you! Everything is made available to your in the comfort of your home, on a single site. What’s more, we have a dedicated team that will be available to tend to your every query 24/7!
+                        <br />
+                        <a href="about_us.php">View More...</a></p>
+							
+
+                        </div>
+                        
+                    </div>
+                    
+                <?php
+                    }
+                ?>
 					<?php include('footer.php'); ?>
                 </div>
       <div style="clear:both"></div>

@@ -2,21 +2,21 @@
 
 	include('../../include/database/db.php'); 
 
-	$name = mysql_real_escape_string($_POST['name']);
+	$username = mysql_real_escape_string($_POST['username']);
 	$password = mysql_real_escape_string($_POST['password']);
 	// echo $name;
-	if($name =='' || $password =='')  
+	if($username =='' || $password =='')  
 	{
 		echo"Please Fill The Required Fields";
 	}		
 	else
 	{
-		$sql = mysql_query('SELECT * FROM supplier where email ="'.$name.'" AND password ="'.$password.'"');
+		$sql = mysql_query('SELECT * FROM supplier where user_name ="'.$username.'" AND password ="'.$password.'"');
 
 		// Mysql_num_row is counting table row
 		$row = mysql_fetch_array($sql); 
 
-		if($row['email'] == $name && $row['password'] == $password)
+		if($row['user_name'] == $username && $row['password'] == $password)
 		{
 			echo "1";
 			session_start();

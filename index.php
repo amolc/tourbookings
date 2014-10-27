@@ -108,113 +108,162 @@ $(document).ready(function(){
             	<?php include('header_logo.php'); ?>
             </div>
     	</div>
-        	<div class="banner fl">
-            	<div class="flexslider">
-          <ul class="slides">
-            <li>
-  	    	    <img src="images/Hongkong.jpg" width="1002" height="391">
-				<div class="hong_index" >
-					<h1><a href="index_city.php?location=Hongkong">Hongkong</a></h1>
-				<!--	<p>For all you shopaholics, you cannot miss out on the plethora of markets that Hong Kong has to offer</p>-->
-				</div>
-  	    		</li>
-  	    		<li>
-  	    	    <img src="images/India.jpg" width="1002" height="391">
-				<div class="india_index">
-			<h1><a href="index_city.php?location=India">	India</a></h1>
-					<!--<p>Visit the famous Taj Mahal, the ruins of Hampi or try Camel trekking!</p>-->
-				</div>
-  	    		</li>
-  	    		<li>
-  	    	    <img src="images/Indonesia.jpg" width="1002" height="391">
-					<div class="indonesia_index">
-				<h1><a href="index_city.php?location=Indonesia">Indonesia</a></h1>
-					<!--<p>Hosting some of the world’s most beautiful beaches</p>-->
-				</div>
-  	    		</li>
-  	    		<li>
-  	    	    <img src="images/Malaysia.jpg" width="1002" height="391">
-					<div class="malaysia_index">
-				<h1><a href="index_city.php?location=Malaysia">Malaysia</a></h1>
-					<!--<p>Playing host to one of the world’s tallest towers</p>-->
-					
-				</div>
-  	    		</li>
-                <li>
+        <!--<div class="banner fl">
+            <div class="flexslider">
+                <ul class="slides">
+                    <li>
+                        <img src="images/Hongkong.jpg" width="1002" height="391">
+			<div class="hong_index" >
+                            <h1><a href="index_city.php?location=Hongkong">Hongkong</a></h1>-->
+                            <!--<p>For all you shopaholics, you cannot miss out on the plethora of markets that Hong Kong has to offer</p>-->
+                            <!--</div>
+                    </li>
+                    <li>
+                        <img src="images/India.jpg" width="1002" height="391">
+			<div class="india_index">
+			<h1><a href="index_city.php?location=India">	India</a></h1>-->
+			<!--<p>Visit the famous Taj Mahal, the ruins of Hampi or try Camel trekking!</p>-->
+                        <!--</div>
+                    </li>
+                    <li>
+                        <img src="images/Indonesia.jpg" width="1002" height="391">
+			<div class="indonesia_index">
+			<h1><a href="index_city.php?location=Indonesia">Indonesia</a></h1>-->
+			<!--<p>Hosting some of the world’s most beautiful beaches</p>-->
+			<!--</div>
+                    </li>
+                    <li>
+                        <img src="images/Malaysia.jpg" width="1002" height="391">
+			<div class="malaysia_index">
+			<h1><a href="index_city.php?location=Malaysia">Malaysia</a></h1>-->
+			<!--<p>Playing host to one of the world’s tallest towers</p>-->
+                        <!--</div>
+                    </li>
+                    <li>
   	    	    <img src="images/Philippines.jpg" width="1002" height="391">
-					<div class="philippines_index">
-				<h1><a href="index_city.php?location=Philippines">Philippines</a></h1>
-					<!--<p>the Banaue Rice Terraces, numerous diving spots and beaches</p>-->
-				</div>
-  	    		</li>
-                <li>
-  	    	    <img src="images/Singapore.jpg" width="1002" height="391">
-					<div class="singapore_index">
-				<h1><a href="index_city.php?location=Singapore">Singapore</a></h1>
-					<!--<p>A cosmopolitan city-state that got to where it is today in just half a decade</p>-->
-				</div>
-  	    		</li>
-          </ul>
-        </div>
-      </div>
+                        <div class="philippines_index">
+                        <h1><a href="index_city.php?location=Philippines">Philippines</a></h1>-->
+			<!--<p>the Banaue Rice Terraces, numerous diving spots and beaches</p>-->
+			<!--</div>
+                    </li>
+                    <li>
+                        <img src="images/Singapore.jpg" width="1002" height="391">
+                        <div class="singapore_index">
+                            <h1><a href="index_city.php?location=Singapore">Singapore</a></h1>-->
+                            <!--<p>A cosmopolitan city-state that got to where it is today in just half a decade</p>-->
+			<!--</div>
+                    </li>
+                </ul>
+            </div>
+        </div>-->
             	<div class="center_body fl">
-                
-                	<div class="body_content fl">
+                    <div class="header_menu">
+                        <ul>
+                            <li>
+                                <a href="#">Category</a>
+                            </li>
+                            <li>
+                                <a href="#">Destinations</a>
+                            </li>
+                            <li>
+                                <a href="#">Deals</a>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="body_content fl">
                     	<div class="latest_offers">
-                        	<h1>Welcome to TourBookings!</h1>
+                            <h1>Welcome to TourBookings!</h1>
                             <p>
-						Through the hard work of our staff here at Tour Bookings, we are able to bring to you these irresistible deals at highly affordable prices. With a wide range of tours and deals available for all ages at these six beautifully unique countries, what are you waiting for? It doesn’t get anymore Asian than this!
+                                Through the hard work of our staff here at Tour Bookings, we are able to bring to you these irresistible deals at highly affordable prices. With a wide range of tours and deals available for all ages at these six beautifully unique countries, what are you waiting for? It doesn’t get anymore Asian than this!
+                            </p>
+                        </div>
+                    <?php
+                            $sql_tour = "SELECT
+                                    tour.id,
+                                    tour.title,
+                                    tour.overview,
+                                    tour_photo.url,
+                                    tour_price.price_customer_adult
+                                    FROM
+                                    tour
+                                    INNER JOIN tour_price ON tour.id = tour_price.tour_id
+                                    INNER JOIN tour_photo ON tour.id = tour_photo.tour_id
+                                    WHERE tour.location_id = 'Singapore' LIMIT 0, 9";
+                            $result_tour = mysql_query($sql_tour);
+                            if(!$result_tour)die('Error query'.  mysql_error());
+                    ?>					
+                    <div class="attractions fl">
+                        <div class="header_bar"><h2>Singapore Attractions</h2></div>
+                    <?php 
+                        while($record = mysql_fetch_array($result_tour)){
+                            $tour_id = $record['id'];
+                            $tour_title = $record['title'];
+                            $tour_overview = $record['overview'];
+                            $tour_image_url = $record['url'];
+                            $price = $record['price_customer_adult'];
 
-							</p>
-                        </div>					
-                        
-                   	  <div class="different_city fl">
-						 <?php
-									 // include('../include/database/db.php'); 
-										$sql = mysql_query("SELECT
-															country.id,
-															country.country_name,
-															country.country_desc,
-															country.country_image
-															FROM
-															country  LIMIT 6
-															");		
-										while ($row = mysql_fetch_array($sql)) 
-											{ 
-											  if($row['country_image']==""){
-												  $no_pic = 'no_preview.png';
-												  }
-												  else {
-												  $no_pic = $row['country_image'].'.jpg';
-												  }
-												  // strip tags to avoid breaking any html
-													// $string = strip_tags($string);
-													$string = strip_tags($row['country_desc']);
+                            if($tour_image_url==""){
+                                $no_pic = 'no_preview.png';
+                            } 
+                            else{
+                                $no_pic = $tour_image_url;
+                            }
+                    ?>
+                        <div id="onload_id" class="city_tour fl">
+                            <span><img src="supplier/uploads/tour_logo/<?php echo $no_pic; ?>" width="310" height="169"></span>
+                            <h1><?php echo $tour_title; ?></h1>
+                            <p>
+                                <?php echo $tour_overview; ?>
+                            </p>
+                            <a href="tour_detail.php?tour_id=<?php echo $tour_id; ?>" class="view_detail fl">View Details</a>
+                        </div>
+                    <?php } ?>
+                    </div>
+                   	<div class="different_city fl">
+                        <div class="header_bar"><h2>Hot Destinations</h2></div>
+			<?php
+                            // include('../include/database/db.php'); 
+                            $sql = mysql_query("SELECT
+                                                country.id,
+                                                country.country_name,
+                                                country.country_desc,
+                                                country.country_image
+                                                FROM
+                                                country  LIMIT 6
+                                                ");		
+                            while ($row = mysql_fetch_array($sql)) 
+                            { 
+                                if($row['country_image']==""){
+                                    $no_pic = 'no_preview.png';
+                                }
+                                else {
+                                    $no_pic = $row['country_image'].'.jpg';
+                                }
+                                // strip tags to avoid breaking any html
+                                // $string = strip_tags($string);
+                                $string = strip_tags($row['country_desc']);
 
-													if (strlen($string) > 190) {
+                                if (strlen($string) > 190) {
+                                    // truncate string
+                                    $stringCut = substr($string, 0, 190);
 
-														// truncate string
-														$stringCut = substr($string, 0, 190);
+                                    // make sure it ends in a word so assassinate doesn't become ass...
+                                    // $string = substr($stringCut, 0, strrpos($stringCut, ' ')); 
+                                     $string = substr($stringCut, 0, strrpos($stringCut, ' ')).'...';
+                                }
+                                            // echo $string;
+                                echo '<div id="onload_id" class="city_tour fl">
+                                      <span>
+                                        <img src="images/'.$no_pic.'" alt="" width="310" height="169">  
+                                        </span>
+                                        <h1>'.$row['country_name'].'</h1>
+                                        <p>'.$string.'</p>
 
-														// make sure it ends in a word so assassinate doesn't become ass...
-														// $string = substr($stringCut, 0, strrpos($stringCut, ' ')); 
-														 $string = substr($stringCut, 0, strrpos($stringCut, ' ')).'...';
-													}
-													// echo $string;
-										echo'
-											  <div id="onload_id" class="city_tour fl">
-												<span>
-												  <img src="images/'.$no_pic.'" alt="" width="310" height="169">  
-												  </span>
-												  <h1>'.$row['country_name'].'</h1>
-												  <p>'.$string.'</p>
-												  
-												  <a href="index_city.php?location='.$row['country_name'].'">View All</a>
-											  </div>
-											';
-											
-											}
-									?>
+                                        <a href="view_tour.php?location='.$row['country_name'].'">View All</a>
+                                </div>';
+
+                            }
+                        ?>
 					  
 
                         <!--  <div class="city_tour fl">
@@ -299,18 +348,16 @@ $(document).ready(function(){
                             </ul>-->
                         </div>
 						
-						<div class="welcome fl" style="float:left;width:300px;">
-                            	<h1>Why Tour Bookings!</h1>
-                         <img src="images/welcome_pic_1.jpg" width="300" height="169">
+			<div class="welcome fl" style="float:left;width:300px;">
+                            <h1>Why Tour Bookings!</h1>
+                            <img src="images/welcome_pic_1.jpg" width="300" height="169">
 		
-<br> <p style="width:300px;">
-Here at Tour Bookings, every customer is our VIP! There is no need for you to scour the web to search for things to do on your vacation, no need to rummage through the tons of information on the Internet. We have done all of that for you! Everything is made available to you in the comfort of your home, on a single site. 
-</p>
-							
-
+                            <br> <p style="width:300px;">
+                            Here at Tour Bookings, every customer is our VIP! There is no need for you to scour the web to search for things to do on your vacation, no need to rummage through the tons of information on the Internet. We have done all of that for you! Everything is made available to you in the comfort of your home, on a single site. 
+                            </p>
                         </div>
                         
-                   	  <div class="our_featured fr">
+                   	<!--<div class="our_featured fr">-->
 					  <?php
 			
 // $result2 = mysql_query("SELECT
@@ -330,7 +377,7 @@ Here at Tour Bookings, every customer is our VIP! There is no need for you to sc
 						// )
 						// GROUP BY p.id ORDER BY p.id DESC LIMIT 10
 						// ");			
-$result2 = mysql_query("SELECT
+                                        /*$result2 = mysql_query("SELECT
 						tour.id,
 						tour.tour_type,
 						tour.title,
@@ -360,37 +407,38 @@ $result2 = mysql_query("SELECT
 						INNER JOIN tour_photo ON tour.id = tour_photo.tour_id
 						WHERE tour.status = 'accepted'   GROUP BY tour.id
 						DESC LIMIT 10
-						");
+						");*/
 				
 	?>	
 	
-                            	<h1>Our Featured Tours</h1>
-                 <div class="banner fr" style="width:310px;">
+                <!--<h1>Our Featured Tours</h1>
+                <div class="banner fr" style="width:310px;">
             	<div  class="flexslider" id="flexslider">
-          <ul class="slides" >
-		  <?php while ($row2 = mysql_fetch_array($result2)) 
-		{ 
-if (strlen($string=$row2["overview"]) > 190) {
+                <ul class="slides" >-->
+		<?php 
+                    /*while ($row2 = mysql_fetch_array($result2)) 
+                    { 
+                        if (strlen($string=$row2["overview"]) > 190) {
+                            // truncate string
+                            $stringCut = substr($string, 0, 190);
 
-														// truncate string
-														$stringCut = substr($string, 0, 190);
-
-														// make sure it ends in a word so assassinate doesn't become ass...
-														// $string = substr($stringCut, 0, strrpos($stringCut, ' ')); 
-														 $string = substr($stringCut, 0, strrpos($stringCut, ' ')).'...';
-													}		
+                            // make sure it ends in a word so assassinate doesn't become ass...
+                            // $string = substr($stringCut, 0, strrpos($stringCut, ' ')); 
+                            $string = substr($stringCut, 0, strrpos($stringCut, ' ')).'...';
+                        }		
 
 		
-           echo '<li>'
-		   .'<img style="width:310px; float:left;" src="supplier/uploads/'.$row2['url'].'" alt="Tour Image" width="310" height="169" />'
-		   .'<p style="float:left; height:65px;">'.$string.'</p>'
-		   .'<div class="view_more"><a href="tour_detail.php?tour_id='.$row2['id'].'">View More...</a></div>'
-		   .'</li>';           		
-		  } ?>	  	  			
-          </ul>
+                        echo '<li>'
+                        .'<img style="width:310px; float:left;" src="supplier/uploads/'.$row2['url'].'" alt="Tour Image" width="310" height="169" />'
+                        .'<p style="float:left; height:65px;">'.$string.'</p>'
+                        .'<div class="view_more"><a href="tour_detail.php?tour_id='.$row2['id'].'">View More...</a></div>'
+                        .'</li>';           		
+                    }*/ 
+                  ?>	  	  			
+          <!--</ul>
         </div>
-      </div>
-                     </div>
+        </div>
+                     </div>-->
                         
                     </div>
                 

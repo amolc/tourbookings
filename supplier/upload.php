@@ -2,7 +2,7 @@
  include('../include/database/db.php'); 
 session_start();
 $session_id='1'; //$session id
-$path = "uploads/";
+$path = "uploads/tour_logo/";
 
 $title = mysql_real_escape_string($_POST['title']);
 $description = mysql_real_escape_string($_POST['description']);

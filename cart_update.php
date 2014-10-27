@@ -11,15 +11,15 @@ session_start();
 
  // }
  // else {
+ 	session_destroy();
 
-	$tour_id = mysql_real_escape_string($_REQUEST['tour_id']);
-	$adult = mysql_real_escape_string($_REQUEST['adult']);
-	$child = mysql_real_escape_string($_REQUEST['child']);
-	$datepicker3 = mysql_real_escape_string($_REQUEST['datepicker3']);
-	$datepicker4 = mysql_real_escape_string($_REQUEST['datepicker4']);
-	$tour_title = mysql_real_escape_string($_REQUEST['tour_title']);
-	$supplier_id = mysql_real_escape_string($_REQUEST['supplier_id']);
-	$price_per_person = mysql_real_escape_string($_REQUEST['price_per_person']);
+	$tour_id = mysql_real_escape_string($_SESSION['tour_id']);
+	$adult = mysql_real_escape_string($_SESSION['adult']);
+	$child = mysql_real_escape_string($_SESSION['child']);
+	$departure_date = mysql_real_escape_string($_SESSION['departure_date']);
+	$tour_title = mysql_real_escape_string($_SESSION['tour_title']);
+	$supplier_id = mysql_real_escape_string($_SESSION['supplier_id']);
+	$price_per_person = mysql_real_escape_string($_SESSION['price_per_person']);
 	/*echo $tour_id.'id<br>';
 	echo $adult.'<br>';
 	echo $child.'<br>';
@@ -39,10 +39,8 @@ session_start();
 
 <?php
 //add item in shopping cart
-if($_POST["type"]=='add')
-{
-	$product_code 	= filter_var($_REQUEST["product_code"], FILTER_SANITIZE_STRING); //product code
-	$return_url 	= base64_decode($_REQUEST["return_url"]); //return url
+	$product_code 	= filter_var($tour_id, FILTER_SANITIZE_STRING); //product code
+	//$return_url 	= base64_decode($_REQUEST["return_url"]); //return url
 
 	//MySqli query - get details of item from db using product code
 	// $results = mysql_query("SELECT id,title,hilight FROM tour WHERE id='$product_code' LIMIT 1");
@@ -80,21 +78,21 @@ if($_POST["type"]=='add')
 	$obj = mysql_fetch_array($results);
 
 	if ($results) { //we have the product info
-$ad = $adult;
-$ch = "";
-								if($child=="") 
-								{
-									
-									$ch = '0';
-								}
-								else {
-									$ch = $child;
-								}
+		$ad = $adult;
+		$ch = "";
+		if($child=="") 
+		{
+			
+			$ch = '0';
+		}
+		else {
+			$ch = $child;
+		}
 
-$ch_price = $child * $obj['price_customer_child'];
-$date = $datepicker3;
-$ad_price = $obj['price_customer_adult'] * $adult;
-$price = $ad_price + $ch_price;
+		$ch_price = $child * $obj['price_customer_child'];
+		$date = $departure_date;
+		$ad_price = $obj['price_customer_adult'] * $adult;
+		$price = $ad_price + $ch_price;
 
 		//prepare array for the session variable
 		$new_product = array(array('supplier_id'=>$obj['supplier_id'],'location_id'=>$obj['location_id'],'tour_id'=>$obj['id'],'name'=>$obj['title'],'deparchture_time'=>$obj['deparchture_time'],'date'=>$date,'ad'=>$adult,'ch'=>$ch,'url'=>$obj['url'], 'code'=>$product_code, 'qty'=>1, 'price'=>$price, 'id'=>$obj['id']));
@@ -133,13 +131,14 @@ $price = $ad_price + $ch_price;
 
 	//redirect back to original page
 	// header('Location:'.$return_url);
-}
+
 
 //remove item from shopping cart
-if(isset($_GET["removep"]) && isset($_GET["return_url"]) && isset($_SESSION["products"]))
+	//isset($_GET["return_url"])
+if(isset($_GET["removep"]) && isset($_SESSION["products"]))
 {
 	$product_code 	= $_GET["removep"]; //get the product code to remove
-	$return_url = base64_decode($_GET["return_url"]); //get return url
+	//$return_url = base64_decode($_GET["return_url"]); //get return url
 
 	foreach ($_SESSION["products"] as $cart_itm) //loop through session array var
 	{
@@ -158,7 +157,7 @@ if(isset($_GET["removep"]) && isset($_GET["return_url"]) && isset($_SESSION["pro
 			$product[] = array('supplier_id'=>$cart_itm["supplier_id"],'location_id'=>$cart_itm["location_id"],'tour_id'=>$cart_itm["tour_id"],'deparchture_time'=>$cart_itm["deparchture_time"],'date'=>$cart_itm["date"],'ad'=>$cart_itm["ad"],'ch'=>$cart_itm["ch"],'name'=>$cart_itm["name"], 'url'=>$cart_itm["url"],  'code'=>$cart_itm["code"], 'qty'=>$cart_itm["qty"], 'price'=>$cart_itm["price"], 'id'=>$cart_itm["id"]);
 		}
 
-		//set session with new array values
+		//set session with new array array_values(input)
 		$_SESSION["products"] = $product;
 	}
 
@@ -254,7 +253,7 @@ $(".adult").keyup(function(){
 								
 								
 										echo'<div class="wishlist_list fl">
-												<div class="remove fl"> <a href="cart_update.php?removep='.$cart_itm["code"].'&return_url='.$current_url.'"><img src="images/remove_icon.jpg" width="27" height="27"></a>
+												<div class="remove fl"> <a href="cart_update.php?removep='.$cart_itm["code"].'"><img src="images/remove_icon.jpg" width="27" height="27"></a>
 												
 												</div>
 											  <div class="product fl">

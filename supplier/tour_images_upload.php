@@ -1,5 +1,6 @@
 <?php
- include('../include/database/db.php');
+	session_start();
+	include('../include/database/db.php');
  ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -101,7 +102,6 @@ $(document).ready(function(){
 				data: {tour_id:tour_id},
 
 				success: function(mesg) {
-					alert("Image uploaded successfully");
 					 $('#photo_detail').append(mesg);
 					 location.reload();
 					 // photo_title,description,photoimg
@@ -116,25 +116,26 @@ $(document).ready(function(){
 	});
 	
 	$(document).delegate('.delete_pic', 'click', function(){
-    // alert("hey!");
-		var title = $( this ).parent().parent().attr('id');
-		// alert(title);
-		$(this).parent().parent().remove();
+	
+		if(!confirm('Are you sure you want to delete this?')){
+			return false;
+		}else{
+			var title = $( this ).parent().parent().attr('id');
+
 			$.ajax({
 				type: 'post',
 				url: 'ajax_request_function/ajax_delete_upload_pic.php',
 				data: {title:title},
-
 				success: function(mesg) {
-					alert(mesg);
-					 // $('#photo_detail').append(mesg);
+					if(mesg=='Deleted'){
+						$(this).parent().parent().remove();
+					}
 
 				}
-
-		});
-		
-		
-});
+			});
+		}
+		return false;	
+	});
 	
 		// $('.delete_pic').click(function(){
 		// var title = $( "#title" ).val();
@@ -255,7 +256,7 @@ $(document).ready(function(){
                         <div>Maximum image Size 1MB</div>
 					</td>
 					<td>
-					<span><input value="upload" id="photo_submit" style="border: none;padding:10px;" type="button"/></span>
+					<span><input type="button" id="photo_submit" class="btn btn-default" value="Upload"/></span>
 
 							
 						
@@ -288,7 +289,7 @@ $(document).ready(function(){
 													<tr class="odd gradeX" id="'.$row['title'].'">
 														<td>'.$row['title'].'</td>
 														<td>'.$row['description'].'</td>
-														<td><img src="uploads/'.$row['url'].'"  class="preview"></td>
+														<td><img src="uploads/tour_logo/'.$row['url'].'"  class="preview"></td>
 														<td>
 															<a href="#"  class="delete_pic btn btn-danger btn-sm btn-icon icon-left">
 																<i class="entypo-cancel"></i>

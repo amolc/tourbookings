@@ -432,7 +432,7 @@
 									booking.supplier_id,
 									tour_price.price_per_person,
 									tour.title,
-                                                                        tour.duration,
+                                    tour.duration,
 									tour.overview,
 									tour.city AS tour_city,
 									tour.location_id AS tour_country,

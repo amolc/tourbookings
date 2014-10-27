@@ -96,15 +96,22 @@
 	  // $(function() {
 		// $('#defaultValueExample').timepicker({ 'scrollDefaultNow': true });
 	  // });
-	  $(document).ready(function($) { 
-   // STOCK OPTIONS
-	$('input.maxtickets_enable_cb').change(function(){
-		if ($(this).is(':checked'))
-    $('#commission').show();
-else
-    $('#commission').hide();
-	}).change();
-});
+            $(document).ready(function($) { 
+            // STOCK OPTIONS
+            $('input.maxtickets_enable_cb').change(function(){
+            if ($(this).is(':checked'))
+                $('#commission').show();
+            else
+                $('#commission').hide();
+                    }).change();
+            
+            $("#tour_logo").change(function(){
+                var tour_logo = $(this).val();
+                $("#display_logo_name").html(tour_logo);
+            })
+                    
+            });
+            
 	</script>
 </head>
 
@@ -191,7 +198,7 @@ else
 										if($exp_date < $current_date || $exp_date == $current_date)
 										{
 											// echo "<h2>Your payment status shows unpaid now please pay to continue</h2><a href='http://apps.fountaintechies.com/tourbookings/supplier/payment_booking.php'><button>Pay Now</button></a> ";
-											echo "<h2 style='font-size:18px; margin-bottom:20px;'>Your payment status shows unpaid now please pay to continue</h2><a href='payment_booking.php'><button>Pay Now</button></a> ";
+											echo "<h2 style='font-size:18px; margin-bottom:20px;'>Your payment status shows unpaid now please pay to continue</h2><a href='payment_booking.php'><button class='btn btn-default'>Pay Now</button></a> ";
 										}
 										// else if($status=='active'){
 										else {
@@ -220,6 +227,7 @@ else
 						$local_operator_info = mysql_real_escape_string($_POST['local_operator_info']);
 						// $supplier_id = mysql_real_escape_string($_POST['supplier_id']);
 						$status = "pending";
+                                                
 						
 									$currency_id = mysql_real_escape_string($_POST['currency_id']);
 							// echo $currency_id;
@@ -242,37 +250,77 @@ else
 									$price_customer_child = $price_child - ($price_child * ($commission_rate / 100));
 							}
 					
-							// echo $price_customer_adult;
-							// echo $price_customer_child;
-							// exit;
-							//current date
 							$today_current_date = mktime(0,0,0,date("m"),date("d"),date("Y"));
-							$insert_date = date("m/d/Y", $today_current_date);
+							$insert_date = date("Y-m-d", $today_current_date);
+                                                        if(isset($_FILES['tour_logo'])){
+                                                            $tour_logo = $_FILES['tour_logo']['name'];
+                                                            $allowedExts = array("gif", "jpeg", "jpg", "png");
+                                                            $temp = explode(".", $tour_logo);
+                                                            $extension = end($temp);
+                                                            $upload_path = 'uploads/tour_logo/';
 
-							$sql   = "insert into tour(tour_type,title,overview,hilight,why_this,location_id,city,duration,deparchture_point,deparchture_time,return_detail,inclusions,exclusions,voucher_info,local_operator_info,supplier_id,status,insert_date) values ('$tour_type','$title','$overview','$hilight','$why_this','$country','$city','$duration','$deparchture_point','$deparchture_time','$return_detail','$inclusions','$exclusions','$voucher_info','$local_operator_info','$supplier_id','pending','$insert_date')";
-							$query = mysql_query($sql);
-							 if($query){
-								// echo "create tour successful";
-								// $tour_id_query = "SELECT * FROM tour ORDER BY id DESC LIMIT 1";
-									$result = mysql_query("SELECT id FROM tour ORDER BY id DESC LIMIT 1");
-									if (!$result) {
-										echo 'Could not run query: ' . mysql_error();
-										exit;
-									}
-									$row = mysql_fetch_row($result);
+                                                            if((($_FILES['tour_logo']['type']=='image/gif')
+                                                                || ($_FILES['tour_logo']['type'] == 'image/jpeg')
+                                                                || ($_FILES['tour_logo']['type'] == 'image/jpg')
+                                                                || ($_FILES['tour_logo']['type'] == 'image/pjpeg')
+                                                                || ($_FILES['tour_logo']['type'] == 'image/x-png')
+                                                                || ($_FILES['tour_logo']['type'] == 'image/png'))
+                                                                && ($_FILES['tour_logo']['size'] < (1024*1024))
+                                                                && in_array($extension, $allowedExts)
+                                                            ){
+                                                               if($_FILES['tour_logo']['error'] > 0){
+                                                                   echo 'Error: '.$_FILES['tour_logo']['error'];
+                                                               }
+                                                               else{
+                                                                    move_uploaded_file($_FILES['tour_logo']['tmp_name'] , $upload_path.$tour_logo);
+                                                                    $upload_success = 1;
+                                                                   
+                                                                    $sql   = "insert into tour(tour_type,title,overview,hilight,why_this,location_id,city,duration,deparchture_point,deparchture_time,return_detail,inclusions,exclusions,voucher_info,local_operator_info,supplier_id,status,insert_date) values ('$tour_type','$title','$overview','$hilight','$why_this','$country','$city','$duration','$deparchture_point','$deparchture_time','$return_detail','$inclusions','$exclusions','$voucher_info','$local_operator_info','$supplier_id','pending','$insert_date')";
+                                                                    $query = mysql_query($sql);
+                                                                    if($query){
+                                                                           // echo "create tour successful";
+                                                                           // $tour_id_query = "SELECT * FROM tour ORDER BY id DESC LIMIT 1";
+                                                                                   $result = mysql_query("SELECT id FROM tour ORDER BY id DESC LIMIT 1");
+                                                                                   if (!$result) {
+                                                                                           echo 'Could not run query: ' . mysql_error();
+                                                                                           exit;
+                                                                                   }
+                                                                                   $row = mysql_fetch_row($result);
 
-									$tour_id = $row[0]; 
-								$sql2   = "insert into tour_price(currency_id,tour_id,price_per_person,price_child,price_adult,price_customer_adult,price_customer_child,ishike,commission_rate,insert_date) values ('$currency_id','$tour_id','$price_customer_adult','$price_customer_child','$price_adult','$price_per_person','$price_child','0','$commission_rate','$insert_date')";
-								$query2 = mysql_query($sql2);
-								 if($query2){
-									echo '<div style="margin-left: 244px;" class="col-md-6"><div class="alert alert-success"><strong>Well done!</strong> Your tour has been created successfully!</div>Click here to see<a style="font-size:20px;" href="show_tour.php"> Tour List</a></div>';
-								} else {
-									echo "error";
-								}
-								
-							}else {
-								echo "error";
-							} 
+                                                                                   $tour_id = $row[0]; 
+                                                                                   $sql2   = "insert into tour_price(currency_id,tour_id,price_per_person,price_child,price_adult,price_customer_adult,price_customer_child,ishike,commission_rate,insert_date) values ('$currency_id','$tour_id','$price_customer_adult','$price_customer_child','$price_adult','$price_per_person','$price_child','0','$commission_rate','$insert_date')";
+                                                                                   $query2 = mysql_query($sql2);
+                                                                                    if($query2){
+
+
+
+
+                                                                                   $sql3 = "INSERT INTO tour_photo (tour_id,title,url,description) VALUES ('$tour_id','$title','$tour_logo','Lorem ipsum')";
+                                                                                   $query3 = mysql_query($sql3);
+                                                                                   if($query3 && $upload_success==1){
+                                                                                       echo '<div style="margin-left: 244px;" class="col-md-6"><div class="alert alert-success"><strong>Well done!</strong> Your tour has been created successfully!</div>Click here to see<a style="font-size:20px;" href="show_tour.php"> Tour List</a></div>';
+                                                                                   }
+                                                                                   else{
+                                                                                      echo 'Error there is something wrong.';
+                                                                                   }
+
+                                                                           } 
+                                                                           else {
+                                                                               echo "Error there is something wrong.";
+                                                                           }
+
+
+
+                                                                   }else {
+                                                                           echo "Error there is something wrong.";
+                                                                   } 
+                                                               }
+                                                            }
+                                                            else{
+                                                                echo "Invalid file. Must be jpg, jpeg, png, gif, and not more than 1MB.";
+                                                            }
+                                                        }
+							
 				
 
 					}
@@ -321,7 +369,16 @@ else
 							</div>
 						</div>
 
-		<div class="form-group">
+                                                <div  class="form-group">
+							<label for="field-1" class="col-sm-3 control-label">Tour Logo </label>
+
+							<div class="btn-upload btn-primary col-sm-5">
+                                                            Browse<input type="file" name="tour_logo" id="tour_logo">
+							</div>
+                                                        <div id="display_logo_name"></div>
+						</div>
+                                                
+                                                <div class="form-group">
 							<label class="col-sm-3 control-label">Select Tour Location</label>
 
 							<div class="col-sm-5">
@@ -471,7 +528,7 @@ else
 							</div>
 							<div class="clear"></div>
 						</div>
-						
+                                                
 						<div class="form-group">
 							<label for="field-ta" class="col-sm-3 control-label">Tour Overview</label>
 					
@@ -503,13 +560,13 @@ else
 						</div>
 
 
-<div style="clear: both;">&nbsp;</div>
+						<div style="clear: both;">&nbsp;</div>
 						<hr style="width:100%"/>
 							<div class="">
 								<h5>Tour Price</h5>
 							</div>
 						<hr/>
-<br />
+						<br />
 
 						
 						<div class="form-group">
@@ -611,25 +668,25 @@ else
 								<textarea style="width:600px;height:140px;" class="form-control wysihtml5 exclusions" name="exclusions" id="sample_wysiwyg" required></textarea>
 							</div>
 						</div>
-						<div class="form-group">
-							<label for="field-ta" class="col-sm-3 control-label">Voucher info</label>
+						<!--<div class="form-group">
+							<label for="field-ta" class="col-sm-3 control-label">Voucher info</label>-->
 
 							<!--<div class="col-sm-5">
 								<textarea style="width:600px;height:140px;" class="form-control autogrow" id="voucher_info" placeholder="Voucher info"></textarea>
 							</div>-->
-							<div class="form-group" style="width: 572px;margin-left: 272px;">
+							<!--<div class="form-group" style="width: 572px;margin-left: 272px;">
 								<textarea style="width:600px;height:140px;" class="form-control wysihtml5 voucher_info" name="voucher_info" id="sample_wysiwyg" required></textarea>
 							</div>
-						</div>
-						<div style="" class="form-group">
-							<label for="field-ta" class="col-sm-3 control-label">Local operator information</label>
+						</div>-->
+						<!--=<div style="" class="form-group">
+							<label for="field-ta" class="col-sm-3 control-label">Local operator information</label>-->
 
 							<!--<div class="col-sm-5">
 								<textarea style="width:600px;height:140px;" class="form-control autogrow" id="local_operator_info" placeholder="Local operator information"></textarea>
 							</div>-->
-							<div class="form-group" style="width: 572px;margin-left: 272px;">
+							<!--<div class="form-group" style="width: 572px;margin-left: 272px;">-->
 								<!--<textarea style="display:none;width:600px;height:140px;" class="form-control wysihtml5 local_operator_info" name="local_operator_info" id="sample_wysiwyg" required></textarea>-->
-								<div style="width: 100px;padding: 5px;float:left">Company</div>
+								<!--<div style="width: 100px;padding: 5px;float:left">Company</div>
 								<div style="padding: 5px;float:left">Fountain Technologies </div>
 								<div style="clear:both;"></div>
 								<div style="width: 100px;padding: 5px;float:left">Address</div>
@@ -639,7 +696,7 @@ else
 								
 								<div style="clear:both;"></div>
 							</div>
-						</div>
+						</div>-->
 						<span style="padding-left: 450px;font-size: 14px;" class="success_mesg"></span>
 						<input style="margin-left: 750px;margin-top: 10px;" type="submit" name="submit" value="submit" class="btn btn-info ok" />
 
@@ -825,8 +882,7 @@ else
 		var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
 		})();
 
-	</script>
-															
+	</script>													
 					<!--			<script>
 			// Replace the <textarea id="editor1"> with an CKEditor instance.
 			CKEDITOR.replace( 'editor1', {
