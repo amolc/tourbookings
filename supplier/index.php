@@ -116,7 +116,17 @@ $(document).ready(function(){
            	<div class="logo fl" style="margin-top:7px;">
             <a href="../index.php"><img src="../images/tourbooking_logo.png" width="256" height="105"></a>
 </div>      
-            <div class="header_login fr">
+            
+            </div>
+    	</div> 
+			
+        	<div class="banner fl">
+            	<div class="center_body fl">
+
+                
+                	<div class="body_content fl">
+                   	  <div class="left_colm fl">
+                   	  <div class="header_login fr">
             
             <!--<form action="" method="post" >-->
                 <label>* Username:</label>
@@ -126,17 +136,9 @@ $(document).ready(function(){
 				<input style="margin-bottom:0px;" id="password" type="password" name="password">
 				 <input type="submit" name="button" id="Login" value="Login">
 					<div class="mesg" style="font-weight: bold;color: #F00;float: left; margin-left: 90px;width: 434px;"></div> 
-                <a href="forgot_password.php" style="float: right; margin: 0px 22px 0px 0px;">Forgot Password</a>
+                <a href="forgot_password.php" style=" margin: 0px 22px 0px 8px;">Forgot Password</a>
            <!-- </form>-->
             </div>
-            </div>
-    	</div> 
-			
-        	<div class="banner fl">
-            	<div class="center_body fl">
-                
-                	<div class="body_content fl">
-                   	  <div class="left_colm fl">
                         	<div class="convenience fl">
                             	<span class="fl"><img src="../images/convenience_icon.png" alt="" width="45" height="45"></span>
                               <h1>CONVENIENCE</h1>

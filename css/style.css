@@ -144,7 +144,7 @@ img {
 	border: none;
 }
 .fl { float:left;}
-.fr { float:right;}
+.fr { float:left;}
 .border { border:none !important;}
 .border-bottom { border-bottom:#b1b1b1 dashed 1px !important; }
 .mrgn_top { margin-top:20px !important;}
@@ -2321,11 +2321,11 @@ padding-right: 10px;
 
 .left_colm {
 	width:420px;
-	margin:30px 0px 0px 25px;
+	margin:25px 0px 0px 25px;
 }
 .convenience {
 	widows:370px;
-	margin:0px 0px 50px 0px;
+	margin:25px 0px 50px 0px;
 }
 .convenience h1 {
 	float:left;
@@ -2475,8 +2475,8 @@ padding-right: 10px;
 /************** Partner Landing Page By Bilal **************/
 
 .header_login {
-    margin: 44px 0 0;
-    width: 655px;
+   
+    /*width: 655px;*/
 }
 .header_login label {
     display: block;
@@ -2492,11 +2492,12 @@ padding-right: 10px;
     border: 1px solid #CBCBCB;
     color: #707070;
     display: block;
-    float: left;
+    /*float: left;*/
     height: 30px;
-    margin:0px;
+    margin-bottom: 15px;
     padding: 0 5px;
-    width: 160px;
+    width: 242px;
+
 }
 .header_login input[type="text"]:focus {
 	box-shadow:0px 0px 3px #d1d1d1;
@@ -2510,12 +2511,12 @@ padding-right: 10px;
     border: medium none;
     color: #FFFFFF;
     cursor: pointer;
-    float: left;
+   /* float: left;*/
     font-size: 16px;
     font-weight: normal;
     height: 32px;
     line-height: 32px;
-    margin: 0 0 4px 15px;
+   margin: 15px 0 10px 90px;
     opacity: 0.9;
     text-align: center;
     text-decoration: none;
