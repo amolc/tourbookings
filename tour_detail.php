@@ -71,7 +71,7 @@ $query = mysql_query("SELECT
 			$tour_local_operator_info =  $record['local_operator_info'];
 
 			$tour_currency_id =  $record['currency_id'];
-			$tour_pic_url =  $record['url'];
+			echo'sujeet--'.$tour_pic_url =  $record['url'];exit;
 			// echo $tour_pic_url;
 			$tour_price_per_person =  $record['price_per_person'];
 			$price_customer_adult =  $record['price_customer_adult'];
@@ -268,7 +268,9 @@ $query = mysql_query("SELECT
                           </div>
                         <div>
                             <div class="zoo_night fl">
-                            <?php		
+                            <?php	
+
+                            echo $tour_pic_url;exit;	
                                 $no_pic="";
                                 if($tour_pic_url==""){
                                     $no_pic = 'no_preview.png';
