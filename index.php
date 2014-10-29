@@ -210,7 +210,7 @@ $(document).ready(function(){
                             }
                     ?>
                         <div id="onload_id" class="city_tour fl">
-                            <span><img src="supplier/uploads/tour_logo/<?php echo $no_pic; ?>" width="310" height="169"></span>
+                            <span><img src="supplier/uploads/<?php echo $no_pic; ?>" width="310" height="169"></span>
                             <h1><?php echo $tour_title; ?></h1>
                             <p>
                                 <?php echo $tour_overview; ?>
