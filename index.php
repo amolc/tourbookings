@@ -100,6 +100,7 @@ $(document).ready(function(){
 
 <body>
     <div id="main_container">
+
         <div class="header_main fl">
             
             <div class="header_logo fl">
@@ -443,7 +444,7 @@ $(document).ready(function(){
                      </div>-->
                         
                     </div>
-                
+                </div>
                   <?php include('footer.php'); ?>
                 </div>
       <div style="clear:both"></div>
