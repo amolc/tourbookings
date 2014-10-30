@@ -421,6 +421,7 @@ background: url(../images/home.jpg) no-repeat center ; }
 .header_bar h2{
 	color: #fd8900;
 	text-align: center;
+	font-size: 24px;
 }
 
 .attractions{
