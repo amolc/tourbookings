@@ -29,6 +29,7 @@
 <link href="css/flexslider.css" rel="stylesheet" type="text/css">
 <link href="css/flexslider2.css" rel="stylesheet" type="text/css">
 <link href="css/jquery-ui.css" rel="stylesheet" type="text/css">
+<link href="//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
      <!-- Picker UI-->  
     <script type="text/javascript" src="js/jquery.v2.0.3.js"></script>
     <!-- Custom Select -->

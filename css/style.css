@@ -253,7 +253,7 @@ background: url(../images/home.jpg) no-repeat center ; }
 .header_logo {
 	width:1349px;
 	height: 41px;
-	border-left: solid 1px #cbcbcb;
+	/*border-left: solid 1px #cbcbcb;*/
 	/*border-right: solid 1px #cbcbcb;*/
 	 
 }
@@ -411,13 +411,16 @@ background: url(../images/home.jpg) no-repeat center ; }
 }
 
 .header_bar{
+	/*border-bottom:1px solid #fd8900; */
 	padding: 10px;
 	height: 30px;
 	margin-left: 10px;
+	font-family: "Raleway";
 }
 
 .header_bar h2{
 	color: #fd8900;
+	text-align: center;
 }
 
 .attractions{
@@ -441,6 +444,7 @@ background: url(../images/home.jpg) no-repeat center ; }
     font-size:44px;
     font-weight:bold;
 	display:block;
+	font-family: "Raleway";
 	
 	margin:20px 0px 0px 0px;
 }
@@ -460,12 +464,14 @@ margin-top: 20px;
 /* margin: 15px 40px 0px 40px; */
 color: #fff;
 font-size: 20px;
+font-family: "Raleway";
+line-height: 1.2;
 }
 .different_city {
 	width:1000px;
 	margin: 5px 0px 20px 0px;
 	padding-bottom:15px;
-	border-bottom:#dbdbdb solid 1px;
+	border-bottom:#fd8900 solid 1px;
 }
 .city_tour {
 	width:310px;
@@ -481,7 +487,9 @@ font-size: 20px;
 	/*margin:0px 10px 0px 15px;*/
 	overflow: hidden;
 	height: 22px;
-	text-align: center
+	text-align: center;
+	font-family: "Raleway";
+
 }
 .city_tour p {
     font-weight:normal;
@@ -491,7 +499,9 @@ font-size: 20px;
 	height: 70px;
 	line-height:18px;
 	font-size: 14px;
+	font-family: "Raleway";
 }
+
 .city_tour span {
 	margin:0px 0px 12px 0px;
 	display:block;
@@ -530,7 +540,7 @@ font-size: 20px;
 	float:left;
 	width:385px;
 	height:35px;
-    color: #323232;
+    color: #fd8900;
     display: block;
     font-size:24px;
 	font-weight:bold;
@@ -547,12 +557,13 @@ font-size: 20px;
     list-style-type: none;
     line-height:35px;
 	width:185px;
-	border-bottom:#d2d2d2 solid 1px;
+	/*border-bottom:#d2d2d2 solid 1px;*/
+	font-family: "Raleway"
 }
 .hot_destinations ul li a {
 	float:left;
     display: block;
-    font-size:12px;
+    font-size:14px;
     text-decoration: none;
 	text-shadow:#fff 1px 1px;
 	color:#585858;
@@ -613,7 +624,7 @@ font-size: 20px;
 	float:left;
 	width:530px;
 	height:35px;
-    color: #323232;
+    color: #fd8900;
     display: block;
     font-size:24px;
 	font-weight:bold;
@@ -624,6 +635,8 @@ font-size: 20px;
     font-weight:normal;
 	display:block;
 	line-height:17px;
+	font-size: 14px;
+	font-family: "Raleway";
 	margin:15px 0px 0px 0px;
 }
 .welcome p img {
@@ -678,6 +691,7 @@ font-size: 20px;
     display: block;
     font-size:22px;
 	font-weight:bold;
+	font-family: "Raleway"
 }
 
 .footer_links ul {
@@ -691,12 +705,14 @@ font-size: 20px;
     list-style-type: none;
     line-height:30px;
 	width:160px;
-	border-bottom:#d2d2d2 solid 1px;
+	/*border-bottom:#d2d2d2 solid 1px;*/
+	font-family: "Raleway"
 }
 .footer_links ul li a {
 float: left;
 display: block;
 font-size: 15px;
+width: 711px;
 text-decoration: none;
 /* text-shadow: #fff 1px 1px; */
 color: #fff;
@@ -707,8 +723,8 @@ color: #fff;
 	font-weight:bold;
 }
 .social_media {
-	width:115px;
-	margin:80px 0px 0px 0px;
+	width: 238px;
+margin: 174px 0px 0px 0px;
 }
 .social_media a.twitter {
 	float:left;
