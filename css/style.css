@@ -2634,7 +2634,7 @@ background-color: #f9f9f9;
 
 #form_send_enquiry .form-row{
     padding: 5px;
-    line-height: 40px;
+    /*line-height: 40px;*/
 }
 
 #form_send_enquiry label{
