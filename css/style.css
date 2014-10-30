@@ -246,7 +246,7 @@ textarea:focus, input[type="text"]:focus, input[type="checkbox"]:focus, input[ty
 	background:url(../images/wish_icon.jpg) no-repeat 15px 15px;
 }
 .header_logo {
-	width:1180px;
+	width:1349px;
 	height: 660px;;
 	border-left: solid 1px #cbcbcb;
 	/*border-right: solid 1px #cbcbcb;*/
@@ -655,7 +655,7 @@ font-size: 20px;
 /*************** Footer ***************/
 
 .footer {
-	width:1223px;
+	width:1349px;
 	height:225px;
 	margin:25px 0px 0px 0px;
 	border-top:#fd8900 solid 10px;
