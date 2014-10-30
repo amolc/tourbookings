@@ -204,6 +204,7 @@ textarea:focus, input[type="text"]:focus, input[type="checkbox"]:focus, input[ty
 }
 .top_nav {
 	/*width:335px;*/
+	width: 285px;
 	position:relative;
 	float: right;
 }
@@ -378,7 +379,7 @@ background: url(../images/home.jpg) no-repeat center ; }
 }
 .center_body {
     width:1000px;
-    margin:0px 0px 0px 113px;
+    margin:0px 0px 0px 168px;
    /* border:#cbcbcb solid 1px;*/
     border-top: none;
 }
