@@ -51,7 +51,9 @@ $query = mysql_query("SELECT
 						INNER JOIN tour_price ON tour.id = tour_price.tour_id
 						INNER JOIN tour_photo ON tour.id = tour_photo.tour_id
 						WHERE tour.status = 'accepted' AND tour.id = '".$tour_id."' GROUP BY tour.id");
-                  
+           
+
+
 	while ($record = mysql_fetch_array($query))
 		{
 			$tour_title =  $record['title'];
@@ -71,7 +73,7 @@ $query = mysql_query("SELECT
 			$tour_local_operator_info =  $record['local_operator_info'];
 
 			$tour_currency_id =  $record['currency_id'];
-			echo'sujeet--'.$tour_pic_url =  $record['url'];exit;
+			$tour_pic_url =  $record['url'];
 			// echo $tour_pic_url;
 			$tour_price_per_person =  $record['price_per_person'];
 			$price_customer_adult =  $record['price_customer_adult'];
@@ -270,7 +272,7 @@ $query = mysql_query("SELECT
                             <div class="zoo_night fl">
                             <?php	
 
-                            echo $tour_pic_url;exit;	
+                         	
                                 $no_pic="";
                                 if($tour_pic_url==""){
                                     $no_pic = 'no_preview.png';

@@ -187,7 +187,7 @@ textarea:focus, input[type="text"]:focus, input[type="checkbox"]:focus, input[ty
 
 /*************** Home Page ***************/
 #main_container {
-    width:1002px;
+   /* width:1002px;*/
 	margin:0 auto;
 }
 .header_main {
@@ -198,7 +198,9 @@ textarea:focus, input[type="text"]:focus, input[type="checkbox"]:focus, input[ty
 .header_top {
 	width:1002px;
     height:38px;
-	background:#fd8900;
+    float: right;
+	/*background:#fd8900;*/
+	 
 }
 .top_nav {
 	/*width:335px;*/
@@ -218,9 +220,9 @@ textarea:focus, input[type="text"]:focus, input[type="checkbox"]:focus, input[ty
 .top_nav ul li a {
 	float:left;
 	margin-left: 19px;
-    color: #FFFFFF;
+    color: #fff;
     display: block;
-    font-size:14px;
+    font-size:18px;
     text-align: center;
     text-decoration: none;
 }
@@ -244,13 +246,14 @@ textarea:focus, input[type="text"]:focus, input[type="checkbox"]:focus, input[ty
 	background:url(../images/wish_icon.jpg) no-repeat 15px 15px;
 }
 .header_logo {
-	width:1000px;
-	height:130px;
+	width:1223px;
+	height: 660px;;
 	border-left: solid 1px #cbcbcb;
-	border-right: solid 1px #cbcbcb;
+	/*border-right: solid 1px #cbcbcb;*/
+	 background: url(../images/home.jpg) no-repeat center ; 
 }
 .logo {
-	margin:14px 0px 0px 45px;
+	margin: 14px 0px 0px 116px;
 	width:256px !important;
 	overflow:visible !important;
 }
@@ -269,10 +272,11 @@ textarea:focus, input[type="text"]:focus, input[type="checkbox"]:focus, input[ty
 }
 .header_form {
 	width: 383px;
-	margin: 54px 0px 0px 262px;
+	float: right;
+	margin: 7px -33px 0px 0px;
 }
 .header_form input[type="text"] {
-	width:245px;
+	/*width:245px;*/
 	display:block;
 	color:#707070;
 	float:left;
@@ -370,7 +374,7 @@ textarea:focus, input[type="text"]:focus, input[type="checkbox"]:focus, input[ty
 .center_body {
     width:1000px;
     margin:0px 0px 0px 0px;
-    border:#cbcbcb solid 1px;
+   /* border:#cbcbcb solid 1px;*/
     border-top: none;
 }
 
@@ -414,32 +418,43 @@ textarea:focus, input[type="text"]:focus, input[type="checkbox"]:focus, input[ty
 .attractions{
 	width: 1000px;
 	border-bottom: 1px solid #dbdbdb;
+	margin-top: 401px;;
 }
 
 .body_content {
 	width:1000px;
+	margin-left: 94px;
 }
 .latest_offers {
 	width:960px;
 	height:125px;
-	border-bottom:#dbdbdb solid 1px;
+	/*border-bottom:#dbdbdb solid 1px;*/
 	margin:0 auto;
 }
 .latest_offers h1 {
-    color: #fd8900;
-    font-size:30px;
+    color: #ffe115;
+    font-size:44px;
     font-weight:bold;
 	display:block;
-	text-align:center;
+	
 	margin:20px 0px 0px 0px;
 }
 
 .latest_offers p {
-    font-weight:normal;
+    /*font-weight:normal;
 	line-height:18px;
 	display:block;
 	text-align:center;
-	margin:15px 40px 0px 40px;
+	margin:15px 40px 0px 40px;*/
+	font-weight: normal;
+line-height: 18px;
+display: block;
+width: 590px;;
+margin-top: 20px;
+/* text-align: center; */
+/* margin: 15px 40px 0px 40px; */
+color: #fff;
+font-size: 20px;
 }
 .different_city {
 	width:1000px;
@@ -449,18 +464,19 @@ textarea:focus, input[type="text"]:focus, input[type="checkbox"]:focus, input[ty
 }
 .city_tour {
 	width:310px;
-	height:330px;
+	height:348px;
 	margin:0px 0px 15px 17px;
-	background:#f2f2f2;
-	border-bottom:#dcdcdc solid 5px;
+	/*background:#f2f2f2;*/
+	/*border-bottom:#dcdcdc solid 5px;*/
 }
 .city_tour h1 {
-    color: #323232;
+    color: #ff8a00;
     font-size:18px;
 	display:block;
-	margin:0px 10px 0px 15px;
+	/*margin:0px 10px 0px 15px;*/
 	overflow: hidden;
 	height: 22px;
+	text-align: center
 }
 .city_tour p {
     font-weight:normal;
@@ -469,6 +485,7 @@ textarea:focus, input[type="text"]:focus, input[type="checkbox"]:focus, input[ty
 	overflow: hidden;
 	height: 70px;
 	line-height:18px;
+	font-size: 14px;
 }
 .city_tour span {
 	margin:0px 0px 12px 0px;
@@ -477,13 +494,14 @@ textarea:focus, input[type="text"]:focus, input[type="checkbox"]:focus, input[ty
 .city_tour a {
 	width:110px;
 	line-height:45px;
-    color:#323232;
+    color:#fff;
+    border-radius: 5px;
 	font-size:16px;
     font-weight:bold;
 	display:block;
 	text-align:center;
-	margin:12px 0px 0px 0px;
-	background:#dedede;
+	margin:12px 0px 0px 100px;
+	background:#ff8a00;
 	opacity: 0.9; /* Chrome 4+, FF2+, Saf3.1+, Opera 9+, IE9, iOS 3.2+, Android 2.1+ */
 	filter: alpha(opacity=90); /* IE6-IE8 */
 	-webkit-transition: background .5s ease-in; /*safari and chrome */
@@ -637,20 +655,21 @@ textarea:focus, input[type="text"]:focus, input[type="checkbox"]:focus, input[ty
 /*************** Footer ***************/
 
 .footer {
-	width:1000px;
+	width:1223px;
 	height:225px;
 	margin:25px 0px 0px 0px;
 	border-top:#fd8900 solid 10px;
+	background: url(../images/foot.jpg) no-repeat bottom;
 }
 .footer_links {
 	width:280px;
-	margin:38px 0px 0px 26px;
+	margin: 44px 0px 0px 135px;
 }
 .footer_links h2 {
 	float:left;
 	width:400px;
 	height:35px;
-    color: #fd8900;
+    color: #fff;
     display: block;
     font-size:22px;
 	font-weight:bold;
@@ -670,12 +689,13 @@ textarea:focus, input[type="text"]:focus, input[type="checkbox"]:focus, input[ty
 	border-bottom:#d2d2d2 solid 1px;
 }
 .footer_links ul li a {
-	float:left;
-    display: block;
-    font-size:12px;
-    text-decoration: none;
-	text-shadow:#fff 1px 1px;
-	color:#585858;
+float: left;
+display: block;
+font-size: 15px;
+text-decoration: none;
+/* text-shadow: #fff 1px 1px; */
+color: #fff;
+
 }
 .footer_links ul li a:hover {
     color:#323232;
@@ -1214,7 +1234,7 @@ textarea:focus, input[type="text"]:focus, input[type="checkbox"]:focus, input[ty
 	min-height:150px;
 	margin:0px 0px 0px 7px;
 	padding:0px 0px 0px 15px;
-	border-left:#cbcbcb dashed 1px;
+	/*border-left:#cbcbcb dashed 1px;*/
 }
 .departs1 {
 	width:770px;
@@ -1558,7 +1578,7 @@ text-align: right;
 .wishlist_cotnt_head h2 {
 	float:left;
 	line-height:50px;
-	border-right:#cbcbcb solid 1px;
+	/*border-right:#cbcbcb solid 1px;*/
     color: #fff;
     display: block;
     font-size:18px;
