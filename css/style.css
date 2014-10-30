@@ -245,12 +245,17 @@ textarea:focus, input[type="text"]:focus, input[type="checkbox"]:focus, input[ty
 	padding:13px 0px 0px 39px;
 	background:url(../images/wish_icon.jpg) no-repeat 15px 15px;
 }
+
+.main_back_img{width: 1349px;
+background: red;
+height: 660px;
+background: url(../images/home.jpg) no-repeat center ; }
 .header_logo {
 	width:1349px;
-	height: 660px;;
+	height: 41px;
 	border-left: solid 1px #cbcbcb;
 	/*border-right: solid 1px #cbcbcb;*/
-	 background: url(../images/home.jpg) no-repeat center ; 
+	 
 }
 .logo {
 	margin: 14px 0px 0px 116px;

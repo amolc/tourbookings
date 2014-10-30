@@ -100,7 +100,7 @@ $(document).ready(function(){
 
 <body>
     <div id="main_container">
-
+    <div class="main_back_img">
         <div class="header_main fl">
             
             <div class="header_logo fl">
@@ -194,7 +194,9 @@ $(document).ready(function(){
                                     WHERE tour.location_id = 'Singapore' LIMIT 0, 9";
                             $result_tour = mysql_query($sql_tour);
                             if(!$result_tour)die('Error query'.  mysql_error());
-                    ?>                  
+                    ?>    
+    </div>
+
                     <div class="attractions fl">
                         <div class="header_bar"><h2>Singapore Attractions</h2></div>
                     <?php 
