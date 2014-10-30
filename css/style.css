@@ -278,7 +278,7 @@ background: url(../images/home.jpg) no-repeat center ; }
 .header_form {
 	width: 383px;
 	float: right;
-	margin: 7px -33px 0px 0px;
+	margin: 7px 0px 0px 0px;
 }
 .header_form input[type="text"] {
 	/*width:245px;*/
