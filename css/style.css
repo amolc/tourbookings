@@ -373,7 +373,7 @@ textarea:focus, input[type="text"]:focus, input[type="checkbox"]:focus, input[ty
 }
 .center_body {
     width:1000px;
-    margin:0px 0px 0px 0px;
+    margin:0px 0px 0px 113px;
    /* border:#cbcbcb solid 1px;*/
     border-top: none;
 }
