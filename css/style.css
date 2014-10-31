@@ -204,9 +204,9 @@ textarea:focus, input[type="text"]:focus, input[type="checkbox"]:focus, input[ty
 }
 .top_nav {
 	/*width:335px;*/
-	width: 285px;
-	position:relative;
-	float: right;
+	width: 763px;
+position: relative;
+float: right;
 }
 .top_nav ul {
 	float:left;

@@ -97,11 +97,13 @@
 						else {
 						?>
 							<!--<li><a href="contact_us.php">Contact&nbsp;Us</a></li>-->
-							
+							<li><a href="index.php">Home</a></li>
 							<li><a href="/supplier/index.php">Suppiler</a></li>
-							
-
 							<li><a href="/user_login.php">Customer</a></li>
+							<li><a href="#">Tour Packeges</a></li>
+							<li><a href="#">Gallery</a></li>
+							<li><a href="#">About Us</a></li>
+							<li><a href="#">Contact Us</a></li>
 							
 							<!--<li><a href="help.php">Help</a></li>-->
 						<?php
