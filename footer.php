@@ -8,6 +8,7 @@
 							<li><a href="http://tourbookings.co/group_services.php">Corporate / Group</a></li>
 							<!--<li><a href="mileage_program.php">Mileage Program</a></li>-->
 							<li class="border"><a href="http://tourbookings.co/gift_certificates.php">Gift Certificates</a></li>
+              <div class="power">Powered by: Fountain Technology Pvt.Ltd,Singapore</div>
 					  </ul>
               	    </div>
                 	  <div class="footer_links mrgn_left fl"> 

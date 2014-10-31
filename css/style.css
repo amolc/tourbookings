@@ -680,6 +680,7 @@ line-height: 1.2;
 	margin:25px 0px 0px 0px;
 	border-top:#fd8900 solid 10px;
 	background: url(../images/foot.jpg) no-repeat bottom;
+	padding-bottom: 20px;
 }
 .footer_links {
 	width:280px;
@@ -2899,3 +2900,12 @@ background-color: #f9f9f9;
 	border: 1px solid #fd8900 !important;
 }
 
+.power{
+width: 457px;
+/* height: 20px; */
+color: #514848;
+margin-top: 130px;
+font-size: 18px;
+font-family: "raleway";
+/* margin-bottom: 20px; */
+}
