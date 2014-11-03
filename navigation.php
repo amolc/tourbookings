@@ -99,7 +99,7 @@
 							<!--<li><a href="contact_us.php">Contact&nbsp;Us</a></li>-->
 							
 	  											
- 							<li><a class="menu" href="index.php">HOME</a></li>
+ 							<li><a class="menu" href="/index.php">HOME</a></li>
 			              	<li><a href="/supplier/index.php">SUPPLIER</a></li>		
 			                <li><a class="menu" href="/user_login.php">CUSTOMER</a></li>
 			                <li><a class="menu" href="#">TOUR PACKAGE</a></li>

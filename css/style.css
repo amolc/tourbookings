@@ -367,7 +367,7 @@ textarea:focus, input[type="text"]:focus, input[type="checkbox"]:focus, input[ty
 }
 .center_body {
     width:1349px;
-
+    padding-bottom: 25px;
     margin:0px 0px 0px 0px;
     /*border:#cbcbcb solid 1px;*/
     border-top: none;
@@ -670,7 +670,7 @@ background: url(../images/city-back.jpg) no-repeat;}
 .footer {
 	width: 1243px;
 height: 281px;
-margin: 25px 0px 0px 0px;
+margin: 0px 0px 0px 0px;
 border-top: #fd8900 solid 10px;
 padding-left: 106px;
 background: url(../images/foot.jpg) no-repeat bottom;
@@ -1452,8 +1452,9 @@ text-align: right;
 	background:#323232;
 	color:#fff;
 }
-
 /*************** Tour Detail  ***************/
+
+
 .tour-detail_container{background: url(../images/tour-detail_bg4.jpg) no-repeat;
 background-size: 1349px 977px;}
 
@@ -2366,7 +2367,7 @@ padding-right: 10px;
 	padding-left: 90px;
 }
 .convenience {
-	widows:370px;
+	width: 500px;
 	margin:25px 0px 50px 75px;
 }
 .convenience h1 {
@@ -2377,6 +2378,7 @@ padding-right: 10px;
 	line-height:30px;
     font-weight:bold;
 	display:block;
+	padding-top: 14px;
 	text-transform:uppercase;
 	margin:0px 0px 7px 18px;
 }
@@ -2555,21 +2557,21 @@ background-color: #f9f9f9;
 	-o-box-shadow:0px 0px 3px #d1d1d1;
 }
 .header_login input[type="submit"] {
-    background: none repeat scroll 0 0 #323232;
-    border: medium none;
-    color: #FFFFFF;
-    cursor: pointer;
-   /* float: left;*/
-    font-size: 16px;
-    font-weight: normal;
-    height: 32px;
-    line-height: 32px;
-   margin:25px 0 10px 49px;
-    opacity: 0.9;
-    text-align: center;
-    text-decoration: none;
-    transition: background 0.5s ease-in 0s;
-    width: 100px;
+    background: none repeat scroll 0 0 #fd8900;
+border-radius: 3px;
+color: #FFFFFF;
+cursor: pointer;
+/* float: left; */
+font-size: 18px;
+font-weight: normal;
+height: 32px;
+/* line-height: 32px; */
+margin: 25px 0 10px 49px;
+opacity: 0.9;
+text-align: center;
+text-decoration: none;
+transition: background 0.5s ease-in 0s;
+width: 100px;
 }
 .header_login input[type="submit"]:hover {
 	background:#fd8900;
@@ -2898,3 +2900,13 @@ background-color: #f9f9f9;
 	border: 1px solid #fd8900 !important;
 }
 
+/************suppiler page********* by saurabh*/
+.convenience-box{background: #f9f9f9;
+height: 577px;padding-left: 78px;}
+.box-1{width: 428px;
+height: 141px;
+background: white;
+padding: 25px;
+border-radius: 6px;
+}
+.convenience-icon{float: left;width: 100px;height: 145px;border-right: 1px solid #fd8900;}
