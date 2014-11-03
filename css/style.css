@@ -421,13 +421,17 @@ padding: 20px;
 /* width: 951px; */
 padding: 10px;
 }
-
+.country-name{color: #fff;
+	height: 114px;
+margin-left: 121px;}
+.country-name-h1{background: rgb(239, 239, 239);padding: 15px;color: #fd8900;border-radius: 6px;font-size: 22px;width: 637px;}
 .attractions{
 	
 /* margin-left: 122px; */
 /*background: rgb(242, 242, 242);
 */
 padding-left: 122px;
+
 }
 
 .body_content {
@@ -436,7 +440,7 @@ padding-left: 122px;
 .bg_container{height: 837px; background: red;background: url(../images/home.jpg) no-repeat;align-content: center;}
 .latest_offers {
 	/*width:960px;*/
-	height: 454px;
+	height: 371px;
 	width: 100%;
 	
 	/*border-bottom:#dbdbdb solid 1px;*/
@@ -675,7 +679,7 @@ height: 281px;
 margin: 0px 0px 0px 0px;
 border-top: #fd8900 solid 10px;
 padding-left: 106px;
-background: url(../images/foot.jpg) no-repeat bottom;
+background: url(../images/city-back.jpg) no-repeat bottom;
 padding-bottom: 24px;
 }
 .footer_links {
@@ -801,7 +805,7 @@ color: #FFFFFF;
 }
 .power{width: 587px;
 margin-top: 184px;
-color: #514848;
+color: #FFC200;
 font-size: 18px;}
 /*************** Tour Listing ***************/
 

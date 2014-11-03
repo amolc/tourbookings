@@ -159,7 +159,7 @@ $(document).ready(function(){
             </div>
         </div>-->
                 <div class="center_body fl">
-                    <<!-- div class="header_menu">
+                    <!-- div class="header_menu">
                         <ul>
                             <li>
                                 <a href="#">CATEGORY</a>
@@ -179,6 +179,16 @@ $(document).ready(function(){
                                 Through the hard work of our staff here at Tour Bookings, we are able to bring to you these irresistible deals at highly affordable prices. With a wide range of tours and deals available for all ages at these six beautifully unique countries, what are you waiting for? It doesn’t get anymore Asian than this!
                             </p>
                         </div>
+                        <div class="country-name">
+                        	<h1 class="country-name-h1"><a href='tour_list.php?location=Singapore'>Singapore</a> 
+                        	<a href="index_city.php?location=Malaysia">| Malaysia</a> 
+                        	<a href="index_city.php?location=Indonesia">| Indonesia </a>
+                        	<a href="index_city.php?location=Thailan">| Thailan</a>
+                        	<a href="index_city.php?location=Hong Kon">| Hong Kong </a>
+                        	<a href="index_city.php?location=India">| India</a>
+                        	</h1>
+                        </div>
+
    </div><!-- bg-contener -->
                     <?php
                             $sql_tour = "SELECT
@@ -277,7 +287,7 @@ $(document).ready(function(){
                           </div>-->
 
                       </div>
-                <div class="city-name">     
+       <!--          <div class="city-name">     
                     <div  class="hot_destinations fl" style="margin:0px 0px 0px 0px; padding-left:220px; width:188px;">
                       
                             <ul>
@@ -328,7 +338,7 @@ $(document).ready(function(){
                                 
                             </ul>
                         </div>  
-                </div>  
+                </div>   -->
                         <div class="hot_destinations fl" style="width:250px;">
                             <h2 style="width:275px;">Hot Destinations</h2>
                             <ul style="width:245px;">
@@ -350,7 +360,7 @@ $(document).ready(function(){
                                 <li><a href='category_view.php?cat_name=Multi-day & Extended Tours'>Multi-day & Extended Tours</a></li>
                             </ul>-->
                         </div>
-                        
+            <!--             
             <div class="welcome fl" style="float:left;width:300px;">
                             <h1>Why Tour Bookings!</h1>
                             <img src="images/welcome_pic_1.jpg" width="300" height="169">
@@ -358,7 +368,7 @@ $(document).ready(function(){
                             <br> <p style="width:300px;">
                             Here at Tour Bookings, every customer is our VIP! There is no need for you to scour the web to search for things to do on your vacation, no need to rummage through the tons of information on the Internet. We have done all of that for you! Everything is made available to you in the comfort of your home, on a single site. 
                             </p>
-                        </div>
+                        </div> -->
                         
                     <!--<div class="our_featured fr">-->
                       <?php
