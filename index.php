@@ -201,7 +201,7 @@ $(document).ready(function(){
                                     tour
                                     INNER JOIN tour_price ON tour.id = tour_price.tour_id
                                     INNER JOIN tour_photo ON tour.id = tour_photo.tour_id
-                                    WHERE tour.location_id = 'Singapore' ORDER BY tour.id DESC LIMIT 0, 2 ";
+                                    WHERE tour.location_id = 'Singapore' ORDER BY tour.id ASC LIMIT 0, 2 ";
                             $result_tour = mysql_query($sql_tour);
                             if(!$result_tour)die('Error query'.  mysql_error());
                     ?>                  
