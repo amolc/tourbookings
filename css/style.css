@@ -810,10 +810,12 @@ font-size: 18px;}
 }
 
 .left_penal_tour_detail {
-    width:665px;
-    margin: 0 0 20px 139px;
-    background: rgb(250, 250, 250);
-    padding: 45px;
+   width: 665px;
+margin: 0 0 20px 139px;
+background: rgb(250, 250, 250);
+/* padding: 45px; */
+padding: 0px 25px 25px 25px;
+border-radius: 7px;
 }
 .insider_guide {
 	width:295px;
@@ -919,10 +921,11 @@ font-size: 18px;}
 
 .right_penal_tour_detail {
     width:290px;
-    margin:0px 20px 10px 0px;
+    margin-left: 40px;
 /*    background:#f2f2f2;*/
-background: #f2f2f2;
-padding: 20px;
+background: rgb(250, 250, 250);
+padding: 0px 50px 25px 25px;
+border-radius: 7px;
 }
 .picks_head {
 	width:665px;
