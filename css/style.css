@@ -269,7 +269,7 @@ textarea:focus, input[type="text"]:focus, input[type="checkbox"]:focus, input[ty
 .header_form {
 	padding-right: 59px;}
 .header_form input[type="text"] {
-	width:245px;
+	/*width:245px;*/
 	display:block;
 	color:#707070;
 	float:left;
@@ -279,6 +279,7 @@ textarea:focus, input[type="text"]:focus, input[type="checkbox"]:focus, input[ty
 	background:white;
 	border:solid #cbcbcb 1px;
         text-align: center;
+        font-family: "raleway";
 }
 .header_form input[type="text"]:focus {
 	box-shadow:0px 0px 3px #d1d1d1;
@@ -320,7 +321,7 @@ textarea:focus, input[type="text"]:focus, input[type="checkbox"]:focus, input[ty
 	text-align:center;
 	text-decoration:none;
 	background:#fd8900;
-	border:none;
+	border-radius: 2px;
 	-webkit-transition: background .5s ease-in; /*safari and chrome */
 	-o-transition: background 0.5s ease-in; /* opera */
 	-moz-transition: background .5s ease-in;
