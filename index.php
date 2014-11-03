@@ -29,7 +29,6 @@
 <link href="css/flexslider.css" rel="stylesheet" type="text/css">
 <link href="css/flexslider2.css" rel="stylesheet" type="text/css">
 <link href="css/jquery-ui.css" rel="stylesheet" type="text/css">
-<link href="//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
      <!-- Picker UI-->  
     <script type="text/javascript" src="js/jquery.v2.0.3.js"></script>
     <!-- Custom Select -->
@@ -100,17 +99,17 @@ $(document).ready(function(){
 </head>
 
 <body>
-    <div id="main_container">
-    <div class="main_back_img">
-        <div class="header_main fl">
-            
-            <div class="header_logo fl">
-            <div class="header_top fl">
-                <?php include('navigation.php'); ?>
+    <div id class="bg_container">
+        <div id="main_container">
+            <div class="header_main fl">
+                <div class="header_top fl">
+                    <?php include('navigation.php'); ?>
+                </div>
+                <div class="header_logo fl">
+                    <?php include('header_logo.php'); ?>
+                </div>
             </div>
-                <?php include('header_logo.php'); ?>
-            </div>
-        </div>
+
         <!--<div class="banner fl">
             <div class="flexslider">
                 <ul class="slides">
@@ -160,20 +159,19 @@ $(document).ready(function(){
             </div>
         </div>-->
                 <div class="center_body fl">
-
-                    <!-- <div class="header_menu">
+                    <div class="header_menu">
                         <ul>
                             <li>
-                                <a href="#">Category</a>
+                                <a href="#">CATEGORY</a>
                             </li>
                             <li>
-                                <a href="#">Destinations</a>
+                                <a href="#">DESTINATIONS</a>
                             </li>
                             <li>
-                                <a href="#">Deals</a>
+                                <a href="#">DEALS</a>
                             </li>
                         </ul>
-                    </div> -->
+                    </div>
                     <div class="body_content fl">
                         <div class="latest_offers">
                             <h1>Welcome to TourBookings!</h1>
@@ -181,6 +179,7 @@ $(document).ready(function(){
                                 Through the hard work of our staff here at Tour Bookings, we are able to bring to you these irresistible deals at highly affordable prices. With a wide range of tours and deals available for all ages at these six beautifully unique countries, what are you waiting for? It doesn’t get anymore Asian than this!
                             </p>
                         </div>
+   </div><!-- bg-contener -->
                     <?php
                             $sql_tour = "SELECT
                                     tour.id,
@@ -195,9 +194,7 @@ $(document).ready(function(){
                                     WHERE tour.location_id = 'Singapore' LIMIT 0, 9";
                             $result_tour = mysql_query($sql_tour);
                             if(!$result_tour)die('Error query'.  mysql_error());
-                    ?>    
-    </div>
-
+                    ?>                  
                     <div class="attractions fl">
                         <div class="header_bar"><h2>Singapore Attractions</h2></div>
                     <?php 
@@ -280,8 +277,8 @@ $(document).ready(function(){
                           </div>-->
 
                       </div>
-                <div style="padding-bottom:40px; margin-bottom:40px;border-bottom:1px solid #dbdbdb;float:left;width:1000px">     
-                    <div  class="hot_destinations fl" style="margin:0px 0px 0px 0px; padding-left:20px; width:188px;">
+                <div class="city-name">     
+                    <div  class="hot_destinations fl" style="margin:0px 0px 0px 0px; padding-left:220px; width:188px;">
                       
                             <ul>
                                 <li><a href="index_city.php?location=Japan"><span class="country_index">Japan</span></a></li>
@@ -447,7 +444,7 @@ $(document).ready(function(){
                      </div>-->
                         
                     </div>
-                </div>
+                
                   <?php include('footer.php'); ?>
                 </div>
       <div style="clear:both"></div>
