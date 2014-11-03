@@ -133,9 +133,38 @@ $(document).ready(function(){
                             <h1>Join Us As Partner</h1> 
                   
                    	<div class="left_colm fl">
-                   	<div class="header_login fr">
-            
+                   	<div class="header_signup fr">
+
+   
             <!--<form action="" method="post" >-->
+            	<div class="customer_signup">SUPPILER SIGNUP</div>
+                <label>* Name:</label>
+				<input id="username" type="text" name="username">
+				<label>Email</label>
+				<input id="username" type="text" name="username">
+				<label>Mobile</label>
+				<input id="username" type="text" name="username">
+				 <label>* Username</label>
+				<input id="username" type="text" name="username">
+               
+                <label>* Password:</label>
+                <div style="margin-left: 42px;">
+					<input style="margin-bottom:0px;" id="password" type="password" name="password">
+					 <!-- <input type="submit" name="button" id="Login" value="Login">
+					<div class="mesg" style="font-weight: bold;color: #F00;float: left; margin-left: 90px;width: 434px;"></div>  -->
+					<a href="signup.php"><input type="submit" name="button" id="signup" value="signup"></a>
+	                
+	               <!--  <div><a href="forgot_password.php" style=" margin: 0px 22px 0px 47px;">Forgot Password</a></div> -->
+	            </div>
+	            </div><!-- close latest offer  -->
+           <!-- </form>-->
+
+
+                   	<div class="header_login fr">
+
+   
+            <!--<form action="" method="post" >-->
+            <div class="customer_signup">SUPPILER SIGNIN</div>
                 <label>* Username:</label>
 				<input id="username" type="text" name="username">
                

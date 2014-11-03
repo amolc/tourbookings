@@ -4,7 +4,7 @@
 	</a>
 </div>      
 <form action="search_filter.php" method="post" ></form>
-<div class="header_form fr">
+<div class="header_form fr1">
 
 <form action="search.php" method="post" >
 	<input type="text" value="Keyword Search" name="Keyword" onblur="if(this.value=='') this.value='Keyword Search'" onfocus="this.value=''" required>

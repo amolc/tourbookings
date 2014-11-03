@@ -173,7 +173,7 @@ $(document).ready(function(){
                         </ul>
                     </div> -->
                     <div class="body_content fl">
-                        <div class="latest_offers">
+                        <div class="home_latest_offers">
                             <h1>Welcome to TourBookings!</h1>
                             <p>
                                 Through the hard work of our staff here at Tour Bookings, we are able to bring to you these irresistible deals at highly affordable prices. With a wide range of tours and deals available for all ages at these six beautifully unique countries, what are you waiting for? It doesn’t get anymore Asian than this!

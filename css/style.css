@@ -141,7 +141,8 @@ img {
 	border: none;
 }
 .fl { float:left;}
-.fr { float:right;}
+.fr { float:left;}
+.fr1{float: right;}
 .border { border:none !important;}
 .border-bottom { border-bottom:#b1b1b1 dashed 1px !important; }
 .mrgn_top { margin-top:20px !important;}
@@ -440,11 +441,38 @@ padding-left: 122px;
 .bg_container{height: 837px; background: red;background: url(../images/home.jpg) no-repeat;align-content: center;}
 .latest_offers {
 	/*width:960px;*/
-	height: 371px;
+	height: 503px;
 	width: 100%;
 	
 	/*border-bottom:#dbdbdb solid 1px;*/
 	margin:0 auto;
+}
+.home_latest_offers {
+	/*width:960px;*/
+	height: 365px;
+	width: 100%;
+	
+	/*border-bottom:#dbdbdb solid 1px;*/
+	margin:0 auto;
+}
+.home_latest_offers h1 {
+    color: #ffe115;
+    font-size: 42px;
+    font-weight:bold;
+	display:block;
+	
+	margin: 20px 0px 0px 139px;
+}
+
+.home_latest_offers p {
+    font-weight: normal;
+color: #fff;
+line-height: 31px;
+display: block;
+font-size: 20px;
+width: 622px;
+/* text-align: center; */
+margin: 15px 40px 0px 136px;
 }
 .latest_offers h1 {
     color: #ffe115;
@@ -2373,7 +2401,7 @@ padding-right: 10px;
 /*************** Partner Page Bilal ***************/
 
 .left_colm {
-	width:420px;
+	width: 1147px;
 	margin:25px 0px 0px 25px;
 	padding-left: 90px;
 }
@@ -2528,16 +2556,20 @@ padding-right: 10px;
 
 
 /************** Partner Landing Page By Bilal **************/
-
+.customer_signup{color: #fd8900;
+padding-bottom: 20px;
+text-align: center;
+font-size: 22px;
+/*border-bottom: solid;*/}
 .header_login {
-margin-left: 20px;
+margin-left: 120px;
 width: 385px;
-height: 210px;
+
 /* padding: 20px; */
 padding-top: 40px;
 padding-left: 27px;
-background: background-color: #f9f9f9;
-background-color: #f9f9f9;
+height: 252px;background-color: #f9f9f9;
+border-radius: 8px;
 }
 .header_login label {
     display: block;
@@ -2587,6 +2619,72 @@ width: 100px;
 .header_login input[type="submit"]:hover {
 	background:#fd8900;
 }
+
+
+/************** signup **************/
+
+.header_signup{
+margin-left: 20px;
+width: 385px;
+/* padding: 20px; */
+padding: 30px;
+/* padding-left: 27px; */
+height: 333px;
+background-color: #f9f9f9;
+border-radius: 8px;
+}
+.header_signup label {
+    display: block;
+    float: left;
+    line-height: 14px;
+    margin: 0 10px 0 0;
+    text-align: right;
+    width: 80px;
+}
+
+.header_signup input[type="text"], .header_signup input[type="password"] {
+    background: none repeat scroll 0 0 #FFFFFF;
+    border: 1px solid #CBCBCB;
+    color: #707070;
+    display: block;
+    /*float: left;*/
+    height: 30px;
+    margin-bottom: 20px;
+    padding: 0 5px;
+    width: 242px;
+
+}
+.header_signup input[type="text"]:focus {
+	box-shadow:0px 0px 3px #d1d1d1;
+	-webkit-box-shadow:0px 0px 3px #d1d1d1;
+	-moz-box-shadow:0px 0px 3px #d1d1d1;
+	-ms-box-shadow:0px 0px 3px #d1d1d1;
+	-o-box-shadow:0px 0px 3px #d1d1d1;
+}
+.header_signup input[type="submit"] {
+    background: none repeat scroll 0 0 #fd8900;
+border-radius: 3px;
+color: #FFFFFF;
+cursor: pointer;
+/* float: left; */
+font-size: 18px;
+font-weight: normal;
+height: 32px;
+/* line-height: 32px; */
+margin: 25px 0 10px 49px;
+opacity: 0.9;
+text-align: center;
+text-decoration: none;
+transition: background 0.5s ease-in 0s;
+width: 100px;
+}
+.header_signup input[type="submit"]:hover {
+	background:#fd8900;
+}
+
+
+
+
 
 
 /*by kamil*/
