@@ -103,7 +103,7 @@
 			              	<li><a href="/supplier/index.php">SUPPLIER</a></li>		
 			                <li><a class="menu" href="/user_login.php">CUSTOMER</a></li>
 			                <li><a class="menu" href="#">TOUR PACKAGE</a></li>
-			                <li><a class="menu" href="#">GALLARY</a></li>
+			                <li><a class="menu" href="#">GALLERY</a></li>
 			                <li><a class="menu" href="#">ABOUT US</a></li>
 			                <li><a class="menu" href="#">CONTACT US</a></li>
 							

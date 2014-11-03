@@ -159,7 +159,7 @@ $(document).ready(function(){
             </div>
         </div>-->
                 <div class="center_body fl">
-                    <div class="header_menu">
+                    <<!-- div class="header_menu">
                         <ul>
                             <li>
                                 <a href="#">CATEGORY</a>
@@ -171,7 +171,7 @@ $(document).ready(function(){
                                 <a href="#">DEALS</a>
                             </li>
                         </ul>
-                    </div>
+                    </div> -->
                     <div class="body_content fl">
                         <div class="latest_offers">
                             <h1>Welcome to TourBookings!</h1>
