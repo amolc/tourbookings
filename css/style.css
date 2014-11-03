@@ -437,6 +437,7 @@ padding-left: 122px;
 .latest_offers {
 	/*width:960px;*/
 	height: 454px;
+	width: 100%;
 	/*border-bottom:#dbdbdb solid 1px;*/
 	margin:0 auto;
 }
@@ -2663,15 +2664,17 @@ width: 100px;
 
 #form_send_enquiry label{
     display: block;
-    width: 100px;
-    float: left;
-   /* font-size: 13px;*/
-    margin-left: 5px;
-    margin-right: 5px;
+/* width: 100px; */
+float: left;
+/* font-size: 13px; */
+/* margin-left: 5px; */
+/* padding: 1px; */
+padding-right: 32px;
+/* margin-right: 5px; */
 }
 
 .form-row input[type="text"]{
-    width: 178px;
+    width: 132px;
     padding: 3px;
     font-size: 13px;
 }
@@ -2685,7 +2688,7 @@ width: 100px;
 }
 
 #adult_child_pricing span:nth-child(1){
-    margin: 0 10px 0 15px;
+   /* margin: 0 10px 0 15px;*/
 }
 
 .form-row #adult_pricing{
