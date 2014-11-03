@@ -229,7 +229,7 @@ $query = mysql_query("SELECT
 </head>
 
 <body>
-<div id class="bg_container">
+<div id class="tour-detail_container">
 	<div id="main_container">
     	<div class="header_main fl">
         	<div class="header_top fl">

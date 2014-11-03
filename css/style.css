@@ -1452,6 +1452,8 @@ text-align: right;
 }
 
 /*************** Tour Detail  ***************/
+.tour-detail_container{background: url(../images/tour-detail_bg.jpg) no-repeat ;
+height: 997px;}
 
 .price_calender {
 	width:295px;
