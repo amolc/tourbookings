@@ -183,7 +183,7 @@ $(document).ready(function(){
                         	<h1 class="country-name-h1"><a href='/singapore_city.php?location=Singapore'>Singapore</a> 
                         	<a href="index_city.php?location=Malaysia">| Malaysia</a> 
                         	<a href="index_city.php?location=Indonesia">| Indonesia </a>
-                        	<a href="index_city.php?location=Thailan">| Thailan</a>
+                        	<a href="index_city.php?location=Thailan">| Thailand</a>
                         	<a href="index_city.php?location=Hong Kon">| Hong Kong </a>
                         	<a href="index_city.php?location=India">| India</a>
                         	</h1>
