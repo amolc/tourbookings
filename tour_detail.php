@@ -229,6 +229,7 @@ $query = mysql_query("SELECT
 </head>
 
 <body>
+<div id class="bg_container">
 	<div id="main_container">
     	<div class="header_main fl">
         	<div class="header_top fl">
@@ -634,6 +635,7 @@ $query = mysql_query("SELECT
 //                            echo '</form>';
                         ?>
                     </div>
+ </div>                   
                 <?php include('footer.php'); ?>
       <div style="clear:both"></div>
    </div>
