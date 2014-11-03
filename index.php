@@ -201,13 +201,14 @@ $(document).ready(function(){
                                     tour
                                     INNER JOIN tour_price ON tour.id = tour_price.tour_id
                                     INNER JOIN tour_photo ON tour.id = tour_photo.tour_id
-                                    WHERE tour.location_id = 'Singapore' LIMIT 0, 9";
+                                    WHERE tour.location_id = 'Singapore' ORDER BY tour.id DESC LIMIT 0, 2 ";
                             $result_tour = mysql_query($sql_tour);
                             if(!$result_tour)die('Error query'.  mysql_error());
                     ?>                  
                     <div class="attractions fl">
                         <div class="header_bar"><h2>Singapore Attractions</h2></div>
                     <?php 
+                    //$count = 0;
                         while($record = mysql_fetch_array($result_tour)){
                             $tour_id = $record['id'];
                             $tour_title = $record['title'];
@@ -222,6 +223,7 @@ $(document).ready(function(){
                                 $no_pic = $tour_image_url;
                             }
                     ?>
+                    	<?php //if( $count < 2 ) {?>
                         <div id="onload_id" class="city_tour fl">
                             <span><img src="supplier/uploads/<?php echo $no_pic; ?>" width="310" height="169"></span>
                             <h1><?php echo $tour_title; ?></h1>
@@ -230,7 +232,8 @@ $(document).ready(function(){
                             </p>
                             <a href="tour_detail.php?tour_id=<?php echo $tour_id; ?>" class="view_detail fl">View Details</a>
                         </div>
-                    <?php } ?>
+                        <?php //} ?>
+                    <?php } //$count++; } ?>
                     </div>
                     <div class="different_city fl">
                         <div class="header_bar"><h2>Hot Destinations</h2></div>
