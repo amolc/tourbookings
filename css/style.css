@@ -839,7 +839,7 @@ font-size: 18px;}
 
 .left_penal{
     width:295px;
-    margin:0px 20px 10px 0px;
+   margin: 0px 20px 10px 138px;
     background:#f2f2f2;
 }
 
@@ -949,7 +949,7 @@ border-radius: 7px;
 /*************** Right Penal ***************/
 
 .right_penal{
-    /*width:665px;*/
+    width:665px;
     margin: 65px 20px 10px 0px;
 }
 
@@ -963,7 +963,7 @@ border-radius: 7px;
 }
 .picks_head {
 	width:665px;
-	margin-top:20px;
+	/*margin-top:20px;*/
 }
 .picks_head h2 {
 	float:left;
