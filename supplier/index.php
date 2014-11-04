@@ -134,16 +134,34 @@ $(document).ready(function(){
                   
                    	<div class="left_colm fl">
                    	<div class="header_signup fr">
-
+          <?php
+                error_reporting('e_all');
+				include("../include/database/db.php");
+				$name = $_POST['name'];
+				$email = $_POST['email'];
+				$mobile = $_POST['mobile'];
+				$username = $_POST['username'];
+				$password = $_POST['password'];				
+				if($_POST['submit'])
+				{
+				echo	$insert="insert into user(name,address,email,education,mobile)values('$name','$email','$mobile','$username','$password')";exit();
+					$exe=mysql_query($insert);
+					if($exe)
+					{
+						header("location:list.php");
+					}
+				}
+          ?>
    
             <!--<form action="" method="post" >-->
+            <form action=" " method="post">
             	<div class="customer_signup">SUPPLIER SIGNUP</div>
                 <label>* Name:</label>
-				<input id="username" type="text" name="username">
+				<input id="name" type="text" name="name">
 				<label>Email</label>
-				<input id="username" type="text" name="username">
+				<input id="email" type="text" name="email">
 				<label>Mobile</label>
-				<input id="username" type="text" name="username">
+				<input id="mobile" type="text" name="mobile">
 				 <label>* Username</label>
 				<input id="username" type="text" name="username">
                
@@ -152,12 +170,12 @@ $(document).ready(function(){
 					<input style="margin-bottom:0px;" id="password" type="password" name="password">
 					 <!-- <input type="submit" name="button" id="Login" value="Login">
 					<div class="mesg" style="font-weight: bold;color: #F00;float: left; margin-left: 90px;width: 434px;"></div>  -->
-					<input type="submit" name="button" id="signup" value="signup"></a>
+					<input type="submit" name="submit" id="signup" value="signup"></a>
 	                
 	               <!--  <div><a href="forgot_password.php" style=" margin: 0px 22px 0px 47px;">Forgot Password</a></div> -->
 	            </div>
 	            </div><!-- close latest offer  -->
-           <!-- </form>-->
+            </form>
 
 
                    	<div class="header_login fr">
