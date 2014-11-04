@@ -9,7 +9,7 @@ if($_SERVER['HTTP_HOST']=="localhost"){
     $db	 = @mysql_select_db('tourbookings-beta');
 }
 else{
-    //$con = mysql_connect('localhost','root', '10gXWOqeaf');
-	//$db	 = mysql_select_db('tourbookings-beta');
+    $con = mysql_connect('localhost','root', '10gXWOqeaf');
+	$db	 = mysql_select_db('tourbookings-beta');
 }
 ?>
