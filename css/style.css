@@ -377,6 +377,7 @@ textarea:focus, input[type="text"]:focus, input[type="checkbox"]:focus, input[ty
     margin:0px 0px 0px 0px;
     /*border:#cbcbcb solid 1px;*/
     border-top: none;
+    
 }
 
 .header_menu{
