@@ -444,7 +444,7 @@ padding-left: 122px;
 	width: 1349px;
 	max-width: 3000px;
 }
-.bg_container{height: 837px; background: red;background: url(../images/home.jpg) no-repeat;align-content: center;}
+.bg_container{height: 837px; background: red;background: url(../images/home.jpg) no-repeat;align-content: center;max-width: 3000px;}
 .latest_offers {
 	/*width:960px;*/
 	height: 503px;
