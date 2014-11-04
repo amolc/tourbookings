@@ -257,7 +257,7 @@ $(document).ready(function(){
 		  <div class="center_body fl">
                 
                 	<div class="body_content fl">
-                    	<div class="latest_offers">
+                    	<div class="city_latest_offers">
                         	<h1><?php echo $location; ?></h1>
                             <p><?php echo $des; ?></p>
                         </div>
@@ -323,7 +323,7 @@ else {
                                 <li><a href='category_view.php?cat_name=Multi-day & Extended Tours'>Multi-day & Extended Tours</a></li>
                             </ul>-->
                         </div>
-                        
+                      <!--   
                               	  <div class="welcome fl">
                             	<h1>Welcome to Tour Bookings!</h1>
                           <p><img src="images/welcome_pic.jpg" width="238" height="200">
@@ -333,7 +333,7 @@ Here at Tour Bookings, every customer is our VIP! There is no need for you to sc
 <a href="about_us.php">View More...</a></p>
 							
 
-                        </div>
+                        </div> -->
                         
                     </div>
                 

@@ -502,6 +502,23 @@ margin: 15px 40px 0px 136px;
 	
 }
 
+.city_latest_offers{font-weight: normal;
+color: #fd8900;
+line-height: 31px;
+display: block;
+font-size: 20px;
+width: 622px;
+/* text-align: center; */
+margin: 15px 40px 0px 136px;}
+
+.city_latest_offers p{font-weight: normal;
+color: #696964;
+line-height: 31px;
+display: block;
+font-size: 20px;
+width: 622px;
+/* text-align: center; */
+/*margin: 15px 40px 0px 136px;}*/}
 .slider_latest_offers p {
     font-weight: normal;
 color: #fff;
@@ -514,8 +531,8 @@ margin: 15px 40px 0px 136px;
 }
 .different_city {
 	padding-left: 122px;
-	padding-bottom: 40px;
-
+	/*padding-bottom: 40px;
+*/
 /*background: rgb(242, 242, 242);*/
 }
 .city_tour {
@@ -577,7 +594,8 @@ filter: alpha(opacity=90);
 
 .hot_destinations {
 	width:385px;
-	margin: 0px 0px 0px 139px;}
+	margin: 27px 0px 0px 139px;
+padding-bottom: 25px;}
 .hot_destinations h2 {
 	float:left;
 	width:385px;
