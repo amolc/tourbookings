@@ -152,7 +152,7 @@ $(document).ready(function(){
 					<input style="margin-bottom:0px;" id="password" type="password" name="password">
 					 <!-- <input type="submit" name="button" id="Login" value="Login">
 					<div class="mesg" style="font-weight: bold;color: #F00;float: left; margin-left: 90px;width: 434px;"></div>  -->
-					<a href="signup.php"><input type="submit" name="button" id="signup" value="signup"></a>
+					<input type="submit" name="button" id="signup" value="signup"></a>
 	                
 	               <!--  <div><a href="forgot_password.php" style=" margin: 0px 22px 0px 47px;">Forgot Password</a></div> -->
 	            </div>
@@ -173,7 +173,7 @@ $(document).ready(function(){
 					<input style="margin-bottom:0px;" id="password" type="password" name="password">
 					 <input type="submit" name="button" id="Login" value="Login">
 					<div class="mesg" style="font-weight: bold;color: #F00;float: left; margin-left: 90px;width: 434px;"></div> 
-					<a href="signup.php"><input type="submit" name="button" id="signup" value="signup"></a>
+					<input type="submit" name="button" id="signup" value="signup"></a>
 	                
 	                <div><a href="forgot_password.php" style=" margin: 0px 22px 0px 47px;">Forgot Password</a></div>
 	            </div>
