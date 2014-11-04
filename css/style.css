@@ -185,16 +185,19 @@ textarea:focus, input[type="text"]:focus, input[type="checkbox"]:focus, input[ty
 
 /*************** Home Page ***************/
 #main_container {
+	max-width: 3000px;
     /*width:1002px;*/
 	margin:0 auto;
-	max-width: 1349px;
+	/*max-width: 1349px;*/
 }
 .header_main {
+	max-width: 3000px;
 	width:1002px;
     height:168px;
     margin:0px;
 }
 .header_top {
+	max-width: 3000px;
 	width:1349px;
     height:38px;
 	/*background:#fd8900;*/
@@ -368,6 +371,7 @@ textarea:focus, input[type="text"]:focus, input[type="checkbox"]:focus, input[ty
 	width: 1126px;
 }
 .center_body {
+	max-width: 3000px;
     width:1349px;
     padding-bottom: 25px;
     margin:0px 0px 0px 0px;
@@ -438,11 +442,13 @@ padding-left: 122px;
 
 .body_content {
 	width: 1349px;
+	max-width: 3000px;
 }
 .bg_container{height: 837px; background: red;background: url(../images/home.jpg) no-repeat;align-content: center;}
 .latest_offers {
 	/*width:960px;*/
 	height: 503px;
+	max-width: 3000px;
 	width: 100%;
 	
 	/*border-bottom:#dbdbdb solid 1px;*/
