@@ -137,7 +137,7 @@ $(document).ready(function(){
 
    
             <!--<form action="" method="post" >-->
-            	<div class="customer_signup">SUPPILER SIGNUP</div>
+            	<div class="customer_signup">SUPPLIER SIGNUP</div>
                 <label>* Name:</label>
 				<input id="username" type="text" name="username">
 				<label>Email</label>
@@ -164,7 +164,7 @@ $(document).ready(function(){
 
    
             <!--<form action="" method="post" >-->
-            <div class="customer_signup">SUPPILER SIGNIN</div>
+            <div class="customer_signup">SUPPLIER SIGNIN</div>
                 <label>* Username:</label>
 				<input id="username" type="text" name="username">
                

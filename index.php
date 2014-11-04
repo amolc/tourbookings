@@ -180,7 +180,7 @@ $(document).ready(function(){
                             </p>
                         </div>
                         <div class="country-name">
-                        	<h1 class="country-name-h1"><a href='/singapore_city.php?location=Singapore'>Singapore</a> 
+                        	<h1 class="country-name-h1"><a href='index_city.php?location=Singapore'>Singapore</a> 
                         	<a href="index_city.php?location=Malaysia">| Malaysia</a> 
                         	<a href="index_city.php?location=Indonesia">| Indonesia </a>
                         	<a href="index_city.php?location=Thailan">| Thailand</a>
