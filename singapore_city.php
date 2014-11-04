@@ -580,7 +580,7 @@ $query = mysql_query("SELECT
 									// {
 							 ?>
 							<div class="picks_head fl" style="margin-left: 0px; width:500px;">
-								<div class="latest_offers" style="width: 640px; height: 138px;">
+								<div class="slider_latest_offers" style="width: 640px; height: 138px;">
 									<h1>Singapore</h1>
 									<p>
 										A cosmopolitan city-state that got to where it is today in just half a decade. There is something here for everyone; visit the world's first Night Safari, ride the World's Largest Ferries Wheel, try your luck at one of the World's most popular casino, visit the esplanade if you are looking for a little artistry or visit Universal Studios Singapore if you are seeking some hair-raising excitement!
