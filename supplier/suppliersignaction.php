@@ -11,8 +11,7 @@
                  $_SESSION['username'] = $_POST['username'];
 
 			     // Jump to secured page
-			      header("location:dashboard.php");
-			      
+			      header("location:dashboard.php");			      
 			     }
 			     else {
 			     // Jump to login page

@@ -1,5 +1,4 @@
 <?php
-
 	session_start();
 	error_reporting(0);
 	include('../include/database/db.php'); 
