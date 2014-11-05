@@ -12,7 +12,7 @@
 
 			     // Jump to secured page
 			      header("location:dashboard.php");
-			      exit;
+			      
 			     }
 			     else {
 			     // Jump to login page
