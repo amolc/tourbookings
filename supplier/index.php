@@ -122,7 +122,7 @@ $(document).ready(function(){
 				$password = $_POST['password'];				
 				if($_POST['submit'])
 				{
-					$insert="insert into users(first_name,email,phone,username,password)values('$name','$email','$mobile','$username','$password')";
+					$insert="insert into users(first_name,email,phone,user_name,password)values('$name','$email','$mobile','$username','$password')";
 					$exe=mysql_query($insert);
 					if($exe)
 					{
