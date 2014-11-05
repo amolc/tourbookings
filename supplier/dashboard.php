@@ -9,8 +9,7 @@
 	 $supplier_id = $_SESSION['username'];
 	}
 	else 
-	{
-		echo 'as';exit;
+	{		
 		header('Location: index.php');
 	}
  ?>
