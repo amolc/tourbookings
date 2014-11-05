@@ -139,7 +139,7 @@ $(document).ready(function(){
 				<input id="email" type="text" name="email">
 				<label>Mobile</label>
 				<input id="mobile" type="text" name="mobile">
-				 <label>* Username</label>
+				<label>* Username</label>
 				<input id="username" type="text" name="username">               
                 <label>* Password:</label>
                 <div style="margin-left: 42px;">
@@ -150,21 +150,23 @@ $(document).ready(function(){
             </form>
                    	<div class="header_login fr">
             <!--<form action="" method="post" >-->
-            
-            <div class="customer_signup">SUPPLIER SIGNIN</div>
-                <label>* Username:</label>
-				<input id="username" type="text" name="username">
-               
-                <label>* Password:</label>
-                <div style="margin-left: 42px;">
-					<input style="margin-bottom:0px;" id="password" type="password" name="password">
-					 <input type="submit" name="button" id="Login" value="Login">
-					<div class="mesg" style="font-weight: bold;color: #F00;float: left; margin-left: 90px;width: 434px;"></div> 
-					<input type="submit" name="signup" id="signup" value="signup"></a>
-	                
-	                <div><a href="forgot_password.php" style=" margin: 0px 22px 0px 47px;">Forgot Password</a></div>
-	            </div>
-	            </div><!-- close latest offer  -->
+
+            <form action="suppliersignaction.php " method="post">
+	            <div class="customer_signup">SUPPLIER SIGNIN</div>
+	                <label>* Username:</label>
+					<input id="username" type="text" name="username">
+	               
+	                <label>* Password:</label>
+	                <div style="margin-left: 42px;">
+						<input style="margin-bottom:0px;" id="password" type="password" name="password">
+						 <input type="submit" name="login" id="Login" value="Login">
+						<div class="mesg" style="font-weight: bold;color: #F00;float: left; margin-left: 90px;width: 434px;"></div> 
+						<input type="submit" name="signup" id="signup" value="signup"></a>
+		                
+		                <div><a href="forgot_password.php" style=" margin: 0px 22px 0px 47px;">Forgot Password</a></div>
+		            </div>
+		            </div><!-- close latest offer  -->
+	        </form>
            <!-- </form>-->
                         <!-- <form action="<?php $_SERVER["PHP_SELF"]; ?>" method="post">  -->
 							<div style="height: auto;" class="right_colm fr">							 
