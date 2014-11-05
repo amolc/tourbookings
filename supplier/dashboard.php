@@ -1,12 +1,16 @@
 <?php
+
 	session_start();
+	error_reporting(0);
 	include('../include/database/db.php'); 
-	if(isset($_SESSION['supplier_id']))
+	if(isset($_SESSION['username']))
 	{
-	 $supplier_id = $_SESSION['supplier_id'];
+
+	 $supplier_id = $_SESSION['username'];
 	}
 	else 
 	{
+		echo 'as';exit;
 		header('Location: index.php');
 	}
  ?>

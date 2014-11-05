@@ -11,13 +11,14 @@
                  $_SESSION['username'] = $_POST['username'];
 
 			     // Jump to secured page
-			      header("Location: dashboard.php");
+			      header("location:dashboard.php");
+			      exit;
 			     }
 			     else {
 			     // Jump to login page
 			     header("Location: index.php");
 			     }
-			     exit;
+			     
 			     ?>
 							}
            ?>
