@@ -144,11 +144,11 @@ $(document).ready(function(){
 				$password = $_POST['password'];				
 				if($_POST['submit'])
 				{
-				echo	$insert="insert into user(name,address,email,education,mobile)values('$name','$email','$mobile','$username','$password')";exit();
+					$insert="insert into supplier(first_name,email,phone,username,password)values('$name','$email','$mobile','$username','$password')";
 					$exe=mysql_query($insert);
 					if($exe)
 					{
-						header("location:list.php");
+						header("location:../reseller/signup.php");
 					}
 				}
           ?>
@@ -179,7 +179,27 @@ $(document).ready(function(){
 
 
                    	<div class="header_login fr">
-
+            <?php
+                error_reporting('e_all');
+				include("../include/database/db.php");				
+				$username = $_POST['username'];
+				$password = $_POST['password'];	
+				$query = "SELECT * FROM supplier WHERE username='$username' and password='$password'";
+				$res = mysql_query($query);
+                $rows = mysql_num_rows($res);
+			    if ($rows==1) { 
+				      $_SESSION['username'] = $_POST['username'];				 
+				      header("Location: securedpage.php");
+				     }
+				     else {
+				     // Jump to login page
+				     echo "user name and password not found";
+				     }
+				     exit;
+				     ?>
+				}
+            ?>
+   
    
             <!--<form action="" method="post" >-->
             <div class="customer_signup">SUPPLIER SIGNIN</div>
@@ -191,7 +211,7 @@ $(document).ready(function(){
 					<input style="margin-bottom:0px;" id="password" type="password" name="password">
 					 <input type="submit" name="button" id="Login" value="Login">
 					<div class="mesg" style="font-weight: bold;color: #F00;float: left; margin-left: 90px;width: 434px;"></div> 
-					<input type="submit" name="button" id="signup" value="signup"></a>
+					<input type="submit" name="signup" id="signup" value="signup"></a>
 	                
 	                <div><a href="forgot_password.php" style=" margin: 0px 22px 0px 47px;">Forgot Password</a></div>
 	            </div>
