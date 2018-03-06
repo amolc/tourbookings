@@ -100,9 +100,9 @@
               
                           
               <li><a class="menu" href="/index.php">HOME</a></li>
-                      <li><a href="/supplier/index.php">SUPPLIER</a></li>   
-                      <li><a class="menu" href="/supplier/customer_signup.php">CUSTOMER</a></li>
-                      <li><a class="menu" href="/reseller/index.php">RESELLER</a></li>
+                      <li><a href="<?php echo SITE_URL; ?>supplier/index.php">SUPPLIER</a></li>   
+                      <li><a class="menu" href="<?php echo SITE_URL; ?>supplier/customer_signup.php">CUSTOMER</a></li>
+                      <li><a class="menu" href="<?php echo SITE_URL; ?>reseller/index.php">RESELLER</a></li>
                                  
           <!--<li><a href="help.php">Help</a></li>-->
             <?php
