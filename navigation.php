@@ -90,7 +90,7 @@
                                                  <li><a href="<?php echo SITE_URL; ?>/blog_view.php">Blog</a></li>
             <li><a href="<?php echo SITE_URL; ?>/logout.php">Logout</a></li>
             
-            <!--<li><a href="#">Help Hello</a></li>-->
+            <!--<li><a href="#">Help Hello 123</a></li>-->
 
           <?php
             }
